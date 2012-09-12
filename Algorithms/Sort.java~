@@ -33,7 +33,7 @@ public class Sort{
 			FileWriter fstream = new FileWriter("output.txt");
 			BufferedWriter out = new BufferedWriter(fstream);
 		
-			for(int i=0; i<=100000; i=i+100){
+			for(int i=10; i<=100000; i=i+100){
 				int[] worst = fillArrayWorst(i);
 				int[] average = fillArrayAverage(i);
 				int[] best = fillArrayBest(i);
