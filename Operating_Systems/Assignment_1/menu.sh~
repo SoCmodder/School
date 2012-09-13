@@ -17,9 +17,6 @@ printMenu()
 
 ancestryTree()
 {
-	### I need to store this in a file
-	### from there we can read the number and move up the list
-	###TODO: DERP
 	getId()
 	{
 	ps -p $$ -o ppid=;
