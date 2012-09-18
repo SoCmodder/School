@@ -20,10 +20,39 @@ ancestryTree()
 	### I need to store this in a file
 	### from there we can read the number and move up the list
 	###TODO: DERP
-	getId()
-	{
-	ps -p $$ -o ppid=;
-	}
+	myData=($(ps -p $$ -o ppid=))
+	
+	while [ "$myData" != 1 ]
+	do
+		echo "    "$myData
+		echo "      |      "
+		stat=($(</proc/$myData/stat))
+		ppid=(${stat[3]})
+		echo "    "$ppid
+		echo "      |"
+		myData=$ppid
+	done
+}
+
+usersOnline()
+{
+	who | awk '{print $1}' | sort -u
+}
+
+processOfUser()
+{
+	i=0
+	arr[0]=
+	while read value; do
+		arr["$i"]="$value"
+		echo $i". " ${arr[$i]}
+		i=i+1
+	done < <(who | awk '{print $1}' | sort -u)
+	
+	echo "Please Select a user from a list to view their processes."
+	read input
+	case $input in
+	
 }
 
 input=0
@@ -34,9 +63,9 @@ do
     read input
     case $input in
     1) ancestryTree;;
-    2) echo "You chose 2";;
-    3) echo "You chose 3";;
-    4) echo "You chose 4";;
+    2) usersOnline;;
+    3) processOfUser;;
+    4) break;;
     *) echo "Please choose one of the options listed in the menu.";;
     esac
 done
