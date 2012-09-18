@@ -1,0 +1,300 @@
+Computer Science 53 - Section B         Name __________________________
+Fall 2001                               Student Number ________________
+Exam 1                                  Page x of y
+
+This test is closed books/closed notes.  You will not need a
+calculator.  
+ 
+If any answer is illegible it will be considered incorrect.
+ 
+Unless told otherwise, for all program fragments given in the
+questions you may assume that all necessary include files have been
+included and that there are no errors in the sections of code not 
+explicitly given.  
+
+For T/F questions, circle either T or F.
+For multiple choice questions, circle the correct letter or number.
+
+--------------------------------------------------------------------
+
+  For questions 1-3, assume
+
+  short siA = 10;
+  short siB = 6;
+  float fC = 2.5;
+  int iResult1;
+  float fResult2;
+
+(3)  1. iResult1 = siA / siB;                    iResult1 = __________
+
+(3)  2. fResult2 = siA / siB + fC;               fResult2 = __________
+
+(3)  3. iResult1 = fC;                           iResult1 = __________
+
+(4)  4. Assume at this point  siFirst = 1   and    siSecond = 3.
+
+        What are the values of each variable after the following code is
+        executed ?
+
+        siSecond = siFirst++;
+
+        siFirst = __________     siSecond = __________
+
+(4)  5. Assume at this point  siFirst = 3   and    siSecond = 6.
+
+        What are the values of each variable after the following code is
+        executed ?
+
+        siFirst += siSecond;
+
+        siFirst = __________     siSecond = __________
+
+
+(3)  6. Declare and initialize in a single C++ statement a variable of type
+        float named fVal that has a value of 27.5.
+
+(3)  7. Declare and initialize in a single C++ statement a variable of type
+        character named cFoo that will have the value 'R'.
+
+(3)  8. Declare and initialize in a single C++ statement a variable of type
+        boolean named bDone that will have the value false.
+
+(10) 9. Consider the following lines of code, circle the numbers of the ones 
+        that will compile:
+
+          1. cout<<"Hello<<endl;
+
+          2. cout<"something"<endl;
+
+          3. cout>>fFoobar>>endl;
+
+          4. cout<<fFoobar<<endl;
+
+          5. cin>>fFoobar;
+
+          6. cin>>3;
+
+          7. fFoobar = fFoobar + 4;
+
+          8. return 0                             // that is a zero, not an 'oh'
+
+          9. const short siFRANK;
+
+         10. long lBob = 14;
+
+
+
+(3) 10. A named location in memory where a data value can be stored and changed
+        during program execution is called a(n)
+
+          1. constant
+
+          2. variable
+
+          3. argument
+
+          4. symbolic constant
+
+
+
+
+(3) 11. A compiler is a program that
+
+          1. links the object file with other object files (resolves
+             cross-references among object files)
+
+          2. allows creation and editing of a program written in a high-level
+             language
+
+          3. translates a high-level language program source file into a
+             machine language object file.
+
+          4. copies executable files into memory and initiates execution of
+             instructions.
+
+
+
+
+(3) 12. A syntax error occurs when a computer program
+
+          1. directs the computer to perform an illegal operation
+
+          2. has been written to follow an incorrect algorithm.
+
+          3. violates one or more grammar rules of the C++ language.
+
+          4. does not input data from an external data file.
+
+
+
+
+
+(3) 13. To what value does the following expression evaluate  in C++?
+
+
+
+         2 * 3 + 4 * 5
+
+
+
+        A.     46
+
+        B.     26
+
+        C.     50
+
+        D.     70
+
+
+(3) 14. Given the code segment below, write the output from this segment.
+        (Assume this segment is embedded in a working program.)
+
+         bool bA = true;
+         bool bB = false;
+         if(bA && bB)
+            cout << "Hi";
+         else
+            cout << "Bye";
+
+
+(3) 15. Given the code segment below, what is the output? (Assume this segment
+        is embedded in a working program.)
+
+         int iA = 6;
+         if(iA == 5)
+            cout << "Hello";
+         cout << " World";
+
+
+(3) 16. Write the exact output produced by the following code segment. (Assume
+        this segment is embedded in a working program.)
+
+         short siNum = 5;
+         cout << "siNum = " << siNum;
+
+
+
+(3) 17. Which of the following best describes what happens when the following
+        line is included in a working program in an appropriate location
+
+         #include <iostream.h>
+
+         a. Allows the programmer to make use of the input and output streams,
+            cin and cout.
+
+         b. Allows the GNU complier to interpret Hungarian Notation.
+
+         c. Allows the program to bypass the pre-processor.
+
+         d. It is necessary for the program to compile.
+
+
+
+(3) 18. Which of the following is the proper way to code in C++, if the
+        conditional expression is stated in English as "x and y are both equal
+        to zero "?
+
+         1.      x && y == 0
+   
+         2.      x & y = 0
+
+         3.      x == 0 && y == 0
+
+         4.      x = 0 & y = 0
+
+
+
+(3) 19. Write the output produced by the following code segment. (Assume this
+        segment is embedded in a working program.
+
+           int iMark = 94, iTime = 82;
+
+           cout << iTime << endl;
+           if(iTime >= iMark)
+           {
+              iTime++;
+           }
+           else
+           {
+              iTime= iMark-iTime;
+           }
+           cout << "Time: " << iTime << endl;
+
+
+
+
+(3) 20. Given the code segment below, write the output. (Assume this segment is
+        embedded in a working program.)
+
+         int iVal;
+         for(iVal = 1; iVal < 15; iVal = iVal + 3)
+         {
+            cout << iVal << ", ";
+         }
+         cout << endl << "The end!";
+
+(3) 21. Write a for loop that sums the odd integers from 1 to 115 inclusive.
+        This value should be stored in an integer variable named iVal.
+
+
+(3) 22. Which of the following best describes the difference between a while
+        loop and a do-while loop.
+
+         a. There is no difference.
+
+         b. Any do-while loop can be written as a while loop, but not every
+            while loop can be written as a do-while loop.
+
+         c. Do-whiles typically require more lines of code.
+
+         d. The LCV (loop control variable) is tested prior to a loop body 
+            execution in a while, and after loop body execution in a do-while.
+
+
+(3) 23. Write the output produced by the following code segment. (Assume this
+        segment is embedded in a working program.)
+
+         int iCount = 0;
+         while(iCount <= 3)
+         {
+             iCount++;
+             cout << iCount;
+         }
+
+
+
+(3) 24. Consider the following code segment:
+
+         int j, k;
+         for (k = 0; k < 10; k++)
+         {
+            for (j = 0; j < 5; j++)
+            cout << "*";
+         }
+         cout << endl;
+
+         How many stars are output when this code segment is executed?
+
+           A. 15
+           B. 55
+           C. 66
+           D. 50
+
+
+    
+(10) 25. Write a complete program (don't code your name, section, or a
+         description -- I don't need any comments not even for variable
+         declarations). 
+
+         The program should prompt the user to enter 2 integers,
+         iA and iB.
+
+         If iA >= iB, then it should print out the value of iA.
+
+         If iA < iB, then it should print out the value of iB.
+
+         You don't need to put in a do-while loop to allow the user
+         to run this multiple times -- assume it runs just 1 time.
+
+
+

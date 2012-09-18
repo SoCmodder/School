@@ -1,0 +1,243 @@
+
+                          CS 284 Operating Systems
+                         Programming Assignment #7
+
+                 Deadlock Avoidance Using Banker's Algorithm
+
+
+Due: 11/4/2003 - Class Time
+=============================================================================
+REQUIRED READING: Banker's Algorithm from Ch.6, Round Robin Process Scheduling
+
+        Man Pages:
+            fopen, fprintf, fscanf, fflush, and all other relevant man pages 
+=============================================================================
+
+Description
+============
+
+This program is to demonstrate an implementation of the Banker's Algorithm.
+
+
+Assignment
+===========
+
+For this assignment we will *simulate* the use of the Banker's Algorithm.
+This simulation will follow real-life scenarios as close as realistically
+possible.
+
+This program should be written in C.
+
+A.  All input will be from a file called "Input.dat".  The format of the
+    file is described in the section below called FILE DESCRIPTION.
+
+B.  There will only ever be *one* instance of any process.  Do *not*
+    create more processes than dictated in the file.
+
+C.  Whenever a process makes a request, Banker's algorithm should be
+    run to determine if the state to be entered after the request is
+    granted is SAFE, if so, the request should be granted and the
+    process should be moved to the back of the Ready Queue.  
+    If a request made by a process cannot be completed, that process must
+    be moved to the back of the Blocked Queue.
+
+D.  If a release is made, the processes in the Blocked Queue should be
+    reevaluated to determine if their request can be granted. If a
+    request can be granted, it should be executed and the process
+    should be moved to the back of the Ready queue. All processes must
+    be checked in the queue order to see if one or more of them could
+    be unblocked due to a resource release. 
+
+E.  When a Process has run out of instructions to execute, it should be
+    removed from all queues and the resources that the process is taking up
+    should be released.
+
+F.  This program will use a loop to simulate time with a "timeslice" of 1
+    iteration.  This means that only *one* instruction should be completed per
+    iteration of your loop.
+
+G.  Note that if REQUEST and RELEASE sequences are executed properly,
+    a deadlock situation should never arise for this system. Therefore, 
+    there is no need for a separate check for deadlock other than
+    running the Banker's algorithm for each resource allocation. 
+
+H.  Your program should print a statement about the action taken after
+    the execution of every request and release. For example:
+
+Job 1: REQUEST 1 5 ----> START:
+5 0 0 0 
+0 0 0 0 
+0 0 0 0 
+
+Granted
+Job 2: REQUEST 1 4 ----> Not Granted; Blocked
+Job 3: REQUEST 1 3 ----> Not Granted; Blocked
+Job 1: REQUEST 4 3 ----> START:
+5 0 0 3 
+0 0 0 0 
+0 0 0 0 
+
+Granted
+Job 1: REQUEST 2 2 ----> START:
+5 2 0 3 
+0 0 0 0 
+0 0 0 0 
+
+Granted
+Job 1: REQUEST 3 4 ----> START:
+5 2 4 3 
+0 0 0 0 
+0 0 0 0 
+
+Granted
+Job 1: RELEASE 1 5 ----> START:
+0 2 4 3 
+0 0 0 0 
+0 0 0 0 
+
+
+	UNBLOCK: Cannot unblock Process 2.START:
+0 2 4 3 
+0 0 0 0 
+3 0 0 0 
+
+
+	UNBLOCK: Process 3 given 3 units of 1
+Job 1: End ---> START:
+0 0 0 0 
+4 0 0 0 
+3 0 0 0 
+
+
+	UNBLOCK: Process 2 given 4 units of 1
+Job 3: REQUEST 2 3 ----> START:
+0 0 0 0 
+4 0 0 0 
+3 3 0 0 
+
+Granted
+Job 2: REQUEST 3 6 ----> START:
+0 0 0 0 
+4 0 0 0 
+3 3 0 0 
+
+Not Granted; Blocked
+Job 3: REQUEST 4 1 ----> START:
+0 0 0 0 
+4 0 0 0 
+3 3 0 1 
+
+Granted
+Job 3: End ---> START:
+0 0 0 0 
+4 0 6 0 
+0 0 0 0 
+
+
+	UNBLOCK: Process 2 given 6 units of 3
+Job 2: REQUEST 4 6 ----> START:
+0 0 0 0 
+4 0 6 6 
+0 0 0 0 
+
+Granted
+Job 2: REQUEST 2 5 ----> START:
+0 0 0 0 
+4 5 6 6 
+0 0 0 0 
+
+Granted
+Job 2: RELEASE 3 1 ----> Nothing in Blocked Queue
+Job 2: RELEASE 4 1 ----> Nothing in Blocked Queue
+Job 2: End ---> Nothing in Blocked Queue
+No more processes.  Exiting
+
+
+=================================================================
+FILE DESCRIPTION
+=================================================================
+
+A. You should use FILE I/O to read this file into your program.  You
+   can read this file in all at once, or in cycles.
+
+B. You may assume the following about the input:
+        
+        1. A REQUEST will always be the first instruction of a JOB.
+        2. A RELEASE will never be asked for resources that was not requested.
+        3. Considering any REQUEST and RELEASE sequence for a process X,
+           the sum of resources held plus those requested should never
+           exceed the maximum claim for that resource by process X.
+
+C. The format of the file is as follows:
+
+---------  Start of File ----------
+
+# of Processes  (an int, P)
+# of Resources  (an int, N)
+Resource Vector of size N  ( N integers )
+
+Claim Matrix ( P x N  integers )
+
+Job 1 -- 1 represents the PID
+REQUEST Resource# ResourceAmt
+REQUEST Resource# ResourceAmt
+RELEASE Resource# ResourceAmt
+...
+ENDJOB
+
+...
+
+Job N
+REQUEST Resource# ResourceAmt
+RELEASE Resource# ResourceAmt
+...
+ENDJOB
+
+FINISH
+
+----------------- End of File --------------------------
+
+-----------------Example of file -----------------------
+
+3           <--- there will be 3 Processes
+4           <--- There are 4 Resources
+7 7 7 7     <--- Resource Vector of size 4
+
+
+7 2 4 6     <--- Start of Claim Matrix
+4 5 6 6 
+3 3 2 1     <--- End of Claim Matrix
+
+Job 1
+REQUEST 1 5 
+REQUEST 4 3
+REQUEST 2 2
+REQUEST 3 4
+RELEASE 1 5
+ENDJOB
+
+Job 2 
+REQUEST 1 4 
+REQUEST 3 6
+REQUEST 4 6
+REQUEST 2 5
+RELEASE 3 1
+RELEASE 4 1
+ENDJOB
+
+Job 3
+REQUEST 1 3
+REQUEST 2 3
+REQUEST 4 1
+ENDJOB
+
+------------------------  End Example File ---------------
+
+=================================================================
+
+(1) Store your source files, script file (myhandin#), and the
+    executable file, in the directory:  ~cs284/YourLoginName/proj#/
+    where # = Assignment number
+
+=========================================================================
+

@@ -1,0 +1,395 @@
+Script started on Tue Nov 12 22:45:17 2002
+jwing@ultra23 proj8> cat message.h
+/****************************************************************************
+ * CS 284 Operating Systems
+ * Programming Assignment 8
+ * Name:   message.h
+ * Author: Chang Qian, Matt Walters, and Joe Wingbermuehle
+ * Date:   2002-11-14
+ ****************************************************************************/
+
+#ifndef MESSAGE_H
+#define MESSAGE_H
+
+#define SERVER_PORT 2718
+
+#define MAX_BUFFER 512
+#define HOST_LENGTH 64
+#define NAME_LENGTH 32
+
+typedef enum {
+        CONTROL_MSG,
+        CONTROL_LOGIN,
+        CONTROL_LOGOUT,
+        CONTROL_TERM
+} Control;
+
+typedef struct {
+        Control control;
+        char name[NAME_LENGTH];
+        char host[HOST_LENGTH];
+        char message[MAX_BUFFER];
+} Message;
+
+#endif
+
+jwing@ultra23 proj8> cat server.c
+/****************************************************************************
+ * CS 284 Operating Systems
+ * Programming Assignment 8
+ * Name:   server.c
+ * Author: Chang Qian, Matt Walters, and Joe Wingbermuehle
+ * Date:   2002-11-14
+ * Description:
+ * Server for a simple chat program.
+ ****************************************************************************/
+
+#include <errno.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h>
+#include <thread.h>
+#include <synch.h>
+
+#include "message.h"
+
+#define MAX_CLIENTS     10
+
+static int fdArray[MAX_CLIENTS];
+static thread_t tid[MAX_CLIENTS];
+static mutex_t fdMutex;
+
+static struct sockaddr_in server_addr = { AF_INET, htons(SERVER_PORT) };
+static struct sockaddr_in client_addr = { AF_INET };
+static int sd;
+
+static void *ConnectionThread(void *arg);
+static void Terminate(int data);
+static void FastExit(int data);
+
+/****************************************************************************
+ * Main entry point.
+ ****************************************************************************/
+int main(int argc, char *argv[]) {
+        int ns;
+        int x;
+        int client_len = sizeof(client_addr);
+
+        if(argc != 1) {
+                printf("usage: %s\n", argv[0]);
+                exit(1);
+        }
+
+        if( (sd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+                printf("%s: error: could not create socket\n", argv[0]);
+                exit(1);
+        }
+
+        if(bind(sd, (struct sockaddr*)&server_addr, sizeof(server_addr)) == -1) {
+                printf("%s: error: could not bind\n", argv[0]);
+                exit(1);
+        }
+
+        if(listen(sd, MAX_CLIENTS) == -1) {
+                printf("%s: error: listen()\n");
+                exit(1);
+        }
+
+        printf("SERVER is listening for clients to establish a connection\n");
+        printf("Type ^C to terminate the server.\n");
+
+        for(x = 0; x < MAX_CLIENTS; x++) {
+                fdArray[x] = -1;
+        }
+
+        signal(SIGALRM, SIG_IGN);
+        signal(SIGQUIT, Terminate);
+        signal(SIGTERM, Terminate);
+        signal(SIGINT, Terminate);
+        signal(SIGUSR1, FastExit);
+
+        /* Wait for clients to connect */
+        for(;;) {
+                ns = accept(sd, (struct sockaddr*)&client_addr, &client_len);
+                mutex_lock(&fdMutex);
+                for(x = 0; x < MAX_CLIENTS; x++) {
+                        if(fdArray[x] < 0) {
+                                break;
+                        }
+                }
+                if(fdArray[x] >= 0) {
+                        break;
+                }
+                fdArray[x] = ns;
+                mutex_unlock(&fdMutex);
+
+                if(thr_create(0, 0, ConnectionThread, &ns, 0, &tid[x])) {
+                        printf("%s: error: could not create thread\n", argv[0]);
+                        printf("errno: %d\n", errno);
+                }
+        }
+        unlink(server_addr.sin_addr);
+        close(sd);
+
+        printf("error: %s\n", argv[0]);
+
+        return 0;
+}
+
+/****************************************************************************
+ * Thread to manage a client.
+ ****************************************************************************/
+void *ConnectionThread(void *arg) {
+        int ns = *(int*)arg;
+        int x;
+        Message msg;
+
+        read(ns, &msg, sizeof(msg));
+
+        printf("CLIENT %s@%s connected\n", msg.name, msg.host);
+
+        /* Send greeting to all clients */
+        mutex_lock(&fdMutex);
+        for(x = 0; x < MAX_CLIENTS; x++) {
+                if(fdArray[x] >= 0 && fdArray[x] != ns) {
+                        msg.control = CONTROL_LOGIN;
+                        write(fdArray[x], msg, sizeof(msg));
+                }
+        }
+        mutex_unlock(&fdMutex);
+
+        /* Wait for messages */
+        while(read(ns, &msg, sizeof(msg)) != 0) {
+                if(msg.control == CONTROL_LOGOUT) {
+                        mutex_lock(&fdMutex);
+                        for(x = 0; x < MAX_CLIENTS; x++) {
+                                if(fdArray[x] == ns) {
+                                        fdArray[x] = -1;
+                                } else if(fdArray[x] >= 0) {
+                                        write(fdArray[x], msg, sizeof(msg));
+                                }
+                        }
+                        mutex_unlock(&fdMutex);
+                        break;
+                } else {
+                        mutex_lock(&fdMutex);
+                        printf("SERVER RECEIVED FROM %s@%s: %s\n", msg.name,
+                                msg.host, msg.message);
+                        for(x = 0; x < MAX_CLIENTS; x++) {
+                                if(fdArray[x] >= 0 && fdArray[x] != ns) {
+                                        write(fdArray[x], msg, sizeof(msg));
+                                }
+                        }
+                        mutex_unlock(&fdMutex);
+                }
+        }
+        close(ns);
+        printf("CLIENT %s@%s closed\n", msg.name, msg.host);
+        thr_exit(NULL);
+}
+
+/****************************************************************************
+ * Terminate all threads, unbind, and exit.
+ * Called when a signal is received.
+ ****************************************************************************/
+void Terminate(int data) {
+        int x;
+        Message msg;
+
+        msg.control = CONTROL_TERM;
+
+        printf("Sending terminate message to all clients...");
+        fflush(stdout);
+        mutex_lock(&fdMutex);
+        for(x = 0; x < MAX_CLIENTS; x++) {
+                if(fdArray[x] >= 0) {
+                        write(fdArray[x], msg, sizeof(msg));
+                        thr_kill(tid[x], SIGUSR1);
+                }
+        }
+        mutex_unlock(&fdMutex);
+        printf("done\n");
+        unlink(server_addr.sin_addr);
+        close(sd);
+        thr_exit(NULL);
+}
+
+/****************************************************************************
+ * Terminate this thread.
+ * Called when SIGUSR1 is received (from Terminate).
+ ****************************************************************************/
+void FastExit(int data) {
+        thr_exit(NULL);
+}
+
+jwing@ultra23 proj8> cat client.c
+/****************************************************************************
+ * CS 284 Operating Systems
+ * Programming Assignment 8
+ * Name:   client.c
+ * Author: Chang Qian, Matt Walters, and Joe Wingbermuehle
+ * Date:   2002-11-14
+ * Description:
+ * Client for a simple chat program.
+ ****************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h>
+#include <thread.h>
+#include <signal.h>
+
+#include "message.h"
+
+/* Argument for thr_create for ReaderThread */
+typedef struct {
+        int sd;
+        thread_t parent;
+} ReaderData;
+
+static thread_t tid;
+
+void *ReaderThread(void *arg);
+
+/****************************************************************************
+ * Main entry point.
+ ****************************************************************************/
+int main(int argc, char *argv[]) {
+
+        ReaderData data;
+        int sd;
+        int temp;
+        int x;
+        struct sockaddr_in server_addr = { AF_INET, htons(SERVER_PORT) };
+        struct hostent *hp;
+        Message msg;
+
+        printf("\x1B[1;37;40m");
+
+        signal(SIGALRM, SIG_IGN);
+
+        if(argc != 3) {
+                printf("usage: %s nickname hostname\n", argv[0]);
+                exit(1);
+        }
+
+        if((hp = gethostbyname(argv[2])) == NULL) {
+                printf("%s: error: %s unknown host\n", argv[0], argv[2]);
+                exit(1);
+        }
+        bcopy(hp->h_addr_list[0], (char*)&server_addr.sin_addr, hp->h_length);
+
+
+        /* Create a socket */
+        if((sd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+                printf("%s: error: socket failed\n", argv[0]);
+                exit(1);
+        }
+
+        /* Connect to the server */
+        if(connect(sd, (struct sockaddr*)&server_addr,
+                sizeof(server_addr)) == -1) {
+                printf("%s: error: could not connect to host\n", argv[0]);
+                exit(1);
+        }
+
+        printf("Connected to %s\n", argv[2]);
+        printf("Type \"exit\" to quit.\n");
+
+        gethostname(msg.host, HOST_LENGTH);
+        strncpy(msg.name, argv[1], NAME_LENGTH);
+        write(sd, msg, sizeof(msg));
+
+        data.sd = sd;
+        data.parent = thr_self();
+        thr_create(0, 0, ReaderThread, &data, 0, &tid);
+
+        /* Wait for user input */
+        do {
+                for(x = 0; x < MAX_BUFFER; x++) {
+                        temp = getc(stdin);
+                        if(temp == '\n') {
+                                break;
+                        }
+                        msg.message[x] = temp;
+                }
+                msg.message[x] = 0;
+                msg.control = CONTROL_MSG;
+
+                write(sd, msg, sizeof(msg));
+        } while(x != 4 || strncmp(msg.message, "exit", 4));
+
+        thr_kill(tid, SIGINT);
+
+        msg.control = CONTROL_LOGOUT;
+        write(sd, msg, sizeof(msg));
+        close(sd);
+
+        printf("\x1B[0m\n");
+
+        exit(0);
+}
+
+/****************************************************************************
+ * Read messages from the server.
+ ****************************************************************************/
+void *ReaderThread(void *arg) {
+        ReaderData *data = arg;
+        Message msg;
+
+        for(;;) {
+                printf("\x1B[1;37;40m\n");
+                read(data->sd, &msg, sizeof(msg));
+                switch(msg.control) {
+                case CONTROL_MSG:
+                        printf("\x1B[1;32;40m");
+                        printf("\n%s@%s: %s", msg.name, msg.host, msg.message);
+                        break;
+                case CONTROL_LOGIN:
+                        printf("\x1B[1;33;40m");
+                        printf("\n*** %s@%s has logged in.", msg.name, msg.host);
+                        break;
+                case CONTROL_LOGOUT:
+                        printf("\x1B[1;34;40m");
+                        printf("\n*** %s@%s has logged out.", msg.name, msg.host);
+                        break;
+                case CONTROL_TERM:
+                        printf("\x1B[1;31;40m");
+                        printf("\nServer is shutting down, exiting.");
+                        close(data->sd);
+                        thr_kill(data->parent, SIGINT);
+                        printf("\x1B[0m\n");
+                        exit(0);
+                        break;
+                default:
+                        printf("\nInvalid response from server.\n");
+                        break;
+                }
+        }
+}
+
+
+jwing@ultra23 proj8> ./server
+SERVER is listening for clients to establish a connection
+Type ^C to terminate the server.
+CLIENT bob@ultra28 connected
+CLIENT joe@ultra24 connected
+SERVER RECEIVED FROM joe@ultra24: hello everybody!
+SERVER RECEIVED FROM joe@ultra24: this is a test
+SERVER RECEIVED FROM bob@ultra28: test
+SERVER RECEIVED FROM bob@ultra28: test
+SERVER RECEIVED FROM bob@ultra28: test
+SERVER RECEIVED FROM joe@ultra24: It works!
+SERVER RECEIVED FROM joe@ultra24: exit
+CLIENT joe@ultra24 closed
+^CSending terminate message to all clients...done
+jwing@ultra23 proj8> exit
+
+script done on Tue Nov 12 22:47:20 2002

@@ -1,0 +1,22 @@
+please enter file name: alice_emma
+
+enter a word against which to search the text.
+to quit, hit return
+
+daddy
+query read: daddy of size: 5
+
+daddy occurs 3 times:
+
+        ( line 0 ) Alice Emma has long flowing red hair. Her Daddy says
+        ( line 3 ) magical but untamed. "Daddy, shush, there is no such thing,"
+        ( line 5 ) Shyly, she asks, "I mean, Daddy, is there?"
+
+enter a word against which to search the text.
+to quit, hit return
+
+phoenix
+query read: phoenix of size: 7
+Sorry. There are no entries for phoenix.
+enter a word against which to search the text.
+to quit, hit return

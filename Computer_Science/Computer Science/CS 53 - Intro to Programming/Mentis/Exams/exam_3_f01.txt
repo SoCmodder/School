@@ -1,0 +1,204 @@
+Computer Science 53 - Section B         Name __________________________
+Fall 2001                               Student Number ________________
+Exam 3                                  Page x of y
+
+This test is closed books/closed notes.  You will not need a
+calculator.  
+ 
+If any answer is illegible it will be considered incorrect.
+ 
+Unless told otherwise, for all program fragments given in the
+questions you may assume that all necessary include files have been
+included and that there are no errors in the sections of code not 
+explicitly given.  
+
+For T/F questions, circle either T or F.
+For multiple choice questions, circle the correct letter or number.
+
+--------------------------------------------------------------------
+
+
+(4) 1. Which of the following will declare and initialize an array of 5 
+       integers such that each array value is equal to its index.
+
+          a. int rgiBob[5] = {1, 2, 3, 4, 5};
+          b. int rgiBob[4] = {1, 2, 3, 4, 5};
+          c. int rgiBob[5] = {0, 1, 2, 3, 4};
+          d. int rgiBob[4] = {0, 1, 2, 3, 4};
+
+(4) 2. Given the code below, what character is stored in the 
+       element szFred[7]?
+	
+          char szFred[] = "program";
+
+(4) 3. Write an additional line of C++ code that will copy the string 
+       "foobar" into the character array szWord. Assume the appropriate 
+       #include statements are present.
+	
+          char szWord[10];
+
+(4) 4. Given the code below, how many elements are in the array szBob? 
+	
+          char szBob[] = "foo";
+
+          a. 3
+          b. 4
+          c. 5
+          d. Fails to compile.
+
+(4) 5. What is the output produced by the following code segment. (Assume 
+       this segment is embedded in a working program.) 
+
+          int iItem3 = 7;
+          int iItem[5] = {0};
+          cout << iItem3 << endl;
+          cout << iItem[3];
+
+          a. 7 0
+          b. 7
+             0
+          c. 7 00000
+          d. 3
+             0
+
+(4) 6. Declare a one dimensional array named rgfArr of type float that 
+       contains 20 elements.
+
+(4) 7. TRUE       FALSE:  The array declaration "int lengths[49];" 
+                          allocates 50 storage locations for integer values 
+                          with the indices of the array being 0-49.
+
+(4) 8. Write the output produced by the following code segment.
+
+              int rgiBob[5] = {9, 8, 7, 6, 5};
+              int iIndex = 1;
+              int iX = rgiBob[iIndex + 2];
+              int iY = rgiBob[iIndex] + 2;
+              cout << iX << "  " << iY;
+
+(4) 9. Write a for loop that will assign the value 7.5 to all the
+       elements of the following array that's declared. 
+
+       float rgfTemp[5];
+
+(4) 10. The Box below represents the array rgiBob. Fill in the box with the 
+        values that would be there after the code is executed. (Assume this 
+        segment is embedded in a working program.) 
+
+              int iCounter;
+              int rgiBob[] = {15, 25, 10, 30, 40};
+              for(iCounter = 0; iCounter < 4; iCounter++)
+              {
+                 rgiBob[iCounter] = rgiBob[iCounter+1];
+              }
+
+        ---------------------
+        |   |   |   |   |   |
+        |   |   |   |   |   |
+        ---------------------
+
+
+(4) 11. A single-dimensional array can be used to store a list of values of 
+        the same
+
+           a. sentinel value
+           b. chain sequence
+           c. address pointer
+           d. data type
+
+
+(4) 12. Where in a program can the programmer directly access private 
+        members of a class named CBox?
+
+           1. Anywhere
+           2. The main function
+           3. Any function
+           4. Member functions of any class
+           5. None of these
+
+(4) 13. Write a structure definition that contains an integer variable named 
+        iVal, and a floating point variable named fNum.
+
+(4) 14. Given the code below, write a line of C++ code that assigns the 
+        value 50 to the variable m_siStars of the object MyFlag. 
+
+                struct SFlag {
+                   short m_siStars;
+                   short m_siStripes;
+                };
+                int main()
+                {
+                   SFlag MyFlag;
+
+                   return 0;
+                }
+
+(4) 15. Given the class definition below, write a constructor that will 
+        assign the value 5 to the integer, and 'z' to the character. 
+
+                class Stuff
+                {
+                	public:
+                   		Stuff();
+                	private:
+                   		char m_cLabel;
+                   		int m_iSize;
+                };
+
+(4) 16. Given the class definition below, write the GetSize function that 
+        will return the value stored in the variable m_iSize to the caller.
+
+                class CBox
+                {
+                public:
+                   CBox();
+                   int GetSize();
+                private:
+                   int m_iSize;
+                };
+
+(4) 17. Given the class definition below, write the SetSize function that 
+        will take one integer argument, and assign the value stored in the 
+        argument to m_iSize. 
+
+                class CBox
+                {
+                public:
+                   CBox();
+                   void SetSize(int);
+                private:
+                   int m_iSize;
+                };
+
+(6) 18. Suppose your program contains the following class definition (along 
+        with definitions of the member functions):
+
+           class YourClass
+	   {
+           public:
+              YourClass(int new_info, char more_new_info);
+              YourClass();
+              void do_stuff();
+
+           private:
+              int information;
+              char more_information;
+	   };
+
+
+
+	   Circle the following that are legal:
+
+           A. YourClass an_object(42, 'A');
+           B. YourClass another_object;
+           C. YourClass yet_another_object();
+           D. an_object = YourClass(99,'B');
+           E. an_object = YourClass();
+           F. an_object = YourClass;
+
+
+(4) 19. Suppose bla is an object, dobedo is a member function of the object 
+        bla, and dobedo takes on argument of type int. How do you write a 
+        call to the member function dobedo of the object bla using the 
+        argument 7?
+

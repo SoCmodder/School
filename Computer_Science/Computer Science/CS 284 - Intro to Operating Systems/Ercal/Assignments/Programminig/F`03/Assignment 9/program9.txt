@@ -1,0 +1,55 @@
+                          CS 284 Operating Systems
+                         Programming Assignment #9
+     
+           CLIENT-SERVER COMMUNICATIONS via SOCKETS: GROUP-CHAT PROGRAM  
+
+
+Due: 12/4/2003 - Class Time
+=============================================================================
+REQUIRED READING: 
+ - An Intro.to UNIX (Wang) Chapter 12 (pp. 398-416) and section 9.6
+ - Read about the following C functions:
+    socket, bind, listen, accept, gethostbyname, read, write, 
+    bcopy(), sockaddr_in, htons(), close()
+ - Examine carefully the two sample programs available on the webpage   
+ - Examine "server-template" and "client-template" available on the webpage
+ - Read "IPC-Handout" available on the webpage
+=============================================================================
+
+Create a Server program and a Client program. Any text that a client types
+(and sends to the server) should be echoed on the display of all other
+clients that are attached to the server.
+Server should continuously loop and accept messages from clients
+and then echo them. Each client gets a unique name which will be passed to
+the server at the time when the connection is established.
+
+  1. Use stream sockets
+  2. You must use the INET protocol (TCP/IP)
+  3. You must run simultaneously at least 2 clients
+  4. At least 2 different machines must be utilized.
+  5. Each client should be run under 'script'.
+  6. The server may generate logging type output if you wish.
+  7. The clients should know who sent each message.
+  8. Compile your programs as follows:
+         gcc -o server server.c -lpthread -lnsl
+         gcc -o client client.c -lpthread -lnsl
+
+==========================================================================
+
+
+(1) Please Use the 'script' command to capture all necessary 
+    information for handin as described in the previous assignments.
+
+(2) After you have generated the 'script' file, remove ^M (cntl-M)s 
+    from your script file.
+
+(3) Print your hardcopy by entering
+       a2ps myhandin  |  lpr -P yourPrinterPreference
+
+(4) Also store your source files, script file (myhandin#), and the
+    executable file, in the directory:  ~cs284/YourLoginName/proj#/
+    where # = Assignment number
+
+=================================================================
+
+

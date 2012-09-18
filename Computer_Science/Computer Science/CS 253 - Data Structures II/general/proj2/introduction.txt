@@ -1,0 +1,13 @@
+Project 2: The Deadline Scheduling Problem
+
+Introduction
+	The goal of this paper is to examine the properties of the Deadline
+Schuduling Problem and to compare various algorithms for generating solutions
+to the problem.  The Deadline Scheduling Problem is NP-complete, which means
+that no efficient method for solving the problem exists.  Therefore, solving
+the problem is very costly.  By using a dynamic programming technique with
+tables, the time complexity of the problem is greatly reduced at the price of
+a much increased memory complexity.  It is also possible to reduce the time
+required by generating a solution that is not quite optimal.  Using this
+method, known as Greedy Heuristics, both the time complexity and space
+complexity are substantially reduced.

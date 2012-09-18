@@ -1,0 +1,60 @@
+Script started on Sun Sep 15 13:53:15 2002
+jwing@ultra28 prog2> cat proj2.c
+/**************************************************************************
+ * CS 284 Operating Systems
+ * Programming Assignment 2
+ * Name:   prog1.c
+ * Author: Joe Wingbermuehle
+ * Date:   2002-09-10
+ * Description:
+ * This is a program to demonstrate using arguments passed to main.
+ **************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+/*
+ * argc is the number of arguments
+ * argv is an array of arguments
+ * env is an array of environment variables (null terminated)
+ */
+int main(int argc, char *argv[], char *env[]) {
+
+        int x;
+
+        for(x = 0; x < argc; x++) {
+                printf("argument %d: %s", x, argv[x]);
+                if(isdigit(argv[x][0])) {
+                        printf(" @1st character is digit: %d", atoi(argv[x]));
+                }
+                printf("\n");
+        }
+
+        printf("first env[] string: %s\n", env[0]);
+
+        for(x = 0; env[x]; x++) {
+                if(!strncmp(env[x], "HOSTNAME", 8)
+                        || !strncmp(env[x], "USER", 4)) {
+                        printf("%s\n", env[x]);
+                }
+        }
+        printf("last env[] string: %s\n", env[x - 1]);
+        printf("total # of env variables: %d\n", x);
+
+}
+
+jwing@ultra28 prog2> ./proj2 Joe Wingbermuehle 54 3.14
+argument 0: ./proj2
+argument 1: Joe
+argument 2: Wingbermuehle
+argument 3: 54 @1st character is digit: 54
+argument 4: 3.14 @1st character is digit: 3
+first env[] string: PWD=/afs/umr.edu/users/jwing/cs284/prog2
+HOSTNAME=ultra28
+USER=jwing
+last env[] string: _=./proj2
+total # of env variables: 19
+jwing@ultra28 prog2> exit
+
+script done on Sun Sep 15 13:53:54 2002

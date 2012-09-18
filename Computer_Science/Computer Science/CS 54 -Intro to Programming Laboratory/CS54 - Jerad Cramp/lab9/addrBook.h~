@@ -1,0 +1,39 @@
+/* programmer: robertoMurillo   date: 10/19/05 *
+ * instructor: price            class: cs54d   *
+ * file: addrBook.h                            *
+ * purpose: includes prototypes and structs for*
+ *          the address book.                  */
+
+#ifndef ADDRBOOK_H
+#define ADDRBOOK_H
+
+/*************** STRUCTS ***************/
+
+struct contact
+{
+  string fname;
+  string lname;
+  string city;
+  string state;
+  string zip;
+};
+
+/*************** STRUCTS ***************/
+
+/*************** PROTOTYPES ***************/
+
+void fillAll(contact cont[], int &index);
+
+void printOne(contact & cont);
+
+void printAll( contact & cont );
+
+void fillOne(contact cont[ ], int filled );
+
+void lookup(contact cont[ ], int filled, contact & lname);
+
+void lookup(contact cont[ ], int filled, contact & zip);
+
+/*************** PROTOTYPES ***************/
+
+#endif

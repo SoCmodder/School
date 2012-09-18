@@ -1,0 +1,729 @@
+Computer Science 153 
+Introduction to Data Structures 
+Exam 2 Question Pool 
+Fall Semester 2002
+
+
+
+
+The exam questions will be taken directly from those questions listed below. 
+
+Constants will change in value 
+The order of multiple choice answers will change 
+Program variable names will change 
+
+
+In which location do dynamic variables allocated memory reside? 
+A. The code segment. 
+B. The data segment. 
+XX	C. The heap. 
+D. The run-time stack. 
+
+
+When should a pointer parameter p be a reference parameter? 
+XX	A. When the function changes p, and you want the change to affect the actual pointer argument. 
+B. When the function changes p, and you do NOT want the change to affect the actual pointer argument. 
+C. When the function changes *p, and you want the change to affect the the object that is pointed at. 
+D. When the function changes *p, and you do NOT want the change to affect the the object that is pointed at. 
+E. When the pointer points to a large object.
+
+
+Here is a small function that uses the dynamic Bag class from Chapter 4: 
+void quiz( ) 
+
+    { 
+    size_t    i; // Line 1 
+    Bag    b; // Line 2 
+    b.insert(42);    // Line 3 
+    i =    b.size( ); // Line 4 
+    cout    << i; // Line 5 
+    }
+ When is the Bag's dynamic array returned to the heap? 
+    A. During the execution of Line 2. 
+    B. During the execution of Line 3. 
+    C. Just after Line 4 and before line 5. 
+XX    D. After Line 5.
+
+
+The + operator which combines two bags was not declared as a member function of the Bag class. How can this function access the private data members of the two bags passed as arguments? 
+A. It cannot. 
+XX	B. The operator is declared to be a friend to the class. 
+C. The operator is implemented in the header file containing the Bag class definition. 
+D. The operator is implemented in the same implementation file as the Bag class 
+  
+
+Which of the following statements is FALSE? 
+a.    Overloaded functions have a common function name. 
+XX	b.    Overloaded functions must have different return value type. 
+c.    Functions in two different classes can have a common function name. 
+  
+  
+
+Suppose that a new Foo class has this prototype for an overloaded assignment operator: 
+void operator =(const Foo& source); 
+In an assignment statement a = b, what will be the actual argument for the parameter source? 
+A. a 
+XX	B. b 
+
+Suppose you are implementing an assignment operator, a copy constructor, and an operator +=. For which of these functions do you need to worry about possible "self-application" (where the argument is the same as the object that activates the function): 
+A. Only one of the three functions has possible self-application 
+B. The assignment operator and the copy construtor have possible self-application 
+??C. The assignment operator and the operator += have possible self-application 
+??D. The copy construtor and the operator += have possible self-application 
+??E. All three functions have possible self-application 
+  
+
+???	What is the usual worst-case performance for resizing a container class that stores its data in a dynamic array? 
+A. Constant time 
+B. Logarithmic time 
+C. Linear time 
+D. Quadratic time 
+  
+
+??	When a class uses dynamic memory, what member functions should be provided by the class? 
+A. The assignment operator. 
+B. The copy constructor. 
+C. A destructor. 
+D. All of the above. 
+  
+
+??	Which situation does not use the copy constructor? 
+A. Calling a function with a reference parameter 
+B. Calling a function with a value parameter 
+C. Declaring a variable to be a copy of another existing object 
+D. Returning a value from a function 
+E. All of the above situations use the copy constructor 
+  
+
+Suppose that you want to declare an array of characters to hold a C++ string with exactly 9 letters. Which declaration is best? 
+A. char s[8]; 
+xx	B. char s[9]; 
+C. char s[10]; 
+D. char s[11]; 
+E. char s[12]; 
+  
+
+??	Suppose that x and y are two NULL terminated c-strings. Which expression will return true whenever x and y contain the same sequence of characters? 
+A. (x = y) 
+B. (x == y) 
+C. (x != y) 
+D. (!strcmp(x, y)) 
+  
+
+Suppose that you want to develop two different + operators that calculate and return an object of some class. Which statement is correct? 
+A. One operator must be a friend and the other must not. 
+B. One operator must be public and the other private. 
+xx	C. The operators must have a different parameter lists. 
+D. It is not possible to have two different + operators. 
+
+
+
+struct Node 
+{int data; 
+Node * link; }; 
+??	Suppose we are using the above Node struct definition (with member variables called data and link). Your program is using a Node* variable called head_ptr to point to the first node of a linked list (or head_ptr == NULL for the empty list). Write a few lines of C++ code that will print (with cout) all the numbers on the list.   
+  
+  
+??	Suppose we are using the above Node struct definition (with member variables called data and link), and that locate_ptr is pointing to a node in a linked list. Write an assignment statement that will make locate_ptr point to the next node in the list (if there is one). If there is no next node, then your assignment statement should set locate_ptr to NULL. 
+  
+  
+??	Implement the following functions as new functions for the linked list class. (Use the above Node definition with member variables called data and link.) 
+size_t count_42s(); 
+// Precondition: head_ptr is the head pointer of a linked list. 
+// The list might be empty or it might be non-empty. 
+// Postcondition: The return value is the number of occurrences of 42 in the data field of a node on the linked list. 
+// The list itself is unchanged. 
+  
+
+??	bool has_42(); 
+// Precondition: head_ptr is the head pointer of a linked list. The list might be empty or it might be non-empty. 
+// Postcondition: The return value is true if the list has at least one occurrence of the number 42 in the data part of a node. 
+  
+
+??	bool all_42s(); 
+// Precondition: head_ptr is the head pointer of a linked list. The list might be empty or it might be non-empty. 
+// Postcondition: The return value is true if every node in the list contains 42 in the data part. NOTE: If the list is empty, then the function returns true. 
+  
+??	int sum(); 
+// Precondition: head_ptr is the head pointer of a linked list. The list might be empty or it might be non-empty. 
+// Postcondition: The return value is the sum of all the data components of all the nodes. NOTE: If the list is empty, the function returns 0. 
+  
+
+??	int product(); 
+// Precondition: head_ptr is the head pointer of a linked list. The list might be empty or it might be non-empty. 
+// Postcondition: The return value is the product of all the data components of all the nodes. NOTE: If the list is empty, the function returns 1. 
+  
+
+??	void list_tail_insert(const int& entry); 
+// Precondition: head_ptr is the head pointer of a non-empty linked list. 
+// Postcondition: A new node has been added at the tail end of the list. The data in the new node is taken from the parameter called entry. 
+  
+
+What is the run time complexity of list_tail_insert(const int& entry)? 
+Answer:	O(1)
+
+
+
+??	bool data_is_on(int entry); 
+// Precondition: head_ptr is the head pointer of a linked list (which might be empty, or might be non-empty). The entry is an object that might be in the linked list. 
+// Postcondition: The return value is true if the data in entry appears somewhere in a data field of a node in head_ptr's linked list. Otherwise the return value is false. None of the nodes on any lists are changed. 
+  
+
+??	void list_insert_zero(); 
+// Precondition: previous_ptr is a pointer to a node on a linked list. 
+// Postcondition: A new node has been added to the list after the node that previous_ptr points to. The new node contains 0. 
+  
+  
+
+??	Suppose that p, q, and r are all pointers to nodes of type Node in a linked list with 5 nodes. The pointer p points to the first node, q points to the 3rd node, and r points to the last node. Write a few lines of code that will make a new copy of the list. Your code should set THREE new pointers called x, y, and z so that: x points to the first node of the copy, y points to the 3rd node of the copy, and z points to the last node of the copy. Your code may NOT contain any loops. 
+  
+
+??	Suppose cursor points to a node in a linked list using the Node definition . What statement changes cursor so that it points to the next node? 
+A. cursor++; 
+B. cursor = link; 
+C. cursor += link; 
+D. cursor = cursor-link; 
+  
+
+??	Suppose cursor points to a node in a linked list using the Node definition . What Boolean expression will be true when cursor points to the tail node of the list? 
+A. (cursor == NULL) 
+B. (cursor-link == NULL) 
+C. (cursor-data == NULL) 
+D. (cursor-data == 0.0) 
+E. None of the above. 
+  
+
+Suppose you are removing a Node from a doubly linked list. If the value of m_previous for the Node to be removed equals NULL, what do you know for certain about this Node? 
+xx	A. It is the head node of the list. 
+B. It is the tail node of the list. 
+C. It is both the head node and the tail node of the list. 
+D. None of the above. 
+  
+  
+
+When traversing through a linked list, why is it a good idea to use a Cursor instead of simply using head_ptr? 
+xx	Because you don't want to change the head pointer  (insert more b.s.)
+
+
+What is the fundamental difference between a struct and a class? 
+A. By default the members of structs are private. 
+xx	B. By default the members of structs are public. 
+C. Structs can only contain data members. 
+D. Structs must contain a pointer member variable. 
+  
+
+??	Suppose that p is a pointer variable that contains the NULL pointer. What happens if your program tries to read or write *p? 
+A. A syntax error always occurs at compilation time. 
+B. A run-time error always occurs when *p is evaluated. 
+C. A run-time error always occurs when the program finishes. 
+D. The results are unpredictable. 
+  
+
+??	In the linked list version of the Bag class a member variable many_nodes is used to keep track of how long the linked list is. Why not just make a call to the list toolkit function list_length()? 
+A. The list_length() function is O(n) and the alternative is O(1). 
+B. The list_length() function is private. 
+C. The list_length() function results in an infinite loop for circular lists. 
+D. The list_length() function works only for lists of integers. 
+  
+
+The Bag class in Chapter 5 has a new grab member function that returns a randomly selected item from a Bag (using a pseudorandom number generator). Suppose that you create a Bag, insert the numbers 1, 2, and 3, and then use the grab function to select an item. Which of these situations is most likely to occur if you run your program 300 times (from the beginning): 
+A. Each of the three numbers will be selected about 100 times. 
+B. One of the numbers will be selected about 200 times; another number will be selected about 66 times; the 
+remaining number will be selected the rest of the time. 
+xx	C. One of the numbers will be selected 300 times; the other two won't be selected at all. 
+  
+  
+
+What is the expression for generating a pseudorandom number in the range 1...N? 
+A. rand() % N; 
+B. rand() / N; 
+C. rand() % (N + 1); 
+D. rand() / (N + 1); 
+xx	E. (rand() % N) + 1; 
+  
+  
+
+What kind of list is best to answer questions such as "What is the item at position n?" 
+xx	A. Lists implemented with an array. 
+B. Doubly-linked lists. 
+C. Singly-linked lists. 
+D. Doubly-linked or singly-linked lists are equally best 
+  
+  
+
+ Given the following template, which of the following functions is valid? 
+     template <typename Item, typename Item2> 
+     Item foobar(Item, Item 2); 
+
+     A. int foobar(7.0, 8.5) 
+     B. float foobar(7, 9.0) 
+xx	     C. char foobar('a', 7) 
+     D. float foobar(8, 10) 
+  
+
+Suppose that the Bag class is defined as a template class. What is the correct syntax for declaring a Bag of integers named "Scores"? 
+     A. Bag Scores; 
+xx (?)	     B. <int>Bag Scores; 
+     C. Bag<int> Scores; 
+     D. Bag Scores<int>; 
+  
+
+What technique is used to provide the capability to step through items of a container class? 
+A. A copy constructor. 
+B. A default constructor. 
+C. A destructor. 
+xx	D. An iterator. 
+E. An overloaded assignment operator 
+  
+
+Complete the body of this function. You do not need to check the precondition. You may use the CStack class. 
+bool balanced(const char p[ ], size_t n) 
+// Precondition: p[0]...p[n-1] contains n characters, each of which is '(', ')', '{' or '}'. 
+// Postcondition: The function returns true if the characters form a sequence of correctly balanced parentheses with each '(' matching a ')' and each '{' matching a '}'. Note that a sequence such as ( { ) } is NOT balanced because when we draw lines to match the parentheses to their partners, the lines cross each other. On the other hand, ( { } ) amd { ( ) } are both balanced. 
+  
+  
+
+When answering these questions concerning stack behavior, assume that the CStack member functions work with integers. (You don't have to concern yourself with Node * or Inheritence issues) 
+  
+
+I am going to execute this code with THREE pushes and ONE pop: 
+CStack s; 
+s.push(1); 
+s.push(2); 
+s.push(3); 
+cout << s.pop( ); 
+Suppose that s is represented by a partially filled array. Draw the state of the private member variables of s after the above code: 
+int data array (member variable) 
+xx	|1|2| | | | |
+
+int used (member variable) 
+xx	|2|  
+
+  
+I am going to execute this code with THREE pushes and ONE pop: 
+CStack s; 
+s.push(1); 
+s.push(2); 
+s.push(3); 
+cout << s.pop( ); 
+Suppose that s is represented by a linked list. Draw the state of the private member variables of s after the above code: 
+head_ptr 
+xx	|2|
+
+  
+
+The operation for adding an entry to a stack is traditionally called: 
+A. add 
+B. append 
+C. insert 
+xx	D. push 
+  
+
+The operation for removing an entry from a stack is traditionally called: 
+A. delete 
+B. peek 
+xx	C. pop 
+D. remove 
+  
+
+Which of the following stack operations could result in stack underflow? 
+A. is_empty 
+xx	B. pop 
+C. push 
+D. Two or more of the above answers 
+  
+
+Which of the following applications may use a stack? 
+A. A parentheses balancing program. 
+B. Keeping track of local variables at run time. 
+C. Syntax analyzer for a compiler. 
+xx	D. All of the above. 
+  
+
+Consider the following pseudocode: 
+declare a stack of characters 
+while ( there are more characters in the word to read ) 
+{ 
+    read a character 
+    push the character on the stack 
+} 
+while ( the stack is not empty ) 
+{ 
+    pop a character off the stack 
+    write the character to the screen 
+}
+What is written to the screen for the input "carpets"? 
+A. serc 
+B. carpets 
+xx	C. steprac 
+D. ccaarrppeettss 
+  
+Here is an INCORRECT pseudocode for the algorithm which is supposed to determine whether a sequence of parentheses is balanced: 
+declare a character stack 
+while ( more input is available) 
+{ 
+    read a character 
+    if ( the character is a '(' ) 
+       push it on the stack 
+    else if ( the character is a ')' and the stack is not empty ) 
+       pop a character off the stack 
+    else 
+       print "unbalanced" and exit 
+} 
+print "balanced"
+Which of these unbalanced sequences does the above code think is balanced? 
+xx	A. ((()) 
+B. ())(() 
+C. (()())) 
+D. (()))() 
+  
+Consider the usual algorithm for determining whether a sequence of parentheses is balanced. What is the maximum number of parentheses that will appear on the stack AT ANY ONE TIME when the algorithm analyzes: ( ( ) ( ( ) ) ( ( ) ) ) ? 
+A. 1 
+B. 2 
+xx	C. 3 
+D. 4 
+E. 5 or more 
+  
+
+Suppose we have an array implementation of the stack class, with ten items in the stack stored at data[0] through data[9]. The CAPACITY is 42. Where does the push member function place the new entry in the array? 
+A. data[0] 
+B. data[1] 
+C. data[9] 
+xx	D. data[10] 
+
+Consider the implementation of the Stack using a partially-filled array. What goes wrong if we try to store the top of the Stack at location [0] and the bottom of the Stack at the last used position of the array? 
+A. Both peek and pop would require linear time. 
+xx	B. Both push and pop would require linear time. 
+C. The Stack could not be used to check balanced parentheses. 
+D. The Stack could not be used to evaluate postfix expressions. 
+  
+
+In the linked list implementation of the stack class, where does the push member function place the new entry on the linked list? 
+xx	A. At the head 
+B. At the tail 
+C. After all other entries that are greater than the new entry. 
+D. After all other entries that are smaller than the new entry. 
+  
+
+In the array version of the Stack class (with a fixed-sized array), which operations require linear time for their worst-case behavior? 
+A. is_empty 
+B. peek 
+C. pop 
+D. push 
+xx	E. None of these operations require linear time. 
+  
+
+In the linked-list version of the Stack class, which operations require linear time for their worst-case behavior? 
+A. is_empty 
+B. peek 
+C. pop 
+D. push 
+xx	E. None of these operations require linear time. 
+  
+
+What is the value of the postfix expression 6 3 2 4 + - *: 
+xx	A. Something between -15 and -100 
+B. Something between -5 and -15 
+C. Something between 5 and -5 
+D. Something between 5 and 15 
+E. Something between 15 and 100 
+  
+
+Here is an infix expression: 4+3*(6*3-12). Suppose that we are using the usual Stack algorithm to convert the expression from infix to postfix notation. What is the maximum number of symbols that will appear on the stack AT ONE TIME during the conversion of this expression? 
+A. 1 
+B. 2 
+xx	C. 3 
+D. 4 
+E. 5 
+
+Which of the following is NOT a standard Stack function 
+     A. Push 
+     B. Pop 
+     C. RemoveHead 
+xx	     D. Top 
+  
+
+Given a stack of n items, how many POP and PUSH operations need to  be performed  to remove the item at its bottom? 
+a.    0 POP operation and 0 PUSH operation 
+b.    1 POP operation and 1 PUSH operation 
+xx	c.    n POP operations and n PUSH operations 
+d.    n POP operations and n-1 PUSH operations 
+e.    Unkown 
+  
+
+??	Complete the body of this function. Use a Queue of characters to store the input line as it is being read. 
+size_t counter( ) 
+
+// Precondition: There is a line of input waiting to be read from cin. 
+// Postcondition: A line of input has been read from cin, up to but not including 
+   the newline character. The return value of the function is the number of times 
+   that the LAST character of the line appeared somewhere in this line. 
+
+// EXAMPLE Input: ABBXDXXZX The value returned by counter would be 4 for this 
+    input since there are 4 X's in the input line.
+    { 
+    size_t answer = 0; 
+    Queue q;
+
+
+
+I am going to execute this code with THREE inserts (EnQ()) and ONE get_front ( DeQ() ): 
+Queue s; 
+s.insert(1); 
+s.insert(2); 
+s.insert(3); 
+cout << s.get_front( ); 
+Suppose that s is represented by a circular array. Draw the state of these private member variables of s after the above code: 
+int data array 
+xx	|1|2|3| | | |
+
+int front 
+xx	|2| 
+
+  
+
+I am going to execute this code with THREE inserts and ONE get_front: 
+Queue s; 
+s.insert(1); 
+s.insert(2); 
+s.insert(3); 
+cout << s.get_front( ); 
+Suppose that s is represented by a linked list. Draw the state of the private member variables of s after the above code: 
+front_ptr 
+xx	|2|
+    
+rear_ptr 
+xx	|3|
+
+    
+
+  
+
+YOU MAY SKIP THE SECTION OF THE TEXT THAT DISCUSSES PRIORITY QUEUES. 
+THAT MATERIAL WILL BE COVERED LATER WHEN WE COVER HEAPS. 
+
+ Which of the following is NOT similar to a Stack or Queue function? 
+     A. RemoveHead 
+xx	     B. RemoveTail 
+     C. InsertHead 
+     D. InsertTail 
+  
+
+One difference between a queue and a stack is: 
+A. Queues require dynamic memory, but stacks do not. 
+B. Stacks require dynamic memory, but queues do not. 
+xx	C. Queues use two ends of the structure; stacks use only one. 
+D. Stacks use two ends of the structure, queues use only one. 
+  
+
+If the characters 'D', 'C', 'B', 'A' are placed in a queue (in that order), and then removed one at a time, in what order will they be removed? 
+A. ABCD 
+B. ABDC 
+C. DCAB 
+xx	D. DCBA 
+  
+
+Suppose we have a circular array implementation of the queue class, with ten items in the queue stored at data[2] through data[11]. The CAPACITY is 42. Where does the insert member function place the new entry in the array? 
+A. data[1] 
+B. data[2] 
+C. data[11] 
+xx	D. data[12] 
+
+Suppose we have a circular array implementation of the queue class, with ten items in the queue stored at data[2] through data[11]. The CAPACITY is 12. Where does the insert member function place the new entry in the array? 
+xx	A. data[0] 
+B. data[1] 
+C. data[11] 
+D. data[12] 
+E. It cannot be inserted. 
+
+Consider the implementation of the Queue using a circular array. What goes wrong if we try to keep all the items at the front of a partially-filled array (so that data[0] is always the front). 
+A. The constructor would require linear time. 
+xx	B. The get_front function would require linear time. 
+C. The insert function would require linear time. 
+D. The is_empty function would require linear time. 
+  
+
+In the linked list implementation of the queue class, where does the insert member function place the new entry on the linked list? 
+A. At the head 
+xx	B. At the tail 
+C. After all other entries that are greater than the new entry. 
+D. After all other entries that are smaller than the new entry. 
+  
+
+In the linked-list version of the Queue class, which operations require linear time for their worst-case behavior? 
+A. get_front 
+B. insert 
+C. is_empty 
+xx(?)	D. None of these operations require linear time. 
+  
+
+??	If data is a circular array of CAPACITY elements, and rear is an index into that array, what is the formula for the index after rear? 
+A. (rear % 1) + CAPACITY 
+B. rear % (1 + CAPACITY) 
+C. (rear + 1) % CAPACITY 
+D. rear + (1 % CAPACITY) 
+  
+
+I have implemented the queue with a circular array, keeping track of front, rear, and count (the number of items in the array). Suppose front is zero, and rear is CAPACITY-1. What can you tell me about count? 
+A. count must be zero. 
+xx	B. count must be CAPACITY. 
+C. count could be zero or CAPACITY, but no other values could occur. 
+D. None of the above. 
+  
+
+I have implemented the queue with a linked list, keeping track of a front pointer and a rear pointer. Which of these pointers will change during an insertion into a NONEMPTY queue? 
+A. Neither changes 
+B. Only front_ptr changes. 
+xx	C. Only rear_ptr changes. 
+D. Both change. 
+  
+
+I have implemented the queue with a linked list, keeping track of a front pointer and a rear pointer. Which of these pointers will change during an insertion into an EMPTY queue? 
+A. Neither changes 
+B. Only front_ptr changes. 
+C. Only rear_ptr changes. 
+xx	D. Both change 
+  
+
+
+
+	END OF CHAPTER8
+	BEGIN CHAPTER 14
+
+
+
+
+
+Throughout this section A is a class and B is a new class derived from A. Also, we have these variables 
+A a;  
+B b;  
+B b1;  
+B b2;  
+
+What C++ syntax is used to declare that a class B is derived from class A? 
+A. class A derives B { ... }; 
+B. class B from A { ... }; 
+C. class B : class A { ... }; 
+D. class B subclass of A { ... }; 
+XX	E. None of these. 
+  
+
+If a class B is derived from A, then which of the following terms describes A? 
+A. ancestor class. 
+B. base class. 
+C. parent class. 
+XX	D. All of the above. 
+E. None of these. 
+  
+
+Consider the assignment statement a=b; (with the variable declarations at the top of this section). Which answer is true? 
+A. The assignment statement is illegal. 
+XX	B. The assignment statement activates the A assignment operator. 
+C. The assignment statement activates the B assignment operator. 
+D. The assignment statement activates both A and B assignment operators. 
+E. None of these. 
+  
+
+Consider the assignment statement b=a; (with the variable declarations at the top of this section). Which answer is true? 
+XX	A. The assignment statement is illegal. 
+B. The assignment statement activates the A assignment operator. 
+C. The assignment statement activates the B assignment operator. 
+D. The assignment statement activates both A and B assignment operators. 
+E. None of these. 
+  
+
+What is the term used to describe the situation when a derived class provides a function already provided in the base class? 
+A. Inheriting. 
+XX	B. Overriding. 
+C. Overloading. 
+D. Instantiating. 
+E. None of these. 
+  
+  
+
+In the following line of code, what does the word private mean? 
+class C_Node : private S_Node 
+     A. C_Node inherits all of S_Node's public and protected data and puts it in C_Node's     private section 
+     B.  S_Node inherits all of C_Node's public, protected and private data and puts it in  S_Node's public section 
+XX	     C.  S_Node inherits all of C_Node's public and protected data and puts it in S_Node's  private section 
+     D.  S_Node inherits all of C_Node's private data and puts it in S_Node's private section
+
+??	What is the significance of the '=0' in the following prototype: 
+virtual int foobar() = 0; 
+  
+
+Which of the following statements about (public) inheritance in C++ is FALSE? 
+a.    Public members of  a base class become public members of its derived class. 
+b.    Protected members of a base class are accessible to its derived class. 
+XX	c.    Private members of  a base class are accessible to its derived class. 
+  
+
+Which of the following statements about inheritance in C++  is FALSE? 
+a.    A member function of a base class can be redefined in its derived class. 
+XX	b.    A member variable of a base class can be redefined in its derived class. 
+c.    A member variable of a based class cannot be redefined in its derived class. 
+  
+
+Which of the following statements about inheritance in C++ is FALSE? 
+a.    A base class can have zero or more derived classes. 
+b.    A class can be derived from more than one base classes. 
+XX	c.    A class can be derived from no more than one base class. 
+  
+
+Consider the declarations at the top of this section. Suppose there are two functions: f has an argument of type A and g has an argument of type B. Which statement is correct? 
+A. Both f(b) and g(b) are legal function calls. 
+B. f(b) is legal, but g(b) is not legal. 
+XX	C. f(b) is not legal, but g(b) is legal. 
+D. Neither f(b) nor g(b) is a legal function function call. 
+E. None of these. 
+  
+
+??	Consider the declarations at the top of this section. Suppose there are two functions: f has an argument of type A and g has an argument of type B. Which statement is correct? 
+A. Both f(a) and g(a) are legal function calls. 
+B. f(a) is legal, but g(a) is not legal. 
+C. f(a) is not legal, but g(a) is legal. 
+D. Neither f(a) nor g(a) is a legal function function call. 
+E. None of these. 
+  
+
+Suppose you were going to quickly implement a Stack class as a derived class. Why would it be likely that the base class would be a private base class? 
+  
+A. You would not want to have all of the base classes private member functions be private member functions of the stack. 
+B. You would not want to have all of the base classes private member functions be public member functions of the stack. 
+C. You would not want to have all of the base classes public member functions be private member functions of the stack. 
+XX	D. You would not want to have all of the base classes public member functions be public member functions of the stack. 
+E. None of these.
+
+--------------------------------------------------------------------------------
+
+
+
+
+SCREW YOU ASSHAT, YOU'RE ON YOUR OWN
+(GHETTO LIKE BOYS)
+
+
+
+
+
+Programming Questions
+Be prepared to write any of the member functions that were a part of the Class List / Struct Node assigments that did NOT involve inheritence. These functions should assume that integers are being stored in the forward / backward list.You may assume that you have CList and Node classes defined as follows: 
+class Node
+{public: 
+      Node * mNext;
+      Node * mPrev; 
+      int mData;
+};
+class CList
+{public: 
+   void InsertHead(int);
+   void InsertTail(int);
+   void RemoveHead();
+   void RemoveTail();
+   bool isEmpty();
+   bool Find(int); 
+ private: 
+   Node * mHead;
+   Node * mTail;
+};
+  

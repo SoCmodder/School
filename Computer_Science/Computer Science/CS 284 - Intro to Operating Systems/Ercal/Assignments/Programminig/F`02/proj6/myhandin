@@ -1,0 +1,333 @@
+Script started on Wed Oct 23 14:25:43 2002
+jwing@ultra28 proj6> cat prog6.c
+/****************************************************************************
+ * CS 284 Operating Systems
+ * Programming Assignment 6
+ * Name:   prog6.c
+ * Author: Matt Walters and Joe Wingbermuehle
+ * Date:   2002-10-24
+ * Description:
+ * Bounded Buffer Problem
+ ****************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <thread.h>
+#include <synch.h>
+
+const int NUMBER_PRODUCERS = 5;
+const int NUMBER_CONSUMERS = 2;
+const int BUFFER_SIZE = 10;
+const int NUMBER_PRODUCTS = 50;
+
+int prod_count = 0, cons_count = 0;             /* Widgets produced/consumed */
+int *buffer;                                                                    /* Widget buffer */
+int buffer_insert = 0, buffer_remove = 0;       /* Insert/remove points in the buffer */
+int buffer_used = 0;                                                    /* Count of items in the buffer */
+
+/* Mutexes */
+mutex_t mutex_prod, mutex_cons, mutex_buffer;
+
+/* Conditions */
+cond_t cond_not_full, cond_not_empty;
+
+typedef enum {PRODUCER, CONSUMER} ThreadType;
+
+typedef struct {
+        thread_t id;
+        int num;
+        ThreadType type;
+} SPC;
+
+void *Producer(void *arg);
+void *Consumer(void *arg);
+
+/****************************************************************************
+ * Main function
+ ****************************************************************************/
+int main() {
+
+        thread_t *producers;
+        thread_t *consumers;
+        thread_t tid;
+        int *prod_ids;
+        int *cons_ids;
+        SPC *status;
+        int x;
+
+        signal(SIGALRM, SIG_IGN);
+
+        producers = (thread_t*)malloc(sizeof(thread_t) * NUMBER_PRODUCERS);
+        consumers = (thread_t*)malloc(sizeof(thread_t) * NUMBER_CONSUMERS);
+        prod_ids = (int*)malloc(sizeof(int) * NUMBER_PRODUCERS);
+        cons_ids = (int*)malloc(sizeof(int) * NUMBER_CONSUMERS);
+        buffer = (int*)malloc(sizeof(int) * BUFFER_SIZE);
+
+        /* Create the producer threads */
+        for(x = 0; x < NUMBER_PRODUCERS; x++) {
+                prod_ids[x] = x + 1;
+                thr_create(NULL, NULL, Producer, &prod_ids[x], 0, &producers[x]);
+        }
+
+        /* Create the consumer threads */
+        for(x = 0; x < NUMBER_CONSUMERS; x++) {
+                cons_ids[x] = x + 1;
+                thr_create(NULL, NULL, Consumer, &cons_ids[x], 0, &consumers[x]);
+        }
+
+        /* Wait for the threads to finish */
+        for(x = 0; x < NUMBER_PRODUCERS + NUMBER_CONSUMERS; x++) {
+                thr_join(0, &tid, (void**)&status);
+                if(status->type == PRODUCER) {
+                        printf("main(): PRODUCER-%d joined. %d widgets created.\n",
+                                status->id, status->num);
+                } else {
+                        printf("main(): CONSUMER-%d joined. %d widgets consumed.\n",
+                                status->id, status->num);
+                }
+        }
+
+        free(producers);
+        free(consumers);
+        free(prod_ids);
+        free(cons_ids);
+        free(buffer);
+
+        return 0;
+}
+
+/****************************************************************************
+ * Producer Thread: Produce a widget
+ ****************************************************************************/
+void *Producer(void *arg) {
+        SPC prod;
+        int myNumber;
+
+        prod.id = *((int*)arg);
+        prod.num = 0;
+        prod.type = PRODUCER;
+        srand48((long)time(0));
+
+        for(;;) {
+
+                /* Lock producers and check if there are more widgets to produce */
+                mutex_lock(&mutex_prod);
+                if(prod_count >= NUMBER_PRODUCTS) {
+                        mutex_unlock(&mutex_prod);
+                        thr_exit(&prod);
+                }
+                myNumber = prod_count;
+                ++prod_count;
+                mutex_unlock(&mutex_prod);
+
+                sleep(lrand48() % 5 + 1);
+
+                /* Lock the buffer and produce a widget */
+                mutex_lock(&mutex_buffer);
+                if(buffer_used >= BUFFER_SIZE) {
+                        printf("PRODUCER-%d: Buffer full, waiting.\n", prod.id);
+                        cond_wait(&cond_not_full, &mutex_buffer);
+                }
+
+                printf("PRODUCER-%d: I will produce widget %d.\n",
+                        prod.id, myNumber);
+
+                buffer[buffer_insert] = myNumber;
+                buffer_insert = (buffer_insert + 1) % BUFFER_SIZE;
+                ++buffer_used;
+                cond_signal(&cond_not_empty);
+                mutex_unlock(&mutex_buffer);
+
+                ++prod.num;
+        }
+}
+
+/****************************************************************************
+ * Consumer Thread: Consume a widget
+ ****************************************************************************/
+void *Consumer(void *arg) {
+        SPC cons;
+        int widget;
+ 
+        cons.id = *((int*)arg);
+        cons.num = 0;
+        cons.type = CONSUMER;
+        srand48((long)time(0));
+
+        for(;;) {
+
+                /* Lock consumer count and check if there are more widgets to consume */
+                mutex_lock(&mutex_cons);
+                if(cons_count >= NUMBER_PRODUCTS) {
+                        mutex_unlock(&mutex_cons);      
+                        thr_exit(&cons);
+                }
+                ++cons.num;
+                ++cons_count;
+                mutex_unlock(&mutex_cons);
+
+                usleep((lrand48() % 7 + 1) * 100000);
+
+                /* Lock the buffer and consume a widget */
+                mutex_lock(&mutex_buffer);
+                if(!buffer_used) {
+                        printf(" CONSUMER-%d: Buffer empty, waiting.\n", cons.id);
+                        cond_wait(&cond_not_empty, &mutex_buffer);
+                }
+                widget = buffer[buffer_remove];
+                buffer_remove = (buffer_remove + 1) % BUFFER_SIZE;
+                --buffer_used;
+                cond_signal(&cond_not_full);
+
+                printf(" CONSUMER-%d: I consumed widget %d.\n", cons.id, widget);
+                mutex_unlock(&mutex_buffer);
+
+        }
+}
+
+jwing@ultra28 proj6> ./prog6
+ CONSUMER-2: Buffer empty, waiting.
+ CONSUMER-1: Buffer empty, waiting.
+PRODUCER-3: I will produce widget 2.
+PRODUCER-4: I will produce widget 3.
+PRODUCER-2: I will produce widget 1.
+PRODUCER-5: I will produce widget 4.
+PRODUCER-1: I will produce widget 0.
+ CONSUMER-2: I consumed widget 2.
+ CONSUMER-1: I consumed widget 3.
+ CONSUMER-2: I consumed widget 1.
+ CONSUMER-2: I consumed widget 4.
+ CONSUMER-1: I consumed widget 0.
+ CONSUMER-2: Buffer empty, waiting.
+ CONSUMER-1: Buffer empty, waiting.
+PRODUCER-2: I will produce widget 7.
+ CONSUMER-2: I consumed widget 7.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-1: I will produce widget 9.
+PRODUCER-2: I will produce widget 10.
+PRODUCER-4: I will produce widget 6.
+ CONSUMER-1: I consumed widget 9.
+ CONSUMER-2: I consumed widget 10.
+ CONSUMER-1: I consumed widget 6.
+ CONSUMER-2: Buffer empty, waiting.
+ CONSUMER-1: Buffer empty, waiting.
+PRODUCER-4: I will produce widget 13.
+PRODUCER-5: I will produce widget 8.
+ CONSUMER-2: I consumed widget 13.
+ CONSUMER-1: I consumed widget 8.
+ CONSUMER-1: Buffer empty, waiting.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-3: I will produce widget 5.
+PRODUCER-2: I will produce widget 12.
+PRODUCER-5: I will produce widget 15.
+ CONSUMER-1: I consumed widget 5.
+ CONSUMER-2: I consumed widget 12.
+ CONSUMER-2: I consumed widget 15.
+ CONSUMER-1: Buffer empty, waiting.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-2: I will produce widget 17.
+PRODUCER-4: I will produce widget 14.
+ CONSUMER-1: I consumed widget 17.
+ CONSUMER-2: I consumed widget 14.
+ CONSUMER-2: Buffer empty, waiting.
+ CONSUMER-1: Buffer empty, waiting.
+PRODUCER-1: I will produce widget 11.
+PRODUCER-3: I will produce widget 16.
+PRODUCER-2: I will produce widget 19.
+ CONSUMER-2: I consumed widget 11.
+ CONSUMER-1: I consumed widget 16.
+ CONSUMER-1: I consumed widget 19.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-5: I will produce widget 18.
+PRODUCER-3: I will produce widget 22.
+ CONSUMER-2: I consumed widget 18.
+ CONSUMER-1: I consumed widget 22.
+ CONSUMER-2: Buffer empty, waiting.
+ CONSUMER-1: Buffer empty, waiting.
+PRODUCER-4: I will produce widget 20.
+PRODUCER-1: I will produce widget 21.
+ CONSUMER-2: I consumed widget 20.
+ CONSUMER-1: I consumed widget 21.
+ CONSUMER-2: Buffer empty, waiting.
+ CONSUMER-1: Buffer empty, waiting.
+PRODUCER-2: I will produce widget 23.
+PRODUCER-4: I will produce widget 26.
+ CONSUMER-2: I consumed widget 23.
+ CONSUMER-1: I consumed widget 26.
+ CONSUMER-2: Buffer empty, waiting.
+ CONSUMER-1: Buffer empty, waiting.
+PRODUCER-2: I will produce widget 28.
+ CONSUMER-2: I consumed widget 28.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-5: I will produce widget 24.
+PRODUCER-4: I will produce widget 29.
+PRODUCER-2: I will produce widget 30.
+ CONSUMER-1: I consumed widget 24.
+ CONSUMER-2: I consumed widget 29.
+ CONSUMER-1: I consumed widget 30.
+ CONSUMER-1: Buffer empty, waiting.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-3: I will produce widget 25.
+PRODUCER-4: I will produce widget 32.
+PRODUCER-2: I will produce widget 33.
+PRODUCER-1: I will produce widget 27.
+PRODUCER-5: I will produce widget 31.
+ CONSUMER-1: I consumed widget 25.
+ CONSUMER-2: I consumed widget 32.
+ CONSUMER-2: I consumed widget 33.
+ CONSUMER-1: I consumed widget 27.
+ CONSUMER-1: I consumed widget 31.
+ CONSUMER-2: Buffer empty, waiting.
+ CONSUMER-1: Buffer empty, waiting.
+PRODUCER-3: I will produce widget 34.
+PRODUCER-4: I will produce widget 35.
+PRODUCER-2: I will produce widget 36.
+ CONSUMER-2: I consumed widget 34.
+ CONSUMER-1: I consumed widget 35.
+ CONSUMER-2: I consumed widget 36.
+ CONSUMER-1: Buffer empty, waiting.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-1: I will produce widget 37.
+PRODUCER-5: I will produce widget 38.
+PRODUCER-2: I will produce widget 41.
+ CONSUMER-1: I consumed widget 37.
+ CONSUMER-2: I consumed widget 38.
+ CONSUMER-2: I consumed widget 41.
+ CONSUMER-1: Buffer empty, waiting.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-3: I will produce widget 39.
+PRODUCER-5: I will produce widget 43.
+ CONSUMER-1: I consumed widget 39.
+ CONSUMER-2: I consumed widget 43.
+ CONSUMER-1: Buffer empty, waiting.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-4: I will produce widget 40.
+PRODUCER-1: I will produce widget 42.
+PRODUCER-5: I will produce widget 46.
+PRODUCER-3: I will produce widget 45.
+ CONSUMER-1: I consumed widget 40.
+ CONSUMER-2: I consumed widget 42.
+main(): PRODUCER-3 joined. 8 widgets created.
+ CONSUMER-1: I consumed widget 46.
+ CONSUMER-2: I consumed widget 45.
+ CONSUMER-2: Buffer empty, waiting.
+ CONSUMER-1: Buffer empty, waiting.
+PRODUCER-2: I will produce widget 44.
+main(): PRODUCER-2 joined. 13 widgets created.
+ CONSUMER-2: I consumed widget 44.
+ CONSUMER-2: Buffer empty, waiting.
+PRODUCER-4: I will produce widget 47.
+PRODUCER-1: I will produce widget 48.
+PRODUCER-5: I will produce widget 49.
+main(): PRODUCER-5 joined. 10 widgets created.
+main(): PRODUCER-1 joined. 8 widgets created.
+main(): PRODUCER-4 joined. 11 widgets created.
+ CONSUMER-1: I consumed widget 47.
+ CONSUMER-2: I consumed widget 48.
+main(): CONSUMER-2 joined. 26 widgets consumed.
+ CONSUMER-1: I consumed widget 49.
+main(): CONSUMER-1 joined. 24 widgets consumed.
+jwing@ultra28 proj6> exit
+
+script done on Wed Oct 23 14:26:17 2002

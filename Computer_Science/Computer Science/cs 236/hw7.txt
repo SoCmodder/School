@@ -1,0 +1,59 @@
+							Joe Wingbermuehle
+							CS 236 HW 7
+							2002-05-07
+
+1.	For an array defined as:
+		foo : array(1 .. 10, 1 .. 10) of integer;
+	The array access:
+		temp := foo(x, y)
+	Becomes:
+		temp := *((foo + x * (high1 - low1 + 1) + y - low2) * size);
+	The relative address of foo, high1 (=10), low1 (=1), high2 (=10),
+	low2 (=1) and size (the size of an integer) are known at compile
+	time.  The compiler will reduce this expression to:
+		temp := *((32 + $sp + x * 10 + y - 1) * 4);
+	assuming an integer is four bytes, the relative address of foo
+	is 32 from the stack pointer.  If x and y are fixed (x = 5, y = 6),
+	the expression reduces to:
+		temp := *(($sp + 87) * 4);
+
+2a.	A dangling reference is a pointer that no longer points to valid
+	data. For example:
+		int *ptr = malloc(sizeof(int));
+		int *dangle = ptr;
+		free(ptr);
+		printf("%d\n", *dangle);	// dangling reference used
+	In program 4 a dangling pointer could be created if the matrix
+	class did not have a copy constructor.  In that case:
+		Matrix m1(4, 4);	// 4x4 matrix
+		return m1;		// The default copy constructor
+					// is called for the return value
+	Here, when m1 goes out of scope at the end of the function, the
+	destructor for m1 is run, releasing the array.  Since the return
+	value has a copy of the pointer (no dangling), if this value is
+	used you will get unexpected results.
+
+2b.	The tombstone and lock-and-key concepts both prevent dangling
+	pointers by raising an exception rather than letting a program
+	continue with possibly invalid data when a dangling pointer
+	is used.  The problem with tombstones is that they are never
+	deallocated.
+
+3a.	A memory leak occurs when memory is allocated and never freed.
+	In program 4 this could occur if the Matrix class did not
+	have a destructor.  If this were the case, when a Matrix object
+	went out of scope, its memory would not be reclaimed until the
+	program terminated.  This is a problem because it causes a large
+	program to use excessive amounts of memory.  If a program with
+	a memory leak runs for a sufficient amount of time, it could cause
+	all free memory to be exhausted, thereby crashing the program (and
+	possibly other programs as well).
+
+3b.	Both reference counting and mark-and-sweep garbage collection
+	attempt to prevent memory leaks and dangling pointers by making
+	memory deallocation automatic rather than explicit.  Reference
+	counting doesn't work for linked data structures that are
+	cyclic.  Mark-and-sweep garbage collection requires memory to
+	run and can take a significant amount of time.
+
+

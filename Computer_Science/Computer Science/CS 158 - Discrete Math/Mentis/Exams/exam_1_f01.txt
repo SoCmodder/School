@@ -1,0 +1,279 @@
+\documentclass[12pt]{amsart}
+\pagestyle{plain}
+ 
+\usepackage{amsmath,amsthm}
+
+\setlength{\textheight}{9.125in}
+\setlength{\textwidth}{6.8in}
+\setlength{\topmargin}{-.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\parindent}{0 pc}
+\renewcommand{\theenumii}{\roman{enumii}}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bS}{\mathbf{S}}
+
+\newcommand{\bL}{\boldsymbol{\Lambda}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bAT}{\mathbf{A}^{T}}
+\newcommand{\bAI}{\mathbf{A}^{-1}}
+ 
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cLi}{\mathcal{L}^{-1}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\buo}{\mathbf{u}_{1}}
+\newcommand{\but}{\mathbf{u}_{2}}
+\newcommand{\buth}{\mathbf{u}_{3}}
+
+%    Enclose the argument in vert-bar delimiters:
+\newcommand{\envert}[1]{\left\lvert#1\right\rvert}
+\let\abs=\envert
+
+
+
+\begin{document}
+\date{}
+\thispagestyle{empty}
+\vspace{.3in}
+\begin{flushright}
+Name: \underline{\hspace{3.0in}}
+\end{flushright}
+
+\begin{flushright}
+Student Number: \underline{\hspace{3.0in}}
+\end{flushright}
+
+\vspace{2.0 in}
+
+\begin{center}
+{\large \bf Computer Science 158A} \\
+Discrete Mathematics \\
+Exam 1\\
+September 14, 2001
+\end{center}
+
+\vspace{.5in}
+\noindent
+The Rules:
+\begin{enumerate}
+\item All work must be shown for full credit on any given problem.
+
+
+
+\item The  value of each problem is given. There are a total of
+12 problems. The test is 6 pages, counting the cover page.
+
+\item This is a closed note, closed book, open mind exam. You may use your
+calculator.
+
+\item If you are wearing a hat with a brim, turn the brim to the back
+of your head. 
+
+\item Stay calm. Stay cool. Start with a problem you are certain you can do.
+
+\item Keep working on problems that you can do, and save those that require 
+more thought until the end.
+
+\item Price does not include dealer prep or delivery.
+
+\item The Constitution -- void where prohibited by law.
+
+\item Please consult your physician before beginning this or any other exam.
+
+\item Might be over 18 to enter.
+
+\item Shirt and shoes optional.
+
+\end{enumerate} 
+
+
+ \vspace{0.25in}
+\begin{quotation}
+Things which matter most must never be at the mercy \\
+of things which matter least. \\
+% \ldots 
+\end{quotation}
+\begin{flushright}
+% {\it Tryin' to Reason with Hurricane Season} by Jimmy Buffet
+ -- Johann Wolfgang von Goethe
+\end{flushright}
+
+% \vspace{.25in}
+% \begin{center}
+% HAVE A HAPPY HOLIDAY!!
+% \end{center}
+
+ 
+\newpage
+% \begin{center}
+% \textbf{Chapter 7 Questions}
+% \end{center}
+
+\begin{enumerate}
+
+\item (4 points) Let U = \{a, b, c, d\}, A = \{a, b, c\}, B = \{b, c, d\}
+
+\vspace{0.3in}
+
+Find $f_{A \cap B} $  (x)
+
+\vspace{1.0in}
+
+\item (4 points) Let A = \{a, b, c, d\}
+
+\vspace{0.3in}
+
+(a) What is $ \mid $ A $ \mid $ ?
+
+\vspace{0.3in}
+
+(b) Given that P(A) is the power set of A, what is $ \mid $ P(A) $ \mid $ ?
+
+\vspace{1.0in}
+
+\item (6 points) There are 30 people who enter various part(s) of a compitition
+that has swimming, cycling, and running -- you can enter 1, 2, or all 3 parts.
+18 people swim. 8 people cycle. 10 people run. 2 people swim and cycle. 2 people
+swim and run. 3 people cycle and run.
+
+\vspace{0.3in}
+
+How many people do all 3 (swim, cycle, and run) ?
+
+\vspace{2.5in}
+
+\newpage
+\item (4 points) Let S = \{0,1\}. Find a regular expression that generates exactly the following regular set.
+ 
+\vspace{.3in}
+
+\{00, 01, 0000, 0001, 000000, 000001, 00000000, 00000001, ...\}
+
+\vspace{.1in}
+
+In other words, the set contains sequences having an even number of
+zeroes starting with 2 zeroes, and contains sequences having an odd
+number of zeroes followed by a single one, with the first entry
+having one zero and a one.
+
+\vspace{1.0in}
+
+\item (6 points) Prove the following :
+
+\vspace{.1in}
+
+If a $ \mid $ b or a $ \mid $ c, then a $ \mid $ bc
+
+\vspace{2.5in}
+
+\item (8 points) Write the equation d = sa + tb for a = 210, b = 22,
+and s, t integers by using Euclid's algorithm for GCD and then solving
+the equations in reverse order as we did in the textbook and in class.
+
+\vspace{1.5in}
+
+% \end{enumerate}
+
+\newpage
+\item (4 points) Given the following matrices A and B, show how to determine
+what value goes into the product of the matrices in the 3rd row, 2nd column
+by writing the expression as a sum of products from the two given matrices --
+I don't want you to use your calculator to get the actual number -- I want you 
+to show HOW it is calculated.
+
+\begin{equation*}
+  A = \left[ \begin{array}{rrr}
+                     1  &  2  &  3  \\
+                     4  &  5  &  6  \\
+                     7  &  8  &  9  \\
+             \end{array} \right]
+\end{equation*}
+
+\begin{equation*}
+  B = \left[ \begin{array}{rrr}
+                     0  &  2  &  4  \\
+                     6  &  8  & 10  \\
+                    12  & 14  & 16  \\
+             \end{array} \right]
+\end{equation*}
+
+\vspace{4.0in}
+
+\newpage
+
+\item (4 points) Give the identity element, if one exists, for each binary
+operation in the structure given below.
+
+\vspace{0.2in}
+
+[subsets of a finite set A,    $ \oplus $  ]
+
+\vspace{1.0in}
+
+\item (4 points) Below are 2 different logical expressions. They are
+not equivalent, but one of them does imply the other. Tell which one implies
+the other.
+
+\vspace{0.2in}
+
+$\forall$ x(H(x) v C(x))
+
+\vspace{0.1in}
+
+$\forall$ xH(x) v $\forall$ xC(x)
+
+\vspace{1.0in}
+
+\item (4 points) Given we want to prove something of the form p $ \Rightarrow $ q , an indirect proof of this uses (circle one)
+
+\vspace{.2in}
+
+\begin{enumerate}
+\item the converse
+\vspace{0.1in}
+\item the inverse
+\vspace{0.1in}
+\item the contrapositive
+\vspace{0.1in}
+\item the negation of the conclusion
+\end{enumerate}
+
+\vspace{1.0in}
+
+\item (4 points) Given we want to prove something of the form p $ \Rightarrow $ q, where q is something that never exists, we would likely instead use (circle
+one)
+
+\vspace{0.2in}
+
+\begin{enumerate}
+\item direct proof
+\vspace{0.1in}
+\item indirect proof
+\vspace{0.1in}
+\item proof by contradiction
+\vspace{0.1in}
+\item oblique proof
+\end{enumerate}
+
+\newpage
+
+
+\item (10 points) Prove the following using Mathematical Induction.
+
+\vspace{0.2in}
+
+1 + $ 4^{N} < 5^{N} $ , for N $ \geq $ 2
+
+\vspace{2.0in}
+
+
+
+\end{enumerate}
+\end{document}

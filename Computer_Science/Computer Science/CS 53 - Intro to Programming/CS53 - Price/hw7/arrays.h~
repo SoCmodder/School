@@ -1,0 +1,51 @@
+/* programmer: robertoMurillo   date: 10/16/05 *
+ * file: arrays.h             class: cs53      *
+ * purpose: building three arrays to convert a *
+ * random number into three characters.        */
+
+#ifndef ARRAYS_H
+#define ARRAYS_H
+
+
+/*************** GLOBAL CONSTANTS ***************/
+
+const int SIZE = 500;
+
+/*************** GLOBAL CONSTANTS ***************/
+
+/*************** PROTOTYPES ***************/
+
+
+void seeding_function( long array1[ ] );
+
+
+void modifying_function( long array1[ ] );
+
+
+void ascii_translate( long array1[ ], char array2[ ] );
+
+
+void find_positions( char array2[ ], char array3[ ] );
+
+
+void uppercase( char array2[ ] );
+
+
+bool is_prime( const long number );
+
+
+void uppercase( char array2[ ] );
+
+
+void reverse_uppercase( char array2[ ] );
+
+// gives the user a quit message
+// Pre: none
+// Post:
+void quit();
+
+
+/*************** PROTOTYPES ***************/
+
+#endif
+

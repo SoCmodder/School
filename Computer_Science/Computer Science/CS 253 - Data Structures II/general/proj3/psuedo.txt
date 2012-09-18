@@ -1,0 +1,315 @@
+
+struct Vertex
+	int parent
+	int next
+end
+
+struct Edge
+	int v1, v2
+	int weight
+	bool used
+end
+
+struct AdjNode
+	int weight[n]
+	int adj[n]
+	int size
+end
+
+# PRE: edges is a list of possible edges
+# 	vertices is a list of vertices to be connected
+# POST: edges is updated such that used = true if it is to
+# 	be placed or used = false if it is not to be used
+void Kruskal()
+	SortEdges()
+
+	# Assert I1
+	for each edge in edges
+		# Assert I1 and edge in edges
+		if FindParent(edge.v1) != FindParent(edge.v2)
+			edge.used = true
+			# Assert I2
+			for each child of FindParent(v2)
+				# Assert I2 and child exists
+				child.parent = edge.v1.parent
+				# Assert I2
+			end
+			# Assert no more children of FindParent(v2)
+			vertices[tails[v1]].next = v2
+			tails[v1] = tails[v2]
+		end
+		# Assert I1
+	end
+	# Assert edge not in edges
+
+	# Loop Invariants
+	# I1 : It has been determined whether each edge up to edges
+	# 	should be included in the minimal spanning tree
+	# I2 : The parent vertex for all children of the parent of v2
+	# 	have been set to point to the parent of v1
+end
+
+# PRE: v is the index of the vertex whose parent to find
+# POST: returns the index of the parent vertex of v
+int FindParent(int v)
+	if vertices[v].parent != v
+		vertices[x].parent = FindParent(vertices[x].parent)
+	end
+	return vertices[x].parent
+end
+
+# PRE: matrix is the matrix representation of the graph to be translated
+# POST: edges and vertices hold the edges and vertices of the graph
+void EdgeToMatrix(int matrix[n][n])
+	set each element of matrix to INFINITY
+	# Assert I1
+	for each edge in edges
+		# Assert I1 and index in range
+		if edge.used
+			matrix[edge.v1][edge.v2] = edge.weight
+			matrix[edge.v2][edge.v1] = edge.weight
+		end
+		# Assert I1
+	end
+	# Assert index out of range
+
+	# Loop Invariant
+	# I1 : All edges up to edge in edges have been added to matrix
+end
+
+# PRE: graph holds the list of the graph to be translated
+# POST: edges and vertices hold the edges and vertices of the graph
+void AdjToEdge(AdjNode graph[n])
+	set each vertex.parent to index
+	set each vertex.next to INFINITY
+	set each tail to index
+	numEdges = 0
+	# Assert I1
+	for each node in graph
+		# Assert I1 and index in range
+		# Assert I2
+		for each adjacent vertex in node
+			# Assert I2 and index2 in range
+			edges[numEdges].v1 = node.index
+			edges[numEdges].v2 = adjacent.number
+			edges[numEdges].weight = adjacent.weight
+			edges[numEdges].used = false
+			numEdges = numEdges + 1
+			# Assert I2
+		end
+		# Assert index2 out of range
+		# Assert I1
+	end
+	# Assert index out of range
+
+	# Loop Invariants
+	# I1 : All edges in the list representation of the graph up to index
+	# 	have been added to the edge list
+	# I2 : All adjacent edges up to edge are initialized to matrix
+end
+
+# PRE: edges and vertices hold the edges and vertices of the graph
+# POST: matrix holds the matrix representation for the graph
+void MatrixToEdge(int matrix[n][n])
+	set each vertex.parent to index
+	set each vertex.next to INFINITY
+	set each tail to index
+	numEdges = 0
+	# Assert I1
+	for each column in matrix
+		# Assert I1 and column in range
+		# Assert I2
+		for each row in matrix
+			# Assert I2 and row in range
+			if matrix[row][column] != INFINITY
+				edges[numEdges].v1 = column
+				edges[numEdges].v2 = row
+				edges[numEdges].weight
+					= matrix[row][column]
+				edges[numEdges] = false
+				numEdges = numEdges + 1
+			end
+			# Assert I2
+		end
+		# Assert row out of range
+		# Assert I1
+	end
+	# Assert column out of range
+
+	# Loop Invariants
+	# I1 : All columns in matrix up to column have been added to the
+	# 	edge list
+	# I2 : All rows in column of matrix up to row have been added to
+	# 	the edge list
+end
+
+# PRE: edges is a list of all the edges in the graph
+# POST: edges is a list of the sorted edges, which are sorted by
+# 	weight in non-descending order
+void SortEdges(Edge edges[])
+	# Assert I1
+	for each edge n / 2 down to 1
+		# Assert I1 and index > 1
+		SiftHeap(edges, index, n)
+		# Assert I1
+	end
+	# !(index > 1)
+
+	# Assert I2
+	for each edge n down to 1
+		# Assert I2 and index > 1
+		SiftHeap(edges, 1, index)
+		swap edges[1] with edges[index]
+		# Assert I2
+	end
+	# Assert !(index > 1)
+
+	# Loop Invariants
+	# I1 : edges[index] is the root of the max heap
+	# I2 : edges[1] through edges[index] hold the smallest
+	# 	values in the array and edges[index + 1] through
+	# 	edges[n] hold the largest values in the array
+end
+
+# PRE: edges is the heap (of size size) to be heapified
+#	the right and left nodes of x are max-heaps
+# POST: edges holds a max heap
+void SiftHeap(Edge edges[], x, size)
+	root = edge[x]
+	y = x * 2
+	finished = false
+	while not finished
+		if y < size and edges[y + 1].weight > edges[y].weight
+			y = y + 1
+		end
+		if edges[y].weight > root.weight
+			edges[x] = edges[y]
+			x = y
+			y = x * 2
+			finished = (y > size)?
+		else
+			finished = true
+		end
+	end
+	edge[x] = root
+end
+
+# PRE: matrix is the matrix graph to be generated of size n
+# POST: matrix holds a matrix graph representation of size n
+void GenerateGraphMatrix()
+	# Assert I1
+	for each column in matrix
+		# Assert I1 and column in range
+		# Assert I2
+		for each row in matrix
+			# Assert I2 and row in range
+			matrix[row][column] = INFINITY
+			if rand(0, 99) < density
+				matrix[row][column] = rand(0, 99)
+			end
+			# Assert I2
+		end
+		# Assert row out of range
+		# Assert I1
+	end
+	# Assert column out of range
+
+	connected[0..n] = false
+	# Assert I3
+	for each column in matrix
+		# Assert I3 and column in range
+		# Assert I4
+		for each row in matrix
+			# Assert I4 and row in range
+			if matrix[row][column] != INFINITY
+				connected[row] = true
+				break 2 levels
+			end
+			# Assert I4
+		end
+		# Assert row out of range
+	end
+	# Assert column out of range
+	if all connected[0..n] == false
+		GenerateGraphMatrix()
+		return
+	end
+	repeat n times
+		# Assert I5
+		for each column in matrix
+			# Assert I5 and column in range
+			if connected[column]
+				# Assert I6
+				for each row in matrix
+					# Assert I6 and row in range
+					if matrix[row][column] != INFINITY
+						connected[row] = true
+					end
+					# Assert I6
+				end
+				# Assert row out of range
+			end
+			# Assert I5
+		end
+		# Assert column out of range
+	end
+	# Assert I7
+	for each row in matrix
+		# Assert I7 and row in range
+		if not connected[row]
+			y = rand(0, n) where not connected[y]
+			temp = rand(0, 99)
+			matrix[row][y] = temp
+			matrix[y][row] = temp
+			connected[row] = true
+		end
+		# Assert I7
+	end
+	# Assert row out of range
+
+	# Loop Invariants
+	# I1 : All columns up to column have been initialized
+	# I2 : All rows of column up to row have been initialized
+	# I3 : It has been determined if there is a connection for
+	# 	all columns up to column
+	# I4 : It has been determined if there is a connection for
+	# 	all rows of column up to row
+	# I5 : The connection list has been updated for all columns of
+	# 	matrix up to column
+	# I6 : The connection list has been updated for all rows of
+	# 	column of matrix up to row
+	# I7 : All rows of matrix up to row have been connected
+end
+
+# PRE: adj is the list of nodes for the graph of size n
+# POST: adj holds a list representation of a graph
+void GenerateAdjList()
+	GenerateGraphMatrix()
+	# Assert I1
+	for each column in matrix
+		# Assert I1 and column in range
+		nodes[column].size = 0
+		# Assert I2
+		for each row in matrix
+			# Assert I2 and row in range
+			if matrix[row][column] != INFINITY
+				nodes[column].weight[nodes[column].size]
+					= matrix[row][column]
+				nodes[column].adj[nodes[column].size] = row
+				nodes[column].size = nodes[column].size + 1
+			end
+			# Assert I2
+		end
+		# Assert row out of range
+		# Assert I1
+	end
+	# Assert column out of range
+
+	# Loop Invariants
+	# I1 : All columns of matrix up to column have been added to the list
+	# I2 : All rows of column of matrix up to row have been added to
+	# 	the list
+end
+
+
+

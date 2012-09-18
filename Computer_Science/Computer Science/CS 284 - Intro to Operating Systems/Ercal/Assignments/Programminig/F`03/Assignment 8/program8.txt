@@ -1,0 +1,166 @@
+ 
+                          CS 284 Operating Systems 
+                         Programming Assignment #8 
+ 
+                         Pipes:  Creating a shell 
+ 
+ 
+ 
+Due: 11/10/2003 - Class Time 
+============================================================================= 
+REQUIRED READING:  
+ 
+        Man Pages: 
+            fgets, pipe, dup, dup2, close, perror, strpbrk, malloc, realloc, 
+            free, wait, fork, strchr, execv, execvp 
+============================================================================= 
+ 
+Description 
+============ 
+ 
+This program is meant to implement the start of a shell program.  This entails 
+the use of pipes and some string parsing. 
+ 
+ 
+Assignment 
+=========== 
+ 
+For this assignment, we will create the beginnings of a UNIX shell program. 
+ 
+This program should be written in C. 
+ 
+A.  The program should read from the standard input (keyboard) until the user 
+    presses Ctrl-D (EOF) on a blank line. 
+ 
+B.  Each line can have the following format: 
+ 
+  <command1> <arg1> <arg2> | <command2> <arg1> <arg2> | <comand3> <arg1> <arg2> 
+     
+    The input has the following limitations: 
+ 
+    1.  There will not be more than 2 pipes (maximum of 3 commands). 
+    2.  Each command will have no more that 2 arguments. 
+    3.  Each line will be no greater than 512 characters. 
+ 
+    A '|' signifies that there exists a "pipe" between the commands before and 
+    after the symbol.  See (3) in the Design Notes. 
+ 
+    NOTE: You should use strpbrk() or strchr() to help you parse the string. 
+    Do *not* use strtok() or strsep(), unless you understand the consequeneces. 
+ 
+C.  After each line is read in, the program should list, on the screen, the  
+    commands to be executed. 
+ 
+D.  The commands should be executed with the final output showing on the 
+    screen.  The final output is the output from the *LAST* command run (not 
+    all of them).  You can use any of the exec*() family in your program. 
+ 
+    NOTE:  You will need to construct the argument table (argv) for each  
+    command executed.  When you do,  remember that argv[0] is *always* the 
+    name of the program being executed and that the list *must* end with NULL. 
+ 
+E.  There should be one child process per *command*. The main program
+    (the shell) should continuously loop and read user commands. It will
+    parse the input and separate it into one or more commands each of
+    which will get executed by a child process via exec*().
+    For example,  
+                SHELL>  ls | grep prog| grep c
+    requires 3 children processes to execute.
+
+======================================================================== 
+DESIGN NOTES: 
+======================================================================== 
+ 
+1.  When dealing with pipes, you should close() *all* pipes that you are not 
+    using.  If you do not, then do not be surprised if you get zombie 
+    processes (or you indefintely wait for a process to die). 
+ 
+2.  If an error happens, use perror() to should a more detailed error message. 
+ 
+3.  You can use the Standard Input and Standard Output file descriptors, 0 and 
+    1 respectively, to make it easier to pass information from one process to 
+    another.   
+ 
+4.  When debugging, use Standard Error to print out information to the screen, 
+    since we will not be manipulating that file descriptor: 
+ 
+    fprintf( stderr, "DEBUG: %s\n", Buffer ); 
+ 
+5.  Before dealing with tokens between the pipes, you should remove all spaces 
+    before and after the token. 
+ 
+    "  ls" --- should become ---> "ls" 
+    "ls  " --- should become ---> "ls" 
+ 
+    "grep prog   " --- should become ---> "grep prog" 
+    "   grep prog" --- should become ---> "grep prog" 
+     
+TIPS:
+
+6.  Do not use gets() for parsing the command line. It does not
+    provide buffer overflow protection. You can, however, use fgets().
+    For the FILE* argument you can use stdin if you are reading from
+    the original standard input. But be wary of using stdin because
+    where it points can change during the program (i.e. using dup2()).
+    Also, don't use strcpy(), strcmp() or strcat().  
+    Use strncpy(), strncat() and strncmp().
+
+7.  Points will be deducted if the children are not cleaned up! 
+
+======================================================================== 
+ 
+(1) Store your source files, script file (myhandin#), and the 
+    executable file, in the directory:  ~cs284/YourLoginName/proj#/ 
+    where # = Assignment number 
+ 
+========================================================================= 
+ 
+========================================================================= 
+SAMPLE OUTPUT 
+========================================================================= 
+Script started on Mon Nov  3 13:35:04 2003 
+Directory: /home/sea/Projects/TA-284/Projects/Proj8 
+Projects/Proj8> ./prog8 
+ 
+SHELL> ls 
+Command 1 is "ls" 
+ 
+Prog8Output.out	prog8  prog8.c	program8.txt 
+ 
+SHELL> ls | grep prog 
+Command 1 is "ls" 
+Command 2 is "grep prog" 
+ 
+prog8 
+prog8.c 
+program8.txt 
+ 
+SHELL> ls| grep prog |grep 8 
+Command 1 is "ls" 
+Command 2 is "grep prog" 
+Command 3 is "grep 8" 
+ 
+prog8 
+prog8.c 
+program8.txt 
+ 
+SHELL> ps aux|grep sea 
+Command 1 is "ps aux" 
+Command 2 is "grep sea" 
+ 
+root      3015  0.0  0.5  2248 1132 ?        S    09:46   0:00 login -- sea      
+root      3288  0.0  0.5  2248 1192 ?        S    10:17   0:00 login -- sea      
+sea       3357  0.0  0.8  3144 1852 tty1     S    10:17   0:00 -tcsh 
+sea       3600  0.0  0.8  3144 1848 tty2     S    10:44   0:00 -tcsh 
+sea       4296  0.0  1.2  6492 2836 tty2     S    12:56   0:00 vim prog8.c 
+sea       4360  0.0  0.1  1324  440 tty1     S    13:35   0:00 script Prog8Ouput.out 
+sea       4361  0.0  0.2  1456  488 tty1     S    13:35   0:00 script Prog8Ouput.out 
+sea       4362  0.2  0.7  2892 1552 pts/0    S    13:35   0:00 -csh -i 
+sea       4369  0.0  0.1  1308  344 pts/0    S    13:35   0:00 ./prog8 
+sea       4376  0.0  0.3  2636  792 pts/0    R    13:35   0:00 ps aux 
+sea       4377  0.0  0.2  1432  452 pts/0    S    13:35   0:00 grep sea 
+ 
+SHELL> ^D  
+Projects/Proj8> ^Dexit 
+ 
+Script done on Mon Nov  3 13:35:43 2003 

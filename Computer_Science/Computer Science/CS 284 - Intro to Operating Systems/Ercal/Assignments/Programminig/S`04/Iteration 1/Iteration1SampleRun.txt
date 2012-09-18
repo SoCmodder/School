@@ -1,0 +1,39 @@
+Sample Output
+==============
+Script started on Mon Jan 19 19:48:47 2004
+ercal - ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04 % gcc -o iteration1.c  
+ercal - ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04 % a.out --help  
+ 
+ 
+Usage: a.out [--help|--version] 
+--help		Shows this message. 
+--version	Shows the version of this program. 
+ 
+ercal - ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04 % a.out --version  
+ 
+ 
+a.out: Version 0.100000 
+ 
+ercal - ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04 % a.out  
+ercal:ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04:>help 
+Input from user: help 
+ 
+ercal:ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04:>version 
+Input from user: version 
+ 
+ercal:ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04:>I will quit soon 
+Input from user: I will quit soon 
+ 
+ercal:ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04:>exit 
+Input from user: exit 
+ 
+ercal:ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04:>It did not exit when I typed "exit" is it a bug? 
+Input from user: It did not exit when I typed "exit" is it a bug? 
+ 
+ercal:ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04:>probably; then I will type "Cntl-D" 
+Input from user: probably; then I will type "Cntl-D" 
+ 
+ercal:ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04:>^D
+Program exit. 
+ercal - ercal:/afs/umr.edu/users/ercal/284/gizli/ws-04 % exit
+script done on Mon Jan 19 19:51:52 2004

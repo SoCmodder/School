@@ -1,0 +1,70 @@
+/* programmer: robertoMurillo    date: 10/5/05 *
+ * file: geometer.cpp                          *
+ * purpose: walk-in-geometer script for Bob.   *
+ * this file includes all prototypes/vars.     */
+ 
+#ifndef GEOMETER_H
+#define GEOMETER_H 
+
+/*************** STRUCTS ***************/
+
+struct Point
+{
+  float m_Xcoord;
+  float m_Ycoord;
+};
+
+struct Circle
+{
+	float m_radius;
+};
+    
+/*************** STRUCTS ***************/
+    
+/*************** PROTOTYPES ***************/
+
+// displays a welcome message
+// pre: none
+// post: prints welcome message
+void welcome();
+
+// displays menu to the user
+// pre: none
+// post: outputs a menu to user
+char displayMenu();
+
+// switch-case that controls options
+// pre: choice must be 1-6
+// post: the appropriate function is called depending on the users choice
+void menuCases(const char choice);  
+Point getPoint();  // gets the user's point
+
+// quadrantPoints calculates all points for quadrant rectangle
+// pre: point pt does not have 0 in X or Y
+// post: points p2, p3, and p4 are given values
+void quadrantPoints(const Point pt, Point & p2, Point & p3, Point & p4);
+
+// planePoints calculates all points for plane rectangles
+// pre: pt does not have 0 in X or Y
+// post: points p2, p3, and p4 are given values
+void planePoints(const Point pt, Point & p2, Point & p3, Point & p4);
+
+Point displayPoints(const Point pt);  // displays points in (x,y)
+
+Circle getCircle(const Point & p1);
+
+void printCircle(const Circle circle1);
+
+float pointRotateAsk();
+
+Point pointRotateFind( const Point & p2, const float angleRotate );
+
+void printRotatePt(const Point & p2);
+
+void quit();  // quit's out of the program
+
+void exit();  // exit message
+
+/*************** PROTOTYPES ***************/
+
+#endif

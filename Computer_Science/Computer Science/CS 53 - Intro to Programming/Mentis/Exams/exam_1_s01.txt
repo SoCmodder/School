@@ -1,0 +1,208 @@
+Computer Science 53 - Section C         Name __________________________
+Summer 2001                             Student Number ________________
+Exam 1                                  Page x of y
+
+This test is closed books/closed notes.  You will not need a
+calculator.  
+ 
+If any answer is illegible it will be considered incorrect.
+ 
+Unless told otherwise, for all program fragments given in the
+questions you may assume that all necessary include files have been
+included and that there are no errors in the sections of code not 
+explicitly given.  
+
+For T/F questions, circle either T or F.
+For multiple choice questions, circle the correct letter.
+
+(2) 1. Declare a global constant, of type integer, named iMAX, 
+       that has a value of 1000.
+
+(2) 2. Given the following code, what is the value of siVal1 after
+       the code has executed ?
+
+       short siVal1 = 15;
+       short siVal2 = 5;
+
+       siVal1 = siVal1 - siVal2;
+
+(2) 3. Write the output produced by the following code segment.
+
+       short siNum = 5;
+       cout << "siNum = " << siNum;
+
+(2) 4. What does the following statement do when placed at the
+       beginning of a .cpp or .h file ?
+
+       #include <iostream.h>
+
+(2) 5. Write the output produced by the following code segment.
+ 
+       int iA = 5;
+       int iB = 3;
+       
+       if(iA < iB)
+          cout << "Hello" << endl;
+       cout << "GoodBye" << endl;
+
+(4) 6. Why are magic numbers bad ? (numbers that just pop up throughout
+       your code). Give at least 2 reasons.
+
+(6) 7. For the following data types, tell the order they are promoted
+       in, from lowest to highest, when you mix different types in an 
+       operation.
+
+       short integers
+       floats
+       long doubles
+       integers
+       long integers
+       doubles
+
+(4) 8. Given the following code, what are the values of siN1 and siN2
+       after it has completed ?
+
+       short siN1 = 5;
+       short siN2 = 10;
+
+       siN1 = ++siN2;
+
+       siN1 = _______
+       siN2 = _______
+    
+(4) 9. Given the following code, what are the values of siN1 and siN2
+       after it has completed ?
+
+       short siN1 = 5;
+       short siN2 = 10;
+
+       siN1 = siN2--;
+
+       siN1 = _______
+       siN2 = _______
+
+(2) 10. Given the following code, what are the values of siN1 and siN2
+        after it has completed ?
+
+        short siN1 = 5;
+
+        siN1 *= 3;
+
+        siN1 = _______
+
+(4) 11. Given the following code, what are the values of siN1 and siN2
+        after it has completed ?
+
+        short siN1 = 5;
+        short siN2 = 7;
+
+        siN2 += siN1;
+
+        siN1 = _______
+        siN2 = _______
+
+(2) 12. What is the value of the following expression ?
+
+        4 + 5 % 2 * 6 - 1
+
+For 13-15, what is the value of each expression, given :
+
+           long int liA = 7; 
+           short siB = 24;
+           float fC = 3.5; 
+           long double ldD= 17.5;
+           short siResult1, siResult2;
+           bool bResult3;
+
+(2) 13. siResult1 = siB / liA + fC;                    
+
+        siResult1 = ?
+
+(2) 14. siResult2 = liA * fC;                          
+    
+        siResult2 = ?
+ 
+(3) 15. bResult3 = ((siB >= liA + fC)   ||   (siB > ldD)   &&   (fC > liA));
+
+        bResult3 = ?
+
+(3) 16. What output is produced by the following code when x = 12 ?
+
+        if(x < 20)
+           if(x > 30)
+              cout << "foo1" << endl;
+           else
+              cout << "foo2" << endl;
+        else
+           if(x < 0)
+              cout << "foo3" << endl;
+           else
+              cout << "foo4" << endl;
+
+(3) 17. What output is produced by the following code when x = 25 ?
+
+        if(x > 20)
+        {
+           if(x > 30)
+              cout << "foo1" << endl;
+        }
+        else
+           cout << "foo2" << endl;
+
+(2) 18. The design phase of the software development process deals with
+
+        a) Finding out what the user wants.
+        b) Telling the user what restrictions exist in terms of what 
+           they can have versus what they'd like to have.
+        c) Finding an algoritm, or method, to solve the problem.
+        d) Finding the correct coding constructs to satisfy the complier.
+        e) Finding my car keys.
+
+(2) 19. Hungarian notation is used because
+     
+        a) It is necessary to satisfy the computer.
+        b) It satifies the Hungarian members involved in ISO certification
+           of C++.
+        c) It makes it easier for a programmer looking at the code to
+           determine what type a variable is without having to search
+           througout the program.
+        d) While not necessary for a program to compile, it will execute
+           more efficiently.
+
+(2) 20. 'mkdir foo' does the following :
+
+        a) makes a file called 'foo' in a directory called 'dir'
+        b) makes a directory called 'foo' in my current directory.
+        c) makes me a ham sandwich.
+        d) makes a file called 'foo.dir' in my current directory.
+
+(2) 21. Machine languages are
+
+        a) Portable, not very English like.
+        b) Not portable, very English like.
+        c) Not portable, not very English like.
+        d) Portable, very English like.
+
+(2) 22. Name at least 1 thing C++ has that C does not.
+
+(2) 23. What 1 thing must every C++ program have ?
+
+(2) 24. T/F. Comments that begin with // continue across multiple lines, 
+             if need be, until and ending // terminates the comment.
+
+(10) 25. Write a complete program (don't code your name, section, or a
+         description -- I don't need any comments except for variable
+         declarations). The program should read in the weight of 1 box
+         of cereal in grams, and convert that to pounds (lb.) and output
+         that result. It should also compute how many boxes of cereal
+         there are per pound and output that as well.
+
+         You don't need to put in a do-while loop to allow the user
+         to run this multiple times -- assume it runs just 1 value.
+
+         Note : 1 lb. = 453.6 g.
+
+         As an example, if you read in 1 box == 100 g, then
+
+         1 box weighs 0.2204586 lbs.
+         It takes 4.536 boxes to make 1 lb.

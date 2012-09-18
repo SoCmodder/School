@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+
+float a=0;
+float x;
+int iloop;
+ofstream numberout;
+numberout.open("points.txt");
+cout<<"Here";
+for (iloop=0;iloop<=226;iloop++)
+    {
+     cout<<a;
+     x=sqrt(.180625-(a*a*.8919753));
+     numberout<<a<<","<<x<<endl;
+     a=a+.002;
+     }
+numberout.close();
+return 0;
+}

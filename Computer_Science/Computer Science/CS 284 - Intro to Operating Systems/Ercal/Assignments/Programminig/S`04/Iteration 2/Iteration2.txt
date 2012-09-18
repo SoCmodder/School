@@ -1,0 +1,100 @@
+Iteration II - Implementing a simple parser
+=============================================================================
+
+Due Date: 2/3/04, 11:59:59 pm
+
+Useful Man Pages (all man pages from previous iterations)
+=========================================================
+
+strlen, strncmp, strncat, malloc, free, realloc, calloc, strncpy,
+memmove, isspace, strpbrk, strchr
+
+New Object Created
+===================
+
+Parser - used to parse the input into tokens
+
+Reading from Wang
+===================
+No new reading is required, but it might be useful to examine parsing
+techniques from the Internet.
+
+Overview
+============
+
+Now that we can take input from the user, we must parse this input so
+that we can perform useful operations with it.  
+
+We will be adding onto the previous iteration.  The following functions
+will be added in this iteration:
+
+* Parsing strings into useable tokens
+* Constructing a better prompt through parsing.
+
+Description:
+=============
+
+You are to extend your previous program by adding a simple parser as
+follows:
+
+1.  All operations done in the previous iterations must work.  This means
+    that all tests performed on previous iterations need to continue to work.
+
+2.  The program should accept input from the user until either the user
+    types "exit" on a line by itself, or the user pressed Ctrl-D on a
+    line by itself.  The input will never be more than 512 characters.
+
+    The following should be done with the input:
+
+    A.  If only the enter key is used, then there should be no parsing
+        done.  Merely, redisplay the prompt.
+
+    B.  Remove all extraneous spaces (i.e. each word should have one
+        space between them and all spaces at the end of the line should
+        be removed).
+
+    C.  Output each token to the screen. Tokens can be delimited by:
+        
+        I.  spaces (Do not keep these around)
+        II. special characters (|,<,>,!,@,etc).  Be sure that at least
+            one special character is identified (the "|"). Also, since
+            these tokens can mean something special, you need to keep them
+            around.
+
+        NOTE:  You don't need to parse on EVERY type of special character.  
+               Just be sure that your code is fashioned in such a way as to
+               be extendible.  We may be adding special characters later.
+
+3.  The prompt from the last iteration should be parsed so that only the
+    last two directories of the path are shown.  However, if there are
+    less than or equal to 2 directories, the whole path should be shown.
+
+    EXAMPLE:  
+        Current Directory: /home/sea/Projects
+        Shown Directory:   sea/Projects
+
+    EXAMPLE 2:
+        Current Directory: /home/sea
+        Shown Directory:   /home/sea
+
+
+Sample Run
+============
+
+Script started on Sun Jan 18 12:18:26 2004
+sea@sabatour: /home/sea/Projects/TA-CS284/WS04/src/iteration2src/iteration2> ./main
+sea:sabatour:src/iteration2:>Bob was here
+Token 1: Bob
+Token 2: was
+Token 3: here
+sea:sabatour:src/iteration2:>ls| grep | apples
+Token 1: ls
+Token 2: |
+Token 3: grep
+Token 4: |
+Token 5: apples
+sea:sabatour:src/iteration2:>quit
+Program exit.
+src/iteration2> ^Dexit
+
+Script done on Sun Jan 18 12:18:56 2004

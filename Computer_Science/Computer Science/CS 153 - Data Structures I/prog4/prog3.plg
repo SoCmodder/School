@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: prog3 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/prog3.res" /d "_DEBUG" /d "_AFXDLL" "S:\cs153\prog4\prog3.rc"" 
+Creating temporary file "C:\TEMP\RSP29.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/prog3.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"S:\cs153\prog4\Bag.cpp"
+"S:\cs153\prog4\prog3.cpp"
+"S:\cs153\prog4\prog3Dlg.cpp"
+]
+Creating command line "cl.exe @C:\TEMP\RSP29.tmp" 
+Creating temporary file "C:\TEMP\RSP2A.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/prog3.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"S:\cs153\prog4\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\TEMP\RSP2A.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/prog3.pdb" /debug /machine:I386 /out:"Debug/prog3.exe" /pdbtype:sept  .\Debug\Bag.obj .\Debug\prog3.obj .\Debug\prog3Dlg.obj .\Debug\StdAfx.obj .\Debug\prog3.res "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Bag.cpp
+prog3.cpp
+prog3Dlg.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+prog3.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

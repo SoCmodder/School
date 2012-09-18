@@ -1,0 +1,189 @@
+                          CS 284 Operating Systems
+                          Programming Assignment #1
+
+Due: 9/9/2003 - Class Time
+=================================================================
+REQUIRED READING: Wang 6.7, 11.14
+=================================================================
+
+Write a C program (not a C++ program!) that utilizes all three arguments
+available to the main function:
+    int main( int argc, char *argv[], char *env[] )
+
+    where:
+    argc = the number of arguments passed to the program
+    argv = a pointer to an array of the actual contents of the arguments
+    env = a pointer to an array of environment variables passed to the program
+          by the Operating System.
+
+Also, incorporate reading in from the standard input and writing out to the
+standard output using the scanf(...) and printf(...) function, respectively.
+
+The following operations should be performed using these functions:
+
+1.  Demonstrate reading in from standard input:
+        
+        A. an integer.
+        B. a character.
+        C. a floating point value.
+        D. a string of characters (no more than 30 characters long).
+        E. a small array of integers (no more than 10 integers long).
+
+2.  Each input should then be written to the standard output with proper
+    information and context displayed.  (i.e.  Label the integer as an integer).
+
+3.  Loop through the argument array (argv) and print each of the command line
+    arguments to the standard output.  Label each argument appropriately.
+        
+    Test each command line argument to see if the first character is an
+    integer (using isdigit(...) ). If the first characer is a digit,
+    then print the argument to standard output as an integer, using
+    the atoi(...) function.
+
+4.  Loop through the environment variable array (env).  Print the following to
+    the standard output, labeling appropriately:
+        
+        A. the first environment string.
+        B. the value associated with the "HOSTNAME" variable. The strtok(...)
+           or strtok_r(...) function may be helpful.
+        C. The value associated with the "USER" variable.
+        D. The last environment string. 
+
+5. Print a count of how many environment variable there were.
+
+           
+ADDITIONAL NOTES:
+==================
+
+The input for your program (the numbers and characters) should be stored
+into a 'data file' called "mydata".
+
+To run your program type something like the following:
+
+    a.out < mydata
+
+=================================================================
+
+You will use the 'script' command to capture all necessary information for
+handin.  You do that by:
+
+ 1) starting the script command "script myHandin"
+ 2) cat YourProgram.c
+ 3) cat mydata
+ 4) a.out arg1 arg2 arg3 ... < mydata
+ 5) exit
+ 6) Remove any Ctrl-Ms from your script file (myHandin) by using the dos2unix
+    command (if present) or the shell script below. 
+ 7) Store your source files, script file (myHandin), and the executable file
+    in the directory:
+        ~cs284/AFSLOGIN/proj#    
+
+        AFSLOGIN is your AFS username
+        # is the Assignment number.
+
+    For example:  If Brian Sea (AFS login: sea) wanted to turn in his fourth
+    programming assignment, he would store all relevant files in the
+    directory:
+        ~cs284/sea/prog4
+
+The following shell script will remove Ctrl-Ms (or any specific string) from
+your file. Store these lines in a file called "rmcntlM" set the permissions to
+744 (chmod 744 rmcntlM) and then if you type:
+
+  > rmcntlM FILENAME
+
+$1 in your shell script will be equal to 
+the first command line parameter (i.e. "FILENAME")
+(Edited file will be stored as FILENAME.edit)
+
+=====================CUT HERE==============================================
+
+#!/bin/csh
+## tr is a translate utility
+## \r is the Ctrl-M
+
+cat $1 | tr "\r" " " > $1.tmp
+if( -e $1.tmp ) then
+    rm $1
+    mv $1.tmp $1.edit
+endif
+
+===================END CUT=================================================
+
+
+The actual hard-copy should be produced by entering
+
+    a2ps myHandin | lpr -P yourPrinterPreference
+
+    where "yourPrinterPreference" is the LPR queue name of the printer. 
+    Usually if this is left off the "local" printer will be used (local to the
+    machine, not you).
+
+===================================================================
+A SAMPLE SCRIPT SESSION
+===================================================================
+
+> script myhandin
+
+==================================================================
+Script started on Mon Sep 09 13:14:33 2002
+ercal - ercal:/afs/umr.edu/users/ercal/284/GXU-W2001 % cat program2.c
+/******************************************************************************* 
+**   CS284 Operating Systems 
+**   Programming Assignment #2 
+**   Program name: prog2.c 
+**   Author: 
+**   Date: 
+** 
+**   This program demonstrates how to use arguments passed to main()  
+**   and the use of the scanf(...) and printf(...) functions.
+*******************************************************************************/ 
+ 
+#include <stdio.h> 
+#include <stdlib.h>  /* atoi() */ 
+#include <ctype.h>   /* isdigit() */ 
+#include <string.h>  /* strtok() */
+ 
+/* 
+ * argc: # of arguments passed; 
+ * argv: array of passed arguments; 
+ * env: array of passed env variables. 
+ */ 
+int main( int argc, char *argv[], char *env[] ) 
+{ 
+   int i; 
+   int d; 
+
+   ........ < stuff deleted >......
+
+   printf( "total # of env variables: %d\n", i ); 
+ 
+   return 0; 
+} 
+
+ercal - ercal:/afs/umr.edu/users/ercal/284/gizli/fs-02 % cat mydata  
+10 
+v 
+3.14 
+NoSpaceInAString 
+1 2 3 4 5 6 7 8 9 0 
+
+ercal - ercal:/afs/umr.edu/users/ercal/284/GXU-W2001 % gcc -o prog1 prog1.c  
+ercal - ercal:/afs/umr.edu/users/ercal/284/GXU-W2001 % prog1 Fikret Ercal 67 0.5 < mydata
+
+int: 10 
+char: v 
+float: 3.140000 
+string: NoSpaceInAString 
+array of integers: 1 2 3 4 5 6 7 8 9 0 
+argument 1: Fikret 
+argument 2: Ercal 
+argument 3: 67 @1st character is digit: 67 
+argument 4: 0.5 @1st character is digit: 0 
+first env[] string: TZ=CST6CDT 
+HOSTNAME=ercal 
+USER=ercal 
+last env[] string: TERMCAP=sun-c|sun-cmd:am:km:ms:co#77:li#37:%7=\E[194z:&5=\E[193z:&8=\E[195z:@7=\E[220z:AL=\E[%dL:DC=\E[%dP:DL=\E[%dM:F1=\E[234z:F2=\E[235z:IC=\E[%d@:K2=\E[218z:al=\E[L:bl=^G:cd=\E[J:ce=\E[K:cl=^L:cm=\E[%i%d;%dH:cr=^M:dc=\E[P:dl=\E[M:do=^J:ei=:ic=\E[@:im=:k1=\E[224z:k2=\E[225z:k3=\E[226z:k4=\E[227z:k5=\E[228z:k6=\E[229z:k7=\E[230z:k8=\E[231z:k9=\E[232z:k;=\E[233z:kD=\177:kN=\E[222z:kP=\E[216z:kb=^H:kd=\E[B:kh=\E[214z:kl=\E[D:kr=\E[C:ku=\E[A:le=^H:me=\E[m:mr=\E[7m:nd=\E[C:r2=\E[s:..sa=\E[0%?%p6%t;1%;%?%p2%t;4%;%?%p1%p3%|%t;7%;m:se=\E[m:sf=^J:so=\E[7m:ta=^I:te=\E[>4h:ti=\E[>4l:u8=\E[1t:u9=\E[11t:up=\E[A: 
+total # of env variables: 40 
+ercal - ercal:/afs/umr.edu/users/ercal/284/GXU-W2001 % exit
+script done on Mon Sep 09 13:18:56 2002

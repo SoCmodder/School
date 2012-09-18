@@ -1,0 +1,78 @@
+
+# ------------------------------------------------------------------------------
+#
+# program name: submit (Shell script)
+# Author      : Franck Xia, CS Dept., UMR
+# Date        : Sep 10, 2002
+# 
+# Function    : CS236 programming assignment submission
+#
+# User Guide  : You must organize your programming assignments as follows:
+#                 - create a directory under your account for your programming assignments
+#                 - create sub-directories p1, p2, ..., each for one assignment
+#                 - place this Shell script at the same level as p1, p2, ..., not in p1
+#                 - before submission, clean files not needed in the final submission 
+#                   in the working directory for the assignment 
+#                 - move one level up and type submit for submission, without specifying p1 or p2
+#                    **** Warning: Make sure your program is finshed properly         *****
+#                    **** You cannot submit the assignment twice with a later version *****
+#                 - all *.cpp, *.h, *.txt and Makefile in the appropriate assignment from your 
+#                   working directory will be submitted 
+#                 - 
+#
+# ------------------------------------------------------------------------------
+
+dir236="/afs/umr.edu/users/proglang/cs236"
+assignment=`cat $dir236/assignment`
+caller=`who am i | cut -f1 -d' '`
+
+DirAssign="$dir236/prog/$caller/$assignment"
+
+if [ $# -eq 0 ] 
+then
+    grep $caller $dir236/students
+    ret=$?
+
+    if [ $ret -eq 0 ] 
+    then
+	if [ "`ls -l $DirAssign | cut -c1-7`" = "total 0" ]
+	then 
+            cp $assignment/*.cpp    $DirAssign;	ret1=$?
+	    cp $assignment/*.h      $DirAssign;	ret2=$?
+	    cp $assignment/*.dat    $DirAssign;	ret3=$?
+	    cp $assignment/Makefile $DirAssign;	ret4=$?			
+	    cp $assignment/*.doc    $DirAssign;	ret5=$?
+
+            if [ $ret1 -eq 0 -a $ret2 -eq 0 -a $ret3 -eq 0 -a $ret4 -eq 0 ]
+            then   
+                echo "Successful submission of the following in $assignment on `date`:" 
+		ls -lt $DirAssign
+            else
+	        if [ $ret3 -eq 0 ]
+	        then
+                    echo "Submission error. Send email to proglang@umr.edu"
+	        else
+	            echo "If no data file needed, ignore this message; otherwise error occurs, please e-mail to proglang@umr.edu"
+	        fi
+	    fi 
+        else
+	    echo "You have already the following files in your assignment directory $assignment:"
+	    ls -lt $DirAssign
+	fi
+    else
+        echo "Student $caller is not recognized! Please send an e-mail to my TA" 
+    fi	
+else
+    echo "Syntax error, you should type: submit"	 	
+fi
+
+
+
+
+
+ 
+
+
+
+ 
+

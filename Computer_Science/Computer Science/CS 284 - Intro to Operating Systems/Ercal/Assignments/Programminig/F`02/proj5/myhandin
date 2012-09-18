@@ -1,0 +1,125 @@
+Script started on Mon Oct 14 21:09:39 2002
+jwing@ultra28 proj5> cat prog5.c
+/****************************************************************************
+ * CS 284 Operating Systems
+ * Programming Assignment 5
+ * Name:   prog5.c
+ * Author: Joe Wingbermuehle
+ * Date:   2002-10-09
+ * Description:
+ * This is a program to demonstrate using threads in Solaris.
+ ****************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <signal.h>
+#include <thread.h>
+
+/* Number of threads to create */
+const int NUM_THREADS = 20;
+
+void *Foo(void *data);  /* Thread function */
+
+/****************************************************************************
+ * Main function.
+ * Start the threads and wait for them to end.
+ ****************************************************************************/
+int main() {
+
+        long *delay;
+        thread_t *threads;
+        thread_t depart;
+        void **status;
+        int x;
+
+        signal(SIGALRM, SIG_IGN);               /* Ignore alarm signals */
+
+        srand48(time(0));               /* Seed the random number generator */
+
+        delay = (long*)malloc(NUM_THREADS * sizeof(long));
+        threads = (thread_t*)malloc(NUM_THREADS * sizeof(thread_t));
+
+        printf("main(): I will create %02d threads.\n", NUM_THREADS);
+
+        /* Create the threads */
+        for(x = 0; x < NUM_THREADS; x++) {
+                delay[x] = (lrand48() % 3000000) + 1;
+                thr_create(NULL, NULL, Foo, &delay[x], 0, &threads[x]);
+        } 
+
+        /* Wait for all the threads to exit */
+        for(x = 0; x < NUM_THREADS; x++) {
+                if(!thr_join(0, &depart, status)) {
+                        printf("main(): joined with thread %02d. Return value: %ld\n",
+                                depart, *((long*)*status));
+                } else {
+                        printf("main(): error waiting for join\n");
+                }
+        }
+
+        free(delay);
+        free(threads);
+
+        return 0;
+}
+
+/****************************************************************************
+ * Thread function.
+ * Announce the thread number and the delay and then sleep before exiting.
+ * Input: data is a pointer to a long, which is the delay in microseconds.
+ * Output: returns the delay.
+ ****************************************************************************/
+void *Foo(void *data) {
+        long delay = *((long*)data);
+        printf("THREAD %02d: I have been created. I will sleep for %ld us.\n",
+                thr_self(), delay);
+        usleep(delay);
+        thr_exit(data);
+}
+
+jwing@ultra28 proj5> ./prog5
+main(): I will create 20 threads.
+THREAD 04: I have been created. I will sleep for 1938157 us.
+THREAD 05: I have been created. I will sleep for 768167 us.
+THREAD 06: I have been created. I will sleep for 196793 us.
+THREAD 07: I have been created. I will sleep for 1712232 us.
+THREAD 08: I have been created. I will sleep for 2102191 us.
+THREAD 09: I have been created. I will sleep for 2902265 us.
+THREAD 10: I have been created. I will sleep for 278200 us.
+THREAD 11: I have been created. I will sleep for 1709605 us.
+THREAD 12: I have been created. I will sleep for 1404345 us.
+THREAD 13: I have been created. I will sleep for 2275867 us.
+THREAD 14: I have been created. I will sleep for 1089271 us.
+THREAD 15: I have been created. I will sleep for 2273810 us.
+THREAD 16: I have been created. I will sleep for 818154 us.
+THREAD 17: I have been created. I will sleep for 39587 us.
+THREAD 18: I have been created. I will sleep for 1022969 us.
+THREAD 19: I have been created. I will sleep for 941149 us.
+THREAD 20: I have been created. I will sleep for 968642 us.
+THREAD 21: I have been created. I will sleep for 1350952 us.
+THREAD 22: I have been created. I will sleep for 641399 us.
+THREAD 23: I have been created. I will sleep for 2367276 us.
+main(): joined with thread 17. Return value: 39587
+main(): joined with thread 06. Return value: 196793
+main(): joined with thread 10. Return value: 278200
+main(): joined with thread 22. Return value: 641399
+main(): joined with thread 05. Return value: 768167
+main(): joined with thread 16. Return value: 818154
+main(): joined with thread 19. Return value: 941149
+main(): joined with thread 20. Return value: 968642
+main(): joined with thread 18. Return value: 1022969
+main(): joined with thread 14. Return value: 1089271
+main(): joined with thread 21. Return value: 1350952
+main(): joined with thread 12. Return value: 1404345
+main(): joined with thread 07. Return value: 1712232
+main(): joined with thread 11. Return value: 1709605
+main(): joined with thread 04. Return value: 1938157
+main(): joined with thread 08. Return value: 2102191
+main(): joined with thread 13. Return value: 2275867
+main(): joined with thread 15. Return value: 2273810
+main(): joined with thread 23. Return value: 2367276
+main(): joined with thread 09. Return value: 2902265
+jwing@ultra28 proj5> exit
+
+script done on Mon Oct 14 21:09:52 2002

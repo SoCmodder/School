@@ -1,0 +1,59 @@
+#!/umr/testbin/bash
+
+#  Author: Brian Sea
+#  Date: 10/7/03
+
+#  This script simply takes two arguments, verifies that they are files and
+#  they do exist.  We then swap the contents of the files and open the new
+#  FILE2 in the editor specified by EDITOR
+
+EDITOR=emacs
+ERROR=""
+
+Usage()
+{
+    echo ""
+    echo "Usage: $0 File1 File2"
+    echo ""
+    echo "File1 - the name of the first file to swap"
+    echo "File2 - the name of the second file to swap"
+    echo ""
+    exit -1;
+}
+
+if [ $# -ne 2 ]; then
+    echo "ERROR: Invalid number of arguments"
+    Usage
+fi
+
+echo ""
+
+if [ ! -e $1 ]; then
+    echo "ERROR: '$1' doesn't exist!"
+    ERROR="1"
+elif [ ! -f $1 ]; then
+    echo "ERROR: '$1' is not a file"
+    ERROR="1"
+fi
+
+if [ ! -e $2 ]; then
+    echo "ERROR: '$2' doesn't exist!"
+    ERROR="1"
+elif [ ! -f $2 ]; then
+    echo "ERROR: '$2' is not a file"
+    ERROR="1"
+fi
+
+if [ ! -z $ERROR ]; then
+    echo ""
+    echo "Exiting on error"
+    echo ""
+    exit -2;
+fi
+
+# Swap the contents of the file
+mv -f $1 $1.tmp
+mv -f $2 $1
+mv -f $1.tmp $2
+
+$EDITOR $2

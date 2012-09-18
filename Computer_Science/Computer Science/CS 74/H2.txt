@@ -1,0 +1,44 @@
+/********************************************
+
+Programmer Name:  Brian Heckman
+
+Class:  CS 74 Sect. A
+
+Program Name:  cs74_2.cpp
+
+Program Description:  Output the summation of 
+	the components of a specified number.
+********************************************/
+
+#include <iostream.h>
+
+int main()
+{
+	int iNum = 0, iNum1 = 0, iNum2 = 0, iNum3 = 0;
+	char cChar = 'y';
+	do
+	{	cout << "Input an integer with a"; 
+		cout << "maximum of three digits\n\n";
+		cin >> iNum;
+		iNum1 = ((iNum) / 100) * 100;
+		iNum2 = (((iNum) % 100) / 10) * 10;
+		iNum3 = ((iNum) % 10);
+		if (iNum1 == 0)
+		{
+			if (iNum2 == 0)
+				cout << "\n\n" << iNum3;
+			else
+				cout << "\n\n" << iNum2; 
+				cout << " + " << iNum3;
+		}
+		else
+			cout << "\n\n" << iNum1 << " + "; 
+			cout << iNum2 << " + " << iNum3;
+		cout << "\n\nTo Continue press 'y' or 'Y'";
+		cout << ", to end press any other key\n\n";
+		cin >> cChar;
+	}while ((cChar == 'y') || (cChar == 'Y'));
+
+	return 0;
+
+}

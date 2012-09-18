@@ -1,0 +1,72 @@
+/* programmer: robertoMurillo   date: 11/16/05 *
+ * instructor: price            class: cs54d   *
+ * file: album_fnct.cpp                        *
+ * purpose: class file for Album.              */
+
+#include <iostream>
+#include "album.h"
+#include "song.h"
+using namespace std;
+
+/********** DEFINITIONS **********/
+
+Album::Album()
+{
+ title = "Rumors";
+ relYr = 1977;
+ numTracks = 0;    
+}
+
+Album::Album( string title1, int year1 )
+{
+  title = title1;
+  relYr = year1;
+  numTracks = 0;
+}
+
+void Album::addTrack( Song song1 )  
+{
+  track[numTracks] = song1;
+  numTracks++;
+  
+  return;
+}
+  
+string Album::getTitle()const
+{
+  return title;
+}
+
+int Album::getRelYr()const
+{
+  return relYr;
+}
+
+int Album::getNumTracks()const
+{
+  return numTracks;
+}
+
+void Album::setTitle( string title1 )
+{
+  title = title1;
+}
+
+void Album::setRelYr( int year )
+{
+  relYr = year;
+}
+
+ostream& operator <<( ostream& out, Album album1 )
+{
+  out << "Album Title: " << album1.getTitle() << endl
+      << "Release Year: " << album1.getRelYr() << endl
+      << "Track Count: " << album1.getNumTracks() << endl << endl;
+      
+  for ( int i = 0; i < album1.numTracks; i++ )
+    cout << album1.track[i] << endl;
+      
+  return out;
+}
+
+/********** DEFINITIONS **********/   

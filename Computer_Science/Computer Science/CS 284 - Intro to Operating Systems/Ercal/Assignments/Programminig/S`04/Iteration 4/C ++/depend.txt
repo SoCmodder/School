@@ -1,0 +1,5 @@
+Executionist.o: Executionist.cpp Executionist.h
+main.o: main.cpp M_Shell.h prompt.h
+M_Shell.o: M_Shell.cpp M_Shell.h prompt.h parsedTokens.h
+parsedTokens.o: parsedTokens.cpp parsedTokens.h Executionist.h
+prompt.o: prompt.cpp prompt.h

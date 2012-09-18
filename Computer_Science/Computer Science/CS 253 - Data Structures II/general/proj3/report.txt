@@ -1,0 +1,32 @@
+Test Procedure
+	- Both the adjacency list and matrix graph generators were vertified
+	  to work for between 2 and 5 vertices and edge densities of 0%,
+	  10%, 90%, and 100%.  Graphs of less than 2 vertices are trivial
+	  and were not considered.
+	- The Kruskal graph solver was tested against the output of the above
+	  tests and vertified to work properly by hand.
+	- An adjacency list and matrix of 1000 items were generated and fed
+	  to the solver, which ran as expected.
+
+Procedure
+Adjancency lists and matrices were generated for 2, 3, 4, 8, 16, 32, and 64
+vertices with edge densities 10% and 90%. Next, the solver was run against
+this data and the internal memory use and algorithm run time use was
+recorded.  The internal memory use was calculated by adding the number of
+bytes allocated before each call to the malloc C function.  The time was
+calculated by using the gettimeofday C function.  Finally, the size of the
+output files from the graph generators was recorded using the ls UNIX
+command.  The graph solver used generated a graph description file for
+DaVinci V2.1 (http://www.informatik.uni-bremen.de/daVinci) for both the
+input and output graphs.  Several of these files were viewed.
+
+Problems
+	- Very large graphs (those larger than 1000) can take a very
+	  long time to generate.  This is mostly due to the time it takes
+	  to ensure the graph is not disjoint, and to fix the graph if it
+	  is disjoint.
+	- Solving large graphs is memory intensive. Solving a graph
+	  with 1000 vertices and a 50% edge density took over 10 MB.
+	- Displaying large graphs with high edge densities takes much
+	  memory.  A graph with 1000 vertices ran the test machine
+	  out of virtual memory.

@@ -1,0 +1,45 @@
+/* programmer: robertoMurillo    date: 11/11/05 *
+ * file: main.h                  class: cs53    *
+ * purpose: using classes.                      */
+
+#ifndef MAIN_H
+#define MAIN_H
+
+/********** CLASS **********/
+
+#include <iostream>
+using namespace std;
+
+class Cat
+{
+  private:
+    string m_name;
+    int m_age;
+    float m_weight;
+    bool m_hasClaws;
+    bool m_isAlive;
+    string m_color;
+
+  public:
+    Cat( string name, int age, float weight, bool hasClaws, bool isAlive,
+         string color );
+    Cat();
+    string getName()const;
+    int getAge()const;
+    float getWeight()const;
+    string getClaws()const;
+    string getAlive()const;
+    string getColor()const;
+    void setName( string name );
+    void setWeight( float weight );
+    void setClaws ( bool claws );
+    void setAge ( int age );
+    void speak();
+    friend bool operator <( const Cat& lhs, const Cat& rhs );
+    friend bool operator >( const Cat& lhs, const Cat& rhs );
+    friend bool operator ==( const Cat& lhs, const Cat& rhs );
+};
+
+/********** CLASS **********/
+
+#endif

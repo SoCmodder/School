@@ -1,0 +1,288 @@
+\documentclass[12pt]{amsart}
+\pagestyle{plain}
+ 
+\usepackage{amsmath,amsthm}
+
+\setlength{\textheight}{9.125in}
+\setlength{\textwidth}{6.8in}
+\setlength{\topmargin}{-.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\parindent}{0 pc}
+\renewcommand{\theenumii}{\roman{enumii}}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bS}{\mathbf{S}}
+
+\newcommand{\bL}{\boldsymbol{\Lambda}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bAT}{\mathbf{A}^{T}}
+\newcommand{\bAI}{\mathbf{A}^{-1}}
+ 
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cLi}{\mathcal{L}^{-1}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\buo}{\mathbf{u}_{1}}
+\newcommand{\but}{\mathbf{u}_{2}}
+\newcommand{\buth}{\mathbf{u}_{3}}
+
+%    Enclose the argument in vert-bar delimiters:
+\newcommand{\envert}[1]{\left\lvert#1\right\rvert}
+\let\abs=\envert
+
+
+
+\begin{document}
+\date{}
+\thispagestyle{empty}
+\vspace{.3in}
+\begin{flushright}
+Name: \underline{\hspace{3.0in}}
+\end{flushright}
+
+\begin{flushright}
+Student Number: \underline{\hspace{3.0in}}
+\end{flushright}
+
+\vspace{2.0 in}
+
+\begin{center}
+{\large \bf Computer Science 158A} \\
+Discrete Mathematics \\
+Exam 2\\
+October 12, 2001
+\end{center}
+
+\vspace{.5in}
+\noindent
+The Rules:
+\begin{enumerate}
+\item All work must be shown for full credit on any given problem.
+
+
+
+\item The  value of each problem is given. There are a total of
+12 problems. The test is 7 pages, counting the cover page.
+
+\item This is a closed note, closed book, open mind exam. You may use your
+calculator.
+
+\item If you are wearing a hat with a brim, turn the brim to the back
+of your head. 
+
+\item Stay calm. Stay cool. Start with a problem you are certain you can do.
+
+\item Keep working on problems that you can do, and save those that require 
+more thought until the end.
+
+\item Do not remove tag under penalty of law.        
+
+\item Push to test.    $<$ click $>$    Release to detonate.
+
+\item Remember children -- Once you pull the pin, Mr. Grenade is no longer
+your friend.
+
+\end{enumerate} 
+
+
+ \vspace{0.25in}
+\begin{quotation}
+Follow that will and that way which experience \\
+confirms to be your own. \\
+\end{quotation}
+\begin{flushright}
+ -- Carl Jung
+\end{flushright}
+
+
+ 
+\newpage
+
+\begin{enumerate}
+
+\item (6 points) How many distinguishable permutations of the letters in the
+word BANANA are there ?
+
+\vspace{2.5in}
+
+\item (6 points) How many different 8-card hands with 5 red cards and 3 black
+cards can be dealt from a deck of 52 cards ? (Note that the order in which the
+cards are dealt does not matter, and a deck of 52 contains 26 red cards and 26
+back cards).
+
+\vspace{2.5in}
+
+\item (6 points) Show that if 7 numbers from 1 to 12 are chosen, then two
+of them will add up to 13.
+
+\vspace{1.5in}
+
+\newpage
+\item (6 points) Suppose that 3 balls are selected at random from an urn
+containing 7 red balls and five black balls. Compute the probability that
+all 3 balls are red.
+ 
+\vspace{2.0in}
+
+\item (7 points) Solve the following recurrence relation.
+
+\vspace{.1in}
+
+Note : If the characteristic equation $x^{2} - r_{1}x - r_{2} = 0$ of the
+recurrence relation $a_{n} = r_{1}a_{n-1} + r_{2}a_{n-2}$ has 2 distinct
+roots, $s_{1}$ and $s_{2}$, then $a_{n} = us_{1}^{n} + vs_{2}^{n}$, where u
+and v depend on the initial conditions.
+
+\vspace{.1in}
+
+$c_{n} = 3c_{n-1} - 2c_{n-2}$   and   $c_{1} = 5, c_{2} = 3$
+
+\vspace{2.0in}
+
+\item (9 points) Let A = \{1, 2, 3, 4, 5, 6, 7, 8, 9\} , $A_{1}$ = \{1, 2, 3, 4\}, $A_{2}$ = \{3, 4, 5, 7\}, 
+
+\vspace{0.1in}
+
+$A_{3}$ = \{5, 6, 7, 8, 9\}, and $A_{4}$ = \{1, 2, 9\}
+
+\vspace{0.2in}
+Which of the following are partitions of the set A ?
+
+\vspace{0.1in}
+
+\begin{enumerate}
+\item \{$A_{1}$, $A_{2}$\}
+\vspace{0.1in}
+\item \{$A_{1}$, $A_{3}$\}
+\vspace{0.1in}
+\item \{$A_{2}$, $A_{4}$\}
+\end{enumerate}
+
+
+
+\vspace{1.0in}
+
+
+\newpage
+\item (6 points) Given A = \{1, 2, 3, 4 \} = B, and R = \{(1,1), (1,3), (2,1),
+(2,2), (3,4) \}
+
+\vspace{.2in}
+\begin{enumerate}
+\item Find $M_{R}$  (the matric representation of the relation R).
+\vspace{2.0in}
+\item Find the R relative set of the element '3', that is, find  R(3).
+\end{enumerate}
+
+\vspace{2.0in}
+
+
+\item (5 points) Given the following 2 paths, find $\pi_{2} \circ \pi_{1}$   
+
+\vspace{0.2in}
+
+$\pi_{1}$ : 1, 3, 4, 5
+
+\vspace{.1in}
+
+$\pi_{2}$ : 5, 6, 7, 1
+
+\vspace{1.0in}
+
+\newpage 
+
+\item (18 points) Below is $M_{R}$ for a relation R on set A = \{1, 2, 3 \}
+
+\vspace{0.1in}
+
+\begin{equation*}
+  M_{R} =   \left[ \begin{array}{rrr}
+                     1  &  0  &  1  \\
+                     0  &  1  &  0  \\
+                     0  &  0  &  1  \\
+                   \end{array} \right]
+\end{equation*}
+
+
+
+\vspace{0.1in}
+
+Show all work / describe how you determine if the following are true or false.
+
+\vspace{0.2in}
+
+\begin{enumerate}
+\item Is it reflexive ?
+\vspace{1.2in}
+\item Is it symmetric ?
+\vspace{1.2in}
+\item Is it asymmetric ?
+\vspace{1.2in}
+\item Is it antisymmetric ?
+\vspace{1.2in}
+\item Is it transitive ?
+\end{enumerate}
+
+
+\vspace{1.0in}
+
+\newpage
+
+\item (6 points) Given A = \{a, b, c, d \} and partition P = \{\{a\}, \{b, c\}, \{d\}\}
+
+\vspace{0.2in}
+
+Give $M_{R}$
+
+\vspace{3.5in}
+
+\item (6 points) Given $M_{R}$ and $M_{S}$ ... Find $M_{S \circ R}$
+
+\begin{equation*}
+  M_{R} =   \left[ \begin{array}{rrr}
+                     1  &  0  &  1  \\
+                     0  &  1  &  0  \\
+                     0  &  0  &  1  \\
+                   \end{array} \right]
+\end{equation*}
+
+\begin{equation*}
+  M_{S} =   \left[ \begin{array}{rrr}
+                     1  &  0  &  1  \\
+                     1  &  0  &  1  \\
+                     1  &  1  &  1  \\
+                   \end{array} \right]
+\end{equation*}
+
+\vspace{1.0in}
+
+\newpage
+
+\item (9 points) The following matrix represents $W_{3}$ from a Warshall's
+algorithm -- in other words, the first 3 steps have been applied already.
+Determine the final matrix, $W_{4}$ (Show the work necessary to get there).
+
+\vspace{0.2in}
+
+\begin{equation*}
+W_{3} = \left[ \begin{array}{rrrr} 
+                      0 & 1 & 1 & 1  \\
+                      0 & 0 & 0 & 1  \\
+                      0 & 0 & 0 & 0  \\
+                      1 & 1 & 1 & 1  \\
+                \end{array} \right]
+\end{equation*}
+
+
+\vspace{2.0in}
+
+
+
+\end{enumerate}
+\end{document}

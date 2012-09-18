@@ -1,0 +1,59 @@
+/************************************************************************/
+/*   PROGRAM: server-template for the assignment                        */
+/*                                                                      */
+/*   Using socket() to create an endpoint for communication. It         */
+/*   returns socket descriptor.                                         */
+/*   Using bind() to bind/assign a name to an unnamed socket.           */
+/*   Using listen() to listen for connections on a socket.              */
+/*   Using accept() to accept a connection on a socket. It returns      */
+/*   the descriptor for the accepted socket.                            */
+/*                                                                      */
+/*   cc -o server server.c -lsocket -lnsl                               */
+/*                                                                      */
+/************************************************************************/
+
+int FDarray[MAX_CLIENT]   /* allocate as many file descriptors 
+                             as the number of clients  */
+int counter; mutex m;
+{
+   socket
+   bind
+
+   listen(n)   /* n is the size of the queue that holds incoming requests
+                  from clients that want to connect  */
+
+   while(( someint = accept(socket)) > 0)
+   {  
+      lock(m);
+      FD[counter++] = someint;   /* first check for room here though */
+      unlock(m);
+      thr_create(bob, someint, ....)  
+   }
+
+   close stuff ...
+
+}
+
+void bob(void* arg)    /* what does 'bob' do ? */
+{
+   get  fd;
+
+   get the host name;
+   read in client name;
+   print a message about the new client;
+
+   while ((read(FD, buf)) > 0)
+   {
+      lock(m)
+      loop
+        write message to each FD
+      unlock(m)          
+   }
+  
+   lock(m);
+   remove myself from FDarray
+   unlock(m) 
+
+   close(FD)
+   thr_exit()
+}

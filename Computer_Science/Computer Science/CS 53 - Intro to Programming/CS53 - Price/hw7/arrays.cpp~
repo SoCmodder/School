@@ -1,0 +1,32 @@
+/* programmer: robertoMurillo   date: 10/16/05 *
+ * file: arrays.cpp             class: cs53    *
+ * purpose: building three arrays to convert a *
+ * random number into three characters.        */
+
+#include "arrays.h"
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+  long array_random[SIZE];
+  char array_ascii[SIZE];
+  char array_find[3];
+
+  seeding_function( array_random );
+  modifying_function ( array_random );
+  ascii_translate( array_random, array_ascii );
+
+  find_positions( array_ascii, array_find );
+  uppercase( array_ascii );
+  reverse_uppercase ( array_find );
+
+  quit();
+
+ return 0;
+}
+
+
+
+

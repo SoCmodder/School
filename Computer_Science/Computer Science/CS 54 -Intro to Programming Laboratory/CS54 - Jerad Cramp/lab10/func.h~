@@ -1,0 +1,23 @@
+/* intructor: price              class: cs54d   *
+ * file: func.h                                 *
+ * purpose: header file for cstring program.    */
+
+#ifndef FUNC_H
+#define FUNC_H
+
+/*************** CONSTANTS ***************/
+
+const int SIZE = 256;
+
+/*************** CONSTANTS ***************/
+
+/*************** PROTOTYPES ***************/
+
+welcome();
+farewell();
+get_string();
+get_char();
+capitalize();
+display_results();
+
+/*************** PROTOTYPES ***************/   

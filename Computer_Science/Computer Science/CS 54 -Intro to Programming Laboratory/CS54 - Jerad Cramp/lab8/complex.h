@@ -1,0 +1,38 @@
+/* programmer: robertoMurillo  date: 10/12/05 *
+ * instructor: price           class: cs54d   *
+ * file: complex.h                            *
+ * purpose: contains structs and prototypes   *
+ *          used by complex.cpp               */
+
+#ifndef COMPLEX_H
+#define COMPLEX_H
+
+#include <string>
+using namespace std;
+
+/*************** STRUCTS ***************/
+
+struct complex
+{
+  float m_numReal;  // real number portion of the complex number
+  float m_numImaginary;  // complex portion of the number
+};
+
+/*************** STRUCTS ***************/
+
+/*************** PROTOTYPES ***************/
+
+// function prints out a string followed by the complex number answer
+void complex_print( string sStatement, const complex & com1 );
+// function takes the input of the user's choice of the complex number
+void complex_read( complex & com1 );
+// adds the two complex numbers entered
+complex complex_add( const complex & com1, const complex & com2 );
+// subtracts the two complex numbers entered
+complex complex_sub( const complex & com1, const complex & com2 );
+// multiplies the two complex numbers entered
+complex complex_mul( const complex & com1, const complex & com2); 
+
+/*************** PROTOTYPES ***************/
+
+#endif

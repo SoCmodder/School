@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab_2_payroll", "lab_2_payroll.vcproj", "{D6B4B7A1-9F06-4E5D-8EC9-949BD7758982}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D6B4B7A1-9F06-4E5D-8EC9-949BD7758982}.Debug.ActiveCfg = Debug|Win32
+		{D6B4B7A1-9F06-4E5D-8EC9-949BD7758982}.Debug.Build.0 = Debug|Win32
+		{D6B4B7A1-9F06-4E5D-8EC9-949BD7758982}.Release.ActiveCfg = Release|Win32
+		{D6B4B7A1-9F06-4E5D-8EC9-949BD7758982}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

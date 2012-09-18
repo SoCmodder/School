@@ -1,0 +1,100 @@
+							Joe Wingbermuehle
+							CS 236 HW 6
+							2002-04-22
+
+P	-> SL
+SL	-> S ; SL | $
+S	-> C
+C	-> quit | clear | who | whos
+
+
+S	-> id = E
+		Rule:
+			id.col := E.s_col
+			id.row := E.s_row
+
+E	-> T E'
+		Rule:
+			E.s_row := T.s_row
+			E.s_col := T.s_col
+			E'.i_row := T.s_row
+			E'.i_col := T.s_col
+
+E1'	-> add_sub_op T E2'
+		Rule:
+			E1'.s_row := T.i_row
+			E1'.s_col := T.i_col
+			E2'.i_row := E1'.s_row
+			E2'.i_col := E1'.s_col
+		Predicate:
+			E1'.i_row = T.s_row
+			E1'.i_col = T.s_col
+	| $
+
+T	-> F T'
+		Rule:
+			T'.i_row := F.s_row
+			T'.i_col := F.s_col
+			T.s_row := F.s_row
+			T.s_col := F.s_col
+
+T1'	-> multi_op F T2'
+		Rule:
+			T1'.s_row := T1'.i_row
+			T1'.s_col := F.s_col
+			T2'.i_row := T1'.i_row
+			T2'.i_col := F.s_col
+		Predicate:
+			T1'.i_col = F.s_row
+	| $
+
+F	-> ( E )
+		Rule:
+			F.s_col := E.s_col
+			F.s_row := E.s_row
+	| id
+		Rule:
+			F.s_col := id.col
+			F.s_row := id.row
+	| literal
+		Rule:
+			F.s_col := 1
+			F.s_row := 1
+	| M
+		Rule:
+			F.s_col := M.s_col
+			F.s_row := M.s_row
+
+M	-> '[' R R' ']'
+		Rule:
+			R'.i_col := R.s_col
+			R'.i_row := 1
+			M.s_col := R.s_col
+			M.s_row := R'.s_row
+
+R1'	-> ; R R2'
+		Rule:
+			R2'.i_col := R.s_col
+			R2'.i_row := R1'.i_row + 1
+			R1'.s_row := R2'.s_row
+		Predicate:
+			R.s_col = R1'.s_col
+	| $
+		Rule:
+			R1'.s_row := 0
+
+R	-> literal L'
+		Rule:
+			L'.i_col := 1
+			R.s_col := L'.s_col
+
+L1'	-> , literal L2'
+		Rule:
+			L2'.i_col := L1'.i_col + 1
+			L1'.s_col := L2'.s_col
+	| $
+		Rule:
+			L1'.s_col := 0
+
+
+

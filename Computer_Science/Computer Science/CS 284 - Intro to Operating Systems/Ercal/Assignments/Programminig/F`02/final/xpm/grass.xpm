@@ -1,0 +1,22 @@
+/* XPM */
+static char * grass_xpm[] = {
+"16 16 2 1",
+". s color0 c #000000",
+"x s color1 c #00CC00",
+"xxxxxxxxxxx.xxxx",
+"xxxxxxxxxxxxxxx.",
+".xxxxxxxxxxxxxxx",
+"xxxxx.xxxxxxxxxx",
+"xxxxxxxxxxx.xxxx",
+"x.xxxxx.xxxxxxxx",
+"xxxxxxxxxxxxxxxx",
+"xxxxxxxxxxxxxxxx",
+"xxx.xxxxxxxxxxxx",
+"xxxxxxxxxx.xxxxx",
+"xxxxxxxxxxxxxxxx",
+"xxxxxx.xxxxxxxxx",
+"xxxxxxxxxxxxxx.x",
+"xxxxxxxxxx.xxxxx",
+"xxx.xxxxxxxxxxxx",
+"xxxxxxxxxx.xxxxx"
+};

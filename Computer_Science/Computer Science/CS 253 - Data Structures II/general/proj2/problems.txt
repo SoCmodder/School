@@ -1,0 +1,11 @@
+Problems
+	- If the time for a particular job to run is greater than the
+	  deadline, the job will never run.  This causes problems for
+	  the greedy heuristic solutions.  The greedy heuristic methods
+	  that would normally give good results may give bad outputs
+	  (often zero) whereas the methods that normally give good
+	  results give a higher profit.
+	- When a large number of jobs are to be ordered (more than
+	  10), the time taken to sort the jobs is very long for the
+	  pure recursive algorithm. The tabular method improves on the
+	  time taken, however, it takes much more memory.

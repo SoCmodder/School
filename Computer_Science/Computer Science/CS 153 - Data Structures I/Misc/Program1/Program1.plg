@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Program1 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/Program1.res" /d "_DEBUG" /d "_AFXDLL" "F:\CS 153\Program1\Program1.rc"" 
+Creating temporary file "C:\DOCUME~1\Keith\LOCALS~1\Temp\RSPAB.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Program1.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"F:\CS 153\Program1\Program1.cpp"
+"F:\CS 153\Program1\Program1Dlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Keith\LOCALS~1\Temp\RSPAB.tmp" 
+Creating temporary file "C:\DOCUME~1\Keith\LOCALS~1\Temp\RSPAC.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Program1.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ   /c 
+"F:\CS 153\Program1\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Keith\LOCALS~1\Temp\RSPAC.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Program1.pdb" /debug /machine:I386 /out:"Debug/Program1.exe" /pdbtype:sept  ".\Debug\Program1.obj" ".\Debug\Program1Dlg.obj" ".\Debug\StdAfx.obj" ".\Debug\Program1.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Program1.cpp
+Program1Dlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Program1.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

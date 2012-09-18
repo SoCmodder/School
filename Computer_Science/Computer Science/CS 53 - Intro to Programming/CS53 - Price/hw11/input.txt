@@ -1,0 +1,22 @@
+The Bob's Wayward Feline/Canine Home
+9
+9
+Kitty 5 55.5 1 1 red 3
+Mouser 3 17.8 0 1 calico 2
+George 20 23.1 0 1 black 3
+Sailcat 1 9.9 1 1 blue 1
+Fluffy 4 202.6 1 1 pink 5
+Garfield 6 236.2 0 1  red 4
+Smashcat 6 15.0 1 1 black 2
+Fatty 6 55.9 0 1 brown 2
+Flatcat 4 18 1 1 green 3
+
+Rex 2 190.4 1 1 black 5
+Jenny 14 40 0 1 blonde 2
+Jerry 6 29.3 1 1 striped 3
+Tiger 2 170.8 1 1 chartreuse 4
+Slapdog 4 3.4 0 1 red 1
+Bob 6 83.3 0 1 grey 5
+Fido 3 33.0 1 1 purple 2
+Fred 20 149.4 1 1 white 5
+Kickdog 4 1.2 1 1 tan 1

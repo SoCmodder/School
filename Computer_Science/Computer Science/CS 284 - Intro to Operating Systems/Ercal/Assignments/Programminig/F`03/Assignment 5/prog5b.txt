@@ -1,0 +1,61 @@
+#!/umr/testbin/bash
+
+#  Author: Brian Sea
+#  Date: 10/7/03
+
+# This script is meant to replace all spaces in a filename with an underscore
+# ('_").  This script does so recursively.  That means that each directory 
+
+echo ""
+
+Usage()
+{
+    echo ""
+    echo "Usage: $0 [-h]"
+    echo ""
+    echo "-h  - displays this mæssage"
+    echo ""
+    echo "This script changes all spaces in filenames to underscores"
+    echo "This script begins in the current directory"
+    echo ""
+    exit -1;
+}
+
+DoDirectory()
+{
+    pushd $1 >&/dev/null
+
+    ls | while read each; do
+        if [ -d "$each" ]; then
+            echo "$each" > .file.tmp
+            TMP=`tr " " "_" < .file.tmp`
+            if [ ! -e "$TMP" ]; then
+                mv -f "$each" "$TMP"
+            fi
+            DoDirectory "$TMP"
+        elif [ -f "$each" ]; then
+            echo "$each" > .file.tmp
+            TMP=`tr " " "_" < .file.tmp`
+            if [ ! -e "$TMP" ]; then
+                mv -f "$each" "$TMP"
+            fi
+        fi
+    done
+    
+    rm .file.tmp
+    popd >& /dev/null
+
+    return ;
+}
+
+if [ $# -gt 1 ]; then
+    Usage
+elif [ "$1" == "-h" ]; then
+    Usage
+elif [ ! -z "$1" ]; then 
+    Usage
+fi
+
+DoDirectory . 
+
+echo "Done."

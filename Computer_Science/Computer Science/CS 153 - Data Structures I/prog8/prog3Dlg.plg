@@ -1,0 +1,28 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: prog3Dlg - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\windows\TEMP\RSPC171.TMP" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/prog3Dlg.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\My Documents\Cs153\prog82\prog3Dlg.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPC171.TMP" 
+Creating temporary file "c:\windows\TEMP\RSPC172.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/prog3Dlg.pdb" /debug /machine:I386 /out:"Debug/prog3Dlg.exe" /pdbtype:sept 
+".\Debug\prog3Dlg.obj"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSPC172.TMP"
+<h3>Output Window</h3>
+Compiling...
+prog3Dlg.cpp
+Linking...
+
+</pre>
+</body>
+</html>

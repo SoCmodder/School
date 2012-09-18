@@ -1,0 +1,89 @@
+Iteration I - the beginnings of a shell
+=============================================================================
+
+Due Date:  11:59:59 pm, 1/26/04
+
+Useful Manual Pages
+====================
+
+fprintf, fscanf, fgets, exit, strncat, strncmp, getenv
+
+Reading
+============
+
+Wang: 6.7, 11.4
+
+
+Overview
+============
+
+A shell is an interactive program that is able to parse the
+input that the user gives the program and is able to execute those commands.
+This type of program is used everytime a UNIX(-like) machine is logged
+into. 
+
+Examples of shells include: bash, tcsh, zsh
+
+This iteration is meant to be the beginning of a shell program that will
+be used as part of your group project.  
+
+The primary objectives in this iteration are:
+
+* Handling command-line arguments
+* Handling environmental variables correctly
+
+Description:
+=============
+
+You are to write a program that takes advantage of all three arguments
+that can be given to the main function:
+
+    int main( int argc, char *argv[], char *env[] );
+
+    argc -  the number of arguments supplied to the program
+    argv -  an array that contains the actual arguments
+    env  -  an array that contains the environment that we are in
+
+The following operations should be accomplished by this iteration:
+
+1.  The program should check for the following arguments at a minimum:
+
+    --help      This should force the program to print out how to use the
+                program and exit.  For an example run "bash --help."
+
+                NOTE: You should indicate the program's name.  Do NOT use
+                a constant string to do this.  Use argv[0].
+
+    --version   This should have the program print out the version
+                number that is in use and exit.
+
+    NOTE:  The outputs done by these arguments should be done to
+    Standard Error (stderr) not to Standard Output (stdout).
+
+2.  The program should present the user with a constructed prompt
+    similiar to as follows (all values should be retrieved from
+    environmental variables):
+
+    USERNAME:HOSTNAME:CURRENTDIRECTORY:> 
+
+    where; 
+
+    USERNAME is the name of the current user
+    HOSTNAME is the name of the current machine the user is on
+    CURRENTDIRECTORY is the name of the current directory the user is in
+
+    NOTE:  This prompt shown on the screen should NOT exceed 128
+           characters.  This is true even though the data you try to
+           place into the prompt is greater than 128 characters.
+
+    NOTE 2:  If the data cannot be found then you should put the string
+             "(null)" for the space.
+
+3.  The program should accept input from the user until either the user
+    types "exit" on a line by itself, or the user pressed Ctrl-D on a
+    line by itself.  The input will never be more than 512 characters.
+
+    A.  The input taken from the user should be echoed to the screen.
+    B.  If the program exits, the words "Program exit." should be output
+        to the screen.
+

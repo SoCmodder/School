@@ -1,0 +1,229 @@
+/* programmer: robertoMurillo    date: 10/5/05 *
+ * file: geometer.cpp                          *
+ * purpose: walk-in-geometer script for Bob.   *
+   this file includes all of the functions.    */
+   
+#include "geometer.h"
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void welcome()  // prints a welcome message
+{
+  cout << "Hello and welcome to Bob's Walk-In-Geometer!" << endl
+       << "What would you like to do." << endl
+       << endl;
+return;
+}
+
+char displayMenu()  // displays the menu to the user
+{
+  char cChoice; // user's choice from the menu
+  
+  cout << "1. Enter in points." << endl
+       << "2. Display quadrant rectangle points." << endl
+       << "3. Display whole plane rectangle points." << endl
+       << "4. Display equation of the circle." << endl
+       << "5. Display point rotation." << endl
+       << "6. Quit" << endl
+       << endl
+       << "Your choice: ";
+       
+  cin >> cChoice;
+
+return cChoice;
+}
+
+void menuCases(char choice)  // switch-case involving the user's possible
+                             // choices.
+{
+  static bool rectangle = false;  // whether pt entered is part of a 
+                                  // rectangle.
+  static Point p1; // user defined point; made static so that it keeps its
+                   // values when menuCases loops. otherwise, i had a 
+                   // problem.
+  Point quadPoint2, quadPoint3, quadPoint4; // points from quad. rectangle
+  Point planePoint2, planePoint3, planePoint4;  // points from plane rect.
+  Point p5; // point used for rotation
+  
+  switch(choice)
+  {
+    case '1':
+      p1 = getPoint(); // user enters point
+      
+      if ( p1.m_Xcoord != 0 && p1.m_Ycoord != 0 )
+        rectangle = true; // if it is a rectangle, rectangle is set to 
+                          // true
+      else
+        rectangle = false;
+           
+      displayPoints(p1);    
+      break;
+    
+    case '2':
+      if ( rectangle )
+      {
+        quadrantPoints(p1, quadPoint2, quadPoint3, quadPoint4);
+        displayPoints(p1);
+        displayPoints(quadPoint2);
+        displayPoints(quadPoint3);
+        displayPoints(quadPoint4);
+      }
+      
+      else
+        cout << "No rectangle." << endl;
+      
+      break;
+          
+    case '3':
+      if ( rectangle )
+      {
+        planePoints(p1, planePoint2, planePoint3, planePoint4);
+        displayPoints(p1);
+        displayPoints(planePoint2);
+        displayPoints(planePoint3);
+        displayPoints(planePoint4);
+      }
+      
+      else
+        cout << "No rectangle." << endl;
+      break;
+      
+    case '4':
+      printCircle(getCircle(p1));  // prints the circle equation
+			break;
+    
+    case '5':
+      // this function finds the point rotation
+      printRotatePt(pointRotateFind(p5, pointRotateAsk()));
+      break;
+    
+    case '6':
+      quit();
+      break;
+  
+    default:
+      cout << "Error!" << endl
+	   << endl;
+      break;
+  }
+  
+return;
+}
+
+Point getPoint()  // gets the point from the user
+{
+  Point p1; // user defined point
+   
+  cout << "Please enter in the coordinates: " << endl
+       << "X: ";
+  cin >> p1.m_Xcoord;
+  cout << "Y: ";
+  cin >> p1.m_Ycoord;
+    cout << endl;
+return p1;
+}
+
+void quadrantPoints(const Point pt, Point & p2, Point & p3, Point & p4) 
+// finds the points in the same quadrant
+{  
+  cout << "The four quadrant points for your rectangle are: " << endl;
+  
+  p2.m_Xcoord = 0;
+  p2.m_Ycoord = 0;
+ 
+ //  x intercept        
+  p3.m_Xcoord = pt.m_Xcoord;
+  p3.m_Ycoord = 0;
+ 
+ //  y intercept 
+  p4.m_Xcoord = 0;
+  p4.m_Ycoord = pt.m_Ycoord;
+return;
+}
+
+void planePoints(const Point pt, Point & p2, Point & p3, Point & p4)
+// finds the points on the same plane
+{          
+  cout << "The four points for the plane rectangle are: " << endl;
+               
+  p2.m_Xcoord = pt.m_Xcoord;
+  p2.m_Ycoord = -pt.m_Ycoord;
+  
+  p3.m_Xcoord = -pt.m_Xcoord;
+  p3.m_Ycoord = pt.m_Ycoord;
+  
+  p4.m_Xcoord = -pt.m_Xcoord;
+  p4.m_Ycoord = -pt.m_Ycoord;
+}
+
+Circle getCircle(const Point & p1) // finds the radius of circle 
+{
+  Circle circle1;
+  Point origin;  // this is the center point of the circle
+
+  origin.m_Xcoord = 0;
+  origin.m_Ycoord = 0;
+
+  circle1.m_radius = sqrt((p1.m_Xcoord - origin.m_Xcoord)*(p1.m_Xcoord - 
+                     origin.m_Xcoord) + (p1.m_Ycoord - origin.m_Ycoord)
+                     *(p1.m_Ycoord - origin.m_Ycoord));
+return circle1;
+}
+
+void printCircle(const Circle circle1) // prints out equation of circle
+{
+  cout << "x^2 + y^2 = " << pow(circle1.m_radius, 2) << endl
+       << endl;
+}
+
+float pointRotateAsk() // asks user how far they want to rotate circle
+{
+  float angleRotate; // how far the user would like to rotate the angle
+	
+  cout << "How far would you like to rotate the point in radians: ";
+  cin >> angleRotate;
+
+return angleRotate;
+}
+
+// calculates the final answer of the rotation
+Point pointRotateFind( const Point & p1, const float angleRotate )
+{
+  Point p5; // point created from the angle rotation
+
+  p5.m_Xcoord = (p1.m_Xcoord * cos(angleRotate)) + 
+                (p1.m_Ycoord * sin(angleRotate));
+  p5.m_Ycoord = (p1.m_Ycoord * cos(angleRotate)) - 
+                (p1.m_Xcoord * sin(angleRotate));
+
+return p5;
+}
+
+void printRotatePt(const Point & p5) // prints rotated point in (x,y) form
+{
+  displayPoints(p5);
+
+return;
+}
+
+void quit()  // quit message
+{
+  cout << "Leaving so soon?" << endl;
+return;
+}
+
+Point displayPoints(const Point pt) // displays points in (x,y) form
+{
+  cout << "(" << pt.m_Xcoord << "," << pt.m_Ycoord << ")"
+       << endl;
+return pt;
+}
+
+void exit()  // exit message
+{
+  cout << "Thanks for using my program." << endl;
+  cout << endl;
+return;
+}

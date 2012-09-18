@@ -1,0 +1,137 @@
+							Joe Wingbermuehle
+							Homework 4
+
+1.
+	int x = 1;		// compile-time, global
+	void titi() {
+		int *x;		// run-time, stack-dynamic
+		int y = 22;	// run-time, stack-dynamic
+		x = new int[5];	// run-time, heap-dynamic
+	}
+	void toto() {
+		int x = 2;	// run-time, stack-dynamic
+		static int y = 11;	// compile-time, static
+
+		// references local x and y
+		cout << x << " " << y++ << endl;
+		titi();
+	}
+	main() {
+		cout << x << " ";	// references global x
+		toto();
+		toto();
+	}
+
+2.
+	integer factorial(integer n) {
+		if n > 1
+			return n * factorial(n-1);
+		else
+			return 1;
+	}
+
+	This function will only work for n <= 1 because when n is
+	changed by passing it to the function a second time, the
+	first instance of n will be changed as well. This will
+	continue until the end condition is met. Therefore, with
+	static storage binding, this function will always return 1.
+
+3.
+	program main;
+		var x : integer;
+		procedure sub1;
+		begin { sub1 }
+			writeln('x =', x)
+		end; { sub1 }
+		procedure sub2;
+			var x : integer;
+		begin { sub2 }
+			x := 10;
+			sub1
+		end; { sub2 }
+	begin { main }
+		x := 5;
+		sub2
+	end. { main }
+	
+	With static scoping, "x = 5" would be printed.
+	With dynamic scoping, "x = 10" would be printed.
+
+4.
+	program main;
+		var x, y, z : integer;
+		procedure sub1;
+			var a, y, z : integer;
+		begin { sub1 }
+{ x (main), a (sub1), y (sub1), z (sub1) }
+		end; { sub1 }
+		procedure sub2;
+			var a, x, w : integer;
+			procedure sub3;
+				var a, b, z : integer;
+			begin { sub3 }
+{ a (sub3), b (sub3), z (sub3), x (sub2), w (sub2), y (main) }
+			end { sub3 }
+		begin { sub2 }
+{ a (sub2), x (sub2), w (sub2), y (main), z (main) }
+		end { sub2 }
+	begin { main }
+{ x (main), y (main), z (main) }
+	end. { main }
+
+5.
+	void func1(void);
+	void func2(void);
+	void func3(void);
+
+	void main() {
+		int a, b, c;
+	}
+
+	void func1(void) {
+		int b, c, d;
+	}
+
+	void func2(void) {
+		int c, d, e;
+	}
+
+	void func3(void) {
+		int d, e, f;
+	}
+
+5a.
+	main -> func1 -> func2 -> func3
+
+	d (func3), e (func3), f (func3), c (func2), b (func1), a (main)
+
+5b.
+	main -> func1 -> func3
+
+	d (func3), e (func3), f (func3), b (func1), c (func1), a (main)
+
+5c.
+	main -> func2 -> func3 -> func1
+
+	b (func1), c (func1), d (func1), e (func3), f (func3), a (main)
+
+5d.
+	main -> func3 -> func1 -> func2
+
+	c (func2), d (func2), e (func2), b (func1), f (func3), a (main)
+
+6.
+	Name equivalence of types is when the language specifies that
+	variable types are the same when they have the same type name.
+	Structure equivalence is when the language specifies that
+	variable types are the same when they have the same primary
+	type or structure. For example, given the Ada statement:
+		type MyType is new integer;
+	the MyType and integer types are structurally equivalent, but
+	not name equivalent.
+	Type conversion is when a type is converted to another type
+	with a different representation explicitly. Type coercion is
+	when this operation is implicitly done by the compiler.
+
+
+

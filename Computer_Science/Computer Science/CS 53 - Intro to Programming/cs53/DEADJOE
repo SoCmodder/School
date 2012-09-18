@@ -1,0 +1,260 @@
+
+*** Modified files in JOE when it aborted on Wed Jan 28 20:19:11 2004
+*** JOE was aborted by signal 1
+
+*** Modified files in JOE when it aborted on Wed Jan 28 21:20:36 2004
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+dop.cpp
+dop.cpp
+dop.cpp
+dop.cpp
+dop.cpp
+dop.cpp
+dop.cpp
+dop.cpp
+dop.cpp
+dop.cpp
+dop.cpp
+dop.cpp
+
+*** Modified files in JOE when it aborted on Wed Jan 28 21:52:04 2004
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+dop.cpp
+dop.cpp
+dop.cpp
+
+*** Modified files in JOE when it aborted on Wed Jan 28 21:57:58 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+dop.cpp
+dop.cpp
+
+*** Modified files in JOE when it aborted on Tue Feb  3 16:43:07 2004
+*** JOE was aborted by signal 1
+
+*** Modified files in JOE when it aborted on Tue Feb 17 20:51:07 2004
+*** JOE was aborted because the terminal closed
+
+*** Modified files in JOE when it aborted on Tue Feb 17 20:51:08 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+
+*** Modified files in JOE when it aborted on Tue Feb 17 21:27:08 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+poll.cpp
+
+*** Modified files in JOE when it aborted on Sat Feb 28 15:31:10 2004
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+
+*** Modified files in JOE when it aborted on Mon Mar  1 00:00:02 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+
+*** Modified files in JOE when it aborted on Wed Mar  3 17:34:53 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+gamble.cpp
+
+*** Modified files in JOE when it aborted on Tue Mar 16 19:09:52 2004
+*** JOE was aborted because the terminal closed
+
+*** Modified files in JOE when it aborted on Tue Mar 16 19:09:52 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+baseball.cpp
+
+*** Modified files in JOE when it aborted on Thu Mar 18 21:14:49 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+
+*** Modified files in JOE when it aborted on Thu Mar 18 22:58:53 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+
+*** Modified files in JOE when it aborted on Sat Mar 20 15:18:49 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+prime.cpp
+prime.cpp
+prime.cpp
+prime.cpp
+prime.cpp
+
+*** Modified files in JOE when it aborted on Mon Mar 22 23:24:01 2004
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+baseball.cpp
+
+*** Modified files in JOE when it aborted on Wed Mar 31 14:23:44 2004
+*** JOE was aborted by signal 1
+
+*** Modified files in JOE when it aborted on Sat Apr 10 16:47:23 2004
+*** JOE was aborted by signal 1
+
+*** Modified files in JOE when it aborted on Wed Jun  2 16:10:13 2004
+*** JOE was aborted because the terminal closed
+
+*** Modified files in JOE when it aborted on Wed Jun  2 16:10:13 2004
+*** JOE was aborted by signal 1
+
+*** File '(Unnamed)'
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+work.cpp
+
+*** File 'work.cpp'
+#include <iostream>
+#include <cmath>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+
+float a=0;
+float x;
+int iloop;
+ofstream numberout;
+numberout.open("points.txt");
+cout<<"Here";
+for (iloop=0;iloop<=4501;iloop++)
+    {
+     cout<<a;
+     x=sqrt(.180625-(a*a*.8919753));
+     numberout<<a<<","<<x<<endl;
+     a=a+.0001;
+     }
+numberout.close();
+return 0;
+}
+
+*** Modified files in JOE when it aborted on Thu Jun  3 09:15:32 2004
+*** JOE was aborted by signal 1

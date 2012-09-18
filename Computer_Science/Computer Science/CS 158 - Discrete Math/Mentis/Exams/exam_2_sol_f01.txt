@@ -1,0 +1,219 @@
+\documentclass[12pt]{amsart}
+\pagestyle{plain}
+ 
+\usepackage{amsmath,amsthm}
+
+\setlength{\textheight}{9.125in}
+\setlength{\textwidth}{6.8in}
+\setlength{\topmargin}{-.625in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\parindent}{0 pc}
+\renewcommand{\theenumii}{\roman{enumii}}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bS}{\mathbf{S}}
+
+\newcommand{\bL}{\boldsymbol{\Lambda}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bAT}{\mathbf{A}^{T}}
+\newcommand{\bAI}{\mathbf{A}^{-1}}
+ 
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cLi}{\mathcal{L}^{-1}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\buo}{\mathbf{u}_{1}}
+\newcommand{\but}{\mathbf{u}_{2}}
+\newcommand{\buth}{\mathbf{u}_{3}}
+
+%    Enclose the argument in vert-bar delimiters:
+\newcommand{\envert}[1]{\left\lvert#1\right\rvert}
+\let\abs=\envert
+
+
+
+\begin{document}
+\date{}
+\thispagestyle{empty}
+\vspace{.3in}
+
+
+\begin{center}
+{\large \bf Computer Science 158A} \\
+Discrete Mathematics \\
+Exam 2 \\
+October 12, 2001
+\end{center}
+
+\vspace{2.5in}
+
+****************************** ANSWER KEY ******************************
+ 
+\newpage
+
+\begin{enumerate}
+
+\item 
+$\frac{{}_{6}P_{6}}{{}_{2}P_{2}{}_{3}P_{3}}$  = $\frac{6!} {2! 3!}$ = $\frac{720}{12}$ = 60
+
+
+\vspace{0.5in}
+
+\item 
+
+${}_{26}C_{5} * {}_{26}C_{3}$ = 
+\vspace{0.3in}
+$\frac{26!} {21! 5!}$ * $\frac{26!} {23! 3!}$ =
+\vspace{0.3in}
+65780 * 2600 = 171028000
+
+\vspace{0.5in}
+
+\item 
+Make 6 pigeonholes such that there are 2 numbers in each that add to 13, 
+then choosing 7 causes at least 1 pigeonhole to be choosen twice.
+
+\vspace{0.2in}
+The 6 pigeonholes are filled as follows :
+
+\vspace{0.2in}
+1,12  ...   2,11  ...  3,10  ...  4,9  ...  5,8  ...  6,7
+
+\vspace{0.5in}
+
+\item 
+$\frac{{}_{7}C_{3}}{{}_{12}C_{3}}$ =
+\vspace{0.3in}
+$\frac{35}{220}$ =
+\vspace{0.3in}
+$\frac{7}{44}$
+ 
+\vspace{0.5in}
+
+\item 
+
+See section 3.5, example 7, page 98.
+
+\vspace{0.5in}
+
+\item
+
+\begin{enumerate}
+\item No                    
+\vspace{0.1in}
+\item Yes
+\vspace{0.1in}
+\item No
+\end{enumerate}
+
+
+
+\vspace{0.5in}
+
+
+\newpage
+\item 
+
+\vspace{.2in}
+\begin{enumerate}
+\item 
+\begin{equation*}
+M_R = \left[ \begin{array}{rrrr}
+                     1  &  0  &  1  &  0  \\
+                     1  &  1  &  0  &  0  \\
+                     0  &  0  &  0  &  1  \\
+                     0  &  0  &  0  &  0  \\
+             \end{array} \right]
+\end{equation*}
+\vspace{0.5in}
+\item 
+\{4\}
+\end{enumerate}
+
+\vspace{0.5in}
+
+
+\item 
+
+${\pi}_2$ $\circ$ ${\pi}_{1}$ = 1, 3, 4, 5, 6, 7, 1
+
+
+
+
+\vspace{0.5in}
+
+
+\item 
+
+
+
+\begin{enumerate}
+\item reflexive ?   Yes (main diagonal is all 1's)
+\vspace{0.3in}
+\item symmetric ?   No (R must equal $R^{-1}$)               
+\vspace{0.3in}
+\item asymmetric ?   No (R $\cap$ $R^{-1}$ must equal empty set, but
+it doesn't ; it equals the identity, $\Delta$)
+\vspace{0.3in}
+\item antisymmetric ?   Yes (R $\cap$ $R^{-1}$ $\subseteq$ $\Delta$) 
+\vspace{0.3in}
+\item transitive ?   Yes ($R^{2}$ $\subseteq$ R)
+\end{enumerate}
+
+
+\vspace{0.5in}
+
+\newpage
+
+\item 
+
+\begin{equation*}
+M_R = \left[ \begin{array}{rrrr}
+                     1  &  0  &  0  &  0  \\
+                     0  &  1  &  1  &  0  \\
+                     0  &  1  &  1  &  0  \\
+                     0  &  0  &  0  &  1  \\
+             \end{array} \right]
+\end{equation*}
+
+
+\vspace{0.5in}
+
+\item 
+
+\begin{equation*}
+  M_{S \circ R} =   \left[ \begin{array}{rrr}
+                               1  &  1  &  1  \\
+                               1  &  0  &  1  \\
+                               1  &  1  &  1  \\
+                             \end{array} \right]
+\end{equation*}
+
+
+\vspace{0.2in}
+
+\item 
+
+
+\begin{equation*}
+W_{4} = \left[ \begin{array}{rrrr} 
+                      1 & 1 & 1 & 1  \\
+                      1 & 1 & 1 & 1  \\
+                      0 & 0 & 0 & 0  \\
+                      1 & 1 & 1 & 1  \\
+                \end{array} \right]
+\end{equation*}
+
+
+\vspace{2.0in}
+
+
+
+\end{enumerate}
+\end{document}

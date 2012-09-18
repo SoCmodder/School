@@ -1,0 +1,499 @@
+%PDF-1.5%âãÏÓ
+1 0 obj<</Pages 2 0 R/Outlines 6 0 R/Type/Catalog/Names 46 0 R/StructTreeRoot 7 0 R/Metadata 51 0 R/SpiderInfo 36 0 R>>endobj2 0 obj<</Count 3/Kids[11 0 R 17 0 R 19 0 R]/Type/Pages>>endobj3 0 obj<</ModDate(D:20031216022249-06'00')/CreationDate(D:20031216022231Z)/Title(CS 234 - Intro to Computer Organization - Syllabus)/Producer(Acrobat Web Capture 6.0)>>endobj5 0 obj nullendobj6 0 obj<</Count 2/Type/Outlines/First 49 0 R/Last 49 0 R>>endobj7 0 obj<</Type/StructTreeRoot/K 9 0 R/ClassMap 8 0 R/ParentTree 12 0 R/ParentTreeNextKey 3>>endobj8 0 obj<</SpdrArt<</O/WebCapture>>>>endobj9 0 obj<</K 10 0 R/P 7 0 R/S/Document>>endobj10 0 obj<</K[0<</Type/MCR/MCID 0/Pg 17 0 R>><</Type/MCR/MCID 0/Pg 19 0 R>>]/C/SpdrArt/P 9 0 R/S/Article/Pg 11 0 R>>endobj11 0 obj<</ID 42 0 R/Annots 15 0 R/Contents 30 0 R/Type/Page/Parent 2 0 R/MediaBox[0.0 0.0 612.0 792.0]/Resources<</Font<</TT2 26 0 R/T1_0 21 0 R/TT0 22 0 R/TT1 24 0 R/T1_1 28 0 R>>/ProcSet[/PDF/Text]>>/StructParents 0>>endobj12 0 obj<</Nums[0 13 0 R 1 18 0 R 2 20 0 R]>>endobj13 0 obj[10 0 R]endobj14 0 obj<</Rect[334.910004 195.129257 391.160004 211.129257]/Border[0 0 0]/BS<</W 0/Type/Border/S/S>>/Subtype/Link/A<</URI(http://www.cs.umr.edu/csdept/career/cs.html)/S/URI>>>>endobj15 0 obj[14 0 R 16 0 R]endobj16 0 obj<</Rect[180.785004 154.87468 237.035004 170.87468]/Border[0 0 0]/BS<</W 0/Type/Border/S/S>>/Subtype/Link/A<</URI(http://www.cs.umr.edu/csdept/career/cs.html)/S/URI>>>>endobj17 0 obj<</ID 42 0 R/Contents 32 0 R/Type/Page/Parent 2 0 R/MediaBox[0.0 0.0 612.0 792.0]/Resources<</Font<</T1_0 21 0 R/TT0 24 0 R/TT1 22 0 R>>/ProcSet[/PDF/Text]>>/StructParents 1>>endobj18 0 obj[10 0 R]endobj19 0 obj<</ID 42 0 R/Contents 34 0 R/Type/Page/Parent 2 0 R/MediaBox[0.0 0.0 612.0 792.0]/Resources<</Font<</T1_0 21 0 R/TT0 24 0 R/TT1 22 0 R>>/ProcSet[/PDF/Text]>>/StructParents 2>>endobj20 0 obj[10 0 R]endobj21 0 obj<</Type/Font/Encoding/WinAnsiEncoding/BaseFont/Times-Roman/Subtype/Type1>>endobj22 0 obj<</Type/Font/Encoding/WinAnsiEncoding/BaseFont/TimesNewRoman,Bold/FirstChar 0/LastChar 255/Subtype/TrueType/FontDescriptor 23 0 R/Widths[778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 250 333 555 500 500 1000 833 278 333 333 500 570 250 333 250 278 500 500 500 500 500 500 500 500 500 500 333 333 570 570 570 500 930 722 667 722 722 667 611 778 778 389 500 778 667 944 722 778 611 778 722 556 667 722 722 1000 722 722 667 333 278 333 581 500 333 500 556 444 556 444 333 500 556 278 333 556 278 833 556 500 556 556 444 389 333 556 500 722 500 500 444 394 220 394 520 350 500 350 333 500 500 1000 500 500 333 1000 556 333 1000 350 667 350 350 333 333 500 500 350 500 1000 333 1000 389 333 722 350 444 722 250 333 500 500 500 500 220 500 333 747 300 500 570 333 747 500 400 549 300 300 333 576 540 250 333 300 330 500 750 750 750 500 722 722 722 722 722 722 1000 722 667 667 667 667 389 389 389 389 722 722 778 778 778 778 778 570 778 722 722 722 722 722 611 556 500 500 500 500 500 500 722 444 444 444 444 444 278 278 278 278 500 556 500 500 500 500 500 549 500 556 556 556 556 500 556 500]>>endobj23 0 obj<</Type/FontDescriptor/FontBBox[-558 -307 2034 1026]/FontName/TimesNewRoman,Bold/Flags 34/StemV 136/CapHeight 663/XHeight 457/Ascent 1026/Descent -307/ItalicAngle 0>>endobj24 0 obj<</Type/Font/Encoding/WinAnsiEncoding/BaseFont/TimesNewRoman/FirstChar 0/LastChar 255/Subtype/TrueType/FontDescriptor 25 0 R/Widths[778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 778 250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 278 500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 444 921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 722 556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 500 333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 500 500 500 333 389 278 500 500 722 500 500 444 480 200 480 541 350 500 350 333 500 444 1000 500 500 333 1000 556 333 889 350 611 350 350 333 333 444 444 350 500 1000 333 980 389 333 722 350 444 722 250 333 500 500 500 500 200 500 333 760 276 500 564 333 760 500 400 549 300 300 333 576 453 250 333 300 310 500 750 750 750 444 722 722 722 722 722 722 889 667 611 611 611 611 333 333 333 333 722 722 722 722 722 722 722 564 722 722 722 722 722 722 556 500 444 444 444 444 444 444 667 444 444 444 444 444 278 278 278 278 500 500 500 500 500 500 500 549 500 500 500 500 500 500 500 500]>>endobj25 0 obj<</Type/FontDescriptor/FontBBox[-568 -307 2028 1007]/FontName/TimesNewRoman/Flags 34/StemV 80/CapHeight 663/XHeight 448/Ascent 1007/Descent -307/ItalicAngle 0>>endobj26 0 obj<</Type/Font/Encoding/WinAnsiEncoding/BaseFont/CourierNew/FirstChar 0/LastChar 255/Subtype/TrueType/FontDescriptor 27 0 R/Widths[600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600]>>endobj27 0 obj<</Type/FontDescriptor/FontBBox[-21 -680 638 1021]/FontName/CourierNew/Flags 34/StemV 40/CapHeight 571/XHeight 423/Ascent 1021/Descent -680/ItalicAngle 0>>endobj28 0 obj<</Type/Font/BaseFont/Symbol/Subtype/Type1>>endobj29 0 obj 4157endobj30 0 obj<</Length 29 0 R>>stream
+/Artifact <</Type /Pagination /BBox [18 778 582 787 ]/Attached [/Top ]>>BDC 
+0 0 0 rg
+0 i 
+BT
+/T1_0 1 Tf
+0 Tc 0 Tw 0  Ts 100  Tz 0 Tr 9 0 0 9 18 780.17 Tm
+(CS 234 - Intro to Computer Organization - Syllabus)Tj
+ET
+EMC 
+/Article <</MCID 0 >>BDC 
+q
+0 18 612 756 re
+W* n
+0.70981 0.73334 0.75687 rg
+BT
+/TT0 1 Tf
+22.5 0 0 22.5 18.81 727.43192 Tm
+(CS 253 \226 Algorithms and Data Structures - Course Syllabus)Tj
+16.875 0 0 16.875 10 686.32394 Tm
+(Contact Information)Tj
+ET
+0.70981 0.73334 0.75687 RG
+0.72 w 10 M 0 j 0 J []0 d 
+17.75 642.59456 m
+123.59 642.59456 l
+S
+BT
+/TT1 1 Tf
+15 0 0 15 14 644.75456 Tm
+( CS253 section A:)Tj
+0 -1.33333 TD
+(Class meeting times:)Tj
+8.59233 0 Td
+(TR 8:05-9:20)Tj
+-8.59233 -1.33334 Td
+(Instructor:)Tj
+8.59233 0 Td
+(Chaman Sabharwal)Tj
+-8.59233 -1.33333 Td
+(Email:)Tj
+/TT0 1 Tf
+8.59233 -0.00333 Td
+(chaman@umr.edu)Tj
+/TT1 1 Tf
+-8.59233 -1.33 Td
+(Phone:)Tj
+8.59233 0 Td
+(n/a)Tj
+-8.59233 -1.33334 Td
+(Office:)Tj
+8.59233 0 Td
+(CS rm 321)Tj
+-8.59233 -1.33333 Td
+(Office Hrs:)Tj
+8.59233 0 Td
+( )Tj
+8.47467 4 Td
+( )Tj
+ET
+279.63 642.59456 m
+384.645 642.59456 l
+S
+BT
+/TT1 1 Tf
+15 0 0 15 279.63 644.75456 Tm
+(CS253 section B:)Tj
+T*
+(Class meeting times:)Tj
+8.59233 0 Td
+(TR 0930-1045)Tj
+-8.59233 -1.33334 Td
+(Instructor:)Tj
+8.59233 0 Td
+(Bruce McMillin)Tj
+-8.59233 -1.33333 Td
+(Email:)Tj
+/TT0 1 Tf
+8.59233 -0.00333 Td
+(ff@umr.edu)Tj
+/TT1 1 Tf
+-8.59233 -1.33 Td
+(Phone:)Tj
+8.59233 0 Td
+(341-6435 \(office\))Tj
+-8.59233 -1.33334 Td
+(Office:)Tj
+8.59233 0 Td
+(CS rm 322)Tj
+-8.59233 -1.33333 Td
+(Office Hrs:)Tj
+8.59233 0 Td
+(Tues and Thurs 0830-0930)Tj
+/TT2 1 Tf
+12.5 0 0 12.5 10 506.99706 Tm
+( )Tj
+ET
+0.5 0.5 0.5 rg
+10 491.75 m
+10 493.75 l
+602 493.75 l
+601 492.75 l
+11 492.75 l
+11 492.75 l
+h
+f
+0.875 0.875 0.875 rg
+602 493.75 m
+602 491.75 l
+10 491.75 l
+11 492.75 l
+601 492.75 l
+601 492.75 l
+h
+f
+0.70981 0.73334 0.75687 rg
+BT
+/TT0 1 Tf
+16.875 0 0 16.875 10 451.07394 Tm
+(Course Objectives)Tj
+/TT2 1 Tf
+12.5 0 0 12.5 10 417.74706 Tm
+( )Tj
+0 -1.2 TD
+(The purpose of this course is threefold:)Tj
+/T1_1 1 Tf
+2.88 -1.44975 Td
+(\267)Tj
+/TT1 1 Tf
+8.75 0 0 8.75 51.75 384.625 Tm
+(                )Tj
+/TT2 1 Tf
+12.5 0 0 12.5 86.75 384.625 Tm
+(Learn advanced algorithmic techniques and put them into practice)Tj
+/T1_1 1 Tf
+-3.25999 -1.44975 Td
+(\267)Tj
+/TT1 1 Tf
+8.75 0 0 8.75 51.75 366.50294 Tm
+(                )Tj
+/TT2 1 Tf
+12.5 0 0 12.5 86.75 366.50294 Tm
+(Build on the basic skills developed in CS 153 and 158)Tj
+/T1_1 1 Tf
+-3.25999 -1.44977 Td
+(\267)Tj
+/TT1 1 Tf
+8.75 0 0 8.75 51.75 348.38087 Tm
+(                )Tj
+/TT2 1 Tf
+12.5 0 0 12.5 86.75 348.38087 Tm
+(Learn and apply algorithm complexity and correctness analysis )Tj
+-3.25999 -1.2 Td
+(techniques)Tj
+/TT0 1 Tf
+16.875 0 0 16.875 10 293.45776 Tm
+(Intended Course Audience/Prerequisites)Tj
+/TT1 1 Tf
+15 0 0 15 10 255.88838 Tm
+(The intended audience for this course is Computer Science Sophomores/Jun\iors who have )Tj
+T*
+(completed each of the following courses: )Tj
+/T1_1 1 Tf
+2.39999 -2.55029 Td
+(\267)Tj
+/TT1 1 Tf
+8.75 0 0 8.75 52.89999 199.63382 Tm
+(        )Tj
+15 0 0 15 70.39999 199.63382 Tm
+(Discrete Mathematics and boolean algebra \()Tj
+ET
+334.91 197.47382 m
+394.91 197.47382 l
+S
+BT
+/TT1 1 Tf
+15 0 0 15 334.91 199.63382 Tm
+( CSc-158 \) )Tj
+/T1_1 1 Tf
+-19.26067 -2.68364 Td
+(\267)Tj
+/TT1 1 Tf
+8.75 0 0 8.75 52.89999 159.37926 Tm
+(        )Tj
+15 0 0 15 70.39999 159.37926 Tm
+(Data Structures I \()Tj
+ET
+180.785 157.21925 m
+240.785 157.21925 l
+S
+BT
+/TT1 1 Tf
+15 0 0 15 180.785 159.37926 Tm
+( CSc-153 \) )Tj
+/TT0 1 Tf
+16.875 0 0 16.875 10 118.69862 Tm
+(Course Requirements/Policies)Tj
+15 0 0 15 10 81.0793 Tm
+(Attendance is required unless prior arrangements have been made.)Tj
+/TT1 1 Tf
+( If an examination is )Tj
+T*
+(missed for illness or unavoidable absence, a makeup examination will be \given. For planned )Tj
+T*
+(absences, programs should be turned in before the absence, rather than a\fter. )Tj
+ET
+EMC 
+/Artifact <</Type /Pagination /BBox [18 5 582 14 ]/Attached [/Bottom ]>>BDC 
+Q
+BT
+/T1_0 1 Tf
+9 0 0 9 18 7.17 Tm
+(file:///C|/Documents%20and%20Settings/Robert/Desktop/Fi...uctures%20II/M\cMillin/Course%20Information/syllabus.htm \(1 of 3\)12/15/)Tj
+(2003 8:22:49 PM)Tj
+ET
+EMC 
+
+endstreamendobj31 0 obj 2830endobj32 0 obj<</Length 31 0 R>>stream
+/Artifact <</Type /Pagination /BBox [18 778 582 787 ]/Attached [/Top ]>>BDC 
+0 0 0 rg
+0 i 
+BT
+/T1_0 1 Tf
+0 Tc 0 Tw 0  Ts 100  Tz 0 Tr 9 0 0 9 18 780.17 Tm
+(CS 234 - Intro to Computer Organization - Syllabus)Tj
+ET
+EMC 
+/Article <</MCID 0 >>BDC 
+q
+0 18 612 756 re
+W* n
+0.70981 0.73334 0.75687 rg
+BT
+/TT0 1 Tf
+15 0 0 15 10 738.0793 Tm
+(Other policies stated within University guidelines are to be adhered to \by the student. )Tj
+ET
+0.5 0.5 0.5 rg
+10 705.07474 m
+10 707.07474 l
+602 707.07474 l
+601 706.07474 l
+11 706.07474 l
+11 706.07474 l
+h
+f
+0.875 0.875 0.875 rg
+602 707.07474 m
+602 705.07474 l
+10 705.07474 l
+11 706.07474 l
+601 706.07474 l
+601 706.07474 l
+h
+f
+0.70981 0.73334 0.75687 rg
+BT
+/TT1 1 Tf
+16.875 0 0 16.875 10 664.39867 Tm
+(Grading)Tj
+/TT0 1 Tf
+15 0 0 15 10 626.8293 Tm
+(   18%  Test I    - September 25 )Tj
+0 -1.2 TD
+(   18%  Test II    - October 30)Tj
+T*
+(   18%  Test III    - December 11)Tj
+T*
+(   36%  Program Assignments \(4-6 assignments\))Tj
+T*
+(   10%  Quizzes, Board Work, Worksheets \(in class at random\))Tj
+0 -2.46667 TD
+(The exams, programs, and quizzes receive grades based on the following s\cale: )Tj
+0 -2.46666 TD
+(                               89-100 A)Tj
+0 -1.2 TD
+(                               77-88  B)Tj
+T*
+(                               65-76  C)Tj
+T*
+(                               53-64  D)Tj
+0 -2.46667 TD
+(The final course grade is then a weighted average \(according to the abo\ve table\) of these )Tj
+0 -1.2 TD
+(individual grades. )Tj
+/TT1 1 Tf
+0 -2.47 TD
+(Program Assignments)Tj
+/TT0 1 Tf
+0 -2.46666 TD
+(Program assignments are )Tj
+/TT1 1 Tf
+(due 1 week after being assigned)Tj
+/TT0 1 Tf
+( unless otherwise stated in class.   You )Tj
+0 -1.2 TD
+(may work in small groups \(up to 3\) on the programming assignments and \homework. For each )Tj
+T*
+(program, though, you should change group membership.  Written reports wi\ll be required for )Tj
+0 -1.20332 TD
+(each programming assignment.   )Tj
+/TT1 1 Tf
+(Late program assignments, including revisions, )Tj
+/TT0 1 Tf
+( will be )Tj
+0 -1.2 TD
+(assessed a 10 point deduction per day and will not be accepted beyond on\e week of the assigned )Tj
+T*
+(deadline.   )Tj
+/TT1 1 Tf
+0 -2.47 TD
+(Homework Assignments)Tj
+/TT0 1 Tf
+0 -2.46333 TD
+(Homework assignments will be given regularly and corrected, but not grad\ed. It is up to you to )Tj
+0 -1.2 TD
+(do the homework. However, in borderline grade situations, if you've comp\leted all the )Tj
+T*
+(homework, you will receive the next higher grade for the course. )Tj
+/TT1 1 Tf
+0 -2.46999 TD
+(Quizzes )Tj
+ET
+EMC 
+/Artifact <</Type /Pagination /BBox [18 5 582 14 ]/Attached [/Bottom ]>>BDC 
+Q
+BT
+/T1_0 1 Tf
+9 0 0 9 18 7.17 Tm
+(file:///C|/Documents%20and%20Settings/Robert/Desktop/Fi...uctures%20II/M\cMillin/Course%20Information/syllabus.htm \(2 of 3\)12/15/)Tj
+(2003 8:22:49 PM)Tj
+ET
+EMC 
+
+endstreamendobj33 0 obj 1451endobj34 0 obj<</Length 33 0 R>>stream
+/Artifact <</Type /Pagination /BBox [18 778 582 787 ]/Attached [/Top ]>>BDC 
+0 0 0 rg
+0 i 
+BT
+/T1_0 1 Tf
+0 Tc 0 Tw 0  Ts 100  Tz 0 Tr 9 0 0 9 18 780.17 Tm
+(CS 234 - Intro to Computer Organization - Syllabus)Tj
+ET
+EMC 
+/Article <</MCID 0 >>BDC 
+q
+0 18 612 756 re
+W* n
+0.70981 0.73334 0.75687 rg
+BT
+/TT0 1 Tf
+15 0 0 15 10 753.00456 Tm
+(Quizzes are over material we will cover that day, so it is in your best \interest to read ahead. )Tj
+/TT1 1 Tf
+0 -2.47 TD
+(Academic Honesty)Tj
+/TT0 1 Tf
+0 -2.46333 TD
+(You must work alone on all tests and exams. Any cheating will be handled\ with appropriate )Tj
+0 -1.2 TD
+(University action.)Tj
+ET
+0.5 0.5 0.5 rg
+10 628 m
+10 630 l
+602 630 l
+601 629 l
+11 629 l
+11 629 l
+h
+f
+0.875 0.875 0.875 rg
+602 630 m
+602 628 l
+10 628 l
+11 629 l
+601 629 l
+601 629 l
+h
+f
+0.70981 0.73334 0.75687 rg
+BT
+/TT1 1 Tf
+16.875 0 0 16.875 10 587.32394 Tm
+(Course Materials)Tj
+/TT0 1 Tf
+15 0 0 15 10 548.21365 Tm
+(  Text:      Introduction to Algorithms, 2)Tj
+12 0 0 12 248.33501 552.05365 Tm
+(nd)Tj
+15 0 0 15 260.33501 548.21365 Tm
+( Edition, Cormen et. al., McGraw Hill)Tj
+-16.689 -2.46667 Td
+(  Handouts:             As required                    )Tj
+ET
+EMC 
+/Artifact <</Type /Pagination /BBox [18 5 582 14 ]/Attached [/Bottom ]>>BDC 
+Q
+BT
+/T1_0 1 Tf
+9 0 0 9 18 7.17 Tm
+(file:///C|/Documents%20and%20Settings/Robert/Desktop/Fi...uctures%20II/M\cMillin/Course%20Information/syllabus.htm \(3 of 3\)12/15/)Tj
+(2003 8:22:49 PM)Tj
+ET
+EMC 
+
+endstreamendobj35 0 obj(CS 234 - Intro to Computer Organization - Syllabus)endobj36 0 obj<</C 40 0 R/V 1.25>>endobj37 0 obj<</S 38 0 R/URL(file:///C|/Documents%20and%20Settings/Robert/Desktop/Files/CS/CS%20253%20-%20Data%20Structures%20II/McMillin/Course%20Information/syllabus.htm)>>endobj38 0 obj<</G 39 0 R>>endobj39 0 obj<</PS[792.0 612.0]/M[10.080002 10.080002 26.0 36.0]/S 0/AS 1/PO 0/AT 70/AH 0/AL 0/CB 0/SU 1>>endobj40 0 obj[37 0 R]endobj41 0 obj(file:///C|/Documents%20and%20Settings/Robert/Desktop/Files/CS/CS%20253%20-%20Data%20Structures%20II/McMillin/Course%20Information/syllabus.htm)endobj42 0 obj(Ý\(Q.‡Ö\rþ%0Ùˆ)endobj43 0 obj<</ID 42 0 R/O[11 0 R 17 0 R 19 0 R]/S/SPS/T 35 0 R/CT(text/html)/SI 44 0 R/TID 45 0 R/TS(D:20031216082249)>>endobj44 0 obj<</AU 41 0 R/TS(D:20031216082249)>>endobj45 0 obj(ûD@ËœQ‚ -É´‰n£)endobj46 0 obj<</IDS 47 0 R/URLS 48 0 R>>endobj47 0 obj<</Names[42 0 R 43 0 R]>>endobj48 0 obj<</Names[41 0 R 43 0 R]>>endobj49 0 obj<</Count 1/Parent 6 0 R/First 50 0 R/Last 50 0 R/Title(Local Disk)>>endobj50 0 obj<</Parent 49 0 R/Dest[11 0 R/XYZ 0 792 null]/Title(CS 234 - Intro to Computer Organization - Syllabus)/SE 10 0 R>>endobj51 0 obj<</Length 3272/Type/Metadata/Subtype/XML>>stream
+<?xpacket begin='ï»¿' id='W5M0MpCehiHzreSzNTczkc9d'?>
+<?adobe-xap-filters esc="CRLF"?>
+<x:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='XMP toolkit 2.9.1-13, framework 1.6'>
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' xmlns:iX='http://ns.adobe.com/iX/1.0/'>
+<rdf:Description rdf:about='uuid:fee08809-bc0e-48f7-9c59-2d290f160862' xmlns:pdf='http://ns.adobe.com/pdf/1.3/' pdf:Producer='Acrobat Web Capture 6.0'></rdf:Description>
+<rdf:Description rdf:about='uuid:fee08809-bc0e-48f7-9c59-2d290f160862' xmlns:xap='http://ns.adobe.com/xap/1.0/' xap:ModifyDate='2003-12-16T02:22:49-06:00' xap:CreateDate='2003-12-16T02:22:31Z' xap:MetadataDate='2003-12-16T02:22:49-06:00'></rdf:Description>
+<rdf:Description rdf:about='uuid:fee08809-bc0e-48f7-9c59-2d290f160862' xmlns:xapMM='http://ns.adobe.com/xap/1.0/mm/' xapMM:DocumentID='uuid:90362a37-354b-47d6-aee1-19265b2c38eb'/>
+<rdf:Description rdf:about='uuid:fee08809-bc0e-48f7-9c59-2d290f160862' xmlns:dc='http://purl.org/dc/elements/1.1/' dc:format='application/pdf'><dc:title><rdf:Alt><rdf:li xml:lang='x-default'>CS 234 - Intro to Computer Organization - Syllabus</rdf:li></rdf:Alt></dc:title></rdf:Description>
+</rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end='w'?>
+endstreamendobjxref
+0 52
+0000000004 65535 f
+0000000016 00000 n
+0000000143 00000 n
+0000000208 00000 n
+0000000000 00001 f
+0000000384 00000 n
+0000000404 00000 n
+0000000470 00000 n
+0000000570 00000 n
+0000000614 00000 n
+0000000661 00000 n
+0000000784 00000 n
+0000001012 00000 n
+0000001065 00000 n
+0000001089 00000 n
+0000001274 00000 n
+0000001305 00000 n
+0000001488 00000 n
+0000001679 00000 n
+0000001703 00000 n
+0000001894 00000 n
+0000001918 00000 n
+0000002008 00000 n
+0000003195 00000 n
+0000003377 00000 n
+0000004554 00000 n
+0000004730 00000 n
+0000005901 00000 n
+0000006072 00000 n
+0000006132 00000 n
+0000006153 00000 n
+0000010363 00000 n
+0000010384 00000 n
+0000013267 00000 n
+0000013288 00000 n
+0000014792 00000 n
+0000014860 00000 n
+0000014896 00000 n
+0000015073 00000 n
+0000015102 00000 n
+0000015211 00000 n
+0000015235 00000 n
+0000015395 00000 n
+0000015431 00000 n
+0000015556 00000 n
+0000015607 00000 n
+0000015641 00000 n
+0000015684 00000 n
+0000015725 00000 n
+0000015766 00000 n
+0000015850 00000 n
+0000015980 00000 n
+trailer
+<</Size 52/Root 1 0 R/Info 3 0 R/ID[<8626361664c77f49b517d2fa4f3942b0><eca3d51b70ae254e9f9eec75e1da437c>]>>
+startxref
+19329
+%%EOF

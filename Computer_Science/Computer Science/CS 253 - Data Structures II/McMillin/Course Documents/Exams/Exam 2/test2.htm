@@ -1,0 +1,1497 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./test2_files/filelist.xml">
+<link rel=Edit-Time-Data href="./test2_files/editdata.mso">
+<link rel=OLE-Object-Data href="./test2_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>C</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Bruce McMillin</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Bruce McMillin</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>63</o:TotalTime>
+  <o:LastPrinted>2002-11-04T18:03:00Z</o:LastPrinted>
+  <o:Created>2003-02-13T14:48:00Z</o:Created>
+  <o:LastSaved>2003-02-13T14:48:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>318</o:Words>
+  <o:Characters>1813</o:Characters>
+  <o:Company>University of Missouri - Roll</o:Company>
+  <o:Lines>15</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>2226</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Comic Sans MS";
+	panose-1:3 15 7 2 3 3 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:TimesNewRomanPSMT;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:3 0 0 0 1 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Comic Sans MS";
+	mso-font-kerning:0pt;
+	font-weight:normal;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+h3
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:.5in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Comic Sans MS";
+	font-weight:normal;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Comic Sans MS";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-indent:.5in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+em
+	{mso-bidi-font-style:normal;}
+p.H1, li.H1, div.H1
+	{mso-style-name:H1;
+	mso-style-next:Normal;
+	margin-top:5.0pt;
+	margin-right:0in;
+	margin-bottom:5.0pt;
+	margin-left:0in;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:24.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-font-kerning:18.0pt;
+	layout-grid-mode:line;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+span.HTMLMarkup
+	{mso-style-name:"HTML Markup";
+	mso-style-parent:"";
+	color:red;
+	display:none;
+	mso-hide:all;}
+p.Preformatted, li.Preformatted, div.Preformatted
+	{mso-style-name:Preformatted;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	tab-stops:0in 47.95pt 95.9pt 143.85pt 191.8pt 239.75pt 287.7pt 335.65pt 383.6pt 431.55pt 479.5pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	layout-grid-mode:line;}
+span.Typewriter
+	{mso-style-name:Typewriter;
+	mso-style-parent:"";
+	mso-ansi-font-size:10.0pt;
+	mso-ascii-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-footer:url("./test2_files/header.htm") f1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:2;
+	mso-list-template-ids:67698717;}
+@list l0:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%2\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"%3\)";
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-text:"\(%4\)";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"\(%5\)";
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"\(%6\)";
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:2.0in;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:5055916;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-839218732 67698711 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1:level1
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%1\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:204366979;
+	mso-list-type:simple;
+	mso-list-template-ids:1766508880;}
+@list l2:level1
+	{mso-level-start-at:4;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:217546548;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1489769032 -497648246 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:21.0pt;
+	mso-level-number-position:left;
+	margin-left:21.0pt;
+	text-indent:-.25in;}
+@list l3:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:57.0pt;
+	mso-level-number-position:left;
+	margin-left:57.0pt;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:218788195;
+	mso-list-template-ids:67698717;}
+@list l4:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l4:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"%2\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;}
+@list l4:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"%3\)";
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-text:"\(%4\)";
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"\(%5\)";
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"\(%6\)";
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:2.0in;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:251161914;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1352462400 -497648246 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5:level1
+	{mso-level-start-at:2;
+	mso-level-text:"%1\)";
+	mso-level-tab-stop:24.0pt;
+	mso-level-number-position:left;
+	margin-left:24.0pt;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:258880284;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-771466440 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:264965554;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1042811236 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l7:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l8
+	{mso-list-id:350029335;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1626450568 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l8:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l9
+	{mso-list-id:420949309;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1597768600 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l9:level1
+	{mso-level-tab-stop:51.0pt;
+	mso-level-number-position:left;
+	margin-left:51.0pt;
+	text-indent:-.25in;}
+@list l10
+	{mso-list-id:782501620;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-313776908 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l10:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l11
+	{mso-list-id:785469845;
+	mso-list-type:simple;
+	mso-list-template-ids:-177959962;}
+@list l11:level1
+	{mso-level-start-at:3;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l12
+	{mso-list-id:789280845;
+	mso-list-type:simple;
+	mso-list-template-ids:67698703;}
+@list l12:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l13
+	{mso-list-id:1021051793;
+	mso-list-type:hybrid;
+	mso-list-template-ids:46671570 -497648246 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l13:level1
+	{mso-level-start-at:2;
+	mso-level-text:"%1\)";
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l14
+	{mso-list-id:1197814301;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1508254142 67698713 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l14:level1
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15
+	{mso-list-id:1235119433;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-961241576 -497648246 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l15:level1
+	{mso-level-start-at:2;
+	mso-level-text:"%1\)";
+	mso-level-tab-stop:24.0pt;
+	mso-level-number-position:left;
+	margin-left:24.0pt;
+	text-indent:-.25in;}
+@list l16
+	{mso-list-id:1274167291;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-886547276 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l16:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l16:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l16:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:right;
+	margin-left:1.25in;
+	text-indent:-9.0pt;}
+@list l17
+	{mso-list-id:1349016325;
+	mso-list-type:hybrid;
+	mso-list-template-ids:332195522 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l17:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l18
+	{mso-list-id:1400322568;
+	mso-list-type:hybrid;
+	mso-list-template-ids:220490472 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l18:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l18:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l19
+	{mso-list-id:1414398383;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1489073664 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l19:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:27.0pt;
+	mso-level-number-position:left;
+	margin-left:27.0pt;
+	text-indent:-.25in;}
+@list l20
+	{mso-list-id:1453864128;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-243099346 67698705 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l20:level1
+	{mso-level-text:"%1\)";
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l21
+	{mso-list-id:1457724834;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-245626462 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l21:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l22
+	{mso-list-id:1598175030;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1267050032 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l22:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l23
+	{mso-list-id:1785273200;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2060157010 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l23:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l24
+	{mso-list-id:1867254710;
+	mso-list-template-ids:0;}
+@list l24:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level2
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level3
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level5
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level6
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level8
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l24:level9
+	{mso-level-start-at:0;
+	mso-level-text:"";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:0in;
+	text-indent:0in;}
+@list l25
+	{mso-list-id:1915629478;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1891008010 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l25:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l26
+	{mso-list-id:1924876379;
+	mso-list-type:hybrid;
+	mso-list-template-ids:679492904 67698703 67698713 67698703 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l26:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l26:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l26:level3
+	{mso-level-tab-stop:99.0pt;
+	mso-level-number-position:left;
+	margin-left:99.0pt;
+	text-indent:-.25in;}
+@list l27
+	{mso-list-id:2060281153;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2096901072 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l27:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l28
+	{mso-list-id:2069566371;
+	mso-list-type:hybrid;
+	mso-list-template-ids:167300350 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l28:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l29
+	{mso-list-id:2133474395;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1974635004 2011582050 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l29:level1
+	{mso-level-start-at:2;
+	mso-level-text:"%1\)";
+	mso-level-tab-stop:31.5pt;
+	mso-level-number-position:left;
+	margin-left:31.5pt;
+	text-indent:-28.5pt;}
+@list l16:level1 lfo34
+	{mso-level-start-at:11;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=H1 align=center style='text-align:center'><span class=HTMLMarkup><span
+style='font-family:"Comic Sans MS";color:red'>&lt;!DOCTYPE HTML PUBLIC
+&quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&lt;!--Converted with LaTeX2HTML 96.1
+(Feb 5, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of
+Leeds --&gt;</span></span><span style='font-family:"Comic Sans MS";font-weight:
+normal'>C.Sc. 253 Test 2 <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Comic Sans MS"'><br>
+</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:
+"Comic Sans MS";layout-grid-mode:line'>Tuesday, November 5, 2002,</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>
+<span style='mso-tab-count:2'>              </span><span style="mso-spacerun:
+yes"> </span>Name</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if gte vml 1]><v:line
+ id="_x0000_s1028" style='position:absolute;left:0;text-align:left;z-index:1'
+ from="284.4pt,1.9pt" to="428.4pt,1.9pt" o:allowincell="f" strokecolor="#d4d4d4"
+ strokeweight="1.75pt">
+ <v:shadow on="t" offset="0,-1pt"/>
+</v:line><![endif]--><![if !vml]><span style='mso-ignore:vglayout;position:
+relative;z-index:0'><span style='left:0px;position:absolute;left:376px;
+top:-1px;width:199px;height:8px'><img width=199 height=8
+src="./test2_files/image001.gif" v:shapes="_x0000_s1028"></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<br style='mso-ignore:vglayout' clear=ALL>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>Instructions:</span></b><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>This
+is a closed book, closed notes exam with one crib sheet allowed.<span
+style="mso-spacerun: yes">  </span>Show all your work for full credit, use the
+spaces provided or the back of the test paper if you need more room. There are
+6 Questions on 3 Pages. You have70 minutes to complete it. <o:p></o:p></span></p>
+
+<p class=MsoHeader style='mso-outline-level:2;tab-stops:.5in'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo28;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>What
+is <sub><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:52.5pt;
+ height:34.5pt' o:ole="">
+ <v:imagedata src="./test2_files/image002.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=70 height=46
+src="./test2_files/image003.gif" v:shapes="_x0000_i1025"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1106631268">
+ </o:OLEObject>
+</xml><![endif]-->where c is a constant (10 pts)?<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo28;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>Is<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l16 level2 lfo28;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>a.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span
+style="mso-spacerun: yes"> </span><sub><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" style='width:135pt;height:18pt' o:ole="">
+ <v:imagedata src="./test2_files/image004.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=180 height=24
+src="./test2_files/image005.gif" v:shapes="_x0000_i1026"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1106631269">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span>(5 pts)? <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l16 level2 lfo28;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>b.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span
+style="mso-spacerun: yes"> </span><sub><!--[if gte vml 1]><v:shape id="_x0000_i1033"
+ type="#_x0000_t75" style='width:135pt;height:18pt' o:ole="">
+ <v:imagedata src="./test2_files/image006.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=180 height=24
+src="./test2_files/image007.gif" v:shapes="_x0000_i1033"><![endif]></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1033"
+  DrawAspect="Content" ObjectID="_1106631270">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span>(5 pts)?<span
+style="mso-spacerun: yes">  </span>Prove your answers.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:12.0pt;font-family:TimesNewRomanPSMT;color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:12.0pt;font-family:TimesNewRomanPSMT;color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:12.0pt;font-family:TimesNewRomanPSMT;color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:12.0pt;font-family:TimesNewRomanPSMT;color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:12.0pt;font-family:TimesNewRomanPSMT;color:blue'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:12.0pt;font-family:TimesNewRomanPSMT'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo28;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:12.0pt;font-family:"Comic Sans MS"'>If a problem can be solved
+by the greedy method, does it satisfy the principle of optimality (5 pts)?<span
+style="mso-spacerun: yes">  </span>Is the converse true (5 pts), if true state
+why, if false, give a counterexample?</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<span style='font-size:10.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo28;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>Given
+the Heapsort algorithm<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>Heapsort(A)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+1'>     </span>Build-Max_heap(A)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+1'>     </span>for i from length [A] downto 2<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+2'>              </span>exchange A[1] and A[i]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+2'>              </span>heap-size[A] = heap-size[A] –1<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+2'>              </span>Max-Heapify(A,1)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l14 level1 lfo35;
+tab-stops:list .5in;mso-layout-grid-align:auto;text-autospace:ideograph-numeric ideograph-other'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-bidi-font-size:10.0pt'>Argue the
+correctness of the following loop invariant:<span style="mso-spacerun: yes"> 
+</span>“At the start of the for loop, the subarray A[1..i] is a max-heap
+containing the i smallest elements of A[1..n] and the subarray A[i+1..n]
+contains the n-i largest elements of A[1..n] sorted.” (20 pts)<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='tab-stops:list .25in;mso-layout-grid-align:auto;
+text-autospace:ideograph-numeric ideograph-other'><span style='mso-bidi-font-size:
+10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='tab-stops:list .25in;mso-layout-grid-align:auto;
+text-autospace:ideograph-numeric ideograph-other'><span style='mso-bidi-font-size:
+10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='tab-stops:list .25in;mso-layout-grid-align:auto;
+text-autospace:ideograph-numeric ideograph-other'><span style='mso-bidi-font-size:
+10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='tab-stops:list .25in;mso-layout-grid-align:auto;
+text-autospace:ideograph-numeric ideograph-other'><span style='mso-bidi-font-size:
+10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='tab-stops:list .25in;mso-layout-grid-align:auto;
+text-autospace:ideograph-numeric ideograph-other'><span style='mso-bidi-font-size:
+10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='tab-stops:list .25in;mso-layout-grid-align:auto;
+text-autospace:ideograph-numeric ideograph-other'><span style='mso-bidi-font-size:
+10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='tab-stops:list .25in;mso-layout-grid-align:auto;
+text-autospace:ideograph-numeric ideograph-other'><span style='mso-bidi-font-size:
+10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='tab-stops:list .25in;mso-layout-grid-align:auto;
+text-autospace:ideograph-numeric ideograph-other'><span style='mso-bidi-font-size:
+10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l14 level1 lfo35;
+tab-stops:list .5in;mso-layout-grid-align:auto;text-autospace:ideograph-numeric ideograph-other'><![if !supportLists]><span
+style='mso-bidi-font-size:10.0pt'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-bidi-font-size:10.0pt'>Suppose I
+incorrectly modify the code as follows:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>Heapsort(A)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+1'>          </span>Build-Max_heap(A)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+1'>          </span>for I from length [A] downto 2<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+2'>                   </span><s>exchange A[1] and A[I]<span
+style="mso-spacerun: yes">   </span></s><b><i>- delete this line</i></b><s><o:p></o:p></s></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+2'>                   </span>heap-size[A] = heap-size[A] –1<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><span style='mso-tab-count:
+2'>                   </span>Max-Heapify(A,1)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>Use the invariant to
+show that the code is now incorrect by simulating it<span style="mso-spacerun:
+yes">  </span>on the array A=[5,2,4,6,12].<span style="mso-spacerun: yes"> 
+</span>Show where the invariant first fails. (10 pts)<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.25in;tab-stops:list .25in;mso-layout-grid-align:
+auto;text-autospace:ideograph-numeric ideograph-other'><span style='mso-bidi-font-size:
+10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS";
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo28;
+tab-stops:list .25in'><![if !supportLists]>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>In the 0/1 Knapsack problem, given object weights and
+profits={6,2,1,5}, and capacity, c=7, complete the table as much as needed to
+get an optimal solution. Give your optimal solution (15 pts).</p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=59 valign=top style='width:44.25pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>C(I,j)<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>j<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>0<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>1<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>2<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>3<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>4<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>5<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>6<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>7<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=59 valign=top style='width:44.25pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>I<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>w</span><span
+  style='font-size:8.0pt;font-family:"Comic Sans MS"'>i<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=59 valign=top style='width:44.25pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>1<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>6<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=59 valign=top style='width:44.25pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>2<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>2<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=59 valign=top style='width:44.25pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>3<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'>1<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=59 valign=top style='width:44.25pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:12.0pt;font-family:"Comic Sans MS"'>4<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:12.0pt;font-family:"Comic Sans MS"'>5<o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=59 valign=top style='width:44.3pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Comic Sans MS"'><span style="mso-spacerun: yes">         </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in;mso-list:l16 level1 lfo28;
+tab-stops:list .25in'><![if !supportLists]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>Given
+a recurrence<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l16 level2 lfo28;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>a.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>Solve
+the following recurrence with the usual assumptions using the tree recursion
+method (15 pts):<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.5in'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>T(n)=3T(n/2) + n<span
+style='mso-tab-count:3'>                       </span>n&gt;4<span
+style='mso-tab-count:1'>     </span><o:p></o:p></span></p>
+
+<h3>T(4)=14<span style='mso-tab-count:4'>                                    </span>otherwise
+</h3>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l16 level2 lfo28;
+tab-stops:list .75in'><![if !supportLists]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>b.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'>Verify
+your solution with the substitution method (10 pts).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Comic Sans MS"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

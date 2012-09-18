@@ -1,0 +1,165 @@
+Computer Science 53 - Section B         Name __________________________
+Fall 2001                               Student Number ________________
+Exam 2                                  Page x of y
+
+This test is closed books/closed notes.  You will not need a
+calculator.  
+ 
+If any answer is illegible it will be considered incorrect.
+ 
+Unless told otherwise, for all program fragments given in the
+questions you may assume that all necessary include files have been
+included and that there are no errors in the sections of code not 
+explicitly given.  
+
+For T/F questions, circle either T or F.
+For multiple choice questions, circle the correct letter or number.
+
+--------------------------------------------------------------------
+
+(4)  1. After the function MyFunction below is executed, what value is
+        returned from this function if the argument 4 is passed to the
+        function ? (Assume this segment is embedded in a working program.)
+
+     int MyFunction(int iInput)
+     {
+        int iResult = 1;
+        for(int iCtr = 2; iCtr <= iInput; iCtr++)
+        {
+           iResult = iResult * iCtr;
+        }
+        return iResult;
+     }
+
+(2)  2. Which of the following best describes the difference between  
+        pass-by-value and pass-by-reference.
+
+           a. There is no difference.
+           b. Void functions must use pass-by-reference.
+           c. Pass-by-value and pass-by-reference parameters (arguments) 
+              cannot coexist in the same parameter list.
+           d. An argument instantiating a pass-by-value parameter cannot
+              be changed in the calling function whereas a pass-by-reference
+              parameter can be changed.
+
+(3)  3. Write a function prototype that has the following characteristics :
+        
+           1. The function is named FooBar
+           2. The function returns a character
+           3. The function takes as an argument a pass-by-value integer
+              called iBob.
+
+(2)  4.  TRUE    FALSE    A function is not required to have a return value.
+
+(2)  5.  TRUE    FALSE    The use of a function prototype is required by the
+                          compiler.
+
+(2)  6.  TRUE    FALSE    Every C++ executable program must have a main     
+                          function.
+
+(2)  7.  TRUE    FALSE    Variables listed in the formal parameter list of a
+                          function definition should not be declared within
+                          the body of the function statements.
+
+(2)  8. Which of the following is a valid function prototype ?             
+
+           1. float Green(w, x, y, z)
+           2. char Blue(int a, double b);
+           3. stub Red(int);
+           4. Yellow();
+           5. White(char 'M');
+
+(2)  9. Which of the following is a valid function invocation (call) ?     
+
+           1. float Green(w, x, y, z)
+           2. char Blue(int a, double b);
+           3. stub Red(int);
+           4. Yellow();
+           5. White(char 'M');
+
+(6) 10. What is the output of the following program ?
+
+        #include<iostream.h>
+
+        void figure_me_out(int& x, int y);
+
+        int main()
+        {
+           int a, b, c;
+           a = 10;
+           b = 20;
+           c = 30;
+
+           figure_me_out(a, b);
+           cout << a << " " << b << endl;
+
+           return 0;
+        }
+
+        void figure_me_out(int& x, int y)
+        {
+           cout << x << " " << y << endl;
+           x = 1;
+           y = 2;
+           cout << x << " " << y << endl;
+           return;
+        }
+
+(6) 11. Write a void function definition for a function called zero_both
+        that has two reference parameters, both of which are variables of
+        type int, and sets the values of both variables to 0.
+
+(3) 12. Is a correct call to a void function followed by a semicolon a   
+        statement in its own right ? Or must we embed the function call
+        in an expression ?
+
+(3) 13. Suppose you have two function definitions with the following
+        prototypes :
+
+           double score(double time, double distance);
+           int score(double points);
+
+        Which function definition would be used in the following function
+        call and why would it be the one used ? (x is of type double).
+
+           final_score = score(x);
+
+(6) 14. Declare an input file called ifScores and open it so that it is
+        attached to an external file (in UNIX) called ifscores.dat
+        (you can hardcode this -- you need not prompt the user for any
+        file name).
+
+(3) 15. Assume there exists a declaration of
+
+        ifstream ifBob;
+
+        Write the statement that closes the file ifBob.
+
+(8) 16. Consider the following code (and assume it is embeded in a complete
+        and correct program and then run) :
+
+        char next;
+        int count = 0;
+        cout << "Enter a line of input: << endl;
+        cin.get(next);
+        while(next != '\n')
+        {
+           if((count % 2) == 0)    // true if count is even.
+              cout << next;
+           count++;
+           cin.get(next);
+        }
+
+        The prompt and the 1 line of data are below (the line of stars
+        below the line of numbers is just there to show spacing for this 
+        exam since you can't tell how many blanks there are between some
+        numbers -- the stars are NOT input !).
+
+
+        Enter a line of input:
+        0 1  2 345 6 7 89  10 11
+        ************************  (stars below numbers/blanks are just
+                                   to tell you spacing of numbers -- they
+                                   are NOT input !!).
+
+

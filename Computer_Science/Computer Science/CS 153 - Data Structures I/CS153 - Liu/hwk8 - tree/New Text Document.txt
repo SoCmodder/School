@@ -1,0 +1,68 @@
+/*bool BSTree::remove( NODE* &root1, CString arg )
+{
+  bool removed = false;
+
+  // If we've reached the end of the tree, it was not found.
+  if( root1 == NULL )
+    removed = false;
+
+  else
+  {
+    // If we've found what we want to delete, then we go through the following.
+    if( arg == root1->getData() )
+    {
+      // If the left child is null, we replace with the right.
+      if( root1->getLeft() == NULL )
+      {
+        NODE *temp = root1;
+        root = root->getRight();
+        delete temp;
+        removed = true;
+      }
+
+      else if( root1->isLeaf() )
+      {
+        NODE* temp = root1;
+        root1 = NULL;
+        delete temp;
+        removed = true;
+      }
+
+      else
+      {
+        NODE* where = Unhook( root1->getLeftForUpdate() );
+        where->setLeft( root1->getLeftForUpdate() );
+        where->setRight( root1->getRightForUpdate() );
+
+        delete root1;
+        root1 = where;
+        removed = true;
+      }
+    }
+
+    else if( root1->getData() > arg )
+      removed = remove( root1->getLeftForUpdate(), arg );
+
+    else if( root1->getData() < arg )
+      removed = remove( root1->getRightForUpdate(), arg );
+  }
+
+  return removed;
+}*/
+
+
+/*NODE* BSTree::Unhook( NODE*& root1 )
+{
+  // Traverse down the right side of the tree for the max value.
+  if( root1->getRight() != NULL )
+    return Unhook( root1->getRightForUpdate() );
+
+  else
+  {
+    // Once we find the max value, we return it, and set its old spot
+    // to its left child.
+    NODE* temp = root1;
+    root1 = root1->getLeftForUpdate();
+    return temp;
+  }
+}*/

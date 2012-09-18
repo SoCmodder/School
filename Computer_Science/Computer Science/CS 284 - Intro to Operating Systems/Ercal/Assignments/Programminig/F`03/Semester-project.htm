@@ -1,0 +1,121 @@
+<html>
+<head>
+   <title>CSc 284 - Final Project</title>
+</head>
+<body bgcolor=WHITE>
+
+<center><b><font size=+2>CSc 284 - Final Project</font></b>
+<p><b><i><font size=+1>A Smart House Simulator</font></i></b>
+</center>
+
+<h2>Objective</h2>
+
+<ul>In this project, you will be designing and implementing a simulator
+for a "smart house". The electronic devices in such a smart house
+embed powerful chips which are connected to a central controller. You
+can get or set the status of your house either at home or in your
+office via Internet. The house should be equipped with sensors which
+can provide motion detection, voice recognition, and light detection
+to distinguish between day and night. You should be able to give voice
+commands to perform certain tasks (e.g. turning the TV, AC, and lights
+on and off). The lights should come on when it is dark. The doors
+should open automatically when you approach. To this list, you may add
+as many smart features as you wish. However, you must include the
+basic features to your design as it is specified here.</ul>
+
+<ul>For this project, it is highly recommended that GUI be used to
+visualize your design and provide control panels for the user.  
+First, you need to draw the layout of your house. Then, you will
+simulate the living of an adult person (the owner) in the house. The
+person's movement is controlled by you or a smart program. 
+When the owner moves in the house, your GUI should be able to illustrate your
+smart features. For example, when the person enters a room, the lights
+in that room should turn on automatically. One possible implementation
+is to change the background color of the room. Likewise, the doors
+should open automatically when the person moves in the direction of
+the door. After the person passes through the door, it should close. </ul>
+
+<h2>Basic Smart Features</h2>
+
+<h3>Local Control</h3>
+
+<ul>You may create a control box to show the status of the house such as time,
+temperature, AC on/off, TV on/off, TV channel, lights on/off, doors 
+open/close. You are also allowed to change the status. For example, you are
+able to set the house temperature.</ul>
+
+<h3>Online Control</h3>
+
+<ul>This feature allows the "remote control" of your house. You can read the
+status of your house from your office computer. You can start the
+Heating/AC Unit before you leave your office. One possible
+architecture of this model is as follows: </ul>
+
+<img SRC="final.jpg">
+
+<ul>This design implies that you may start a clint program on any computer
+you want which will communicate with a server (running on your home
+computer or elsewhere) through sockets. And, you will be able to issue
+control commands through your client program which will be delivered
+to your "home controller" via the server program. </ul>
+
+<h3>Voice recognition</h3>
+
+<ul>
+It can be simulated by using a text command box. For example, if you input 
+'TV on' from the command box, the TV will be turned on.</ul>
+
+<h3>Lights</h3>
+
+<ul>
+The light turns on when you enter the room and turns off when you leave. Also,
+you can change the on/off status through the local controller and/or
+by issuing voice commands.</ul>
+
+<h3>Doors</h3>
+
+<ul>
+When you approach a door, it automatically opens. When you walk away
+from the door, it closes. Doors can be locked or unlocked for security
+reasons. And again, their status can be set by the controller and/or by
+issuing voice commands.</ul> 
+
+
+<h2>Programming</h2>
+
+<ul>You can use any programming language to implement this project. Since this
+is a project for the Operating Systems class, it is strongly
+encouraged that you use all the knowledge that you acquired in this class
+(such as processes, threads, mutual exclusion, pipes, sockets, etc.). </ul>
+
+<ul>Start designing your smart house as early as possible. 
+First, try to come up with a draft design which
+identifies all the major software components that you will be 
+implementing. While doing this, also identify the threads, global  
+resources, critical sections, sockets, etc. that you will using
+in your project. </ul>
+
+<h2>Presentations, Demos, and Grading</h2>
+
+<ul>Do not forget that a good task partitioning between group members is
+critical for the successful completion of your project. Try to
+assign tasks to group members based on their skills while paying
+attention to equal distribution of the load.</ul>
+
+<ul>During the demo time, group members will be asked about the work they
+have done for the project. </ul>
+
+<ul>Your project grade will be based on two components:
+<ol>
+<li> Class presentations (Power Point) (30%)</li>
+<li>Demos                             (70%)</li>
+</ol>
+</ul>
+
+<ul>Presentations will be 15-20 minutes long. Demos should take less than 25 minutes per team. Demos will take place in CS-213 UNIX Lab. <br>  
+In your presentations and demos, please make sure that you clearly 
+explain the task partitioning between the members.</ul>
+
+</body>
+</html>
+

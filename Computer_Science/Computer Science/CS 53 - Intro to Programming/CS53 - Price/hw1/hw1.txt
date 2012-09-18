@@ -1,0 +1,49 @@
+Roberto Murillo
+CS53 Homework Assignment #1
+8/27/2005
+
+1) a)I pull into a parking space.
+   b)I get out of my car and shut the door.
+   c)I walk into the store.
+   d)I locate the soup section.
+   e)I find the can of soup.
+   f)I take it to the counter.
+   g)I pay for the soup.
+   h)I walk outside and back to my car.
+(8 steps)
+
+2) a)I would first try dividing the number by two (the lowest prime number).
+   b)I would then try to divide the new number by two again.
+   c)If two did not work, I would try 3.
+   d)I would repeat this, working my way up the prime number list, until I
+     reached the smallest prime number as an answer.
+   e)Then, I would label my final answers as the prime factors of the number
+     I started with.
+(5 steps)
+
+3) a)I would take the first number and find every number it can be divided
+     by.
+   b)I would write each of those in a list.
+   c)I would take the second number and find all numbers it could be divided
+     by.
+   d)I would write each of those in a separate list.
+   e)Then I would compare lists.
+   f)I would find the biggest common number between the lists.
+   g)I would label this as my greatest common divisor.
+(7 steps)
+
+4) a)I would first look out the window to see if it was raining (Yes, it's
+     raining).
+   b)I then look at the thermometer to check the temperature (It's warm).
+   c)I then put on a pair of underwear.
+   d)Next, I put on some socks that allow my feet to breathe.
+   e)I then put on a regular white t-shirt because it is warm, and I don't
+     want to be too hot.
+   f)Next, I put on a pair of regular sports shorts.
+   g)I put on tennis shoes because it is raining, and I don't want to wear
+     sandals.
+   h)I put on a nice baseball cap as a shield for my face, from the rain.
+   i)I then throw on a raincoat to go over my t-shirt to protect me from
+     getting wet.
+   j)Being dressed, I step outside and proceed to walk.
+(10 steps)

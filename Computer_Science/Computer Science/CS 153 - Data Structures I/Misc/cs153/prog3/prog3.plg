@@ -1,0 +1,27 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: prog3 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSP6E.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/prog3.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\csc153\prog3b\Vect.cpp"
+]
+Creating command line "cl.exe @C:\TEMP\RSP6E.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/prog3.pdb" /debug /machine:I386 /out:"Debug/prog3.exe" /pdbtype:sept  .\Debug\prog3.obj .\Debug\prog3Dlg.obj .\Debug\StdAfx.obj .\Debug\Vect.obj .\Debug\prog3.res "
+<h3>Output Window</h3>
+Compiling...
+Vect.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+prog3.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

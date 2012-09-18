@@ -1,0 +1,148 @@
+Computer Science 53/74                  Name __________________________
+
+Summer 2001                             Student Number ________________
+Exam 2                                  Page 1 of x
+
+This test is closed books/closed notes.  You will not need a
+calculator.  
+ 
+If any answer is illegible it will be considered incorrect.
+ 
+Unless told otherwise, for all program fragments given in the
+questions you may assume that all necessary include files have been
+included and that there are no errors in the sections of code not 
+explicitly given.  
+
+
+(3) 1. What is the purpose of using overloaded functions ?
+
+(2) 2. T  /  F
+       Pass-by-value uses a pointer to the variable in the calling function,
+       and pass-by-reference makes a copy of the variable in the calling 
+       function.
+
+(3) 3. What does the type of a function refer to ?
+
+(3) 4. How can I get 2 numbers back from a function ?
+
+
+(3) 5. A test of an output file being opened correctly fails. Give
+       a possible reason why.
+       
+
+(2) 6. Can a function definition appear inside the body of another function
+       definition ?
+                  
+(2) 7. Can a function call appear inside the body of another (different)
+       function definition ?
+
+(8) 8. Write a function that takes 2 integer arguments and finds the sum,
+       the difference of the first minus the second, and the product
+       of the 2 numbers and gets all that information back to the calling
+       function (it doesn't print anything out, and the 2 numbers used
+       for adding, subtracting, and multiplying are not changed).
+
+(8) 9. Write a function definition for a function that takes one argument 
+       of type double. The function returns the character value 'P' if its
+       argument is positive, and returns 'N' if its argument is zero or
+       negative.
+
+(12) 10. Consider the following code : Tell what output it generates. 
+
+         #include <iostream.h>
+
+         float myfunc1(int x, int &y, int &z);
+         int myfunc2(int &a, int b);
+
+         int main()
+         {
+            int a = 4, b = 6, y = 3, x = 1, z;
+            float result;
+            result = myfunc1(myfunc2(a,b), y, z);
+            cout << a << " " << b << " " << x << " " << y << " " 
+                 << z << " " << result << endl;
+            return 0;
+         }
+
+         float myfunc1(int x, int &y, int &z)
+         {
+            z = x*y;
+            return x*y*z;
+         }
+
+         int myfunc2(int &a, int b)
+         {
+            a *= 2;
+            b *= 2;
+            return a*a/b;
+         }
+
+
+
+(8) 11. Consider the following code (and assume that it is embedded in a
+        complete and correct program and then run) :
+
+        What will be output if the following input is used ?
+        (note: there is exactly 1 space between the 'f' and 'g' below
+         and the 'a' is the first character on the line).
+
+
+        abcdef ghi
+
+
+
+
+        char next;
+        int count = 0;
+        cout << "Enter a line of input:\n";
+        cin.get(next);
+        while (next != '\n')
+        {
+           if((count % 3) == 0)
+              cout << next;
+           count++
+           cin.get(next);
+        }
+
+(8) 12. Consider the following code (and assume that it is embedded in a
+        complete and correct program and then run) :
+
+        cout << "Enter a line of input:\n";
+        char next;
+        do
+        {
+           cin.get(next);
+           cout << next;
+        }
+        while( (! isdigit(next)) && (next != '\n') );
+        cout << "END OF OUTPUT";
+
+
+
+
+
+        If the dialogue begins as follows, what will be the next
+        line of output ?
+
+        (note: 'isdigit(foo)' returns 'true' if 'foo' is a digit --
+        0, 1, 2, ... 9, and false if it is not)
+
+         
+        Enter a line of input:
+        I'll see you at 10:30 AM.
+
+
+(12) 13. Write a function definition to take an opened file that's 
+         verified already and write out exactly what it reads in 
+         except you should delete all blanks found in the input.
+
+         e.g.
+         input contains :
+
+         How now brown  cow.
+
+         output contains :
+
+         Hownowbrowncow.
+
+

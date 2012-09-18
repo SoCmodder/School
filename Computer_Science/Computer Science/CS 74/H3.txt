@@ -1,0 +1,55 @@
+/*******************************************************
+
+Programmer:  Brian Heckman
+
+Class:  CS 74 Sect. A
+
+Program Description:  Converts 24 hour to 12 hour 		      notation.
+
+*******************************************************/
+#include <iostream.h>
+void input(int&, int&);
+void convert(int&, char&);
+void output(int&, int&, char&);
+
+int main()
+{
+	int iHour = 0, iMin = 0;
+	char cChoice = 'y', cTime = 'A';
+	do
+	{
+		input(iHour, iMin);
+		convert(iHour);
+		output(iHour, iMin, cTime);
+		cout << "Continue? ";
+		cin >> cChoice;
+	}while((cChoice == 'y') || (cChoice == 'Y'));
+	return 0;
+}
+
+void input(int& iHour, int& iMin)
+{
+	cout << "Enter the Hours: ";
+	cin >> iHour;
+	cout << "\n\nEnter the Minutes: ";
+	cin >> iMin;
+	cout << endl << endl;
+}
+
+void convert(int& iHour, char& cTime)
+{
+	if(iHour > 12)
+	{
+		iHour = iHour - 12;
+		cTime = 'P';
+	}
+	else
+		cTime = 'A';	
+}
+
+void output(int& iHour, int& iMin, char& cTime)
+{
+	cout << "The Time is: ";
+	cout << iHour << ":" << iMin;
+	cout << " " << cTime << "M\n\n";
+}

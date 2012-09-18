@@ -1,0 +1,18 @@
+5
+Mancubus
+plasma guns
+1000
+Cherub
+claws, leap attacks
+50
+Cacodemon
+fireballs
+200
+Pinky Demon
+claws, teeth
+220
+Chainsaw Zombie
+chainsaw
+125
+
+

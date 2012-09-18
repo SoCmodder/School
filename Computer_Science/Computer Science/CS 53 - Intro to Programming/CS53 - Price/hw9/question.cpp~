@@ -1,0 +1,28 @@
+/* programmer: robertoMurillo   date: 11/05/05 *
+ * file: question.cpp           class: cs53    *
+ * purpose: main file for question program.    */
+
+#include <iostream>
+#include <fstream>
+#include "question.h"
+using namespace std;
+
+int main()
+{
+//  char question[SIZE];
+  char answer[SIZE];
+
+  welcome(); // welcome message
+
+  do
+  {
+  get_question(question, SIZE); // asks user to enter question
+  show_question(question); // repeats their question
+
+  present_answer(answer, SIZE, strlen(question)); // pulls an answer from
+                                                     // file
+  create_log(question, answer); // logs both question and answer
+  } while ( runAgain() );
+
+  return 0;
+}

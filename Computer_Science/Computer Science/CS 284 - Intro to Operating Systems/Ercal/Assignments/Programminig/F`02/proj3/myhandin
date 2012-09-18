@@ -1,0 +1,128 @@
+Script started on Tue Sep 24 15:31:08 2002
+jwing@ultra28 proj3> cat prog3.c
+/***********************************************************************
+ * CS 284 Operating Systems
+ * Programming Assignment 3
+ * Name:   prog3.c
+ * Author: Joe Wingbermuehle
+ * Date:   2002-09-20
+ * Description:
+ * This is a program to demonstrate using the following functions:
+ * fork, system, execl, getpid, getppid, wait, sleep, and ps.
+ ***********************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+
+        int childPid;
+
+        printf("Parent: My PID is %d.\n", (int)getpid());
+        printf("Parent: My parent's PID is %d.\n", (int)getppid()); 
+
+        /* Fork a child process */
+        childPid = fork();
+        if(!childPid) {
+
+                /* Child process */
+
+                printf("Child: I am a new-born process!\n");
+                printf("Child: My PID is %d.\n", (int)getpid());
+                printf("Child: My parent's PID is %d.\n", (int)getppid());
+
+                sleep(5);
+
+                printf("Child: I am going to execute program prog3b.\n");
+
+                execl("prog3b", "arg0", "arg1", "arg2", 0);
+
+                printf("Child: execl failed.\n");
+
+                _exit(0);
+        }
+        if(childPid < 0) {
+                printf("Fork failed.\n");
+                return 0;
+        }
+
+        printf("Parent: I created a child process.\n");
+        printf("Parent: My child's PID is %d.\n", childPid);
+
+        system("ps -al");
+
+        wait(0);
+        printf("Parent: My child is dead. I am going to leave.\n");
+
+        return 0;
+}
+
+jwing@ultra28 proj3> cat prog3b.c
+/***********************************************************************
+ * CS 284 Operating Systems
+ * Programming Assignment 3
+ * Name:   prog3b.c
+ * Author: Joe Wingbermuehle
+ * Date:   2002-09-20
+ * Description:
+ * This is a program to display the arguments sent to it.
+ * It is called by prog3.c.
+ ***********************************************************************/
+
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+
+        int x;
+
+        printf("prog3b: I am executed.\n");
+
+        for(x = 0; x < argc; x++) {
+                printf("prog3b: Argument %d: %s\n", x, argv[x]);
+        }
+
+        printf("prog3b: I am going to die.\n");
+
+        return 0;
+}
+
+jwing@ultra28 proj3> ./prog3
+Parent: My PID is 11357.
+Parent: My parent's PID is 11352.
+Child: I am a new-born process!
+Child: My PID is 11358.
+Child: My parent's PID is 11357.
+Parent: I created a child process.
+Parent: My child's PID is 11358.
+ F S   UID   PID  PPID  C PRI NI     ADDR     SZ    WCHAN TTY      TIME CMD
+ 8 S 25110 10984 10983  0  41 20        ?    191        ? pts/6    0:00 csh
+ 8 S 27115  5667  5666  0  41 20        ?    522        ? pts/1    0:11 mutt
+ 8 S 28075 11356 10323  0  40 20        ?    131        ? pts/5    0:00 pico
+ 8 S 24849 11350 11117  0  41 20        ?    110        ? pts/7    0:00 script
+ 8 S 28075 11227 10306  0  51 20        ?    132        ? pts/4    0:00 pico
+ 8 S 24849 11357 11352  0  51 20        ?    110        ? pts/8    0:00 prog3
+ 8 R 24849 11359 11357  0  61 20        ?    127          pts/8    0:00 sh
+ 8 S 28075 10543  9313  0  51 20        ?    131        ? pts/3    0:00 pico
+ 8 S 24849 11117 11116  0  51 20        ?    297        ? pts/7    0:00 bash
+ 8 S 28075  9224  9208  0  51 20        ?   3801        ? pts/3    0:19 netscape
+ 8 S 27115  5666  5634  0  57 20        ?    296        ? pts/1    0:00 bash
+ 8 S 24849 11351 11350  0  41 20        ?    112        ? pts/7    0:00 script
+ 8 S 28075 11218 10289  0  59 20        ?    132        ? pts/2    0:00 pico
+ 8 S 28075  9233  9224  0  42 20        ?   2540        ? pts/3    0:00 netscape
+ 8 S 27115  5634  5633  0  89 20        ?    288        ? pts/1    0:00 tcsh
+ 8 S 28075  9313  9208  0  61 20        ?    298        ? pts/3    0:00 bash
+ 8 S 25110 11016 10984  0  51 20        ?    298        ? pts/6    0:00 bash
+ 8 O     0 11360 11359  0  51 20        ?    126          pts/8    0:00 ps
+ 8 S 24849 11358 11357  0  41 20        ?    110        ? pts/8    0:00 prog3
+Child: I am going to execute program prog3b.
+prog3b: I am executed.
+prog3b: Argument 0: arg0
+prog3b: Argument 1: arg1
+prog3b: Argument 2: arg2
+prog3b: I am going to die.
+Parent: My child is dead. I am going to leave.
+jwing@ultra28 proj3> exit
+
+script done on Tue Sep 24 15:31:41 2002

@@ -1,0 +1,205 @@
+                          CS 284 Operating Systems
+                          Programming Assignment #4
+
+                          POSIX Threads
+
+Due: 10/07/2003 - Class Time
+=========================================================================
+REQUIRED READING: Wang 11.15, Appendix 10
+                  Also read online UNIX manual pages for the following:
+                  pthread_create, pthread_join, pthread_self, pthread_exit,
+                  pthread_detach, sched_yield, usleep, nanosleep 
+=========================================================================
+
+For this Project there are two separate programs.  One is described in Part I
+and the other in Part II.  Also note that PART I AND PART II have changed.
+
+Part I
+=========
+Write a C program that performs the following actions.  Be sure to describe all
+significant events during the execution of the program, including any failures:
+
+    1.  Print out the PID of the current and parent process.
+    2.  Seed the random number generator with time(NULL).
+    3.  Fork two child processes that perform the following:
+        
+        A. Announce its creation.
+        B. Print out the its PID and the PID of its parent.
+        C. Executes the outside executable described in Part II, giving the
+           outside program at least two arguments:
+
+           First Argument: A number which uniquely identifies this
+           child.
+
+           Second Argment: A random number from 1-5.
+           
+           NOTE: Remember that these are integers and the arguments must 
+           be strings.
+
+           If the exec fails, exit immediately returning -2.  You should use
+           the perror() function to print the error.
+
+        NOTE:  Be sure to include all standard safeguards. ( i.e. an if()
+               statement around the child's code )
+
+    4. If any fork() fails, the program should exit immediately returning -1.
+       Be sure to clean up the other processes using kill() before exiting!
+    5. Setup signal handlers for the following interrupts:
+        
+        A. SIGQUIT (Ctrl-\) 
+            When this signal is received, the Parent should send a SIGUSR1 to
+            second child process that was spawned. Be sure to output the fact
+            that the signal was received and a new signal sent.
+
+            If there was an error in sending the signal, say so.  
+
+        B. SIGTSTP (Ctrl-Z)
+            When this signal is received, the Parent should send a SIGUSR2 to
+            each child process. Be sure to output the fact that the signal was 
+            received and a new signal sent.
+            
+            If there was an error in sending the signal, say so.
+
+        C. SIGINT (Ctrl-C)
+            When this signal is received, the Parent should send a SIGUSR2 to
+            each child process.
+
+            NOTE:  Do *not* install this handler until you are sure it works.
+            Otherwise, you will need to kill the process from another window.
+
+    6. Wait for all children to die.
+    7. Print out the exit value of each of the children.
+    8. Announce that the main program will die and return 0.
+
+PART II
+=========
+
+Note:  This program is the one that will be executed by the program described
+in Part I.
+
+Write a C program that performs the following actions, printing all
+significant events to standard output:
+
+    1.  Make sure three arguments where passed in.  If not, then exit returning
+        5.
+
+    2. Announce the start of its execution.  Be sure to indicate which child
+       is speaking (i.e. use the argument).
+
+    3. Seed the random number generator with time(NULL).
+
+    4. Create a FILE-scope integer variable (to most people this means a
+       "global" variable).  Initialize it to 0.
+    
+    5. Setup signal handlers for the following interupts:
+        
+        A. SIGUSR1:
+
+            If this signal is received, then increment the FILE-scope
+            variable by 2.
+            
+        B. SIGUSR2:
+            
+            If this signal is received, then the process should:
+            
+            I.   Join all threads.
+            II.  Print out the return value of each thread.
+            III. Exit, returning the number of threads joined. 
+
+        NOTE:  Remember to ignore the signals that the parent is supposed to
+        catch.  Otherwise, the child process will catch them and try to deal
+        with them also.
+
+    6.  Create a number of threads equal to the second argument passed to the
+        program (the random number passed in from PART I).  Pass as an
+        argument to each thread a random number from 1-1000. Each thread should:
+            
+            A. Announce its creation and its TID (thread ID).
+            B. Announce its PID and its Parent's PID
+            C. Announce how long you will sleep.
+            D. Sleep for the number of nanoseconds represented in its argument.
+            E. Increment the FILE-scope variable by the number passed in as
+               the argument to the thread function. 
+            F. return the value of the FILE-scope variable.
+
+    7. Loop indefintely.
+
+       NOTE: Do *not* just do an infinite with nothing in it! To loop
+       indefinitely use:
+                for(;;)
+                    sleep(1);
+
+    NOTE:  This program should *never* return 0.
+    
+=====================================================================
+ADDITIONAL NOTES
+=====================================================================
+
+(1) Please Use the 'script' command to capture all necessary 
+    information for handin as described in the previous assignment.
+
+(2) After you have generated the 'script' file, remove ^M (cntl-M)s 
+    from your script file, and then edit it by adding a comment to
+    each line generated by the system(...) call noting what each of
+    the processes corresponds to in terms of your program.
+
+(3) Also store your source files, script file (myhandin#), and the
+    executable file, in the directory:  ~cs284/YourLoginName/proj#/
+    where # = Assignment number
+
+(4) The "random numbers" used in this program aren't too random after
+    all.  I'm still working on that problem.
+
+=================================================================
+EXAMPLE OUTPUT (just one of many possibilities)
+=================================================================
+Script started on Thu Sep 25 15:21:36 2003
+Directory: /home/sea/Projects/TA-284/Projects/Proj4
+Projects/Proj4> ./prog4a
+./prog4a: Started.  My PID is 3307 and my parent's PID is 3300.
+Child 0: I've been created.
+Child 0: My pid is 3308 and my parent is 3307.
+prog4b-0: Starting Execution.
+Child 1: I've been created.
+Child 1: My pid is 3310 and my parent is 3307.
+prog4b-1: Starting Execution.
+prog4b-0: I am a new thread - TID = 16386
+prog4b-0 Thread 16386: PID = 3312.  Parent PID = 3309
+prog4b-0 Thread 16386: I will sleep for 771
+prog4b-0: I am a new thread - TID = 32771
+prog4b-0 Thread 32771: PID = 3313.  Parent PID = 3309
+prog4b-0 Thread 32771: I will sleep for 115
+prog4b-1: I am a new thread - TID = 16386
+prog4b-1 Thread 16386: PID = 3315.  Parent PID = 3311
+prog4b-1 Thread 16386: I will sleep for 771
+prog4b-1: I am a new thread - TID = 32771
+prog4b-1 Thread 32771: PID = 3316.  Parent PID = 3311
+prog4b-1 Thread 32771: I will sleep for 115
+prog4b-1: I am a new thread - TID = 49156
+prog4b-1 Thread 49156: PID = 3317.  Parent PID = 3311
+prog4b-1 Thread 49156: I will sleep for 541
+prog4b-0: I am a new thread - TID = 49156
+prog4b-0 Thread 49156: PID = 3314.  Parent PID = 3309
+prog4b-0 Thread 49156: I will sleep for 541
+./prog4a: Received SIGQUIT.  Sending SIGUSR1 to second process - PID 3310.
+prog4b-1: Received SIGUSR1. Incrementing Number by 2.
+./prog4a: Received SIGQUIT.  Sending SIGUSR1 to second process - PID 3310.
+prog4b-1: Received SIGUSR1. Incrementing Number by 2.
+./prog4a: Received SIGUSR1.  Sending SIGUSR1 to all alive processes.
+prog4b-0: Received SIGUSR1. Incrementing Number by 2.
+prog4b-1: Received SIGUSR1. Incrementing Number by 2.
+./prog4a: Received SIGSTSP. Sending SIGUSR2 to all children.
+prog4b-0: Received SIGUSR2. I'm gonna die now.
+prog4b-1: Received SIGUSR2. I'm gonna die now.
+prog4b-0: joined Thread 0 - return 771.
+prog4b-0: joined Thread 1 - return 886.
+prog4b-0: joined Thread 2 - return 1427.
+prog4b-1: joined Thread 0 - return 771.
+prog4b-1: joined Thread 1 - return 886.
+prog4b-1: joined Thread 2 - return 1427.
+./prog4a: Child 0 exited with status - 3
+./prog4a: Child 1 exited with status - 3
+./prog4a:  I'm done.  Going away now.
+Projects/Proj4> exit
+
+Script done on Thu Sep 25 15:21:47 2003

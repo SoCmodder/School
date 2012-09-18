@@ -1,0 +1,87 @@
+
+Constructor called for Set s1
+
+Constructor called for Set s2
+
+Constructor called for Set s3
+
+Constructor called for Set s4
+
+Set s1 is empty -- no elements to print.
+
+Added even numbered elements to set s1
+
+Elements of Set s1: 0 2 4 6 8
+
+2 IS an element of set s1
+5 IS NOT an element of set s1
+
+Added some elements to set s2
+
+Elements of Set s2: 1 2 3 4 5
+
+Deleted some elements from set s2
+
+Elements of Set s2: 1 2 4 5
+
+
+Constructor called for Set union_newSet
+
+Destructor called for a Set union_newSet
+
+Destructor called for a Set s2
+
+Destructor called for a Set union_newSet
+
+Made s3 the union of sets s1 and s2...
+
+Elements of Set s3: 0 1 2 4 5 6 8
+
+
+Constructor called for Set intersection_newSet
+
+Destructor called for a Set intersection_newSet
+
+Destructor called for a Set s2
+
+Destructor called for a Set intersection_newSet
+
+Made s3 the intersection of sets s1 and s2...
+
+Elements of Set s3: 2 4
+
+Set s4 IS empty!
+
+Printing set s4 before adding any elements...
+
+Set s4 is empty -- no elements to print.
+
+
+Added some elements to set s4
+Set s4 IS NOT empty!
+
+Printing set s4 after adding elements...
+
+Elements of Set s4: 9
+
+
+Constructor called for Set intersection_newSet
+
+Destructor called for a Set intersection_newSet
+
+Destructor called for a Set s4
+
+Destructor called for a Set intersection_newSet
+
+Made s3 the intersection of sets s1 and s4...
+
+Set s3 is empty -- no elements to print.
+
+
+Destructor called for a Set s4
+
+Destructor called for a Set s3
+
+Destructor called for a Set s2
+
+Destructor called for a Set s1

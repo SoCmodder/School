@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: pegs - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/pegs.res" /d "_DEBUG" /d "_AFXDLL" "E:\pub\csc153\pegs\pegs.rc"" 
+Creating temporary file "C:\TEMP\RSP3.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/pegs.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\pub\csc153\pegs\game.cpp"
+"E:\pub\csc153\pegs\pegs.cpp"
+"E:\pub\csc153\pegs\pegsDlg.cpp"
+]
+Creating command line "cl.exe @C:\TEMP\RSP3.tmp" 
+Creating temporary file "C:\TEMP\RSP4.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/pegs.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\pub\csc153\pegs\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\TEMP\RSP4.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/pegs.pdb" /debug /machine:I386 /out:"Debug/pegs.exe" /pdbtype:sept  .\Debug\game.obj .\Debug\pegs.obj .\Debug\pegsDlg.obj .\Debug\StdAfx.obj .\Debug\pegs.res "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+game.cpp
+pegs.cpp
+pegsDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+pegs.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/*
+Patrick Dippel
+CS 74 A
+2/25/01
+Functions
+*/
+
+#include <iostream.h>
+
+void input(int& ihour, int& imin);
+void output(int ihour, int imin, char ca);
+void convert(int& ihour, char& ca);
+
+int main()
+{
+  int ihour, imin;
+  char ca, can='h';
+  do
+    {
+      input(ihour, imin);
+      convert(ihour, ca);
+      output(ihour, imin, ca);
+      cout<<"Do you wish to repeat the calculation? ";   
+     cin>> can;
+    }
+      while (can == 'y'  || can == 'Y');
+      return 0;
+}
+
+void input(int & ihour, int & imin)
+{
+  cout<<"Enter the hour: ";
+  cin>> ihour;
+  cout<<"Enter the minutes: ";
+  cin>> imin;                     
+}
+
+void output(int ihour, int imin, char ca)
+{
+  cout<< ihour << ":" << imin;
+    if (ca == 'A')
+      cout << "AM";
+    else
+      cout << "PM";
+      cout << endl;
+}                  
+void convert(int& ihour, char& ca)
+{
+  if (ihour<12)
+    {
+    ca = 'A';
+    }
+  else if (ihour>12)
+    {
+    ca = 'P';
+    ihour = ihour-12;
+    }
+}               

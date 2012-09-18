@@ -1,0 +1,56 @@
+/*
+Patrick Dippel
+CS 074 A
+4/ 20/01
+*/
+
+#include <iostream.h>
+#include <fstream.h>
+#include <cstdlib>
+using namespace std;
+
+void add_plus_plus(ifstream& in_stream, ofstream& out_stream);
+
+int main()
+{
+  ifstream fin;
+  ofstream fout;
+  cout << "begin editing files." << endl;
+  fin.open("cad.dat");
+  if (fin.fail())
+  {
+    cout << "Input file opening failed." << endl;
+    exit(1);          
+  }
+
+  fout.open("cokusid.dat");
+  if (fout.fail())
+  {
+    cout << "Output file opening failed." << endl;
+  }
+
+  add_plus_plus(fin, fout);
+
+  fin.close();
+  fout.close();
+  cout << "End of editing files." << endl;   
+ return 0;
+}
+
+void add_plus_plus(ifstream& in_stream, ofstream& out_stream)
+  {
+    char cnext;
+    in_stream.get(cnext);
+    while (! in_stream.eof())
+      {
+        if (cnext == ' ')
+          if (cnext == 'C')
+            if (cnext == ' ')            
+              out_stream << " C++ ";
+          else
+            out_stream << " " << cnext;
+        else
+          out_stream << cnext;
+            in_stream.get(cnext);
+      }
+    }           

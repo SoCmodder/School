@@ -1,0 +1,8 @@
+6
+Trot Nixon,Boston Red Sox,12,2,1,3,39
+Sammy Sosa,Chicago Cubs,20,4,0,6,42
+Albert Pujols,St Louis Cardinals,8,2,1,3,32
+Mike Sweeney,KC Royals,5,2,0,3,35
+Derek Jeter,NY Yankees,5,2,0,1,40
+Barry Bonds,SF Giants,10,4,0,5,39
+

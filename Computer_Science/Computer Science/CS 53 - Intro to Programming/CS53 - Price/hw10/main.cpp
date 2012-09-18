@@ -1,0 +1,48 @@
+/* programmer: robertoMurillo    date: 11/11/05 *
+ * file: main.cpp                class: cs53    *
+ * purpose: using classes.                      */
+
+#include <iostream>
+#include <ostream>
+#include "main.h"
+using namespace std;
+
+int main()
+{
+  // declaring both cats
+  Cat catDefault, catUser("lou", 2, 9.8, false, true, "orange");
+
+  // outputs the specs of each cat
+  cout << "My Cat:" << endl;
+  cout << "Name: " << catUser.getName() << endl 
+       << "Age: " << catUser.getAge() << endl
+       << "Weight: " << catUser.getWeight() << endl 
+       << "Claws: " << catUser.getClaws() << endl
+       << "Alive: " << catUser.getAlive() << endl 
+       << "Color: " << catUser.getColor() << endl << endl;
+
+  cout << "Default Cat:" << endl;
+  cout << "Name: " << catDefault.getName() << endl 
+       << "Age: " << catDefault.getAge() << endl
+       << "Weight: " << catDefault.getWeight() << endl 
+       << "Claws: " << catDefault.getClaws() << endl
+       << "Alive: " << catDefault.getAlive() << endl 
+       << "Color: " << catDefault.getColor() << endl << endl;
+
+  // tests the overloaded operators defined in fnct file.
+  if ( catDefault > catUser )
+    cout << "The default cat is of greater value than mine!" << endl;
+  
+  if ( catDefault < catUser )
+    cout << "My cat is of greater value than the default cat!" << endl;
+    
+  if ( catDefault == catUser )
+    cout << "The default cat and my cat are of the same value!" << endl;     
+  
+  cout << "Hear my cat roar: "; 
+  catUser.speak();
+  cout << "Hear the default cat roar: "; 
+  catDefault.speak(); 
+  
+  return 0;
+}

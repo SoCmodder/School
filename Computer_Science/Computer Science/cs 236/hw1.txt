@@ -1,0 +1,247 @@
+1.
+>> A=[1 2; 3 4]
+
+A =
+
+     1     2
+     3     4
+
+>> B=[1 2 3; 4 5 6]
+
+B =
+
+     1     2     3
+     4     5     6
+
+>> C=[1 2; 3 4; 5 6]
+
+C =
+
+     1     2
+     3     4
+     5     6
+
+>> D=[1; 2; 3]
+
+D =
+
+     1
+     2
+     3
+
+>> E=[1 2 3]
+
+E =
+
+     1     2     3
+
+>> 
+
+2. Matlab is confused when a number is entered in the beginning of a
+variable name. Matlab tries to read it as a number then finds letters
+instead of an operator.  When an operator is entered at the beginning
+of a variable name, a similar effect occurs, except now there is no
+previous expression. Numbers alone won't work as variables nor will
+special charaters.
+>> adfS_3=5
+
+adfS_3 =
+
+     5
+
+>> 5sdf=6
+??? 5sdf=6
+     |
+Error: Missing operator, comma, or semicolon.
+
+>> *34s=4
+??? *34s=4
+    |
+Error: "End of Input" expected, "*" found.
+
+>> f03#=2
+??? f03#=2
+       |
+Error: Missing operator, comma, or semicolon.
+
+>> F=[ 234df ] 
+??? F=[ 234df ]
+        |
+Error: ";" expected, "incomplete floating-point number" found.
+
+>> F=[ 4 $; 3 5]
+??? F=[ 4 $; 3 5]
+          |
+Error: Missing variable or function.
+
+>> 
+
+3. When an incorrect expression is encountered, Matlab informs the user
+that there was an error and attempts to guess what might be wrong.
+>> 5 +* 4
+??? 5 +* 4
+       |
+Error: Expected a variable, function, or constant, found "*".
+
+>> 
+
+4. Matlab will not allow incompatable types to be used together and
+returns an error when this is tried.
+>> A * C
+??? Error using ==> *
+Inner matrix dimensions must agree.
+
+>> 
+
+5.
+>> 5 * (6 + 3)
+
+ans =
+
+    45
+
+>> 4 / 2 - 8
+
+ans =
+
+    -6
+
+>> 2^8
+
+ans =
+
+   256
+
+>> exp(i * pi)
+
+ans =
+
+  -1.0000 + 0.0000i
+
+>> a = 5 * 2 - 3
+
+a =
+
+     7
+
+>> b = a ^ 2
+
+b =
+
+    49
+
+>>
+
+6. The line continuation operator is allowed everywhere except in the row
+of a matrix. This is probably because a matrix can be entered line by line
+where each new line signifies a new row.
+>> 5 + 6 ...
+- 3 * 4
+
+ans =
+
+    -1
+
+>> 5 +...
+3
+
+ans =
+
+     8
+
+>> A = [1 2..
+??? A = [1 2..
+             |
+Error: ";" expected, "." found.
+
+>> A = [1 2;...
+3 4]
+
+A =
+
+     1     2
+     3     4
+
+>> a = ...
+3
+
+a =
+
+     3
+
+>> a ...
+= 4
+
+a =
+
+     4
+
+>> 
+
+7.
+>> 5 + 5 % comment
+
+ans =
+
+    10
+
+>> 5 ... % comment
++ 5
+
+ans =
+
+    10
+
+>> 5 % comment ...
+
+ans =
+
+     5
+
+>>
+
+8. Matlab ignores extraneous spaces.
+>> 5    + 5
+
+ans =
+
+    10
+
+>> 5+5
+
+ans =
+
+    10
+
+>> 5 + 5
+
+ans =
+
+    10
+
+>> 
+
+9.
+>> who
+
+Your variables are:
+
+A    a    ans  b    
+
+>> whos
+  Name      Size         Bytes  Class
+
+  A         2x2             32  double array
+  a         1x1              8  double array
+  ans       1x1              8  double array
+  b         1x1              8  double array
+
+Grand total is 7 elements using 56 bytes
+
+>> a
+
+a =
+
+     4
+
+>> 

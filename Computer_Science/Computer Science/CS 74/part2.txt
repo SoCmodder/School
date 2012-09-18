@@ -1,0 +1,61 @@
+/*
+Patrick Dippel
+CS 074 A
+4-20-01
+*/
+
+#include<iostream.h>
+#include<math.h>
+
+
+class set1
+{
+ public:
+   void imput (double& drad, double& dx, double& dy);
+   void output (double darea, double ddis);
+   void area (double& drad, double& darea);
+   void distance (double& dx, double& dy, double& ddis);
+ private:
+   double drad, dx, dy;
+};
+
+void imput (double& drad, double& dx, double& dy)
+ {         
+ cout << "Input the Radius: ";
+   cin >> drad;
+   cout << endl << "Input the X coordinate of the center: ";
+   cin >> dx;
+   cout << endl << "Input the Y coordinate of the center: ";
+   cin >> dy;
+   cout << endl;
+ }
+
+void output (double darea, double ddis)
+ {
+   cout << "The area is " << darea << endl;
+   cout << "The distance to the center is " << ddis << endl;
+ }
+
+void area (double& drad, double& darea)
+ {
+   darea=3.14 * drad*drad;
+ }
+
+void distance (double& dx, double& dy, double& ddis)
+  {
+    ddis=sqrt((dx*dx)+(dy*dy));
+  }
+  int main ()                         
+  {
+    char cans='h';
+    do
+    {
+      double dA, dB, dC, dD, dE;
+      imput ( dA, dB, dC);
+      area (dA, dD);
+      distance (dB, dC,dE);
+      output (dD, dE);
+      cout << "Thank you" << endl << "Do you wish to repeat?: ";
+      cin >> cans;
+    }while (cans=='y' || cans=='Y');  
+    }       

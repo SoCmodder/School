@@ -1,0 +1,59 @@
++-------------+--------------------+------------------+------------------+------------------+--------------------+--------------------+--------------------+
+| Rule        | id                 | quit             | clear            | who              | (                  | literal            | [                  |
++-------------+--------------------+------------------+------------------+------------------+--------------------+--------------------+--------------------+
+| program     | stmt_list          | stmt_list        | stmt_list        | stmt_list        |                    |                    |                    |
+| stmt_list   | stmt ; stmt_list   | stmt ; stmt_list | stmt ; stmt_list | stmt ; stmt_list |                    |                    |                    |
+| stmt        | id = expr          | command          | command          | command          |                    |                    |                    |
+| expr        | term term_tail     |                  |                  |                  | term term_tail     | term term_tail     | term term_tail     |
+| term_tail   |                    |                  |                  |                  |                    |                    |                    |
+| term        | factor factor_tail |                  |                  |                  | factor factor_tail | factor factor_tail | factor factor_tail |
+| factor_tail |                    |                  |                  |                  |                    |                    |                    |
+| factor      | id                 |                  |                  |                  | ( expr )           | literal            | matrix             |
+| command     |                    | quit             | clear            | who              |                    |                    |                    |
+| matrix      |                    |                  |                  |                  |                    |                    | [ row row_tail ]   |
+| row_tail    |                    |                  |                  |                  |                    |                    |                    |
+| row         | id                 |                  |                  |                  |                    |                    |                    |
+| list_tail   |                    |                  |                  |                  |                    |                    |                    |
+| add_sub_op  |                    |                  |                  |                  |                    |                    |                    |
+| multi_op    |                    |                  |                  |                  |                    |                    |                    |
++-------------+--------------------+------------------+------------------+------------------+--------------------+--------------------+--------------------+
+
++-------------+---------------------------+---------------------------+-----------------------------+-----------------------------+----------------+
+| Rule        | +                         | -                         | *                           | /                           | ;              |
++-------------+---------------------------+---------------------------+-----------------------------+-----------------------------+----------------+
+| program     |                           |                           |                             |                             |                |
+| stmt_list   |                           |                           |                             |                             |                |
+| stmt        |                           |                           |                             |                             |                |
+| expr        |                           |                           |                             |                             |                |
+| term_tail   | add_sub_op term term_tail | add_sub_op term term_tail |                             |                             |                |
+| term        |                           |                           |                             |                             |                |
+| factor_tail |                           |                           | multi_op factor factor_tail | multi_op factor factor_tail |                |
+| factor      |                           |                           |                             |                             |                |
+| command     |                           |                           |                             |                             |                |
+| matrix      |                           |                           |                             |                             |                |
+| row_tail    |                           |                           |                             |                             | ; row row_tail |
+| row         |                           |                           |                             |                             |                |
+| list_tail   |                           |                           |                             |                             |                |
+| add_sub_op  | +                         | -                         |                             |                             |                |
+| multi_op    |                           |                           | *                           | /                           |                |
++-------------+---------------------------+---------------------------+-----------------------------+-----------------------------+----------------+
+
++-------------+----------------+-----------+
+| Rule        | ,              | $         |
++-------------+----------------+-----------+
+| program     |                | stmt_list |
+| stmt_list   |                | $         |
+| stmt        |                |           |
+| expr        |                |           |
+| term_tail   |                |           |
+| factor_tail |                |           |
+| factor      |                |           |
+| command     |                |           |
+| matrix      |                |           |
+| row_tail    |                |           |
+| row         |                |           |
+| list_tail   | , id list_tail |           |
+| add_sub_op  |                |           |
+| multi_op    |                |           |
++-------------+----------------+-----------+
+

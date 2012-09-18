@@ -1,0 +1,17 @@
+Script started on Sun Jan 18 12:18:26 2004
+]0;sea@sabatour: /home/sea/Projects/TA-CS284/WS04/src/iteration2src/iteration2> ./main
+sea:sabatour:src/iteration2:>Bob was here
+Token 1: Bob
+Token 2: was
+Token 3: here
+sea:sabatour:src/iteration2:>ls| grep | apples
+Token 1: ls
+Token 2: |
+Token 3: grep
+Token 4: |
+Token 5: apples
+sea:sabatour:src/iteration2:>quit
+Program exit.
+src/iteration2> ^Dexit
+
+Script done on Sun Jan 18 12:18:56 2004

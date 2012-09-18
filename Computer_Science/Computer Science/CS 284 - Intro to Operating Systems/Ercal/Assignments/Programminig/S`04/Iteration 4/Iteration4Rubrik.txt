@@ -1,0 +1,14 @@
+Iteration IV: Grading Rubric 
+=============================
+
+Proper parsing of the user input                        (10 pts):
+Proper processing of commands (Using fork() correctly)  (10 pts):
+Creation of proper Makefile                             (10 pts):
+Code readability (Comments, Headers, Indentation)       (10 pts):
+Code reliability (Defensive programming, crashes)       (10 pts):
+-----------------------------------------------------------------
+Subtotal                                                (50 pts):
+
+Late Penalties                         (-10 pts/day; max 3 days):
+-----------------------------------------------------------------
+Total                                               (50 pts max):

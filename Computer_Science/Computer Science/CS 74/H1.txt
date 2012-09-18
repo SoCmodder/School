@@ -1,0 +1,23 @@
+Brian Heckman
+Sect. A
+
+#include <iostream.h>
+
+int main()
+{
+	int iNum1 = 5, iNum2 = 6;
+	float fNum1 = 0;
+
+	cin >> fNum1;
+	fNum1 = (iNum1 + iNum2)/(2.0);
+	fNum1 = (fNum1 + 6)/(2.0);
+	cout << fNum1;
+	
+	return 0;
+}
+
+
+
+
+
+I believe the output will be "5.75."

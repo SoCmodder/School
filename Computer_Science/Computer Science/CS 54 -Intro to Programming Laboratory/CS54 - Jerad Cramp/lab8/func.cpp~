@@ -1,0 +1,45 @@
+
+/* programmer: robertoMurillo  date: 10/12/05 *
+ * instructor: price           class: cs54d   *
+ * file: func.cpp                             *
+ * purpose: contains function definitions     */
+ 
+#include "func.h"
+#include <string>
+#include <iostream>
+using namespace std;
+
+/*************** FUNCTION DEFINITIONS ***************/
+
+void welcome()  // welcome message
+{
+  cout << endl;
+  cout << "Welcom to CS 54's Lab 8 program, be warned this week's lab is"
+       << " \"complex\"!";
+  cout << endl;
+
+return;
+}
+
+void farewell()  // farewell message
+{
+  cout << endl;
+  cout << "Thank you for using the program. Bye.";
+  cout << endl;
+
+return;
+}
+
+char again()
+{
+  char choice; // user's choice if they want to play or not
+  
+  cout << "Would you like to play again(y/n): ";
+  cin >> choice;
+  
+  choice = toupper(choice);
+
+return choice;
+}
+/*************** FUNCTION DEFINITIONS ***************/
+    

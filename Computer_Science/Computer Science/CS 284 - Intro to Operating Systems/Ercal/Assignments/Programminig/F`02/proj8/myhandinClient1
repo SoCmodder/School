@@ -1,0 +1,25 @@
+Script started on Tue Nov 12 22:45:57 2002
+jwing@ultra28 proj8> ./client bob ultra23
+Connected to ultra23
+Type "exit" to quit.
+
+
+*** joe@ultra24 has logged in.
+
+joe@ultra24: hello everybody!
+
+joe@ultra24: this is a test
+test
+test
+test
+
+joe@ultra24: It works!
+
+joe@ultra24: exit
+
+*** joe@ultra24 has logged out.
+
+Server is shutting down, exiting.
+jwing@ultra28 proj8> exit
+
+script done on Tue Nov 12 22:47:19 2002

@@ -1,0 +1,14 @@
+Iteration III: Grading Rubrik 
+=============================
+
+Proper parsing of the user input                        (10 pts):
+Proper construction of the arugment table               (15 pts):
+Proper usage of the exec*() family of functions         (05 pts):
+Code readability (Comments, Headers, Indentation)       (10 pts):
+Code reliability (Defensive programming, crashes)       (10 pts):
+-----------------------------------------------------------------
+Subtotal                                                (50 pts):
+
+Late Penalties                         (-10 pts/day; max 3 days):
+-----------------------------------------------------------------
+Total                                               (50 pts max):

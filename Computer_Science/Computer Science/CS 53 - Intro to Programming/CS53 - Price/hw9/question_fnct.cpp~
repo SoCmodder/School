@@ -1,0 +1,147 @@
+/* programmer: robertoMurillo   date: 11/05/05 *
+ * file: question_fnct.cpp      class: cs53    *
+ * purpose: function file for question program.*/
+
+#include <stdlib.h>
+#include <iostream>
+#include <fstream>
+#include "question.h"
+using namespace std;
+
+/*************** DEFINITIONS ***************/
+
+// welcome message
+// pre: none
+// post: outputs a welcome message to the screen
+void welcome()
+{
+  cout << "Hello and welcome to 'The Answer' program." << endl;
+  cout << endl;
+
+  return;
+}
+
+// asks the user for a question
+// pre: an array named question with a SIZE must be declared
+// post: array turned into NTCA and filled with the question asked
+void get_question( char question1[ ], const int SIZE )
+{
+  cout << "What is the question? ";
+  cin.getline(question1, SIZE);
+  cout << endl;
+
+  return;
+}
+
+// shows the user their question
+// pre: question array must have been filled
+// post: outputs the user's question to the screen
+void show_question( const char question1[ ] )
+{
+  cout << "Your question: " << question1 << endl
+       << endl;
+
+  return;
+}
+
+// asks the user if they want to enter another question
+// pre: none
+// post: a message asking user if they want to run program again is
+//       output to the screen and set to either true or false.
+bool runAgain()
+{
+  string choice;
+  bool run = true;
+
+  cout << "Another question? (y/n): ";
+  cin >> choice;
+  cin.ignore();
+
+  if ( choice == "N" || choice == "n" )
+    run = false;
+
+  return run;
+}
+
+// calculates an answer depending on the question asked
+// pre: question array must be filled, answer array must've been declared
+// post: chooses an answer based on how many characters are in the
+// question, modded by the number of answers, and is output to the screen
+void present_answer( char answer[ ], const int length )
+{
+  char chapter_num[2];
+  int num_of_answer;
+  int answer_number;
+  ifstream in;
+
+  in.open("answer.txt");
+
+  in >> num_of_answer;
+  in.ignore();
+  answer_number = (length)%(num_of_answer);
+
+  for ( int i = 0; i <= answer_number; i++ )
+    in.getline(answer, SIZE);
+
+  int i = 0;
+
+  while ( answer[i] != '\0' ) {
+    if ( answer[i] == '#' && answer[i+1] == 'N' )
+    {
+      itoa(num_of_answer,chapter_num,10);
+      answer[i] = num_of_answer;
+    }
+
+  i++;
+  }
+
+  cout << answer << endl;
+  in.close();
+
+  return;
+}
+
+// logs both the question and answer
+// pre: the question and answer arrays must be filled.
+// post: the question and answer arrays are output to the log file
+//       created by the ofstream.
+void create_log( const char question1[ ], const char answer[ ] )
+{
+  ofstream out_log;
+
+  out_log.open("log.txt", ios::app);
+  out_log << "Q: " << question1 << endl << "A: " << answer << endl;
+  out_log.close();
+
+  return;
+}
+
+// itoa function because the c++ itoa function wouldnt work
+// copied from http://www.jb.man.ac.uk/~slowe/cpp/itoa.html
+char* itoa( int value, char* result, int base ) 
+{
+  // check that the base if valid
+  if (base < 2 || base > 16) 
+    { *result = 0; return result; }
+        
+  char* out = result;
+  int quotient = value;
+                    
+  do 
+  {
+    *out = "0123456789abcdef"[ std::abs( quotient % base ) ];
+    ++out;
+    quotient /= base;
+  } while ( quotient );
+                                                
+  // Only apply negative sign for base 10
+  if ( value < 0 && base == 10) *out++ = '-';
+                                                          
+  std::reverse( result, out );
+  *out = 0;
+  return result;
+}
+                                                                        
+/*************** DEFINITIONS ***************/
+
+

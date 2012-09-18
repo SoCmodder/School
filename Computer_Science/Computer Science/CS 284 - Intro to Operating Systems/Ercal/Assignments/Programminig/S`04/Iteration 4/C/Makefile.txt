@@ -1,0 +1,87 @@
+# Author: Brian Sea
+# Makefile for GNU Make
+# Will not work with BSD make
+
+
+# Environment variables
+CC = gcc
+CFLAGS = 
+DEBUG =
+LDFLAGS =
+INCLUDES = .
+
+SUBDIRS =
+
+#######################################################
+#
+# These are program specific.  Change them as needed
+#
+#######################################################
+
+TARGET = main
+SOURCES = $(wildcard *.c)
+HEADERS = $(wildcard *.h)
+OBJS = $(SOURCES:%.c=%.o)
+OBJPATH = .
+
+
+# Force make to not talk
+
+.SILENT:
+
+$(TARGET): depend $(OBJS) moveobjs link
+	for each in $(SUBDIRS); do \
+		cd $${each}; \
+		make; \
+	done
+
+
+depend: $(SOURCES) $(HEADERS)
+	echo -n "Calculating Dependancies   "
+	$(CC) -MM $(SOURCES) > $@
+	echo "..... OK";
+	
+.c.o: 
+	echo -n "(CC)   $<"
+	$(CC) $(DEBUG) -I$(INCLUDES) -c $(CFLAGS) $<
+	if [ $$? -eq 0 ]; then \
+		echo " ..... OK"; \
+	fi
+
+moveobjs:
+	if [ $(OBJPATH) != "." ]; then \
+		if [ ! -d $(OBJPATH) ]; then \
+			mkdir $(OBJPATH); \
+		fi; \
+		mv -f *.o $(OBJPATH); \
+	fi
+
+link: $(OBJECTS)
+	echo -n "(LD)   $(TARGET)"
+	$(CC) -o $(TARGET) $(OBJS)
+	if [ $$? -eq 0 ]; then \
+		echo " ..... OK"; \
+		echo ""; \
+		echo "Target is $(TARGET)  ...  Done successfully."; \
+	fi
+
+proper:
+	echo -n "Removing objects"
+	rm -rf *.o
+	echo " ..... OK"
+
+clean: proper
+	
+	for each in $(SUBDIRS); do \
+		cd $${each}; \
+		make clean; \
+	done; \
+
+	echo -n "Removing binary $(TARGET)"
+	rm -f $(TARGET)
+	rm -r depend
+	if [ $$? -eq 0 ]; then \
+		echo " ..... OK"; \
+	fi
+
+-include depend

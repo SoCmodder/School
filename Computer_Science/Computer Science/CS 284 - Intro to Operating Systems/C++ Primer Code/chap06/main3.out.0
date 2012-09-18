@@ -1,0 +1,224 @@
+dumbo[142] ~/d.stdlib => a.out
+please enter file name: hard_text
+
+line read: Pythagoras says that babies that cry cannot fly
+line read: (nor do flies hear the cries of the angels).
+line read: It is outrageous and no less so being ingenuous.
+line read: By osmosis he learns or at least tries.
+
+number of lines: 4
+maximum length: 48
+longest line: It is outrageous and no less so being ingenuous.
+textline: Pythagoras says that babies that cry cannot fly
+eol: 47 pos: 10 line: 0 word: 0 substring: Pythagoras
+eol: 47 pos: 15 line: 0 word: 1 substring: says
+eol: 47 pos: 20 line: 0 word: 2 substring: that
+eol: 47 pos: 27 line: 0 word: 3 substring: babies
+eol: 47 pos: 32 line: 0 word: 4 substring: that
+eol: 47 pos: 36 line: 0 word: 5 substring: cry
+eol: 47 pos: 43 line: 0 word: 6 substring: cannot
+last word on line substring: fly
+textline: (nor do flies hear the cries of the angels).
+eol: 44 pos: 4 line: 1 word: 0 substring: (nor
+eol: 44 pos: 7 line: 1 word: 1 substring: do
+eol: 44 pos: 13 line: 1 word: 2 substring: flies
+eol: 44 pos: 18 line: 1 word: 3 substring: hear
+eol: 44 pos: 22 line: 1 word: 4 substring: the
+eol: 44 pos: 28 line: 1 word: 5 substring: cries
+eol: 44 pos: 31 line: 1 word: 6 substring: of
+eol: 44 pos: 35 line: 1 word: 7 substring: the
+last word on line substring: angels).
+textline: It is outrageous and no less so being ingenuous.
+eol: 48 pos: 2 line: 2 word: 0 substring: It
+eol: 48 pos: 5 line: 2 word: 1 substring: is
+eol: 48 pos: 16 line: 2 word: 2 substring: outrageous
+eol: 48 pos: 20 line: 2 word: 3 substring: and
+eol: 48 pos: 23 line: 2 word: 4 substring: no
+eol: 48 pos: 28 line: 2 word: 5 substring: less
+eol: 48 pos: 31 line: 2 word: 6 substring: so
+eol: 48 pos: 37 line: 2 word: 7 substring: being
+last word on line substring: ingenuous.
+textline: By osmosis he learns or at least tries.
+eol: 39 pos: 2 line: 3 word: 0 substring: By
+eol: 39 pos: 10 line: 3 word: 1 substring: osmosis
+eol: 39 pos: 13 line: 3 word: 2 substring: he
+eol: 39 pos: 20 line: 3 word: 3 substring: learns
+eol: 39 pos: 23 line: 3 word: 4 substring: or
+eol: 39 pos: 26 line: 3 word: 5 substring: at
+eol: 39 pos: 32 line: 3 word: 6 substring: least
+last word on line substring: tries.
+filter elements: ",.;:!?)(
+filter_text: Pythagoras
+finished with word: Pythagoras
+filter_text: says
+finished with word: says
+filter_text: that
+finished with word: that
+filter_text: babies
+finished with word: babies
+filter_text: that
+finished with word: that
+filter_text: cry
+finished with word: cry
+filter_text: cannot
+finished with word: cannot
+filter_text: fly
+finished with word: fly
+filter_text: (nor
+found! : pos: 0 (
+after: nor
+finished with word: nor
+filter_text: do
+finished with word: do
+filter_text: flies
+finished with word: flies
+filter_text: hear
+finished with word: hear
+filter_text: the
+finished with word: the
+filter_text: cries
+finished with word: cries
+filter_text: of
+finished with word: of
+filter_text: the
+finished with word: the
+filter_text: angels).
+found! : pos: 6 )
+after: angels.
+found! : pos: 6 .
+after: angels
+finished with word: angels
+filter_text: It
+finished with word: It
+filter_text: is
+finished with word: is
+filter_text: outrageous
+finished with word: outrageous
+filter_text: and
+finished with word: and
+filter_text: no
+finished with word: no
+filter_text: less
+finished with word: less
+filter_text: so
+finished with word: so
+filter_text: being
+finished with word: being
+filter_text: ingenuous.
+found! : pos: 9 .
+after: ingenuous
+finished with word: ingenuous
+filter_text: By
+finished with word: By
+filter_text: osmosis
+finished with word: osmosis
+filter_text: he
+finished with word: he
+filter_text: learns
+finished with word: learns
+filter_text: or
+finished with word: or
+filter_text: at
+finished with word: at
+filter_text: least
+finished with word: least
+filter_text: tries.
+found! : pos: 5 .
+after: tries
+finished with word: tries
+suffix_text: Pythagoras
+suffix_s -- word passed in: Pythagoras
+suffix_s -- word returned: Pythagora
+suffix_text: says
+suffix_s -- word passed in: says
+suffix_s -- word returned: say
+suffix_text: that
+suffix_text: babies
+suffix_s -- word passed in: babies
+suffix_s -- word returned: baby
+suffix_text: that
+suffix_text: cry
+suffix_text: cannot
+suffix_text: fly
+suffix_text: nor
+suffix_text: do
+suffix_text: flies
+suffix_s -- word passed in: flies
+suffix_s -- word returned: fly
+suffix_text: hear
+suffix_text: the
+suffix_text: cries
+suffix_s -- word passed in: cries
+suffix_s -- word returned: cry
+suffix_text: of
+suffix_text: the
+suffix_text: angels
+suffix_s -- word passed in: angels
+suffix_s -- word returned: angel
+suffix_text: It
+suffix_text: is
+suffix_text: outrageous
+suffix_s -- word passed in: outrageous
+suffix_text: and
+suffix_text: no
+suffix_text: less
+suffix_s -- word passed in: less
+suffix_text: so
+suffix_text: being
+suffix_text: ingenuous
+suffix_s -- word passed in: ingenuous
+suffix_text: By
+suffix_text: osmosis
+suffix_s -- word passed in: osmosis
+suffix_text: he
+suffix_text: learns
+suffix_s -- word passed in: learns
+suffix_s -- word returned: learn
+suffix_text: or
+suffix_text: at
+suffix_text: least
+suffix_text: tries
+suffix_s -- word passed in: tries
+suffix_s -- word returned: try
+----------- about to generate text read --------------
+Pythagoras says that babies that cry cannot fly
+(nor do flies hear the cries of the angels).
+It is outrageous and no less so being ingenuous.
+By osmosis he learns or at least tries.
+-------- about to generate word and location data ----
+word: Pythagora location: (0,0)
+word: say       location: (0,1)
+word: that      location: (0,2)
+word: baby      location: (0,3)
+word: that      location: (0,4)
+word: cry       location: (0,5)
+word: cannot    location: (0,6)
+word: fly       location: (0,7)
+word: nor       location: (1,0)
+word: do        location: (1,1)
+word: fly       location: (1,2)
+word: hear      location: (1,3)
+word: the       location: (1,4)
+word: cry       location: (1,5)
+word: of        location: (1,6)
+word: the       location: (1,7)
+word: angel     location: (1,8)
+word: It        location: (2,0)
+word: is        location: (2,1)
+word: outrageous        location: (2,2)
+word: and       location: (2,3)
+word: no        location: (2,4)
+word: less      location: (2,5)
+word: so        location: (2,6)
+word: being     location: (2,7)
+word: ingenuous location: (2,8)
+word: By        location: (3,0)
+word: osmosis   location: (3,1)
+word: he        location: (3,2)
+word: learn     location: (3,3)
+word: or        location: (3,4)
+word: at        location: (3,5)
+word: least     location: (3,6)
+word: try       location: (3,7)
+
+

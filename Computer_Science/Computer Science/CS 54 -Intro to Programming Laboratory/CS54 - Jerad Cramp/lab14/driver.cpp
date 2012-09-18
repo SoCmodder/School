@@ -1,0 +1,48 @@
+/* programmer: robertoMurillo    date: 11/30/05 *
+ * instructor: price             class: cs54d   *
+ * file: triangle.cpp                           *
+ * purpose: using templated classes             */
+ 
+#include <iostream>
+#include "triangle.h"
+using namespace std;
+
+int main()
+{
+  // declares all right triangles
+  rightTriangle<int,int> triangle1(31,17);
+  rightTriangle<float,float> triangle2(31.0,17.0);
+  rightTriangle<float,int> triangle3(4.5,7);
+  rightTriangle<int,float> triangle4(7,4.5);
+  
+  // outputs stats for triangle 1
+  cout << "For values: " << triangle1.getBottomLeg() << " and "
+       << triangle1.getLeftLeg() << ", the hyp. is " 
+       << triangle1.calcHyp() << " and the area is " 
+       << triangle1.calcArea() << "." << endl << endl;
+  
+  // outputs stats for triangle 2     
+  cout << "For values: " << triangle2.getBottomLeg() << " and "
+       << triangle2.getLeftLeg() << ", the hyp. is "
+       << triangle2.calcHyp() << " and the area is "
+       << triangle2.calcArea() << "." << endl << endl;
+       
+  // outputs stats for triangle 3
+  cout << "For values: " << triangle3.getBottomLeg() << " and "
+       << triangle3.getLeftLeg() << ", the hyp. is "
+       << triangle3.calcHyp() << " and the area is "
+       << triangle3.calcArea() << "." << endl << endl;
+  
+  // outputs stats for triangle 4
+  cout << "For values: " << triangle4.getBottomLeg() << " and "
+       << triangle4.getLeftLeg() << ", the hyp. is "
+       << triangle4.calcHyp() << " and the area is "
+       << triangle4.calcArea() << "." << endl << endl;
+       
+  return 0;
+}
+
+                                            
+                       
+  
+  

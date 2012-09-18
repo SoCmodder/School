@@ -1,0 +1,63 @@
+CC = gcc
+CFLAGS = 
+DEBUG = -g
+LDFLAGS =
+INCLUDES = .
+
+SUBDIRS =
+
+TARGET = main 
+OBJS = main.o parser.o executor.o process.o signals.o processcontrol.o
+OBJPATH = .
+
+
+.SILENT:
+
+$(TARGET): $(OBJS) moveobjs link
+	for each in $(SUBDIRS); do \
+		cd $${each}; \
+		make; \
+	done
+
+.c.o:
+	echo -n "(CC)   $<"
+	$(CC) $(DEBUG) -I$(INCLUDES) -c $(CFLAGS) $<
+	if [ $$? -eq 0 ]; then \
+		echo " ..... OK"; \
+	fi
+
+moveobjs:
+	if [ $(OBJPATH) != "." ]; then \
+		if [ ! -d $(OBJPATH) ]; then \
+			mkdir $(OBJPATH); \
+		fi; \
+		mv -f *.o $(OBJPATH); \
+	fi
+
+link:
+	echo -n "(LD)   $(TARGET)"
+	$(CC) -o $(TARGET) *.o 
+	if [ $$? -eq 0 ]; then \
+		echo " ..... OK"; \
+		echo ""; \
+		echo "Target is $(TARGET)  ...  Done successfully."; \
+	fi
+
+proper:
+	echo -n "Removing objects"
+	rm -rf *.o
+	echo " ..... OK"
+
+clean: proper
+	
+	for each in $(SUBDIRS); do \
+		cd $${each}; \
+		make clean; \
+	done; \
+
+	echo -n "Removing binary $(TARGET)"
+	rm -f $(TARGET)
+	if [ $$? -eq 0 ]; then \
+		echo " ..... OK"; \
+	fi
+

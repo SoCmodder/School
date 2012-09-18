@@ -1,0 +1,30 @@
+Script started on Sun 08 Feb 2004 01:20:01 PM CST
+dell2(1)>./main
+sea:dell2:src/iteration4:> ls
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+executor.c  executor.h	executor.o  Iteration4SampleRun  main  main.c  main.o  Makefile  parser.c  parser.h  parser.o
+sea:dell2:src/iteration4:> ls | ls
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+executor.c  executor.h	executor.o  Iteration4SampleRun  main  main.c  main.o  Makefile  parser.c  parser.h  parser.o
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+executor.c  executor.h	executor.o  Iteration4SampleRun  main  main.c  main.o  Makefile  parser.c  parser.h  parser.o
+sea:dell2:src/iteration4:> exit
+
+Program exit.
+dell2(3)>^D
+Script done on Sun 08 Feb 2004 01:20:18 PM CST

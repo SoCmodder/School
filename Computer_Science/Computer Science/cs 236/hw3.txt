@@ -1,0 +1,145 @@
+						Joe Wingbermuehle
+						Homework 3
+
+1.	S -> ( L ) | a
+	L -> L , S | S
+
+	S -> ( L ) | a
+	L -> S L'
+	L' -> , S L' | <e>
+
+	(<e> is epsilon)
+
+2a.	S -> a S b
+	S -> a a
+
+	S -> a S b | a a
+
+	A -> a B
+	B -> a a A b | <e>
+
+2b.	A -> a b c
+	   | a b d
+	   | a c d
+	B -> a b c
+
+	A -> a C
+	C -> b D | c d
+	D -> c | d
+
+3.	S  -> i E t S S' | a
+	S' -> e S | <e>
+	E  -> b
+
+	First(S) = { i, a }
+	First(S') = { e, <e> }
+	First(E) = { b }
+
+	Follow(S) = { e, $ }
+	Follow(S') = { e, $ }
+	Follow(E) = { t }
+
+	+-----+-----------------+--------+-----------+--------+-----------+
+	| Non |        i        |   a    |     e     |    b   |     $     |
+	+-----+-----------------+--------+-----------+--------+-----------+
+	| S   | S -> i E t S S' | S -> a |           |        |           |
+	| S'  |                 |        | S' -> e S |        | S' -> <e> |
+	| E   |                 |        |           | E -> b |           |
+	+-----+-----------------+--------+-----------+--------+-----------+
+
+4.	E  -> - E | ( E ) | V E'
+	V  -> id V'
+	V' -> ( E ) | <e>
+	E' -> - E | <e>
+
+4a.	First(E) = { -, (, id }
+	First(V) = { id }
+	First(V') = { (, <e> }
+	First(E') = { -, <e> }
+
+4b.	Follow(E) = { ), $ }
+	Follow(V) = { -, ), $ }
+	Follow(V') = { -, ), $ }
+	Follow(E') = { ), $ }
+
+4c.
+	+-----+-----------+-------------+------------+-----------+
+	| Non |     -     |      (      |     id     |     $     |
+	+-----+-----------+-------------+------------+-----------+
+	| E   | E -> - E  | E -> ( E )  | E -> V E'  |           |
+	| V   |           |             | V -> id V' |           |
+	| V'  |           | V' -> ( E ) |            | V' -> <e> |
+	| E'  | E' -> - E |             |            | E' -> <e> |
+	+-----+-----------+-------------+------------+-----------+
+
+4d.	- id ( - id )
+	+---------------+-------------+-----------+---------------+
+	| Input         | Rule        | Stack     | Output        |
+	+---------------+-------------+-----------+---------------+
+	| - id ( - id ) | E -> - E    | $         | -             |
+	| id ( - id )   | E -> V E'   | $ E' V    | -             |
+	| id ( - id )   | V -> id V'  | $ E'      | - id          |
+	| ( - id )      | V' -> ( E ) | $ E'      | - id ( x )    |
+	| - id          | E -> - E    | $ E'      | - id ( - x )  |
+	| id            | E -> V E'   | $ E' E'   | - id ( - x )  |
+        | $             | V -> id V'  | $ E' E'   | - id ( - id ) |
+	| $             | E' -> <e>   | $ E'      | - id ( - id ) |
+	| $             | E' -> <e>   | $         | - id ( - id ) |
+	+---------------+-------------+-----------+---------------+
+
+4e.
+	void expr() {
+		switch(token) {
+		case TOK_MINUS:		// E -> - E
+			expr();
+			break;
+		case TOK_LPAREN:	// E -> ( E )
+			expr();
+			match(TOK_RPAREN);
+			break;
+		case TOK_ID:		// E -> V E'
+			value();
+			expr_tail();
+			break;
+		default:
+			printf("error in expr\n");
+		}
+	}
+
+	void value() {
+		switch(token) {
+		case TOK_ID:		// V -> id V'
+			value_tail();
+			break;
+		default:
+			printf("error in id\n");
+		}
+	}
+
+	void value_tail() {
+		switch(token) {
+		case TOK_LPAREN:	// V' -> ( E )
+			expr();
+			match(TOK_RPAREN);
+			break;
+		case TOK_END:		// V' -> <e>
+			return;
+		default:
+			printf("error in value_tail\n");
+		}
+	}
+
+	void expr_tail() {
+		switch(token) {
+		case TOK_MINUS:		// E' -> - E
+			expr();
+			break;
+		case TOK_END:		// E' -> <e>
+			return;
+			break;
+		default:
+			printf("error in expr_tail\n");
+		}
+	}
+
+

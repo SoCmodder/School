@@ -1,0 +1,25 @@
+/* XPM */
+static char *kid1_xpm[] = {
+"16 16 5 1",
+"f s color0 c #143434",
+". s color0 c #FFFFFF",
+"x s color0 c #000000",
+"r s color0 c #FF0000",
+"b s color0 c #0000FF",
+"ffffffffffffffff",
+"fffxxxxxxxxxxfff",
+"ffx..........xff",
+"ffx..bb...bb..xf",
+"ffx...........xf",
+"ffx.....x.....xf",
+"ffx..r.....r..xf",
+"ffx...rrrrr...xf",
+"fffx.........xff",
+"ffffxxxxxxxxxfff",
+"ffffxfffxffxffff",
+"fffffxxxxxxfffff",
+"ffffffffxfffffff",
+"fffffffxfxffffff",
+"ffffffxfffxfffff",
+"ffffffffffffffff"
+};

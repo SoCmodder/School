@@ -1,0 +1,138 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=Windows-1252">
+</head>
+<body>
+<pre>
+<table width=100% bgcolor=#CFCFE5><tr> <td> <font face=arial size=+3>
+Build Log
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>
+<h3>------- Build started: Project: program2, Configuration: Debug|Win32 -------
+</h3>
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Command Lines
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>Creating temporary file "c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\Debug\RSP00001F.rsp" with contents
+[
+/Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "_MBCS" /D "_AFXDLL" /Gm /EHsc /RTC1 /MDd /Zc:wchar_t /Yu"stdafx.h" /Fp"Debug/program2.pch" /Fo"Debug/" /Fd"Debug/vc70.pdb" /W3 /c /Wp64 /ZI /TP
+".\BagItem.cpp"
+".\bag.cpp"
+".\program2Dlg.cpp"
+".\program2.cpp"
+]
+Creating command line "cl.exe @"c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\Debug\RSP00001F.rsp" /nologo"
+Creating temporary file "c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\Debug\RSP000020.rsp" with contents
+[
+/Od /D "WIN32" /D "_WINDOWS" /D "_DEBUG" /D "_MBCS" /D "_AFXDLL" /Gm /EHsc /RTC1 /MDd /Zc:wchar_t /Yc"stdafx.h" /Fp"Debug/program2.pch" /Fo"Debug/" /Fd"Debug/vc70.pdb" /W3 /c /Wp64 /ZI /TP
+".\stdafx.cpp"
+]
+Creating command line "cl.exe @"c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\Debug\RSP000020.rsp" /nologo"
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Output Window
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>Compiling...
+stdafx.cpp
+Compiling...
+BagItem.cpp
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.h(13) : error C2146: syntax error : missing ',' before identifier 'description'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\BagItem.cpp(18) : error C2065: 'weight' : undeclared identifier
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\BagItem.cpp(20) : error C2065: 'description' : undeclared identifier
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\BagItem.cpp(31) : error C2065: 'description_' : undeclared identifier
+bag.cpp
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.h(13) : error C2146: syntax error : missing ',' before identifier 'description'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(17) : error C2059: syntax error : '.'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(18) : error C2143: syntax error : missing ';' before '{'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(19) : error C2660: 'MessageBoxA' : function does not take 1 arguments
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(20) : error C2660: 'MessageBoxA' : function does not take 1 arguments
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(22) : error C2181: illegal else without matching if
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(24) : error C2065: 'weight' : undeclared identifier
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(24) : error C2065: 'description' : undeclared identifier
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(30) : error C2146: syntax error : missing ',' before identifier 'description'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(33) : warning C4018: '<' : signed/unsigned mismatch
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(35) : error C2593: 'operator ==' is ambiguous
+        c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\atlmfc\include\cstringt.h(2207): could be 'bool ATL::CStringT<BaseType,StringTraits>::operator ==(ATL::CSimpleStringT<BaseType,t_bMFCDLL>::XCHAR,const ATL::CStringT<BaseType,StringTraits> &) throw()' [found using argument-dependent lookup]
+        with
+        [
+            BaseType=char,
+            StringTraits=StrTraitMFC_DLL<char>,
+            t_bMFCDLL=true
+        ]
+        c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\atlmfc\include\cstringt.h(2105): or       'bool ATL::CStringT<BaseType,StringTraits>::operator ==(ATL::CSimpleStringT<BaseType,t_bMFCDLL>::PCYSTR,const ATL::CStringT<BaseType,StringTraits> &) throw(...)' [found using argument-dependent lookup]
+        with
+        [
+            BaseType=char,
+            StringTraits=StrTraitMFC_DLL<char>,
+            t_bMFCDLL=true
+        ]
+        c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\atlmfc\include\cstringt.h(2091): or       'bool ATL::CStringT<BaseType,StringTraits>::operator ==(ATL::CSimpleStringT<BaseType,t_bMFCDLL>::PCXSTR,const ATL::CStringT<BaseType,StringTraits> &) throw()' [found using argument-dependent lookup]
+        with
+        [
+            BaseType=char,
+            StringTraits=StrTraitMFC_DLL<char>,
+            t_bMFCDLL=true
+        ]
+        c:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\atlmfc\include\cstringt.h(2080): or       'bool ATL::CStringT<BaseType,StringTraits>::operator ==(const ATL::CStringT<BaseType,StringTraits> &,const ATL::CStringT<BaseType,StringTraits> &) throw()' [found using argument-dependent lookup]
+        with
+        [
+            BaseType=char,
+            StringTraits=StrTraitMFC_DLL<char>
+        ]
+        while trying to match the argument list '('unknown-type', CString)'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(35) : error C3861: 'description': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(48) : error C2601: 'bag::erase_all' : local function definitions are illegal
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(59) : error C2601: 'bag::getNumItems' : local function definitions are illegal
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\bag.cpp(65) : error C2601: 'bag::getItemByIndex' : local function definitions are illegal
+program2Dlg.cpp
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.h(41) : error C2146: syntax error : missing ';' before identifier 'Bag'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.h(41) : error C2501: 'Cprogram2Dlg::bag' : missing storage-class or type specifiers
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.h(41) : error C2501: 'Cprogram2Dlg::Bag' : missing storage-class or type specifiers
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(159) : error C2653: 'CTrashBagDlg' : is not a class or namespace name
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(161) : error C2065: 'trashBagListBox' : undeclared identifier
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(161) : error C2228: left of '.ResetContent' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(162) : error C2065: 'bag' : undeclared identifier
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(162) : error C2228: left of '.getNumItems' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(164) : error C2065: 'BagItem' : undeclared identifier
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(164) : error C2146: syntax error : missing ';' before identifier 'item'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(164) : error C2065: 'item' : undeclared identifier
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(164) : error C2228: left of '.getItemByIndex' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(164) : error C3861: 'bag': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(165) : error C2228: left of '.toString' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(165) : error C2059: syntax error : ')'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(165) : error C3861: 'BagItem': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(166) : error C2228: left of '.AddString' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(166) : error C3861: 'trashBagListBox': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(173) : error C2228: left of '.SetItem' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(173) : error C3861: 'BagItem': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(174) : error C2065: 'Bag' : undeclared identifier
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(174) : error C2228: left of '.add' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(174) : error C3861: 'BagItem': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(182) : error C2228: left of '.SetItem' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(182) : error C3861: 'BagItem': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(183) : error C2228: left of '.erase_one' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(183) : error C3861: 'Bag': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(183) : error C3861: 'BagItem': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(191) : error C2228: left of '.SetItem' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(191) : error C3861: 'BagItem': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(192) : error C2228: left of '.erase_all' must have class/struct/union type
+        type is ''unknown-type''
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(192) : error C3861: 'Bag': identifier not found, even with argument-dependent lookup
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.cpp(192) : error C3861: 'BagItem': identifier not found, even with argument-dependent lookup
+program2.cpp
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.h(41) : error C2146: syntax error : missing ';' before identifier 'Bag'
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.h(41) : error C2501: 'Cprogram2Dlg::bag' : missing storage-class or type specifiers
+c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\program2Dlg.h(41) : error C2501: 'Cprogram2Dlg::Bag' : missing storage-class or type specifiers
+Generating Code...
+</pre></table><table width=100% bgcolor=#DFDFE5><tr><td><font face=arial size=+2>
+Results
+</font></table><table width=* cellspacing=0 cellpadding=0><tr><td width=0 bgcolor=#EDEDF5>&nbsp;</td><td width=0 bgcolor=#FFFFFF>&nbsp;</td><td width=*><pre>
+Build log was saved at "file://c:\Documents and Settings\w00t3n4t0r!\Desktop\program2\Debug\BuildLog.htm"
+program2 - 54 error(s), 1 warning(s)</pre></table><table   width=100% height=20 bgcolor=#CFCFE5><tr><td><font face=arial size=+2>
+</font></table></body></html>

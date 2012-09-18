@@ -1,0 +1,47 @@
+Script started on Mon Jan 26 15:01:50 2004
+]0;sea@sabatour: /home/sea/Projects/TA-CS284/WS04/src/iteration3src/iteration3> ./main
+sea:sabatour:src/iteration3:>ls
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+SampleRunIteration3  executor.c  executor.h  main  main.c  parser.c  parser.h
+src/iteration3> ./main
+sea:sabatour:src/iteration3:>ls parser.c
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+	Entry 1: parser.c
+Entry 2: NULL - End of Table
+
+parser.c
+src/iteration3> ./main
+sea:sabatour:src/iteration3:>ls
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+SampleRunIteration3  executor.c  executor.h  main  main.c  parser.c  parser.h
+src/iteration3> ./main
+sea:sabatour:src/iteration3:>typhoid is a very bad thing
+
+COMMAND EXEC: typhoid
+Argument Table:
+	Entry 0: typhoid
+	Entry 1: is
+	Entry 2: a
+	Entry 3: very
+	Entry 4: bad
+	Entry 5: thing
+Entry 6: NULL - End of Table
+
+EXEC: No such file or directory
+Program exit.
+src/iteration3> ^Dexit
+
+Script done on Mon Jan 26 15:02:13 2004

@@ -1,0 +1,174 @@
+Iteration III - Executing an outside executable
+=============================================================================
+
+Due Date: 11:59:59, 2/13/04
+
+
+Useful Man Pages (and pages from previous iterations)
+======================================================
+
+malloc, calloc, free, realloc, execvp, perror, exit(3)
+
+Objects used in Iteration
+==========================
+
+Parser - used to parse input into tokens
+Executor - used to interpet tokens and execute children
+
+Reading from Wang
+==================
+
+11.7 - 11.14 (pages 344 - 362)
+
+
+
+Overview
+============
+
+Our project should now be able to construct a series of tokens (of some
+form).  We will now use these tokens to help us run binaries that are
+outside our program.
+
+The program will only be able to run once due to the exec*() family of
+functions.  Do not despair if your program does this.
+
+We will be adding onto the previous iteration.  The following functions
+will be added in this iteration:
+
+* Using the exec*() family to run outside executables.
+* Using dynamic memory to create argument tables.
+
+Description:
+=============
+
+You are to extend your previous program by adding the ability to do the
+following:
+
+1.  All operations done in the previous iterations must work.  This means
+    that all tests performed on previous iterations need to continue to work.
+
+2.  Execute the command specified by the line of input.
+
+3.  In order to run the command, you must construct the argument table
+    for each (e.g. the argv[] table). This table is described in the
+    section below labeled "The Argument Table".
+
+4.  Each line of input will look as follows:
+
+    command1 arg1 arg2 ... 
+
+    A.  No line of input will be longer than 512 characters.  This limit
+        will be respected by all of the following. 
+
+    B.  There will only be ONE command sequence in this iteration.
+        However, the following iterations will use multiple command
+        sequences.
+
+    C.  The command is followed by a number of arguments.  There is NO
+        limit of how many there can be.
+
+5.  Output to the screen (Standard Output) the command that is executed.  Also
+    print out the argument table *including* where the NULL pointer(s)
+    is/are.
+
+6.  If you construct this Argument Table dynamically, be sure to follow
+    safe memory managment (i.e. every new/malloc must have a
+    delete/free).
+
+    NOTE:  This program WILL leak memory due to the exec*() function,
+    unless you perform certain actions that will only pertain to
+    this iteration.  This is the only iteration where an obvious memory
+    leak will be permitted (and it is a very specific leak).
+
+The Argument Table
+===================
+
+The argument table construction will follow the UNIX convention.  This
+convention MUST be adhered to.  There proper argument table construction
+follows:
+
+=====================
+|   Program Name    |
+|-------------------|
+|   Argument 1      |
+|-------------------|
+|   Argument 2      |
+|-------------------|
+|     ...           |
+|-------------------|
+|   Argument N      |
+|-------------------|
+|   NULL pointer    |
+=====================
+
+Example:
+
+For the command - "prog3 these are arguments" - the table would look as
+below:
+
+=================
+|    prog3      |   <--- Convention dictates this entry be the program name
+|---------------|
+|    these      |
+|---------------|
+|    are        |
+|---------------|
+|   arguments   |
+|---------------|
+|   NULL        |   <--- MUST be a NULL pointer
+=================
+
+This table then gets passed as an argument to the execve() function (if 
+that is the function you choose to use).
+
+
+Sample Run
+============
+
+Script started on Mon Jan 26 15:01:50 2004
+]0;sea@sabatour: /home/sea/Projects/TA-CS284/WS04/src/iteration3src/iteration3> ./main
+sea:sabatour:src/iteration3:>ls
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+SampleRunIteration3  executor.c  executor.h  main  main.c  parser.c  parser.h
+src/iteration3> ./main
+sea:sabatour:src/iteration3:>ls parser.c
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+	Entry 1: parser.c
+Entry 2: NULL - End of Table
+
+parser.c
+src/iteration3> ./main
+sea:sabatour:src/iteration3:>ls
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+SampleRunIteration3  executor.c  executor.h  main  main.c  parser.c  parser.h
+src/iteration3> ./main
+sea:sabatour:src/iteration3:>typhoid is a very bad thing
+
+COMMAND EXEC: typhoid
+Argument Table:
+	Entry 0: typhoid
+	Entry 1: is
+	Entry 2: a
+	Entry 3: very
+	Entry 4: bad
+	Entry 5: thing
+Entry 6: NULL - End of Table
+
+EXEC: No such file or directory
+Program exit.
+src/iteration3> ^Dexit
+
+Script done on Mon Jan 26 15:02:13 2004

@@ -1,0 +1,216 @@
+/* programmer: robertoMurillo    date: 11/11/05 *
+ * file: main_fnct.cpp           class: cs53    *
+ * purpose: using classes.                      */
+
+/********** DEFINITIONS **********/
+
+#include <iostream>
+#include <ostream>
+#include "main.h"
+using namespace std;
+
+/********** CONSTRUCTORS **********/
+Cat::Cat()
+{
+  m_name = "cat";
+  m_age = 1;
+  m_weight = 10.0;
+  m_hasClaws = true;
+  m_isAlive = true;
+  m_color = "kaliko";
+}
+
+Cat::Cat( string name, int age, float weight, bool hasClaws, bool isAlive,
+          string color )
+{
+  m_name = name;
+  m_age = age;
+  m_weight = weight;
+  m_hasClaws = hasClaws;
+  m_isAlive = isAlive;
+  m_color = color;
+}
+/********** CONSTRUCTORS **********/
+
+/********** ACCESSORS **********/
+string Cat::getName()const
+{
+  return m_name;
+}
+
+int Cat::getAge()const
+{
+  return m_age;
+}
+
+float Cat::getWeight()const
+{
+  return m_weight;
+}
+
+string Cat::getClaws()const
+{
+  string string1;
+  
+  if ( m_hasClaws )
+     string1 = "Yes.";
+
+  else
+    string1 = "No.";
+    
+  return string1;
+}
+
+string Cat::getAlive()const
+{
+  string string1;
+  
+  if ( m_isAlive )
+    string1 = "Yes.";
+  
+  else
+    string1 = "No.";
+    
+  return string1;
+}
+
+string Cat::getColor()const
+{
+  return m_color;
+}
+/********** ACCESSORS **********/
+
+/********** MUTATORS **********/
+void Cat::setName( string name )
+{
+  m_name = name;
+
+  return;
+}
+
+void Cat::setWeight( float weight )
+{
+  m_weight = weight;
+
+  return;
+}
+
+void Cat::setClaws ( bool claws )
+{
+  m_hasClaws = claws;
+
+  return;
+}
+
+void Cat::setAge ( int age )
+{
+  m_age = age;
+
+  return;
+}
+/********** MUTATORS **********/
+
+void speak()
+{
+  cout << "meow." << endl;
+
+  return;
+}
+
+/********** OVERLOADED OPERATORS **********/
+bool operator <( const Cat& lhs, const Cat& rhs )
+{
+  bool lessThan = false;
+  
+  if ( lhs.m_isAlive == false && rhs.m_isAlive == true )
+    lessThan = true;
+    
+  if ( lhs.m_isAlive == true && rhs.m_isAlive == true )
+  {
+    if ( lhs.m_hasClaws == false && rhs.m_hasClaws == true )
+      lessThan = true;
+    
+    if ( lhs.m_hasClaws == rhs.m_hasClaws )
+    {
+      if ( (lhs.m_weight/lhs.m_age) < (rhs.m_weight/rhs.m_age) )
+        lessThan = true;
+    }
+  }
+    
+  return lessThan;
+}
+
+bool operator >=( const Cat& lhs, const Cat& rhs )
+{
+  bool greatOrEqual = false;
+  
+  if ( !(lhs < rhs) )
+    greatOrEqual = true;
+
+  return greatOrEqual;
+}
+
+bool operator >( const Cat& lhs, const Cat& rhs )
+{
+  bool greaterThan = false;
+  
+  if ( lhs.m_isAlive == true && rhs.m_isAlive == false )
+    greaterThan = true;
+        
+  if ( lhs.m_isAlive == true && rhs.m_isAlive == true )
+  {
+    if ( lhs.m_hasClaws == true && rhs.m_hasClaws == false )
+      greaterThan = true;
+                      
+    if ( lhs.m_hasClaws == rhs.m_hasClaws )
+    {
+      if ( (lhs.m_weight/lhs.m_age) > (rhs.m_weight/rhs.m_age) )
+        greaterThan = true;
+    }
+  }
+  
+  return greaterThan;
+}
+
+bool operator <=( const Cat& lhs, const Cat& rhs )
+{
+  bool lessOrEqual = false;
+  
+  if ( !(lhs > rhs) )
+    lessOrEqual = true;
+        
+  return lessOrEqual;
+}
+
+bool operator ==( const Cat& lhs, const Cat& rhs )
+{
+  bool equalTo = false;
+  
+  if ( lhs.m_isAlive == false && rhs.m_isAlive == false )
+    equalTo = true;
+        
+  if ( lhs.m_isAlive == true &&  rhs.m_isAlive == true )
+  {                      
+    if ( lhs.m_hasClaws == rhs.m_hasClaws )
+    {
+      if ( (lhs.m_weight/lhs.m_age) == (rhs.m_weight/rhs.m_age) )
+        equalTo = true;
+    }
+  }
+                                                  
+  return equalTo;
+}
+
+bool operator != ( const Cat& lhs, const Cat& rhs )
+{
+  bool notEqual = false;
+  
+  if ( !( (lhs == rhs) ) )
+    notEqual = true;
+  
+  return notEqual;
+}          
+/********** OVERLOADED OPERATORS **********/
+
+/********** DEFINITIONS **********/
+

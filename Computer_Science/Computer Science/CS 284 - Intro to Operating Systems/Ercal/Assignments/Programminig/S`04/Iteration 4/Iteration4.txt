@@ -1,0 +1,158 @@
+Iteration IV - Creating Child processes
+=============================================================================
+
+Due Date: 11:59:59pm, February 23rd
+
+
+Useful man pages: fork
+================
+
+Reading: Chapter 13 from "Intro. to UNIX" by Wang  pages 430-446
+========
+
+Objects I created
+==================
+
+Parser -    Parser the string into tokens
+Executor -  Uses the tokens to execute commands
+
+Overview
+============
+
+Now our project can execute an outside binary that we tell it to, with
+the arguments that we tell it to use.  However, we can only execute one
+binary.  This iteration is meant to fix that.
+
+Furthermore, the project has started to grow into a small monster.
+Compile and linking times will begin to get out of hand if we do not
+introduce a little project management.  One such tool used on UNIX is
+called GNU Make.  This tool allows us to only compile files that we
+have actually changed, all in an automated fashion.
+
+We will be adding onto the previous iteration.  The following functions
+will be added in this iteration:
+
+* Using fork() to create child processes
+* Using GNU make - creating a makefile for your project
+        
+Description:
+=============
+
+You are to extend your previous program by adding the ability to do the
+following:
+
+1.  All operations done in the previous iterations must work.  This means
+    that all tests performed on previous iterations need to continue to work.
+
+2.  Execute all commands specified by the line of input, sequentially.
+    You need to wait for the first command to finish before starting the
+    next command.  You will need to use the fork() function to be able
+    to do this.
+
+3.  In order to run each command, you must construct the argument table
+    for each (e.g. the argv[] table). This table is described in the
+    section below labeled "The Argument Table".
+
+4.  Each line of input will look as follows:
+
+    command1 arg1 arg2 ... | command2 arg1 arg2 ... | ...
+
+    A.  No line of input will be longer than 512 characters.  This limit
+        will be respected by all of the following. 
+
+    B.  Each command sequence will be separated by a "|".  There is NO
+        limit to how many there may be.  Each command sequence is to be
+        considered independant of each other (e.g. the "|" are not UNIX
+        pipes (yet) ).
+
+    C.  The command is followed by a number of arguments.  There is NO
+        limit of how many there can be.
+
+5.  Output to the screen (Standard Output) the command that is executed.  Also
+    print out the argument table *including* where the NULL pointer(s)
+    is/are.
+
+6.  You will also need to construct a Makefile for your project.  This
+    will enable the compilation of only the files that need to be
+    compiled.   
+
+    For examples and tutorials on how to create a Makefile:
+
+        http://www.linuxgazette.com/issue83/heriyanto.html
+        http://www.gnu.org/software/make/manual/html_node/make_4.html
+        http://www.eng.hawaii.edu/Tutor/Make/index.html
+
+The Argument Table
+===================
+
+The argument table construction will follow the UNIX convention.  This
+convention MUST be adhered to.  There proper argument table construction
+follows:
+
+=====================
+|   Program Name    |
+|-------------------|
+|   Argument 1      |
+|-------------------|
+|   Argument 2      |
+|-------------------|
+|     ...           |
+|-------------------|
+|   Argument N      |
+|-------------------|
+|   NULL pointer    |
+=====================
+
+Example:
+
+For the command - "prog3 these are arguments" - the table would look as
+below:
+
+=================
+|    prog3      |   <--- Convention dictates this entry be the program name
+|---------------|
+|    these      |
+|---------------|
+|    are        |
+|---------------|
+|   arguments   |
+|---------------|
+|   NULL        |   <--- MUST be a NULL pointer
+=================
+
+This table then gets passed as an argument to the execve() function (if 
+that is the function you choose to use).
+
+
+Sample Run
+===========
+Script started on Sun 08 Feb 2004 01:20:01 PM CST
+dell2(1)>./main
+sea:dell2:src/iteration4:> ls
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+executor.c  executor.h	executor.o  Iteration4SampleRun  main  main.c  main.o  Makefile  parser.c  parser.h  parser.o
+sea:dell2:src/iteration4:> ls | ls
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+executor.c  executor.h	executor.o  Iteration4SampleRun  main  main.c  main.o  Makefile  parser.c  parser.h  parser.o
+
+COMMAND EXEC: ls
+Argument Table:
+	Entry 0: ls
+Entry 1: NULL - End of Table
+
+executor.c  executor.h	executor.o  Iteration4SampleRun  main  main.c  main.o  Makefile  parser.c  parser.h  parser.o
+sea:dell2:src/iteration4:> exit
+
+Program exit.
+dell2(3)>^D
+Script done on Sun 08 Feb 2004 01:20:18 PM CST

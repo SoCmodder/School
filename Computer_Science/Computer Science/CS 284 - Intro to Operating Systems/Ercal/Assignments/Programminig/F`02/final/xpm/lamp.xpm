@@ -1,0 +1,24 @@
+/* XPM */
+static char *lamp_xpm[] = {
+"16 16 4 1",
+". s color0 c #143434",
+"x s color0 c #000000",
+"r s color0 c #FF0000",
+"b s color0 c #0000FF",
+"................",
+"......xxxx......",
+"....xxxxxxxx....",
+"...xxxxxxxxxx...",
+"...xxxxxxxxxx...",
+"..xxxxxxxxxxxx..",
+"..xxxxxxxxxxxx..",
+".......xx.......",
+".......xx.......",
+"......xbbx......",
+".....xbbbbx.....",
+".....xbbbbx.....",
+".....xbbbbx.....",
+"..xxxxxxxxxxxx..",
+"................",
+"................"
+};
