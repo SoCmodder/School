@@ -3,8 +3,6 @@
 ###Class: Introduction to Operating Systems
 ###Assignment: Assignment 1
 ###
-###
-###
 #!/bin/sh
 
 printMenu()
@@ -50,8 +48,9 @@ processOfUser()
 	done < <(who | awk '{print $1}' | sort -u)
 	
 	echo "Please Select a user from a list to view their processes."
+	
 	read input
-	case $input in
+	ps -u ${arr[$input]}
 	
 }
 
