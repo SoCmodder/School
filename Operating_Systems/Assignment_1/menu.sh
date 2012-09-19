@@ -44,7 +44,7 @@ processOfUser()
 	while read value; do
 		arr["$i"]="$value"
 		echo $i". " ${arr[$i]}
-		i=i+1
+		i=${i}+1
 	done < <(who | awk '{print $1}' | sort -u)
 	
 	echo "Please Select a user from a list to view their processes."

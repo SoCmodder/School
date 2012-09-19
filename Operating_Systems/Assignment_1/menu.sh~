@@ -3,8 +3,6 @@
 ###Class: Introduction to Operating Systems
 ###Assignment: Assignment 1
 ###
-###
-###
 #!/bin/sh
 
 printMenu()
