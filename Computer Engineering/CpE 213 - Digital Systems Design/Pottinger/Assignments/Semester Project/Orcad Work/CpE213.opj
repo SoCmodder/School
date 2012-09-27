@@ -1,0 +1,48 @@
+(ExpressProject "CpE213"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\cpe213.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (Netlist_TAB "5")
+    (LAYOUT_Netlist_File "CPE213.MNL")
+    (LAYOUT_PCB_Footprint "{PCB Footprint}")
+    ( "FALSE")
+    (LAYOUT_Units "0"))
+  (Folder "Outputs"
+    (File ".\cpe213.mnl"
+      (Type "LAYOUT Netlist File")))
+  (Folder "Referenced Projects")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "C:\Documents and Settings\Hesse\My Documents\School\Winter Semester 2001\CpE 213\Semester Project\Orcad Work\cpe213.dsn")
+      (Path "Design Resources"
+         "C:\Documents and Settings\Hesse\My Documents\School\Winter Semester 2001\CpE 213\Semester Project\Orcad Work\cpe213.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "C:\Documents and Settings\Hesse\My Documents\School\Winter Semester 2001\CpE 213\Semester Project\Orcad Work\cpe213.dsn"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 347 0 589"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 132 1122 132 748")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "C:\DOCUMENTS AND SETTINGS\HESSE\MY DOCUMENTS\SCHOOL\WINTER SEMESTER 2001\CPE 213\SEMESTER PROJECT\ORCAD WORK\CPE213.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (PartMRUSelector))

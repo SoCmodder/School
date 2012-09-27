@@ -1,0 +1,80 @@
+C51 COMPILER V6.10  ISM64                                                                  03/22/2001 22:01:58 PAGE 1   
+
+
+C51 COMPILER V6.10, COMPILATION OF MODULE ISM64
+OBJECT MODULE PLACED IN .\ISM64.OBJ
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\BIN\C51.EXE .\ISM64.c DEBUG OBJECTEXTEND CODE
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          
+   3          /*void main(void) {
+   4          unsigned char brc,c,i;
+   5          c=0x80;
+   6          for (i=8;i>0;i--) {
+   7          	brc=(brc<<1) + c%2;
+   8          	c=c>>1;
+   9          	};
+  10          	while(1){};
+  11          	}
+  12          */
+  13          
+  14          void main(void) {
+  15   1      unsigned char i;
+  16   1      ACC=0x80;
+  17   1      for(i=8;i>0;i--) {
+  18   2      	ACC=ACC<<1;
+  19   2      	B=ACC;
+  20   2      	ACC=ACC>>1;
+  21   2      	B=ACC;
+  22   2      };
+  23   1      	
+  24   1      	while(1){
+  25   2      	}
+  26   1      }
+  27          
+C51 COMPILER V6.10  ISM64                                                                  03/22/2001 22:01:58 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 14
+                                           ; SOURCE LINE # 16
+0000 7480              MOV     A,#080H
+                                           ; SOURCE LINE # 17
+;---- Variable 'i' assigned to Register 'R7' ----
+0002 7F08              MOV     R7,#08H
+0004         ?C0001:
+                                           ; SOURCE LINE # 18
+0004 25E0              ADD     A,ACC
+                                           ; SOURCE LINE # 19
+0006 F5F0              MOV     B,A
+                                           ; SOURCE LINE # 20
+0008 C3                CLR     C
+0009 13                RRC     A
+                                           ; SOURCE LINE # 21
+000A F5F0              MOV     B,A
+                                           ; SOURCE LINE # 22
+000C DFF6              DJNZ    R7,?C0001
+000E         ?C0004:
+                                           ; SOURCE LINE # 24
+                                           ; SOURCE LINE # 25
+000E 80FE              SJMP    ?C0004
+             ; FUNCTION main (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     16    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

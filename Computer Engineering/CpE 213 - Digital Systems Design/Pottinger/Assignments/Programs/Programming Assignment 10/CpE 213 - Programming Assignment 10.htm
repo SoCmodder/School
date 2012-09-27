@@ -1,0 +1,111 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="H. Pottinger">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win95; U) [Netscape]">
+   <meta name="Description" content="8051 external interrupts">
+   <title>Hw8</title>
+</head>
+<body>
+
+<h3>
+Programming Assignment #10</h3>
+
+<h3>
+8051 External Interrupts</h3>
+
+<h3>
+Due May 4, 2001</h3>
+
+<ol>&nbsp;&nbsp;&nbsp; The purpose of this exercise is to explore the 8051's
+interrupt system by experimenting with the two external interrupts Int0
+and Int1.&nbsp; Both of these are supported reasonably well by Kyle's dScope
+simulator.
+<br>&nbsp;&nbsp;&nbsp; The following C51 program for the 8051 uses external
+interrupt 0 to implement the clock for a simple toggle flip flop (TFF).&nbsp;
+The TFF is negative edge sensitive and toggles whenever a negative edge
+appears at Int0.&nbsp; The TFF Q output is implemented by Port 0 bit 0.&nbsp;
+The background task continuously reads P2, scales it up by a factor of
+5, and outputs the result to P1.&nbsp; Although this is simple on purpose
+so that we can focus on the external interrupts, we can pretend that it
+is an arbitrarily complicated (and long) program, probably an external
+function, and possibily one for which we don't even have the source code.
+<pre><tt>#include &lt;reg51.h>
+sbit P0_0= P0^0;
+void Ex0Isr(void) interrupt 0 {
+&nbsp;P0_0= ~P0_0;
+&nbsp;}
+
+void main (void) {
+
+&nbsp;IT0= 1; //enable negative edge triggered Int0
+&nbsp;EX0= 1; //enable external interrupt 0
+&nbsp;EA=1;&nbsp;&nbsp; //enable global interrupts
+&nbsp;while (1) P1= 5*P2;
+
+}</tt></pre>
+&nbsp;&nbsp;&nbsp; The program consists of two functions: Ex0Isr and main.&nbsp;
+P0_0 is declared to be P0.0.&nbsp; Ex0Isr is the interupt service routine
+(ISR) for Int0.&nbsp; As such, it can take no parameters and returns nothing.&nbsp;
+The function is tagged with <i>interrupt 0</i> in order to use the RETI
+instruction to return and also to generate the interrupt vector at location
+3 (the vector location for Int0).&nbsp; Main enables edge triggering on
+Int0 by setting IT0, sets the enable bit for Int0 (EX0), and sets the global
+interrupt enable bit (EA).&nbsp; EA must be set in order for any interrupts
+to be acknowleged at all.&nbsp; If that bit is cleared, the processor will
+ignore all interrupt requests.&nbsp; EX0 must also be set in order for
+signals from Int0 to be acknowleged.&nbsp; After setting up the interrupt
+system, Main simply executes the background task as an infinite loop.&nbsp;
+Any negative edges which show up at the Int0 pin (shared with port 3 bit
+2) will result in Ex0Isr being called and P0.0 being toggled.&nbsp; Of
+course edges at Int0 aren't syncronized to the 8051's clock and so can
+occur at any time relative to the execution of Main's while loop.&nbsp;
+This means that the time between a negative edge at Int0 and the corresponding
+change in P0.0 is variable since the interrupt isn't serviced until the
+current instruction is finished.&nbsp; In other words, our TFF has a variable
+(and random) propagation delay!
+<br>You can control the simulator's Int0 (and Int1) bits by opening the
+Peripherals/Interrupt window and select Int0# (pronounced Int0 not).&nbsp;
+EA, IT0, and EX0 will be checked if you have run the program previously.&nbsp;
+You can watch P0 bits by opening the Peripherals/IO Ports/Port 0 window.&nbsp;
+You can run the program (press Go!) and click on the IE0 box to cause Int0
+interrupts and watch P0.0 toggle.&nbsp; Note that the Interrupt System
+window also shows the other five interrupt sources for a standard 8051.
+<ol>
+<li>
+Examine the assembly code for the example program and calculate what you
+expect the worst case interrupt latency to be.&nbsp; Express your answer
+in both clock cycles and instruction cycles.</li>
+
+<li>
+Use the example program to determine the worst case latency for external
+interrupt 0.&nbsp; This is defined as the longest time between a falling
+edge at Int0 and the corresponding edge of P0.0.&nbsp; Software engineers
+call this <i>latency.&nbsp; </i>Hardware engineers call it the clock to
+Q propagation delay.&nbsp; Use dScope and measure the latency as well as
+you can within limits of the simulator.&nbsp; Compare your measured latency
+to your calculated worst case latency.&nbsp; Describe the procedure used
+to measure the worst case latency.</li>
+
+<li>
+Modify the program to include a negative edge triggered D flip flop with
+P0.1 as the D input and P0.2 as the Q output.&nbsp; Use Int1 as the clock
+input.&nbsp; A negative edge at Int1 should cause an interrupt.&nbsp; Q
+should be set equal to D in the interrupt service routine for Int1.&nbsp;
+Test your program using dScope and describe your test proceedure.</li>
+
+<li>
+Will the previous modification affect your answer in parts 1 and 2?&nbsp;
+How?</li>
+
+<li>
+Suppose it is important for the TFF to respond as quickly as possible.&nbsp;
+Describe and make suitable modifications to the program to accomplish this.&nbsp;
+Keep in mind that modification of the background task is usually not an
+option.&nbsp; Limit your modifications to the interrupt service code.</li>
+</ol>
+</ol>
+
+</body>
+</html>

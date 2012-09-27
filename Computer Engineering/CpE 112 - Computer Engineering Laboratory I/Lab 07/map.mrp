@@ -1,0 +1,143 @@
+
+                Xilinx Mapping Report File for Design "lab7-2"
+          Copyright (c) 1995-1998 Xilinx, Inc.  All rights reserved.
+
+Design Information
+------------------
+Command Line   : /usr/local/xilinx.15i/bin/sol/map -p xc4005e-1-pc84 -o map.ncd
+lab7-2.ngd lab7-2.pcf 
+Target Device  : x4005e
+Target Package : pc84
+Target Speed   : -1
+Mapper Version : xc4000e -- M1.5.25
+Mapped Date    : Fri Oct 29 13:13:17 1999
+
+Design Summary
+--------------
+   Number of errors:        0
+   Number of warnings:      1
+   Number of CLBs:              8 out of   196    4%
+      CLB Flip Flops:       4
+      4 input LUTs:        14
+      3 input LUTs:         1
+   Number of bonded IOBs:      19 out of    61   31%
+      IOB Flops:            0
+      IOB Latches:          0
+   Number of oscillators:       1
+Total equivalent gate count for design: 112
+Additional JTAG gate count for IOBs:    912
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Design Attributes
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - Added Logic
+Section 7 - Expanded Logic
+Section 8 - Signal Cross-Reference
+Section 9 - Symbol Cross-Reference
+Section 10 - IOB Properties
+Section 11 - RPMs
+Section 12 - Guide Report
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:baste:24 - All of the external outputs in this design are using
+   slew-rate-limited output drivers.  The delay on speed critical outputs can be
+   dramatically reduced by designating them as fast outputs in the original
+   design.  Please see your vendor interface documentation for specific
+   information on how to do this within your design-entry tool.
+   Note: You should be careful not to designate too many outputs which switch
+   together as fast, because this can cause excessive ground bounce.  For more
+   information on this subject, please refer to the IOB switching characteristic
+   guidelines for the device you are using in the Programmable Logic Data Book.
+
+Section 3 - Design Attributes
+-----------------------------
+ Attribute LOC
+   "P84" for signal(s) Segg on symbol "schematic/Segg"
+   "P83" for signal(s) Segf on symbol "schematic/Segf"
+   "P82" for signal(s) Sege on symbol "schematic/Sege"
+   "P81" for signal(s) Segd on symbol "schematic/Segd"
+   "P80" for signal(s) Segc on symbol "schematic/Segc"
+   "P79" for signal(s) Segb on symbol "schematic/Segb"
+   "P78" for signal(s) Sega on symbol "schematic/Sega"
+   "P9" for signal(s) P9 on symbol "schematic/P9"
+   "P8" for signal(s) P8 on symbol "schematic/P8"
+   "P77" for signal(s) P77 on symbol "schematic/P77"
+   "P7" for signal(s) P7 on symbol "schematic/P7"
+   "P6" on symbol "schematic/P6"
+   "P5" on symbol "schematic/P5"
+   "P4" on symbol "schematic/P4"
+   "P3" on symbol "schematic/P3"
+   "P15" on symbol "schematic/P15"
+   "P14" on symbol "schematic/P14"
+   "P13" on symbol "schematic/P13"
+   "P10" for signal(s) P10 on symbol "schematic/P10"
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   9 block(s) optimized away
+
+Section 5 - Removed Logic
+-------------------------
+
+Optimized Block(s):
+TYPE 		BLOCK
+vcc 		I$431/I$227
+gnd 		I$431/I$429/I$426/I$1
+vcc 		I$431/I$429/I$426/I$3
+gnd 		I$431/I$429/I$427/I$1
+vcc 		I$431/I$429/I$427/I$3
+gnd 		I$431/I$429/I$428/I$1
+vcc 		I$431/I$429/I$428/I$3
+gnd 		I$431/I$429/I$429/I$1
+vcc 		I$431/I$429/I$429/I$3
+
+To enable printing of redundant blocks removed and signals merged, set the
+environment variable MAP_REPORT_DETAIL to TRUE and rerun map.
+
+Section 6 - Added Logic
+-----------------------
+
+Section 7 - Expanded Logic
+--------------------------
+To enable this section, set the environment variable MAP_REPORT_DETAIL to TRUE
+and rerun MAP.
+
+Section 8 - Signal Cross-Reference
+----------------------------------
+To enable this section, set the environment variable MAP_REPORT_DETAIL to TRUE
+and rerun MAP.
+
+Section 9 - Symbol Cross-Reference
+----------------------------------
+To enable this section, set the environment variable MAP_REPORT_DETAIL to TRUE
+and rerun MAP.
+
+Section 10 - IOB Properties
+---------------------------
+P10 (IOB) : SLEW=SLOW
+P7 (IOB) : SLEW=SLOW
+P77 (IOB) : SLEW=SLOW
+P8 (IOB) : SLEW=SLOW
+P9 (IOB) : SLEW=SLOW
+Sega (IOB) : SLEW=SLOW
+Segb (IOB) : SLEW=SLOW
+Segc (IOB) : SLEW=SLOW
+Segd (IOB) : SLEW=SLOW
+Sege (IOB) : SLEW=SLOW
+Segf (IOB) : SLEW=SLOW
+Segg (IOB) : SLEW=SLOW
+
+Section 11 - RPMs
+-----------------
+
+Section 12 - Guide Report
+-------------------------
+Guide not run on this design.

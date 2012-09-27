@@ -1,0 +1,141 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="H. Pottinger">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (WinNT; I) [Netscape]">
+   <meta name="Description" content="Semester Project 2001">
+   <title>CompEng 213</title>
+</head>
+<body text="#000000" bgcolor="#CCFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+<h1>
+CpE 213 Digital System Design</h1>
+
+<h1>
+Semester Project</h1>
+
+<h3>
+Summary</h3>
+The semester project is to design a simple toy or game using a microcontroller
+like the 8051.&nbsp; The device is to be constrained in the sense that
+the hardware is limited to a microcontroller, four switches, four LEDs,
+a piezo electric speaker, and a battery power supply with on/off switch.&nbsp;
+You will be expected to supply a complete design of both hardware and software,
+promotional material, economic analysis, and construction details.&nbsp;
+Your design is to be verified via simulation and documented in the form
+of a formal report.&nbsp; A total of 200 points toward your final grade
+will be awarded on the basis of homework.&nbsp; This capstone project will
+be a part of that homework grade.&nbsp; The project score will be calculated
+on the basis of the percentage points given in the due dates list below.&nbsp;
+This is an individual project, not a team effort.
+<h3>
+Project description</h3>
+The project is to consist of a simple toy or game that can be played on
+a device constructed with a microcontroller, battery power supply, on/off
+switch, four push button switches, four LED's (red, yellow, green, orange
+colors),&nbsp; a piezo-electric speaker, a crystal, printed circuit board,
+enclosure, and miscellaneous passive components (resistors and capacitors)
+as required.&nbsp; Your device need not use all these components but will
+limited to these.&nbsp; Nothing more may be added.
+<br>Within these hardware constraints, you are free to be as creative as
+you can.&nbsp; You are not required to use an 8051 microcontroller.&nbsp;
+It can be any microcontroller except the Phillips 89C51Rx2 series (89C51RD2
+etc).&nbsp; Since you don't actually need to build it, you may use any
+style package including chip-scale packaging.&nbsp; You should make use
+of low power design techniques since the device will be battery powered.&nbsp;
+See http://www.ece.umr.edu/~hjp/ieee/html for an example of a previous
+design that implements the game of 'Simon' on this class of hardware.
+<br>Credit will be given for creativity, design and documentation quality,
+attention to detail, completeness of your testing procedure (likelihood
+that your design will actually work the first time), low cost, low power,
+size, weight, software portability, and other such 'engineering issues'.
+<br>&nbsp;
+<h3>
+Requirements</h3>
+A one-page specification of the device is due April 4, 2001.&nbsp; The
+specification should be marketing oriented and not reveal any 'trade secrets'
+or technical details such as schematics or software flow charts that might
+result in undue advantage to your competition.&nbsp; A late or missing
+specification will result in a maximum grade of 'B' for the project.
+<br>A hardware design is required.&nbsp; While you don't actually need
+to build it, your documentation should be complete enough to enable someone
+else to do so.&nbsp; As a minimum, this means that all parts are to be
+identified completely, including vendor, vendor part number, manufacturer,
+and manufacturer's part number.&nbsp; A complete schematic is to be supplied.&nbsp;
+An assembly drawing (board layout showing the position of the parts) is
+to be supplied.&nbsp; Machine drawings are prefered but hand sketches will
+be accepted.&nbsp; Your formal report should include a section on design
+rationale.&nbsp; This section will include an analysis of why certain parts
+were selected, values chosen, etc.&nbsp; Your report should also include
+a manufacturing cost analysis.&nbsp; As a minimum this should include the
+cost of all components including the circuit board.&nbsp; Actual costs
+are prefered but reasonable estimates will be accepted as long as they
+are identified as such and the basis for the estimate given (wild guess,
+educated guess, vendor estimate, etc).&nbsp; Your analysis should include
+an estimate of the total cost to produce a run of 100,000 devices.&nbsp;
+Your analysis should also include a calculated estimate of battery life
+under normal operating conditions.&nbsp; Be sure to describe any assumptions
+you make about 'normal operating conditions' and keep in mind that the
+most likely user of your device is a 10 year old and not another engineer!
+<br>A verified software implementation is required.&nbsp; This is likely
+to be the most challenging aspect of the project.&nbsp; As a minimum you
+must simulate your code with the Keil development system, but you are free
+to use whatever resources you can bring to the project.&nbsp; Your program
+can be written in whatever language you choose but you must be able to
+execute it on your chosen hardware.&nbsp; In other words, don't expect
+to run a 100,000 line C++ program on a 2k byte PIC processor!&nbsp; Your
+draft report must include some sort of high level description of your program
+(flow chart, state diagram, psuedo-code, etc) and a source code listing
+showing correct compilation (or assembly if appropriate).&nbsp; Some evidence
+that an executable file (hex or otherwise) suitable for the target microcontroller
+was produced must be supplied.&nbsp; This evidence must include a count
+of the number of bytes of memory required (data and code).&nbsp; The target
+processor must be able to support your program's requirements.&nbsp; In
+other words, don't expect a Phillip's 87C752 to run a 4k byte program that
+uses 250 bytes of data.
+<br>The draft report should be as close to the final report as possible.&nbsp;
+Software bugs and missing data are acceptable at the time of the draft
+report but a missing or late draft report will result in a maximum project
+grade of 'C'.
+<br>Your report should give credit for any portion of the design (hardware
+or software) not of your own origin.
+<br>You are expected to work individually.&nbsp; The only exception to
+this rule will be if each member of a team implements a separate game that
+can be played on a single composite device.&nbsp; Each member of the team
+must make a clearly identifiable and measurable contribution to the project.&nbsp;
+Failure to identify each member's contribution will result in a single
+project score divided by the number of team members awarded to each member.
+<h3>
+Suggestions</h3>
+A hardcopy report is required but may be supplemented by web pages, and
+you are encouraged to do so.&nbsp; Keep your software modular, and keep
+platform dependencies isolated to as small a region as possible.&nbsp;
+Field programmable parts are nice for development but may be more expensive
+for production.&nbsp; Chip packaging can have an indirect effect on cost.&nbsp;
+Through-hole technology (DIP packages) generally results in larger, more
+expensive, and harder to assemble designs than surface mount technology.&nbsp;
+Try implementing your design in Visual C++ or other RAD (rapid application
+development) environment on a PC for ease of debugging and then 'port'
+it to the microcontroller after your bugs are worked out.&nbsp; You may
+have some 'tweaking' to do but the payback is a more productive development
+environment.&nbsp; You could even use your sound card to simulate the speaker
+but keep in mind that the speaker interface is a simple one similar to
+that shown in Chapter 10 of the text.&nbsp; Also keep in mind your target
+hardware and the requirement that all of your code will need to work there.
+<h3>
+Due dates</h3>
+
+<ul>
+<li>
+April 4, 2001&nbsp;&nbsp; - One page game specification (10%)</li>
+
+<li>
+April 30, 2001 - Draft report (20%)</li>
+
+<li>
+May 11, 2001&nbsp; - Final report (70%)</li>
+</ul>
+
+</body>
+</html>

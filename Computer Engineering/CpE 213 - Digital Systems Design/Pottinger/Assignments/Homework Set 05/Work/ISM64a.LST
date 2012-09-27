@@ -1,0 +1,40 @@
+A51 MACRO ASSEMBLER  ISM64A                                                               03/21/2001 21:03:56 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.10
+OBJECT MODULE PLACED IN .\ISM64a.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE .\ISM64a.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0       ;Create code segment at address 0
+                       2     
+0000 020100            3     LJMP START      ;Jump beginning of code
+                       4     
+----                   5     CSEG AT 100H    ;Create code segment at address 100H
+                       6     
+0100 7480              7     START:  MOV A,#0x80
+0102 7F08              8             MOV R7,#8
+0104 33                9     LOOP:   RLC A
+0105 C5F0             10             XCH A, 0F0H
+0107 13               11             RRC A
+0108 C5F0             12             XCH A,0F0H
+010A DFF8             13             DJNZ R7, LOOP
+010C C5F0             14             XCH A, 0F0H
+                      15             END
+A51 MACRO ASSEMBLER  ISM64A                                                               03/21/2001 21:03:56 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0104H   A   
+START. . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

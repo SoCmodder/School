@@ -1,0 +1,216 @@
+C51 COMPILER V6.10  MAIN_FULL_MATH                                                         03/26/2001 17:56:03 PAGE 1   
+
+
+C51 COMPILER V6.10, COMPILATION OF MODULE MAIN_FULL_MATH
+OBJECT MODULE PLACED IN .\main_full_math.OBJ
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\BIN\C51.EXE .\main_full_math.c DEBUG OBJECTEXTEND CODE
+
+stmt level    source
+
+   1          /********************************************************************/
+   2          /*					  Programming Assignment 8						*/
+   3          /* 				Direct Calculation - Restricted Output				*/
+   4          /*																	*/
+   5          /* This program calculates the tangent of an angle input on P1 and  */
+   6          /* outputs the result on P2.  The input angle is limited from -89   */
+   7          /* to 89 degrees.  The input 0x00 corresponds to -89 degrees and    */
+   8          /* 0xFF corresponds to 89 degrees.  Values of tangent at angles		*/
+   9          /* less than -70 degrees are made equal to 0x00.  Values of tangent	*/
+  10          /* at angles greater than 70 degrees are made equal to 0xFF.  The   */
+  11          /* value at tan(-70)=-2.747477 which corresponds to the output 0x00.*/
+  12          /* The value at tan(70)=2.747477 which corresponds to the output    */
+  13          /* 0xFF.															*/
+  14          /********************************************************************/
+  15          
+  16          
+  17          #include <reg51.h>	//Include register definitions
+  18          #include <math.h>	//Include math libraries
+  19          
+  20          /* Global Definitions */
+  21          #define DEG2RAD 3.14159265358979/180	//Convert Degrees to Radians
+  22          #define HEX2DEG 89*2/255.				//Convert Hex to Degrees
+  23          #define CUTOFF tan(70*DEG2RAD)			//Cutoff output
+  24          #define SCALE 255/(2.0 * CUTOFF)		//Scaling factor
+  25          
+  26          float angle;	//Angle variable
+  27          
+  28          void main(void) {
+  29   1      	while(1) {
+  30   2      		angle=P1*HEX2DEG-89.0;	//Calculate angle
+  31   2      
+  32   2      		if (angle < -70.0)		//Case 1: angle < -70
+  33   2      			{
+  34   3      			P2=0x00;
+  35   3      			}
+  36   2      		else if (angle > 70.0)	//Case 2: angle > 70
+  37   2      			{
+  38   3      			P2=0xFF;
+  39   3      			}
+  40   2      			else				//Case 3: -70 < angle < 70
+  41   2      				{
+  42   3      				P2=(unsigned char)((float) (SCALE*(CUTOFF + tan(angle*DEG2RAD))));
+  43   3      				}
+  44   2      	}
+  45   1      }
+  46          
+C51 COMPILER V6.10  MAIN_FULL_MATH                                                         03/26/2001 17:56:03 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 28
+0000         ?C0001:
+                                           ; SOURCE LINE # 29
+                                           ; SOURCE LINE # 30
+0000 AE90              MOV     R6,P1
+0002 EE                MOV     A,R6
+0003 75F0B2            MOV     B,#0B2H
+0006 A4                MUL     AB
+0007 FF                MOV     R7,A
+0008 AEF0              MOV     R6,B
+000A AC06              MOV     R4,AR6
+000C FD                MOV     R5,A
+000D E4                CLR     A
+000E 120000      E     LCALL   ?C?FCASTI
+0011 E4                CLR     A
+0012 FB                MOV     R3,A
+0013 FA                MOV     R2,A
+0014 797F              MOV     R1,#07FH
+0016 7843              MOV     R0,#043H
+0018 120000      E     LCALL   ?C?FPDIV
+001B E4                CLR     A
+001C FB                MOV     R3,A
+001D FA                MOV     R2,A
+001E 79B2              MOV     R1,#0B2H
+0020 78C2              MOV     R0,#0C2H
+0022 120000      E     LCALL   ?C?FPADD
+0025 8F00        R     MOV     angle+03H,R7
+0027 8E00        R     MOV     angle+02H,R6
+0029 8D00        R     MOV     angle+01H,R5
+002B 8C00        R     MOV     angle,R4
+                                           ; SOURCE LINE # 32
+002D E4                CLR     A
+002E FF                MOV     R7,A
+002F FE                MOV     R6,A
+0030 7D8C              MOV     R5,#08CH
+0032 7CC2              MOV     R4,#0C2H
+0034 AB00        R     MOV     R3,angle+03H
+0036 AA00        R     MOV     R2,angle+02H
+0038 A900        R     MOV     R1,angle+01H
+003A A800        R     MOV     R0,angle
+003C 120000      E     LCALL   ?C?FPCMP3
+003F 5005              JNC     ?C0003
+                                           ; SOURCE LINE # 33
+                                           ; SOURCE LINE # 34
+0041 E4                CLR     A
+0042 F5A0              MOV     P2,A
+                                           ; SOURCE LINE # 35
+0044 80BA              SJMP    ?C0001
+0046         ?C0003:
+                                           ; SOURCE LINE # 36
+0046 E4                CLR     A
+0047 FF                MOV     R7,A
+0048 FE                MOV     R6,A
+0049 7D8C              MOV     R5,#08CH
+004B 7C42              MOV     R4,#042H
+004D AB00        R     MOV     R3,angle+03H
+004F AA00        R     MOV     R2,angle+02H
+0051 A900        R     MOV     R1,angle+01H
+C51 COMPILER V6.10  MAIN_FULL_MATH                                                         03/26/2001 17:56:03 PAGE 3   
+
+0053 A800        R     MOV     R0,angle
+0055 120000      E     LCALL   ?C?FPCMP3
+0058 6007              JZ      ?C0005
+005A 4005              JC      ?C0005
+                                           ; SOURCE LINE # 37
+                                           ; SOURCE LINE # 38
+005C 75A0FF            MOV     P2,#0FFH
+                                           ; SOURCE LINE # 39
+005F 809F              SJMP    ?C0001
+0061         ?C0005:
+                                           ; SOURCE LINE # 41
+                                           ; SOURCE LINE # 42
+0061 7FDB              MOV     R7,#0DBH
+0063 7E0F              MOV     R6,#0FH
+0065 7D49              MOV     R5,#049H
+0067 7C40              MOV     R4,#040H
+0069 AB00        R     MOV     R3,angle+03H
+006B AA00        R     MOV     R2,angle+02H
+006D A900        R     MOV     R1,angle+01H
+006F A800        R     MOV     R0,angle
+0071 120000      E     LCALL   ?C?FPMUL
+0074 E4                CLR     A
+0075 FB                MOV     R3,A
+0076 FA                MOV     R2,A
+0077 7934              MOV     R1,#034H
+0079 7843              MOV     R0,#043H
+007B 120000      E     LCALL   ?C?FPDIV
+007E 120000      E     LCALL   _tan
+0081 C004              PUSH    AR4
+0083 C005              PUSH    AR5
+0085 C006              PUSH    AR6
+0087 C007              PUSH    AR7
+0089 7FAB              MOV     R7,#0ABH
+008B 7E61              MOV     R6,#061H
+008D 7D9C              MOV     R5,#09CH
+008F 7C3F              MOV     R4,#03FH
+0091 120000      E     LCALL   _tan
+0094 D003              POP     AR3
+0096 D002              POP     AR2
+0098 D001              POP     AR1
+009A D000              POP     AR0
+009C 120000      E     LCALL   ?C?FPADD
+009F C004              PUSH    AR4
+00A1 C005              PUSH    AR5
+00A3 C006              PUSH    AR6
+00A5 C007              PUSH    AR7
+00A7 7FAB              MOV     R7,#0ABH
+00A9 7E61              MOV     R6,#061H
+00AB 7D9C              MOV     R5,#09CH
+00AD 7C3F              MOV     R4,#03FH
+00AF 120000      E     LCALL   _tan
+00B2 E4                CLR     A
+00B3 FB                MOV     R3,A
+00B4 FA                MOV     R2,A
+00B5 F9                MOV     R1,A
+00B6 7840              MOV     R0,#040H
+00B8 120000      E     LCALL   ?C?FPMUL
+00BB A804              MOV     R0,AR4
+00BD A905              MOV     R1,AR5
+00BF AA06              MOV     R2,AR6
+00C1 AB07              MOV     R3,AR7
+00C3 E4                CLR     A
+C51 COMPILER V6.10  MAIN_FULL_MATH                                                         03/26/2001 17:56:03 PAGE 4   
+
+00C4 FF                MOV     R7,A
+00C5 FE                MOV     R6,A
+00C6 7D7F              MOV     R5,#07FH
+00C8 7C43              MOV     R4,#043H
+00CA 120000      E     LCALL   ?C?FPDIV
+00CD D003              POP     AR3
+00CF D002              POP     AR2
+00D1 D001              POP     AR1
+00D3 D000              POP     AR0
+00D5 120000      E     LCALL   ?C?FPMUL
+00D8 120000      E     LCALL   ?C?CASTF
+00DB 8FA0              MOV     P2,R7
+                                           ; SOURCE LINE # 43
+                                           ; SOURCE LINE # 44
+00DD 020000      R     LJMP    ?C0001
+             ; FUNCTION main (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    224    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

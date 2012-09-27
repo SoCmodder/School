@@ -1,0 +1,197 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CmpE213 – Quiz II</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT SIZE=5><P ALIGN="CENTER">CmpE213 – Quiz II</P>
+</FONT>
+</B><FONT SIZE=4><P ALIGN="RIGHT">Name</FONT><B>_________________________</P>
+
+<OL>
+
+</B><FONT SIZE=3><LI>(10 Points) Write a short paragraph (in good English) explaining the advantages and disadvantages of using a lookup table to find the result of a complex calculation and of performing the calculation directly.  List at least 2 advantages/disadvantages for each method and <B>explain why</B> they occur.</LI>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<LI>(12 Points) Write a short segment of C code to change the current register bank to register bank 2:</LI></OL>
+
+<OL TYPE="a">
+
+<LI>(6 Points) Using byte instructions (operating on bytes instead of bits)</LI>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<LI>(6 Points) Using bit instructions</LI></OL>
+
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<OL>
+
+<LI>(16 Points) Write a main() function in C which puts the byte in external memory location 0x5280 into internal memory location 0x42:</LI></OL>
+
+<OL TYPE="a">
+
+<LI>(8 Points) Using instructions XBYTE and sfr (respectively)</LI>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<LI>(8 Points) Using _at_  (only)</LI></OL>
+
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<OL>
+
+<LI>(12 Points)  Show a function blah() in C which </LI></OL>
+
+
+
+<UL>
+<LI>uses the small memory model, </LI>
+<LI>uses register bank 3, </LI>
+<LI>returns 3 results: a char, an int, and a float.  </LI></UL>
+
+<DIR>
+
+<P>You do not have to define the contents of blah(). Write a short main() routine which calls this function. (Hint: don’t forget this is C, not C++).</P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></DIR>
+
+<OL>
+
+<LI>(18 Points) The following depicts a keypad hooked to an 8051-family microcontroller and the C-code for reading part of that keypad.</FONT> </LI></OL>
+
+<P><IMG SRC="Image2.gif" WIDTH=509 HEIGHT=261></P>
+<P>C-code<FONT SIZE=2>:</P>
+
+<P>  </FONT><FONT FACE="Courier" SIZE=2>unsigned char pat, new;</P>
+
+<P> pat = 0x20;</P>
+<P> P3 = ~pat;</P>
+<P> new = P3;</P>
+</FONT><P>  </P>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<OL TYPE="a">
+
+<FONT SIZE=3><LI>(6 Points) Given the state of the switches shown above (F = open, E = closed, etc), what value will be loaded into &quot;new&quot; after executing the given C-code?  (Show how you got your answer, if appropriate).</LI>
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<LI>(12 Points) In a few sentences, explain <I>why</I> we are able to read 16 switches using an 8-bit port in this manner.  I want to know: a) how switches are selected, b) why selecting a switch (or switches) allows us to read the state of that switch <U>only</U> c) what values are read when the switch is open or closed and <U>why</U>.</LI></OL>
+
+
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<OL>
+
+<LI>(25 Points) Write a complete ASM program to perform the same tasks as the C code to the right.  I would put the code together in the order given below.  If you have trouble writing the entire program, you may write the code necessary to do only individual parts a, b, c, etc:</LI></OL>
+
+<OL TYPE="a">
+
+<LI>Define Segments and variables</LI>
+<LI>Set up the while loop</LI>
+<LI>Perform the if</LI>
+<LI>Do the array assignment</LI>
+<LI>Call the function delay</LI>
+<LI>Write the function delay</LI></OL>
+
+</FONT>
+<FONT FACE="Courier" SIZE=2><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P><DIR>
+
+</FONT><P></P>
+<FONT FACE="Courier" SIZE=2>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></DIR>
+
+<P>&nbsp;</P>
+</FONT><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<OL>
+
+<FONT SIZE=3><LI>(7 Points) In the C-code in problem 6, can you think of a reason why the array wasn’t declared in data? (Show any calculations, if appropriate).</LI></OL>
+
+</FONT></BODY>
+</HTML>

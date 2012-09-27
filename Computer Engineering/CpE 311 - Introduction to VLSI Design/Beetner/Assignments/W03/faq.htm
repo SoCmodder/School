@@ -1,0 +1,456 @@
+<html>
+<head>
+ <title>CpE 214 FAQ</title>
+</head>
+
+<body bgcolor="#ffffff">
+ <h1 align="center">CpE 214 Mentor Graphics FAQ</h1>
+
+ <p>
+  This document is available online at 
+  <a href="http://www.ece.umr.edu/courses/cpe214/faq.html">http://www.ece.umr.edu/courses/cpe214/faq.html</a>. 
+ </p>
+
+ <ol>
+  <li><a href="#nosulswd">
+   Why do I get the error "Attempt to connect failed" when I open a sheet?  
+  </a></li>
+  <li><a href="#sheet">
+   What's the difference between sheet name and component name?
+  </a></li>
+  <li><a href="#sheetcomp">
+   How do I recover my design if I screwed up the sheet name and component
+   name?
+  <li><a href="#buswhy">
+   Why should I name all my buses?
+  </a></li>
+  </a></li>
+  <li><a href="#bushow">
+   How do I name buses?
+  </a></li>
+  <li><a href="#buscombine">
+   How do I combine two buses?
+  </a></li>
+  <li><a href="#warning">
+   Why do I get warnings the first time I check a symbol?
+  </a></li>
+  <li><a href="#network">
+   How do logical nets work?
+  </a></li>
+  <li><a href="#netname">
+   How do I name nets?
+  </a></li>
+  <li><a href="#handle">
+   What is this I$283/N$12 stuff all about?
+  </a></li>
+  <li><a href="#handlehow">
+    How do I find a component from its handle?
+  </a></li>
+  <li><a href="#force">
+   When I try to force a stimulus in Quicksim, why do I get X instead of the
+   value I forced?
+  </a></li>
+  <li><a href="#dotted">
+   What is the dotted blue line in Quicksim/QSPro?
+  </a></li>
+  <li><a href="#tristate">
+   How do tristate buffers work?
+  </a></li>
+  <li><a href="#gsr">
+   Is there an easier way to force GLOBALSETRESET?
+  </a></li>
+  <li><a href="#quota">
+   Why don't I have enough disk space?
+  </a></li>
+  <li><a href="#rip">
+   How do I use bus rippers?
+  </a></li>
+ </ol>
+
+ <a name="nosulswd">
+ <h2>
+  1. Why do I get the error "Attempt to connect failed" when I open a sheet?  
+ </h2></a>
+ <p>
+  Your environment is not set up properly.  You probably forgot to type
+  "sul" and "swd" before you started DA.  Before you run certain Mentor
+  Graphics applications which use the "Falcon Framework" interface (da,
+  quicksim, dmgr) you need to set two environmental variables, MGC_WD and
+  USERLIB.  Normally you want to set these both to your current working
+  directory (the directory you are in).  The commands "setenv MGC_WD `pwd`"
+  and "setenv USERLIB `pwd`" will do this for you.  To save your time, there
+  are two aliases called swd and sul which set these environmental variables
+  for you.
+ </p>
+  <p>
+  <img src="./pics/userliberror.gif"><br>
+  <b>Figure 1</b>: What happens if you forget sul and swd
+ </p>
+
+ <a name="sheet">
+  <h2>2. What's the difference between sheet name and component name?</h2></a>
+ <p>
+  A very common beginner's mistake in Mentor Graphics is confusing the
+  component name and the sheet name.  The component name is the name you
+  give the part you are currently editing.  By default, the component gets
+  put in the directory specified by $MGC_WD (you did remember swd, didn't
+  you?).  Every time you create a new schematic, you should give it a unique
+  component name.  Do NOT leave it at the default name or the directory you
+  are currently in will become a Mentor Graphics component.  You do not want
+  that to happen.  It is difficult to fix and you may not immediately realize
+  what you did wrong.
+ </p>
+ <p>
+  The sheet name is different.  Sometimes a design gets so large
+  and complex that it is confusing to fit it all on one page.  To make
+  things easier to understand, digital designers will often break up the
+  design of a single component onto separate sheets.  In this class, you
+  will NEVER need to use multiple sheets for a design.  This means that you
+  should NEVER need to change the sheet name.  It is called sheet1 by
+  default.  Leave it that way.
+ </p>
+ <p>
+  <img src="./pics/opensheet.gif"><br>
+  <b>Figure 2</b>: Open sheet dialog box
+ </p>
+ 
+ <a name="sheetcomp"><h2> 
+  3. How do I recover my design if I screwed up the sheet name and component
+  name?
+ </h2></a>
+ <p>
+  You've probably turned your design directory into a component.  You can
+  still get your component back.  First, open a new sheet and get the
+  component name and sheet name right this time.  Also open the old
+  component that you put in the wrong place.  You will probably have to
+  select the design directory itself (like "lab1," for instance).  Now,
+  select the entire design from the sheet you just opened, right click and
+  select copy.  Then click the left mouse button anywhere in the empty sheet
+  window.  The entire design should be copied over.
+ </p>
+ <p>
+  Note that if you ran da from your home directory (which you weren't
+  supposed to do) and you left the component name as $USERLIB (which you
+  weren't suposed to do either), there is probably no way to recover your
+  design.  You will have to start over from scratch.
+ </p>
+
+ <a name="buswhy"><h2>
+  4. Why should I name all my buses?
+ </h2></a>
+ <p>
+  There are several reasons to name your buses.  First of all, Design
+  Architect gives a warning for every unnamed bus in a schematic.  If you do
+  not give your bus a name, then DA doesn't know how wide your bus is
+  supposed to be, and it will assume a width based on the bits you rip from
+  the bus.  DA will be unable to catch errors like trying to rip bit 8 from
+  a bus which should only be (7:0).  When you simulate your design from
+  Quicksim, your unnamed buses will appear as something like N$1234 instead
+  of A(7:0).  When DA gives you warnings about a particular bus, it will
+  also use the cryptic N$1234 notation if you haven't given the bus a name. 
+  Finally, giving your buses meaningful names helps make your design easier
+  to understand.
+ </p>
+ 
+ <a name="bushow"><h2>
+  5. How do I name buses?
+ </h2></a>
+ <p>
+  You might think of a bus as a collection of unconnected logical nets, all
+  bundled together.  A bus should have a name of the form
+  BUSNAME(num1:num2).  The numbers num1 and num2 determine the "width" of
+  the bus, or how many logical nets it contains.  We often use eight bit
+  buses in this class, so a bus name like A(7:0) is common.  A(7) refers to
+  the most significant bit of bus A, and A(0) refers to the least
+  significant bit.  To name a bus, first select any part of the bus.  Then
+  right-click and choose "Name nets." Type in the name of the bus.  Be sure
+  to give the bus a width.
+ </p>
+
+ <a name="buscombine"><h2>6. How do I combine two buses?</h2></a>
+ <p>
+  Once common net naming problem occurs when students try to combine two
+  buses into one larger bus.  For example, if you want to combine bus A(7:0)
+  and bus B(7:0) together into the bus C(15:0), you cannot just connect A
+  and B directly to C and expect things to work.  It is like trying to give
+  one logical net three different values of the NET property.  The way to
+  solve this problem is either use bus rippers to connect each individual
+  bit from A and B to C, or else rename A to C(7:0) and B to C(15:8).  If
+  renaming is not an option, then you'll have to use bus rippers.
+ </p>
+ <p>
+  <img src="./pics/busconnect.gif"><br>
+  <b>Figure 3</b>: Connecting two 8-bit buses to a 16-bit bus using rippers
+ </p>
+
+ <a name="warning"><h2>
+  7. Why do I get warnings the first time I check a symbol?
+ </h2></a>
+ <p>
+  You've just created a new component, and it checked out with no errors and
+  no warnings.  You save your component, and choose Miscellaneous->Generate
+  Symbol.  The new symbol looks okay, so you check it.  But you get all
+  these strange errors about pins not being on the interface.  What gives?
+ </p>
+ <p>
+  This is actually nothing to worry about.  Design Architect is checking
+  that your symbol matches the interface it has stored for that symbol.  The
+  interface is simply a list of all the inputs and outputs of a symbol.  But
+  before you save the symbol the first time, DA has no record of how many
+  inputs and outputs should be on the symbol, so it give you a set of
+  warnings.  Save your symbol anyway, and when you check it again all the
+  warnings <em>should</em> go away.
+ </p>
+
+ <a name="network"><h2>8. How do logical nets work?</h2></a>
+ <p>
+  You may have previously encountered the NET property in Mentor Graphics
+  when naming I/O pads or buses.  NET is a built-in property which allows
+  Mentor Graphics software to keep track of several components which are all
+  logically connected.  Everything that has the same NET value is logically
+  connected.  Not all components have a NET property, though.  To make
+  things easier, the components are color-coded to let you know which is
+  which.  Anything with a NET property is colored yellow somewhere on the
+  component.  Examples of NET parts are portins, portouts, i/o pads, wires,
+  and buses.  Anything without a NET property is only colored blue. 
+  Examples of non-NET parts are i/o bufs, NAND gates, flip-flops, buffers,
+  and MUXes.
+ </p>
+
+ <a name="netname"><h2>9. How do I name nets?</h2></a>
+ <p>
+  To name a net, simply select a wire or bus on the logical net,
+  right-click, and select "Name Nets:".  If the net already has a value, you
+  will be able to change it.  Otherwise, you will need to enter a new value. 
+  If you want to name the net on a portin, portout, or i/o pad, you just
+  need to press shift-F7 with the mouse over the word "NET." Then type the
+  new value for the net.  Note that the net name on a portin or a portout is
+  also given to the wire connected to it, so they are part of the same
+  logical net.
+ </p>
+ <p>
+  One mistake which is easy to make is giving two separate nets the same NET
+  value.  For example, if you have a portin with the NET value "C" on a
+  schematic, and you create a bus which is also named "C" then Mentor
+  Graphics will try to logically connect the bus to the portin, even though
+  you haven't drawn a connection between the two.
+ </p>
+ <p>
+  <img src="./pics/netconflict.gif"><br>
+  <b>Figure 4</b>: Example of how NOT to name nets
+ </p>
+ 
+ <a name="handle"><h2>
+  10. What is this I$283/N$12 stuff all about?
+ </h2></a>
+ <p>
+  These are called "handles."  Mentor Graphics uses these cryptic symbols to
+  refer to components or nets when you don't give them your own names. 
+  I$#### refers to a component or a symbol.  N$#### refers to a net.  P$####
+  refers to a pin.  I$1234/N$5678 refers to net N$5678 inside of the
+  component I$1234.
+ </p>
+ <p>
+  To avoid seeing net handles, name your buses and wires as explained in
+  question 9 or by giving the bus or wire a NET property.  To avoid seeing
+  instance handles like I$283 give your components an INST property.  Note
+  the INST property must be unique for each instantiation of a component.
+ </p>
+
+ <a name="handlehow"><h2>
+  11. How do I find a component from its handle?
+ </h2></a>
+ <p>
+  Sometimes Design Architect will give you a warning or an error and refer to
+  a handle.  For example, perhaps Design Architect complains about a symbol
+  overlap with I$1234.  To find what symbol Design Architect is referring to,
+  choose Edit->Select->By Handle.  Type in the handle (in this case I$1234)
+  and check the "Center View" box.  Design Architect will find the specified
+  component, highlight it, and zoom in to show you where it is.  Now you
+  know where the problem is.  If you need to find I$1234/N$5678, you must
+  first find I$1234, open down on that component, and then find N$5678.
+ </p>
+ <p>
+  Note that many warnings and errors occur with buses.  In these cases you
+  can avoid all this tedious handle business if you ALWAYS NAME YOUR BUSES.
+ </p>
+ <p>
+  <img src="./pics/handle.gif"><br>
+  <b>Figure 5</b>: Finding a component by its handle
+ </p>
+
+ <a name="force"><h2>
+  12. When I try to force a stimulus in Quicksim, why do I get X instead of the
+  value I forced?
+ </h2></a>
+ <p>
+  When applying a force from Quicksim you should always apply it to the
+  ipad.  Click directly on the ipad to select it for forces.  If you apply
+  the force to the wire after the ibuf you may get unknown values in your
+  traces.  Just remember, force the inputs, not the wires.
+ </p>
+ 
+ <a name="dotted"><h2>
+  13. What is the dotted blue line in Quicksim/QSPro?
+ </h2></a>
+ <p>
+  Sometimes when you are using Quicksim, you will see a dotted blue line in
+  your traces.  Some students think this means there is an error on that
+  line.  In fact, a dotted blue line is just Mentor's way of representing a
+  weak signal.  In digital circuits, sometimes we use a weak high or weak
+  low signal instead of a strong high or a strong low signal.  This is
+  especially useful if a signal is driven by more than one source.  If one
+  component outputs a weak high, and another component outputs a strong low
+  on the same wire, the low will "overpower" the high and effectively a low
+  signal will be read from the wire.  So if you see a dotted blue line, it is
+  probably not a mistake.
+ </p>
+
+ <a name="tristate"><h2>
+  14. How do tristate buffers work?
+ </h2></a>
+ <p>
+  Sometimes you will encounter tristate buffers in Mentor Graphics.  You can
+  see an example of tristate buffers connected to the pins of P0 on the
+  xc4005 schematic.  You can think of tristate buffers as a way of turning a
+  signal on and off.  When the enable input at the top of the buffer is '1',
+  the tristate buffer acts like a normal buffer.  But when the enable input
+  is '0', the buffer "turns off" by giving a very high impedance output. 
+  This effectively "disconnects" the buffer from the circuit.  So if you
+  need to turn off a signal, ground the enable input of the tristate buffer.
+ </p>
+ <p>
+  <img src="./pics/tristate.gif"><br>
+  <b>Figure 6</b>: A permanently disabled tristate buffer
+ </p>
+ 
+ <a name="gsr"><h2>
+  15. Is there an easier way to force GLOBALSETRESET?
+ </h2></a>
+ <p>
+  Yes.  You are not required to have a signal visible on the trace window to
+  force it.  However, you won't be able to see the values you forced it to
+  on the trace window.  To force a signal directly, right-click anywhere in
+  the Trace window and select Force Multiple values.  Enter the signal name
+  and the values you want to force it to.  In this case, type in
+  "//GLOBALSETRESET" without the quotes.  Then give it a 5 ns positive pulse
+  to reset all latches to a known state.
+ </p>
+
+ <a name="quota"><h2>
+  16. Why don't I have enough disk space?
+ </h2></a>
+ <p>
+  One common reason is a large Netscape cache.  Netscape doesn't enforce its
+  cache limit very well.  I question whether it enforces it at all.  To clear
+  your Netscape cache, type "rm -r ~/.netscape/cache/*" without the quotes.
+ </p>
+ <p>
+  Another common reason is the .wastebasket directory gets full.  If you use
+  the graphical file manager to delete files, they don't really get deleted. 
+  They get moved to a directory in your account called .wastebasket.  To
+  remove this directory, type "rm -r ~/.wastebasket" without the quotes.
+ </p>
+ <p>
+  A third possibility is that you ran a very long simulation in QSPro. 
+  QSPro generates a file called "transcript" in the directory it is run
+  from.  Long simulations that generate a lot of warnings may leave large
+  transcripts.  This file may be safely deleted.
+ </p>
+ <p>
+  Another common cause of a sudden change in available disk space is a left
+  over core file.  When a program crashes, it sometimes leaves a large file
+  called "core" used to debug why it crashed.  Check your home directory for
+  a core file.  This file may be safely deleted.  You may disable core files
+  in csh by putting the command "limit coredumpsize 0" in your .usercshrc
+  file.
+ </p>
+ <p>
+  If you follow the directory naming scheme from the lab manual, you will
+  only have two directories after all the labs are complete: lab1 and lab2. 
+  At the end of the semester, lab1 will be about 2700 kbytes and lab2 will
+  be about 1400 kbytes.  Together this is a little over 4 Mbytes.  You will
+  be given at least a 10 Mbyte quota, so you should have plenty of disk
+  space for this class.
+ </p>
+ <p>
+  Remember, type "quota -v" to check your disk quota.  You may also want to
+  check the man page on "du", which gives disk usage of a particular file or
+  directory.  
+ </p>
+
+ <a name="rip"><h2>17. How do I use bus rippers?</h2></a>
+ <a name="ripex"><h3>Explicit rippers</h3></a>
+ <p>
+  Mentor Graphics provides at least two different kinds of bus rippers,
+  which unfortunately act very differently.  The first kind of bus ripper is
+  the normal "rip" component.  You have seen this kind of ripper in CpE 112. 
+  You can get this component from the gen_lib library, or from the XC4000E
+  library under the category "logic." When you place this ripper, the fat
+  end should connect to the bus and the skinny end should connect to the
+  wire.  You may have to perform a "flip horizontal" on the ripper to get
+  the bus end and the wire end pointed correctly.  After placing the ripper,
+  you will want to change the little letter "R" to the number of the current
+  bit.  Do this by placing the mouse over the "R" and pressing shift-F7. 
+  Type in a number, such as "6" or "0" (without the quotes).
+ </p>
+ <p>
+  Now forget all of that if you want to number several rippers at once.  In
+  many cases, you will want to connect a set of inputs to a bus, in a
+  particular numerical order (like 0 to 7).  The easy way to do this is to
+  place all of the rippers first.  Then, select only the little letter R's
+  by choosing Select->Area->Property.  Draw a box around all the R's and
+  only the R's will be selected.  Then right-click on one of the rippers and
+  choose "Sequence Text." You will get a menu that lets you choose the
+  starting number and the increment value.  For an eight bit bus numbered 7
+  to 0, you would start at 7 and increment by -1.  Mentor numbers from the
+  top to the bottom (or from the left to the right if you drew your rippers
+  sideways).
+ </p>
+ <p>
+  <img src="./pics/genrip.gif"><br>
+  <b>Figure 7</b>: gen_lib rippers
+ </p>
+ <a name="ripim"><h3>Implicit rippers</h3></a>
+ <p>
+  There is another kind of ripper called an implicit ripper.  These are more
+  confusing, but they can be convenient at times.  You will never need to
+  use these, so this section may be skipped.  Implicit rippers require you
+  to name your buses (which you should be doing anyway), and they cannot
+  connect different nets.  To understand the difference between implicit
+  rippers and explicit rippers, you first should understand something about
+  how nets in Mentor Graphics work.  Read the questions about logical nets
+  before continuing.
+ </p>
+ <p>
+  Explicit rippers are blue, so they have no NET property.  Implicit rippers
+  are yellow, so they do have a NET property.  When you use a blue explicit
+  ripper, you connect two isolated nets together physically but not
+  logically.  When you use a yellow implicit ripper, you combine two nets
+  into one logical net.  You can use a blue explicit ripper to connect two
+  nets with different names.  You can use a yellow implicit ripper to make
+  two wires be part of the same logical net.
+ </p>
+ <p>
+  If all of this has you confused, just do not use implicit rippers.  You
+  can live without them.  I hardly use them myself.  Read on only if you
+  understood everything explained above.
+ </p>
+ <p>
+  Implicit rippers are very easy to use.  First, name the bus you are
+  ripping from.  If you do not know how to do this, read the question about
+  naming buses.  Then, draw a wire directly to the bus.  A little yellow
+  implicit ripper will magically appear connecting the bus and the wire you
+  just drew. A dialog box will pop up asking you which bit you want to rip. 
+  Type in the number and you're done.  Note that a bit ripped using an
+  implicit ripper has a net name.  So if you rip bit 5 from bus A(7:0) using
+  an implicit ripper, the ripper will be called A(5).  If you rip that same
+  bit using an explicit ripper, it will just be called 5.
+ </p>
+ <p>
+  <img src="./pics/autorip.gif"><br>
+  <b>Figure 8</b>: implicit rippers
+ </p>
+
+</body>
+</html>

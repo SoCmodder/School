@@ -1,0 +1,1079 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <!-- ******** TITLE AREA ******** -->
+      <title>
+         ADK Menus and Commands
+      </title>
+      <!-- ******** END TITLE AREA ******** -->
+      <!-- ******** META TAG AREA ******** -->
+      <meta name="description" content="ADK Menus and Commands" />
+      <meta name="keywords" content="ADK" />
+      <meta name="doctype" content="General" />
+      <meta name="product" content="Design Kit" />
+      <meta name="Last-Modified" content="9/31/01" />
+      <!-- ******** END META TAG AREA ******** -->
+<!-- ******** STYLE AREA ******** -->
+      
+<!-- port: 80 -->
+<!-- protocol: http -->
+<!-- User Name:  -->
+<!-- Authorization:  -->
+<!--  -->
+
+<style type="text/css">
+<!--
+@import "http://www.mentor.com/common/styles/masterstyles.css";
+.headerblue {background: #113355;}
+-->
+</style>
+
+<script type="text/javascript" language="JavaScript" src="http://www.mentor.com/common/js/browsercheck.js"></script>
+
+<script type="text/javascript" language="JavaScript">
+<!--
+function MGC_swapImgRestore() { //v3.0
+  var i,x,a=document.MGC_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MGC_winOpen(url, name, features) { 
+  window.open(url, name, features);
+}
+
+function MGC_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MGC_p) d.MGC_p=new Array();
+    var i,j=d.MGC_p.length,a=MGC_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MGC_p[j]=new Image; d.MGC_p[j++].src=a[i];}}
+}
+
+function MGC_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MGC_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MGC_swapImage() { //v3.0
+  var i,j=0,x,a=MGC_swapImage.arguments; document.MGC_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MGC_findObj(a[i]))!=null){document.MGC_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function focuscontact() {
+ if (document.forms && document.forms["contact"]) {
+document.contact.fname.focus();}
+}
+
+// if (!is.min){ event = null;}
+   
+if (is.ns4){window.onResize = refreshPage;}
+
+function initrefresh() {
+  setTimeout("window.onresize = refreshPage", 1000);
+}
+
+function refreshPage(){
+   	document.location = document.location;
+}
+
+// if (is.ns4){window.onload = initrefresh;}
+
+function dosearch(mode){
+	if (document.searchform.scope.value.length < 1) {
+		// didn't enter a scope
+		if (mode == 'advanced') {
+			window.location.href = "http://www.mentor.com/mentorsearch/advanced.html";
+		} else {
+			window.location.href = "http://www.mentor.com/mentorsearch/";
+		}
+	} else {
+		if (mode == 'advanced') {
+			document.forms["searchform"].action = 'http://www.mentor.com/mentorsearch/advanced.html';
+			document.forms["searchform"].submit();
+		} else {
+			document.forms["searchform"].action = 'http://www.mentor.com/mentorsearch/index.html';
+			document.forms["searchform"].submit();
+		}
+	}
+	return true;
+}
+
+function dropdownRedirect(whichform,whichfield){
+  if (arguments.length > 0){
+    if (arguments.length > 1){
+       dropdown = document.forms[whichform].elements[whichfield];
+    } else {
+       dropdown = document.forms[whichform].elements["gotoURL"];
+    }
+  } else {
+    dropdown = document.forms["navdropdown"].elements["gotoURL"];
+  }
+ 
+  var URL = dropdown.options[dropdown.selectedIndex].value;
+  window.location.href = URL;
+  return true;
+}
+
+// hack because IE4 is quirky with @ import css method and won't display correctly if two link tags are written
+if (is.ie4) {
+	document.write('<link rel="stylesheet" type="text/css" href="http://www.mentor.com/common/styles/masterstyles.css" />')
+	document.write('<style type="text/css">')
+	document.write('BLOCKQUOTE, BODY, DD, DL, DT, LI, OL, P, TD, UL, .bodytext {font-size : x-small;}')
+	document.write('.productdropdown {font-size:xx-small;}')
+	document.write('.small {font-size : xx-small;}')
+	document.write('</style>')
+	}
+
+if ((is.ns4) && (is.platform=="win32")) {
+	document.write('<link rel="stylesheet" type="text/css" href="http://www.mentor.com/common/styles/masterstyles_ns.css" />')
+	}
+else if ((is.ie) && (is.platform=="win32")) {
+	document.write('<link rel="stylesheet" type="text/css" href="http://www.mentor.com/common/styles/masterstyles_ie.css" />')
+	}
+else if (is.platform=="other") {
+	document.write('<link rel="stylesheet" type="text/css" href="http://www.mentor.com/common/styles/masterstyles_unix.css" />')
+	}
+// -->
+</script>
+
+
+
+      <!-- ******** END STYLE AREA ******** -->
+   </head>
+   <body bgcolor="#FFFFFF" marginwidth="0" marginheight="0"><a name="mgctop"></a>
+<table border="0" cellspacing="0" cellpadding="0" width="800">
+<tr>
+<td width="156" class="headerblue"><a href="http://www.mentor.com/"><img src="/images/topnav_logo_upper.gif" width="156" alt="" border="0" /></a></td>
+<td width="60" class="headerblue"><a href="/corp_info/"><img src="/images/topnav_company.gif" width="60" alt="" border="0" /></a></td>
+<td width="72" class="headerblue"><a href="/products/"><img src="/images/topnav_products.gif" width="72" alt="" border="0" /></a></td>
+<td width="63" class="headerblue"><a href="/supportnet/"><img src="/images/topnav_support.gif" width="63" alt="" border="0" /></a></td>
+<td width="65" class="headerblue"><a href="/es/"><img src="/images/topnav_training.gif" width="65" alt="" border="0" /></a></td>
+<td width="80" class="headerblue"><a href="/consulting/"><img src="/images/topnav_consulting.gif" width="80" alt="" border="0" /></a></td>
+<td width="75" class="headerblue"><a href="/utilities/feedback.html"><img src="/images/topnav_contact.gif" width="75" alt="" border="0" /></a></td>
+<td width="104" class="headerblue"><a href="javascript:dosearch('simple');"><img src="/images/topnav_search.gif" width="104" alt="" border="0" /></a></td>
+<td width="125" class="headerblue"><a href="javascript:dosearch('advanced');"><img src="/images/topnav_advanced.gif" width="125" alt="" border="0" /></a></td>
+</tr>
+<tr>
+<td class="headerblue"><a href="http://www.mentor.com/"><img src="/images/topnav_logo_lower.gif" width="156" border="0" alt="" /></a></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/topnav_header_15.gif" width="75" height="33" border="0" alt="" /></td>
+<MAP NAME="LogoutMap">
+<AREA SHAPE="rect" ALT="Logout" COORDS="10,8,67,21" HREF="/mgclogin/supportnet/Logout.jsp">
+</MAP>
+<td class="headerblue" style="background : url(/images/topnav_header_16.gif);" align="center" colspan="2"><form action="/mentorsearch/index.html" name="searchform" class="searchform" method="get"><input name="scope" id="scope" type="text" class="searchbox" size="15" /><input type="hidden" name="searchlimit" value="Mentor Graphics" /><input type="hidden" name="view-template" value="normal" /><input type="hidden" name="browse-category" value="" /><input type="hidden" name="search-category" value="" /><input type="hidden" name="taxonomy" value="Mentor Graphics" /><input type="hidden" name="ui" value="sr" /><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></form></td>
+</tr>
+<tr>
+<td colspan="9" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr style="background-color: #6888A8;">
+<td><img src="/images/pixel_clear.gif" width="410" height="2" /></td>
+<td><img src="/images/pixel_clear.gif" width="300" height="2" /></td>
+<td><img src="/images/pixel_clear.gif" width="15" height="2" /></td>
+</tr>
+
+<tr style="background-color: #FFFFEE;">
+<td valign="middle"><a href="/partners/"><img src="/partners/images/partner_programs_head.gif" alt="" width="326" height="24" border="0" alt="Mentor Graphics Partner Programs" /></a></td>
+<td colspan="2"><img src="/images/pixel_clear.gif" width="1" height="1" /></td>
+</tr>
+
+<tr style="background-color: #000000;">
+<td><img src="/images/pixel_clear.gif" width="410" height="1" /></td>
+<td><img src="/images/pixel_clear.gif" width="300" height="1" /></td>
+<td><img src="/images/pixel_clear.gif" width="15" height="1" /></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#336699"><img src="/images/pixel_clear.gif" width="2" height="4" border=0 alt=""></td>
+</tr>
+</table>
+
+
+<!-- begin primary tabs -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/partners/opendoor/" class="navtab">OpenDoor&#153; Program</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/embedded/partners.html" class="navtab">Embedded Solutions</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/synthesis/partners/overview.html" class="navtab">Synthesis Partners</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/inventra/alliance/index.html" class="navtab">IP Remarketing Alliance Program</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/partners/platform/index.html" class="navtab">Platform Partners</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/seamless/partners/index.html" class="navtab">Seamless Partners</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/pixel_clear.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin selected tab -->
+	<td bgcolor="#6699CC" valign="top"><img src="/images/tab_corner1r.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/tab_corner1l.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/partners/hep/" class="navtab">Higher Education</a></div></td>
+
+   </tr>
+
+   <!-- begin spacer row -->
+   <tr>
+	<td colspan="12" bgcolor="#000000"><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt=""></td>
+	<td colspan="1" bgcolor="#6699CC"><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt=""></td>
+   </tr>
+</table>
+<!-- end primary tabs -->
+
+
+
+
+<!-- begin secondary tabs -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <!-- begin spacer row -->
+   <tr>
+	<td background="/images/tab_fade.gif"><img src="/images/pixel_clear.gif" width=150 height=4 border=0 alt=""></td>
+	<td colspan="1" background="/images/tab_fade.gif"><img src="/images/pixel_clear.gif" width=584 height=4 border=0 alt=""></td>
+   </tr>
+
+   <tr>
+   <!-- begin navbar spacer -->
+	<td bgcolor="#6699CC" width="150"><img src="/images/pixel_clear.gif" width="150" height="1" border=0 alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#6699CC" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="#" class="navtab">&nbsp;</a></div></td>
+
+   </tr>
+
+   <!-- begin spacer row -->
+   <tr>
+	<td bgcolor="#000000" width="150"><img src="/images/pixel_clear.gif" width="150" height="1" border=0 alt=""></td>
+	<td colspan="1" bgcolor="#000000"><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt=""></td>
+   </tr>
+</table>
+<!-- end secondary tabs -->
+
+
+</td>
+</tr>
+</table>
+<table width="800" border="0" cellspacing="0" cellpadding="0"><tr><td width="150" valign="top" class="navbartable"><table width="148" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td><img src="/images/pixel_clear.gif" width=11 height=1 border=0 alt=""></td>
+    <td><img src="/images/pixel_clear.gif" width=6 height=1 border=0 alt=""></td>
+    <td><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="3"><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt="" hspace=0 vspace=0></td>
+  </tr>
+  <tr> 
+    <td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a class=navbarparent>Regional Programs</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/americas.html" class=navbarchild>Americas</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/europe.html" class=navbarchild>Europe</a></td>
+  </tr> 
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/pacrim.html" class=navbarchild>Pacific Rim & Asia</a></td>
+  </tr>    
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/japan.html" class=navbarchild>Japan</a></td>
+  </tr>
+  
+  <tr>
+  	<td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a class=navbarparent>Partners</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://www.te.rl.ac.uk/europractice/univs/mentor.html" class=navbarchild>EUROPRACTICE</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://www.cmc.ca/about/program/support_charts/cadsupport.html" class=navbarchild>Canadian Microelectronics Corp.</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://www.fapesp.br/" class=navbarchild>FAPESP</a></td>
+  </tr>   
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://www.mosis.org/" class=navbarchild>MOSIS Service</a></td>
+  </tr>      
+
+  <tr> 
+    <td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a class=navbarparent>Services &amp; Support</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/AsicDesignKit/ASICindex.html" class=navbarchild>ASIC 
+      Design Kit</a></td>
+  </tr>  
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/es/" class=navbarchild>Training / Education Services</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/curr_support.html" class=navbarchild>Curriculum Support</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/sig.html" class=navbarchild>Special Interest Group</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://germanium.ee.wustl.edu/HEP/" class=navbarchild>HEP Technical Support Site</a></td>
+  </tr>
+
+  <tr> 
+    <td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a href="/es/" class=navbarparent>Education Services</a></td>
+  </tr>
+  
+  <tr> 
+    <td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a class=navbarparent>SupportNet</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/supportnet/spt_configs/index.html" class=navbarchild>Mentor Graphics Supported Configurations </a></td>
+  </tr>    
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/supportnet/documentation/" class=navbarchild>Documentation</a></td>
+  </tr>    
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/supportnet/downloads.html" class=navbarchild>Software Downloads</a></td>
+  </tr>      
+</table>
+<p></p>
+</td><td><img src="/images/pixel_clear.gif" width="10" height="1" border="0" alt="" /></td><td valign="top" class="margintop">
+<div align="right"></div>
+
+<!-- Mentor Graphics -->
+
+
+   <!-- ===========================================================================
+        ******** BEGIN CONTENT AREA ******** -->
+<p align="right"><b><a href="/partners/hep/AsicDesignKit/user/">Return to Index</a> | <a href="/partners/hep/AsicDesignKit/ADK_user_guide.pdf">View PDF version</a></b></p>
+<!-- begin headline -->   
+      <h1 class="Y-TitleChapt">
+         <a id="pgfId-12459" name="pgfId-12459"></a>
+ADK Menus and Commands
+      </h1><!-- end headline -->
+      <p class="Body">
+         <a id="pgfId-12470" name="pgfId-12470"></a>The ADK provides some
+         enhanced functionality over the standard Mentor tools. There are
+         several new menus, palettes and commands that have been created to
+         ease the use of the tools for ADK designs. You will only see these
+         enhancements if you use the ADK version of the tools (such as adk_da
+         or adk_ic). If you use the standard tool, it will not have any of the
+         ADK enhancements.
+      </p>
+      <div>
+         <h2 class="AP1-NewPage">
+            <a id="pgfId-14357" name="pgfId-14357"></a>ADK_DA
+         </h2>
+         <p class="Body">
+            <a id="pgfId-12473" name="pgfId-12473"></a>adk_da is the command
+            that will start Design Architect with the ADK extensions. If you
+            use this command, you will have the following additional
+            functionality in Design Architect:
+         </p>
+         <div>
+            <h3 class="AP2-NewPage">
+               <a id="pgfId-14364" name="pgfId-14364"></a>ADK Libraries menu
+            </h3>
+            <p class="BodyIn">
+               <a id="pgfId-12476" name="pgfId-12476"></a><a id="marker-12474"
+               name="marker-12474"></a><a id="marker-12475"
+               name="marker-12475"></a>Under the standard DA Libraries menu you
+               will see a new item ADK Libraries.This selection will display
+               the ADK Libraries palette menu which will have all of the
+               libraries specific to the ADK on it.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14369" name="pgfId-14369"></a>&middot; Basic Logic
+               Gates: This library contains all of the schematic models for the
+               basic logic standard cell gates and their variants: AND, NAND,
+               NOR, OR, FADD, MUX. The number following the gate name indicates
+               the number of inputs for the AND, NAND, NOR and OR gates. The
+               number after FADD indicates the number of bits in the full-adder
+               and for the MUX indicates the number of inputs and outputs (e.g.
+               MUX21 has two inputs and one output).
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14370" name="pgfId-14370"></a>&middot; Inverters
+               and Buffers: This library contains all of the schematic models
+               for the inverters and buffers. Each in multiple drive strengths.
+               The number following each gate is the drive strength for the
+               gate. These are relative numbers so an INV02 has twice the drive
+               strength as an INV01. See the datasheets on the cells for more
+               specific, absolute, drive strength information.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14374" name="pgfId-14374"></a>&middot; AO Gates:
+               This library contains all of the schematic models for the AND-OR
+               gates. The numbers following the name indicate the groupings of
+               inputs to the AND gates. An AO21 gate has a two-input AND gate
+               and a one-input AND gate (a wire) all feeding into a two-input
+               OR gate. An AO221 would have two, two-input AND gates and a wire
+               feeding into a three-input OR gate.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14375" name="pgfId-14375"></a>&middot; AOI Gates:
+               This library contains all of the schematic models for the
+               AND-OR-INVERT gates. The numbers following the name indicate the
+               groupings of inputs to the AND gates. An AOI21 gate has a
+               two-input AND gate and a one-input AND gate (a wire) all feeding
+               into a two-input NOR gate. An AOI221 would have two, two-input
+               AND gates and a wire feeding into a three-input NOR gate.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14386" name="pgfId-14386"></a>&middot; OAI Gates:
+               This library contains all of the schematic models for the
+               OR-AND-INVERT gates. The numbers following the name indicate the
+               groupings of inputs to the OR gates. An OAI21 gate has a
+               two-input OR gate and a one-input OR gate (a wire) all feeding
+               into a two-input NAND gate. An OAI221 would have two, two-input
+               OR gates and a wire feeding into a three-input NAND gate.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14384" name="pgfId-14384"></a>&middot;
+               Flip-Flops/Latches: This library contains all of the schematic
+               models for the d-type flip-flops, d-type latches and scan,
+               d-type flip-flops. The r and s letters following the cell name
+               indicate the presence of any asynchronous reset and/or set
+               inputs, respectively.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14405" name="pgfId-14405"></a>&middot; Pads: This
+               library contains all of the schematic models for the pads in
+               each supported technology. This library is subdivided into a
+               separate library for each technology. Be sure to select the
+               appropriate technology for the pad libraries so as to match your
+               target technology. See the MOSIS web page for more information
+               on the pads: http://www.mosis.org.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14406" name="pgfId-14406"></a>&middot; SDL Parts:
+               This library contains schematic models for the parts that may be
+               used for schematic driven layout (SDL). These include
+               four-terminal FETs for all technologies and capacitor and
+               resistors for some technologies. In addition, some generic parts
+               are supplied, such as GND, VDD and ports.
+            </p>
+         </div>
+      </div>
+      <div>
+         <h2 class="AP1-NewPage">
+            <a id="pgfId-12477" name="pgfId-12477"></a> ADK_IC
+         </h2>
+         <p class="Body">
+            <a id="pgfId-14411" name="pgfId-14411"></a><a id="marker-12478"
+            name="marker-12478"></a>adk_ic is the command that will start IC
+            Station with the ADK extensions. If you use this command, you will
+            have the following additional functionality in IC Station:
+         </p>
+         <div>
+            <h3 class="AP2-NewPage">
+               <a id="pgfId-14418" name="pgfId-14418"></a>ADK pulldown menu
+            </h3>
+            <p class="BodyIn">
+               <a id="pgfId-14423" name="pgfId-14423"></a>Once you open a cell,
+               you will see a new, additional menu called ADK in the menu bar.
+               This menu allows you to do several tasks specifically related to
+               ADK designs:
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14424" name="pgfId-14424"></a>&middot; Show ADK
+               Palette: This will change the palette to display the ADK palette
+               menu. This is a quick way to display that menu no matter which
+               palette is currently displayed.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14427" name="pgfId-14427"></a>&middot; Scale: This
+               will display a submenu that will allow you to scale your design
+               based on your target technology. You must have your cell
+               reserved for edit and you must be in GE mode to scale. It is
+               recommended that you instantiate you final layout into a new GE
+               mode cell and then scale that new cell. In this way you can more
+               easily retarget to a different technology should you later
+               decide to do so.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14428" name="pgfId-14428"></a>&middot; Generate
+               Padframe: This will display a submenu where you can
+               automatically generate a padframe for a 40-pin tinychip based on
+               your target technology. See the chapter Automatic Padframe
+               Generation for more information.
+            </p>
+         </div>
+         <div>
+            <h3 class="AP2-NewPage">
+               <a id="pgfId-12493" name="pgfId-12493"></a>ADK palette menu
+            </h3>
+            <p class="BodyIn">
+               <a id="pgfId-12495" name="pgfId-12495"></a><a id="marker-12494"
+               name="marker-12494"></a>A <i class="Emphasis">new palette menu
+               has been created which contains most of the commonly used
+               operations that you will need for doing designs with the
+               ADK</i> . You can show this palette by selecting ADK-&gt;Show
+               ADK Palette from the pulldown menu or by clicking on ADK Edit at
+               the bottom of the session palette.
+            </p>
+            <p class="BodyIn">
+               <a id="pgfId-14437" name="pgfId-14437"></a>The first section of
+               the ADK Edit menu will let you gain quick access to other
+               palette menus.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14435" name="pgfId-14435"></a>&middot; Top: will
+               take you to the top-level, session menu
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14436" name="pgfId-14436"></a>&middot; Edit: will
+               take you to the standard edit menu for more editing functions
+               than are presented on the ADK Edit menu
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14438" name="pgfId-14438"></a>&middot; P&amp;R:
+               will take you to the place and route palette menu for placement
+               and routing of your standard cell designs.
+            </p>
+            <p class="BodyIn">
+               <a id="pgfId-14439" name="pgfId-14439"></a>The next section,
+               labeled SDL has functions to help you preform your
+               schematic-driven layout.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14440" name="pgfId-14440"></a>&middot; Logic: This
+               will display a submenu that will let you set your logic source,
+               close the logic or update your logic should you have made an
+               update outside of IC Station.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14441" name="pgfId-14441"></a>&middot; Open: opens
+               the current logic source in a schematic window
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14442" name="pgfId-14442"></a>&middot; Place: This
+               will display a submenu to allow you to select instances or
+               ports, and to place unplaced instances and ports.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14443" name="pgfId-14443"></a>&middot; Inst:
+               Instantiates all selected instances into your cell or all
+               unplaced instances should you not have any schematic instances
+               selected.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14444" name="pgfId-14444"></a>&middot; AutoInst:
+               will automatically instantiate all unplaced instances into your
+               cell.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14445" name="pgfId-14445"></a>&middot; Port: place
+               selected ports or all ports if none currently selected.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14446" name="pgfId-14446"></a>&middot; DEdit: This
+               will display a submenu that will give you options on editing
+               placed devices. You will have options to move MOS pins, split
+               and join MOS devices, define the folding for MOS devices and
+               modify capacitor and resistor properties as well.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14447" name="pgfId-14447"></a>&middot; Clean: This
+               will clean up your schematic should a placement abort due to an
+               error. If your schematic updating seems to be stuck, try to
+               clean it up.
+            </p>
+            <p class="BodyIn">
+               <a id="pgfId-14448" name="pgfId-14448"></a>The section on
+               routing has many useful functions for routing your devices and
+               cleaning up your layout.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14449" name="pgfId-14449"></a>&middot; Route: This
+               is a menu with options to help you create overflows and manage
+               your routing database.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14452" name="pgfId-14452"></a>&middot; SsNet: This
+               function will select all nets that are shorted or of the same
+               net to the currently selected object.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14453" name="pgfId-14453"></a>&middot; MkPort: This
+               will make the selected object a port.You will be prompted for
+               the type and name of the port.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14454" name="pgfId-14454"></a>&middot; SsPort: The
+               nets connected to the selected port will be selected for you.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14455" name="pgfId-14455"></a>&middot; ResAll: This
+               function will restructure all nets in your design and update the
+               overflows to display the updated database. Useful after moving
+               many objects or if you see stray overflows in your cell.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14456" name="pgfId-14456"></a>&middot; ResSel:
+               Restructure selected net(s) only.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14457" name="pgfId-14457"></a>&middot; AutoR:
+               Autoroute the currently selected overflow. This will only route
+               on the metal routing layers. It will not route on poly.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14458" name="pgfId-14458"></a>&middot; Comp:
+               Compact your design. This runs the IC Station compactor.
+            </p>
+            <p class="BodyIn">
+               <a id="pgfId-14459" name="pgfId-14459"></a>The next section has
+               functions to add various shapes and text.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14460" name="pgfId-14460"></a>&middot; Shape: This
+               is the Add Shape command to allow you to add arbitrary shapes on
+               any layer you wish.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14465" name="pgfId-14465"></a>&middot; Path: This
+               function allows you to place paths in your cell.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14466" name="pgfId-14466"></a>&middot; AddR: Add
+               Route. This is the routing tool to manually route your design.
+               This will only route on the metal routing layers defined in the
+               process.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14467" name="pgfId-14467"></a>&middot; Text: Allows
+               you to add text to your cell.
+            </p>
+            <p class="BodyIn">
+               <a id="pgfId-14468" name="pgfId-14468"></a>The Edit section
+               provides several functions for editing your cell and the objects
+               in the cell.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14469" name="pgfId-14469"></a>&middot; Copy: Copy
+               selected object(s) to location you specify.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14472" name="pgfId-14472"></a>&middot; Move: Move
+               the selected object(s) to the location you specify.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14474" name="pgfId-14474"></a>&middot; Align: Align
+               selected object(s).
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14478" name="pgfId-14478"></a>&middot; Rotate:
+               Rotate the selected object(s).
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14479" name="pgfId-14479"></a>&middot; Flip: Flip
+               the selected object(s).
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14480" name="pgfId-14480"></a>&middot; Stretch:
+               Stretch the selected objects (cannot be used on devices).
+            </p>
+            <p class="BodyIn">
+               <a id="pgfId-14481" name="pgfId-14481"></a>The verification
+               section of the palette menu allows your to easily perform
+               DRC/LVS and extraction of your cell without leaving the palette.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14482" name="pgfId-14482"></a>&middot; DRC: This
+               menu allows you to run the DRC check and then to scan through
+               the results and view your DRC errors, if any.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14486" name="pgfId-14486"></a>&middot; Load Rules:
+               If you need to change the rules that you are using, use this
+               option to load a new rules file.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14487" name="pgfId-14487"></a>&middot; Extract:
+               This function will perform a lumped, mask-level extraction of
+               your circuit suitable for simulation with ELDO, Mach-TA or
+               Accusim.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14488" name="pgfId-14488"></a>&middot; LVS: Run a
+               mask-level LVS of your cell.
+            </p>
+            <p class="BulletIn">
+               <a id="pgfId-14489" name="pgfId-14489"></a>&middot; Report: LVS
+               reporting functions. The options in this menu allow you to view
+               the LVS report and to check your LVS errors, if any.
+            </p>
+            <p class="BodyIn">
+               <a id="pgfId-14490" name="pgfId-14490"></a>Finally, the last
+               item is Repeat. This is a toggle switch that will turn on or off
+               the repeatable functions. Functions with an asterisk (*) by them
+               will repeat. If you do not want those functions to repeat, click
+               on the Repeat item to turn it off, and click on it again to turn
+               it back on.
+            </p>
+         </div>
+         <div>
+            <h3 class="AP2-NewPage">
+               <a id="pgfId-13152" name="pgfId-13152"></a>ADK Commands
+            </h3>
+            <p class="BodyIn">
+               <a id="pgfId-14713" name="pgfId-14713"></a>In addition to the
+               new menus, there are some new commands (or macros) that have
+               been included with adk_ic. Some of these commands are specific
+               to creating and maintaining your standard cells, and are offered
+               as examples that you can modify for your own needs.
+            </p>
+            <p class="BodyIn">
+               <a id="pgfId-14729" name="pgfId-14729"></a>To use any of these
+               commands, simply type them in the cell window. A prompt bar will
+               appear with your command in it.
+            </p>
+            <p class="BodyIn">
+               <a id="pgfId-14508" name="pgfId-14508"></a>&nbsp;
+            </p>
+            <p class="TableTitle">
+            </p>
+            <a id="pgfId-14511" name="pgfId-14511"></a>&nbsp;<br />
+            <br />
+              
+            <table>
+               <tr>
+                  <th rowspan="1" colspan="1">
+                     <h6 class="CellHeadA">
+                        <a id="pgfId-14515" name="pgfId-14515"></a>Function
+                     </h6>
+                  </th>
+                  <th rowspan="1" colspan="1">
+                     <h6 class="CellHeadA">
+                        <a id="pgfId-14517" name="pgfId-14517"></a>Description
+                     </h6>
+                  </th>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14519" name="pgfId-14519"></a>pc
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14521" name="pgfId-14521"></a>Place a poly
+                        contact; places a poly contact centered at the current
+                        cursor position.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14523" name="pgfId-14523"></a>pp
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14525" name="pgfId-14525"></a>Place a port
+                        contact; creates a port and places it where you click.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14527" name="pgfId-14527"></a>pr
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14529" name="pgfId-14529"></a>Places
+                        standard cell power rails;Places a VDD and a GND power
+                        rail in metal 1 with the height of a standard cell.
+                        Also creates proper port and net properties for the
+                        rails. These rails are short, but can be stretched to
+                        and desired width for your cell.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14531" name="pgfId-14531"></a>nwc
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14533" name="pgfId-14533"></a>Place an
+                        n-well contact; creates and places an n-well contact on
+                        the standard cell power rails.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14535" name="pgfId-14535"></a>pwc
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14537" name="pgfId-14537"></a>Place a
+                        p-well contact; creates and places p-well contact on
+                        the standard cell power rails.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14539" name="pgfId-14539"></a>pfp
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14541" name="pgfId-14541"></a>Place an fp1
+                        layer; For standard cells, you need to specify an fp1
+                        (floor plan) layer. This command automatically
+                        generates and places one to the extent of the cell.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14543" name="pgfId-14543"></a>p
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14545" name="pgfId-14545"></a>Place a poly
+                        path of width 2 (minimum width); Prompts you to place a
+                        poly path.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14547" name="pgfId-14547"></a>m
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14549" name="pgfId-14549"></a>Place a
+                        metal1 path of width 3 (minimum width); Prompts you to
+                        place a metal1 path.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14551" name="pgfId-14551"></a>v
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14553" name="pgfId-14553"></a>Move
+                        unconstrained; Moves the selected object(s).
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14555" name="pgfId-14555"></a>ec5
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14557" name="pgfId-14557"></a>Lumped, mask
+                        extraction for AMI 0.5; This command scripts the
+                        extraction to a specific location that probably does
+                        not exist at your site. Modify this command if you wish
+                        to use it.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14559" name="pgfId-14559"></a>ec12
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14676" name="pgfId-14676"></a>Lumped, mask
+                        extraction for AMI 1.2; This command scripts the
+                        extraction to a specific location that probably does
+                        not exist at your site. Modify this command if you wish
+                        to use it.
+                     </p>
+                     <p class="CellBodyA">
+                        <a id="pgfId-14561" name="pgfId-14561"></a>&nbsp;
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14563" name="pgfId-14563"></a>ab1
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14565" name="pgfId-14565"></a>Add metal1
+                        blockages to entire cell; This command will place a
+                        metal1 blockage on top of all metal1 shapes in your
+                        cell. This is useful for autorouting with hierarchy.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14567" name="pgfId-14567"></a>rab1
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14569" name="pgfId-14569"></a>Remove
+                        metal1 blockages; This command will remove all metal1
+                        blockages in your cell.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14571" name="pgfId-14571"></a>s12
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14573" name="pgfId-14573"></a>Set cell
+                        process to AMI 1.2
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14575" name="pgfId-14575"></a>s5
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14577" name="pgfId-14577"></a>Set cell
+                        process to AMI 0.5
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14579" name="pgfId-14579"></a>cp
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14581" name="pgfId-14581"></a>Checkpoint
+                        cell; save the cell and then reserve the cell.
+                     </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14583" name="pgfId-14583"></a>dup
+                     </p>
+                  </td>
+                  <td rowspan="1" colspan="1">
+                     <p class="CellBodyA">
+                        <a id="pgfId-14585" name="pgfId-14585"></a>Delete
+                        unplaced ports; If LVS reports unplaced ports but you
+                        see that they are all placed from your schematic, the
+                        database might have duplicate ports. This command will
+                        remove them.
+                     </p>
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <!-- ******** END CONTENT AREA ********
+           =========================================================================== -->
+      
+</td></tr>
+<tr><td valign="top" class="navbartable"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td><img src="/images/pixel_clear.gif" width="650" height="10" border="0" alt="" /><br />
+<div align="center">
+<p class="footer"><a href="/corp_info/">company</a> | <a href="/jobs/">jobs</a> | <a href="/investor_relations/">investors</a> | <a href="/news/">news</a> | <a href="/supportnet/">support</a> | <a href="/es/">education services</a> | <a href="/region/">mentor worldwide</a><br />
+<a href="/products/">products</a> | <a href="/partners/">partners</a> | <a href="/events/">events</a> | <a href="/utilities/site_index.html">site index</a> | <a href="/utilities/feedback.html">contact us</a> | <a href="/privacy_policy.html">privacy</a> | <a href="/license.html/">end user license</a> | <a href="/utilities/copyright.html">terms of use</a></p>
+
+<p class="small">Product, Sales &amp; Event Information: 1-800-547-3000<br />
+Corporate Headquarters: 1-800-592-2210 or 1-503-685-7000<br />
+<sup>&copy;</sup>Copyright 1997-2003 Mentor Graphics Corp, Wilsonville, OR USA</p></div>
+
+<br clear="all" /><img src="/images/pixel_clear.gif" width="1" height="10" border="0" alt="" />
+</td>
+</tr>
+</table>
+
+<script language="JavaScript1.2">
+    var sPage = '/images/screen_res.gif?';
+    sPage = sPage + 'screenRes=' + screen.width + 'x' + screen.height;
+    sPage = sPage + '&availRes=' + screen.availWidth + 'x' +
+screen.availHeight;
+    sPage = sPage + '&colorDepth=' + screen.colorDepth;
+    document.write( '<img src="' + sPage + '" width="1" height="1" alt="">' );
+</script>
+<noscript>
+   <img src="/images/screen_res.gif?screenRes=Unknown&availRes=Unknown&colorDepth=Unknown"  width="1" height="1" alt="" />
+   <img src="/images/njs.gif" width="1" height="1" />
+</noscript>
+
+</body>
+   
+</html>
+

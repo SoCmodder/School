@@ -1,0 +1,115 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="H. Pottinger">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win95; U) [Netscape]">
+   <title>hw5</title>
+</head>
+<body>
+
+<h1>
+Homework Assignment #8</h1>
+
+<h2>
+Math operations on the 8051</h2>
+
+<h3>
+Due 4/4/2001 (10 points)</h3>
+Embedded system designers occasionally need to perform math operations
+on sensor data. Typical 'real world' data limits are 4-20 mA, 0-5 V, -5
+to +5 V, etc, and are normally limited to a few bits of precision. Common
+values are 8 or 12 bits and rarely exceed 16 bits. The temptation is to
+resort to use of floating point values for the calculations but processors
+like the 8051 lack floating point hardware. Compilers such as C51 are usually
+supplied with a math library which includes routines for performing floating
+point arithmetic as well as the usual sqrt, sin, cos, etc functions.
+<p>The following C program might be used, for example, to read a value
+into port 1 representing a voltage between 0 and 5 V, calculate the square
+root of the voltage, and output the result to port 2. The input voltage
+is scaled so that 00H represents 0 V, 0FFH represents 5 V, etc. P1 is thus
+51*Vin. We would like P2 to be set equal to the square root of the input
+voltage scaled up by the same value of 51. In other words, if the input
+voltage is 2.5v, P1 would be read as 127. The square root of 2.5v is 1.58
+so we would output int(1.58*51)=80.
+<pre>#include &lt;math.h>
+#include &lt;reg51.h>
+void main(void){
+&nbsp; while(1){
+&nbsp; P2=(unsigned char) 51.0*sqrt(5.0*(float)(P1/255.));
+&nbsp;}
+}</pre>
+The problem with this rather simple program is that it takes about 3.665
+mS per loop and occupies 1105 bytes of code (half the entire 8xC752 code
+space!). The following code accomplishes exactly the same function in about
+10uS and 283 bytes.
+<pre>#include &lt;reg51.h>
+void main(void){
+&nbsp;code unsigned char sqrt[]= {
+0,7,10,12,14,16,17,19,20,21,23,24,25,26,27,28,29,29,30,31,32,33,33,
+34,35,36,36,37,38,38,39,40,40,41,42,42,43,43,44,45,45,46,46,47,47,
+48,48,49,49,50,50,51,51,52,52,53,53,54,54,55,55,56,56,57,57,58,58,
+58,59,59,60,60,61,61,61,62,62,63,63,63,64,64,65,65,65,66,66,67,67,
+67,68,68,68,69,69,70,70,70,71,71,71,72,72,72,73,73,74,74,74,75,75,
+75,76,76,76,77,77,77,78,78,78,79,79,79,80,80,80,80,81,81,81,82,82,
+82,83,83,83,84,84,84,84,85,85,85,86,86,86,87,87,87,87,88,88,88,89,
+89,89,89,90,90,90,91,91,91,91,92,92,92,93,93,93,93,94,94,94,94,95,
+95,95,96,96,96,96,97,97,97,97,98,98,98,98,99,99,99,99,100,100,100,
+100,101,101,101,101,102,102,102,102,103,103,103,103,104,104,104,104,
+105,105,105,105,106,106,106,106,107,107,107,107,108,108,108,108,109,
+109,109,109,109,110,110,110,110,111,111,111,111,112,112,112,112,112,
+113,113,113,113,114,114,114};
+
+while(1){
+&nbsp; P2=sqrt[P1];
+&nbsp; }
+}</pre>
+The table was generated using an Excel spread sheet to calculate all 256
+possible values of the scaled square root function and exported as a comma
+delimited file which was then included in my C code. P1 is then used as
+an index into the table and the resulting value is ready to be output to
+P2. You can run these programs using dScope with a watch set on P2 (ws
+P2,10) and interactively type new values for P1 (P1=127) in the command
+window and watch the value of P2 change. Run through one complete iteration
+to see how many cycles each version takes. The M51 list file (foo.M51)
+produced by the linker is helpful for determining the size of each program
+since it will show the size(s) of any library routines included as well
+as your own code. The size of the first version is quite small compared
+to the second but it's the sqrt library function and the floating point
+routines which are the killers.
+<h3>
+Assignment:</h3>
+Perform a similar experiment using one of the other math library functions.
+Take the least significant digit of your student ID and select 0) exp,
+1) log, 2) log10, 3) sin, 4) cos, 5) tan, 6) asin, 7) acos, 8) atan, 9)
+sinh.
+<ol>
+<li>
+Write a C program for the 8051 to read P1 and output your selected function
+of P1 to P2. Use floating point values and the built-in math function.
+Assume reasonable values of scale factors. For example, the sine takes
+an angle argument so a reasonable assumption on the input would be 0 to
+359 degrees. Let an input value of 255 represent 359 degrees. The range
+of sine is between -1 and +1 so it would be reasonable to let 0 be -1 and
+255 be +1.</li>
+
+<li>
+Measure the size of your code in bytes and the execution speed in instruction
+cycles and seconds (assuming a 12 Mhz clock). Be sure to measure the size
+of the entire program, not just your main function! The size of the program
+is NOT the same as the size of the object code file.</li>
+
+<li>
+Construct a lookup table for your fuction and use it to write a C program
+which accomplishes the same task as the first program but does not use
+floating point values or the built-in math functions. Provide a detailed
+description of the process you use to generate your lookup table and program.</li>
+
+<li>
+Measure the size of the second version in bytes and the execution speed
+in instruction cycles and seconds (assuming a 12 Mhz clock). Be sure to
+measure the size of the entire program, not just your main function!</li>
+</ol>
+
+</body>
+</html>

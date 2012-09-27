@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0043)http://www.ece.umr.edu/~hjp/cpe213/hw9.html -->
+<HTML><HEAD><TITLE>EE 213 Problem Assignment</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 5.50.4613.1700" name=GENERATOR>
+<META content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot" name=Template>
+<META content="Mozilla/4.76 [en] (Win95; U) [Netscape]" name=GENERATOR></HEAD>
+<BODY vLink=#800080 link=#0000ff bgColor=#ccffcc>
+<H3><B><FONT size=+1>Programming Assignment #9</FONT></B></H3>
+<H3><B><FONT size=+1>8051 Counter Timer operation</FONT></B></H3>Due May 2, 2001 
+
+<H4><B><I><FONT face=Arial>Background</FONT></I></B></H4>The 8051 family 
+generally includes 2 counter/timers. These are simply counters and differ mainly 
+in what is used as their clock. A timer uses the system clock divided by 12. A 
+12 Mhz clock thus results in a counter which increments every microsecond. A 
+counter uses an external clock and thus 'counts' external events. Timer 0 uses 
+pin _____ and timer 1 uses pin _____ for reading external events. In this 
+exercise you will use one of the 8051's timers to produce accurate delay 
+intervals and the other timer to count external events during the delay 
+interval. If a counter (which counts external events) is reset to zero at the 
+beginning of a delay interval and read at the end of a delay interval, the 
+resulting count is proportional to the _________ of the external signal. 
+<P><B><I><FONT face=Arial>Exercise</FONT></I></B> 
+<P>The program shown below uses timer 0 to produce a one millisecond delay. An 
+inner for loop is used to count 100 of these intervals to produce a 100 mSec 
+delay. An outer for loop counts 10 of these to produce a one second delay. 
+Modify the example timer program shown below to measure the frequency of an 
+external signal. Assume the frequency is expected to vary between 50 kHz and 500 
+kHz and you must take samples at least once every second. Use simple software 
+status checking. Do NOT attempt to use interupts for this exercise! Test your 
+program using dScope. Provide a maximum one page description of your program and 
+test procedure along with your C source code listing.&nbsp; Describe any sources 
+of error in your frequency measurement and how you might change the code to 
+correct for those errors. <PRE>#include &lt;reg51.h&gt;
+void main (){
+unsigned char i,j;
+TMOD=0x01; /* 16bit timer mode */
+while (1) {&nbsp;
+&nbsp;for (j=0;j&lt;=10;j++){ /* 1 sec delay */
+&nbsp; for (i=0;i&lt;=100;i++){ /* 100 * 1mSec delay */
+&nbsp;&nbsp; TH0= (-1000) &gt;&gt; 8; /* upper half of -1000 (0xfc) */
+&nbsp;&nbsp; TL0= (-1000) &amp; 0xff; /* lower half of -1000 (0x18) */
+&nbsp;&nbsp; TR0= 1; /* start timer 0 */
+&nbsp;&nbsp; while (!TF0); /* wait for TF0=1 */
+&nbsp;&nbsp; TR0= 0; /* stop timer and clear overflow bit */&nbsp;
+&nbsp;&nbsp; TF0= 0;
+&nbsp; } /* i loop */
+&nbsp;} /* j loop */
+} /* while loop */
+}
+</PRE></BODY></HTML>

@@ -1,0 +1,740 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="actsyn_files/filelist.xml">
+<link rel=Edit-Time-Data href="actsyn_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Halfgate design with Actel Act1</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>DrB</o:Author>
+  <o:LastAuthor>DrB</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>54</o:TotalTime>
+  <o:Created>2002-09-20T22:12:00Z</o:Created>
+  <o:LastSaved>2003-03-04T18:25:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1990</o:Words>
+  <o:Characters>11343</o:Characters>
+  <o:Company>UMR</o:Company>
+  <o:Lines>94</o:Lines>
+  <o:Paragraphs>26</o:Paragraphs>
+  <o:CharactersWithSpaces>13307</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:#804000;}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	color:#804000;
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	color:#804000;
+	font-weight:bold;}
+h4
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	color:#804000;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#0000EE;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#551A8B;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:#804000;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	color:#804000;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+<meta name=Author content="Hardy J. Pottinger">
+<meta name=Description
+content="Halfgate design with Modeltechnology, Exemplar, and Actel">
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="4098">
+  <o:colormenu v:ext="edit" fillcolor="none"/>
+ </o:shapedefaults></xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link="#0000EE" vlink="#551A8B" style='tab-interval:.5in'
+alink="#FF0000">
+
+<div class=Section1>
+
+<h1><span class=SpellE>Actel</span> Act1 Synthesis Example</h1>
+
+<p class=MsoNormal><i>Hardy J. Pottinger</i> <br>
+<i>Department of Electrical and </i><st1:place><st1:PlaceName><i>Computer</i></st1:PlaceName><i>
+ </i><st1:PlaceName><i>Engineering</i></st1:PlaceName> <br>
+<st1:PlaceType><i>University</i></st1:PlaceType></st1:place><i> of </i><st1:State><st1:place><i>Missouri</i></st1:place></st1:State><i>
+- Rolla</i> <br>
+<i><a href="mailto:hjp@umr.edu">hjp@umr.edu</a></i> </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><i style='mso-bidi-font-style:normal'>With some
+modifications by Daryl Beetner<o:p></o:p></i></p>
+
+<h2>Purpose</h2>
+
+<p class=MsoNormal>This is an example VHDL design flow for the <span
+class=SpellE>Actel</span> Act 1 FPGA using Model Technology's simulator,
+Exemplar's Leonardo synthesis software, and <span class=SpellE>Actel's</span>
+Designer place and route software. The example consists of a simple 'half gate'
+design as suggested by M.J.S. Smith in <i>Application-Specific Integrated
+Circuits</i>. This example should be sufficient to get you started using logic
+synthesis with VHDL for <span class=SpellE>Actel</span> FPGAs. It will
+illustrate creation of the VHDL model, analyzing with <span class=SpellE>vcom</span>,
+functional simulation with <span class=SpellE>vsim</span>, <span class=GramE>synthesis</span>
+with Exemplar's Leonardo, place and route, static timing analysis, and timing
+extraction with <span class=SpellE>Actel's</span> Designer, and timing
+simulation using SDF and <span class=SpellE>vsim</span>. </p>
+
+<h2>Procedure</h2>
+
+<p class=MsoNormal>The procedure involves creation of a VHDL model using your
+favorite editor (such as 'vi', &#8216;<span class=SpellE>elvis</span>&#8217;,
+or &#8216;bash&#8217;), analyzing it with <span class=SpellE>vcom</span> (or <span
+class=SpellE>qvhcom</span>), functional simulation with <span class=SpellE>vsim</span>
+(or <span class=SpellE>qhsim</span>), translation to an EDIF <span
+class=SpellE>netlist</span> with <span class=SpellE>leonardo</span>, technology
+mapping, place and route, VHDL <span class=SpellE>netlist</span> generation,
+and timing extraction with designer, and timing simulation of the extracted <span
+class=SpellE>netlist</span> with <span class=SpellE>vcom</span> and <span
+class=SpellE>vsim</span>. The following example goes through these steps in
+more detail. </p>
+
+<h4>1. Create a VHDL model</h4>
+
+<p class=MsoNormal>First you should create some directories to store your
+files. It's a good idea to store your source and anything else you type in a
+separate directory so that it's harder to delete or write over it. I suggest
+creating a subdirectory called <span class=SpellE><i>halfgate</i></span> with
+subdirectories <span class=SpellE><i>src</i></span> and <i>work</i>. Use the
+following commands: </p>
+
+<pre style='margin-left:.5in'><span class=SpellE><span class=GramE><span
+style='color:blue'>mkdir</span></span></span><span style='color:blue'> <span
+class=SpellE>halfgate</span><o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=SpellE><span class=GramE><span style='color:blue'>cd</span></span></span><span
+style='color:blue'> <span class=SpellE>halfgate</span><o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=SpellE><span class=GramE><span
+style='color:blue'>vlib</span></span></span><span style='color:blue'> work (or <span
+class=SpellE>qhlib</span> work)<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=SpellE><span class=GramE><span style='color:blue'>mkdir</span></span></span><span
+style='color:blue'> <span class=SpellE>src</span><o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=SpellE><span class=GramE><span
+style='color:blue'>mkdir</span></span></span><span style='color:blue'> <span
+class=SpellE>hdl</span></span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Notice
+that I used a <span class=SpellE>Modeltech</span> program to create the work
+directory. That creates a VHDL library called work. It looks like a <span
+class=GramE>Unix</span> subdirectory but has a structure required for a VHDL
+library. Next use <span class=GramE><i>vi</i></span> or your favorite text
+editor to create a VHDL model for your <span class=SpellE>halfgate</span>
+design. You can cut and paste the following: </p>
+
+<pre style='margin-left:.5in'><span class=GramE><span style='color:blue'>library</span></span><span
+style='color:blue'> <span class=SpellE>ieee</span>;<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>use</span></span><span
+style='color:blue'> ieee.std_logic_1164.all;<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>entity</span></span><span
+style='color:blue'> hg is<o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+style='color:blue'>&nbsp;<span class=GramE>port(</span> a: in <span
+class=SpellE>std_logic</span>; <span class=SpellE>abar</span>: out <span
+class=SpellE>std_logic</span>);<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=GramE><span style='color:blue'>end</span></span><span
+style='color:blue'> entity hg;<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=GramE><span style='color:blue'>architecture</span></span><span
+style='color:blue'> a1 of hg is<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span style='color:blue'>&nbsp;<span class=GramE>begin</span><o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp; <span class=SpellE><span
+class=GramE>abar</span></span>&lt;= not a;<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>end</span></span><span
+style='color:blue'> architecture a1;</span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Save
+your file as <span class=SpellE><i>hg.vhd</i></span> in the subdirectory <span
+class=SpellE><i>src</i></span><i>.</i> It is important to save the file in
+directory <span class=SpellE><i style='mso-bidi-font-style:normal'>src</i></span>
+because it might otherwise get overwritten in subsequent steps.</p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>2.
+Analyze with <span class=SpellE>vcom</span></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Use
+the command </p>
+
+<pre style='margin-left:.5in'><span class=SpellE><span class=GramE><span
+style='color:blue'>vcom</span></span></span><span style='color:blue'> -93 <span
+class=SpellE>src/hg.vhd</span></span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+class=GramE>to</span> analyze your model. This is calling compiling in the
+software world but the VHDL community calls it analyzing. In any event this
+analyzes your source for errors and creates an <i>entity</i> and <span
+class=GramE>an <i>architecture</i></span> in the work library. The 93 command
+line switch tells <span class=SpellE>vcom</span> to use VHDL-93 syntax instead
+of the older VHDL-87. There are several other command line switches you can
+find out about by using the command <span class=SpellE>vcom</span> -help. If
+your model has any errors, an error message will be displayed along with the
+line number of the source where the error <span class=SpellE>occured</span>. </p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>3.
+Functional simulation with <span class=SpellE>vsim</span></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>First,
+create a text file and save it in <span class=SpellE>src/hgsim.do</span>. Your
+text file should contain the following <span class=SpellE>vsim</span> commands:
+</p>
+
+<pre style='margin-left:.5in'><span class=GramE><span style='color:blue'>view</span></span><span
+style='color:blue'> *<o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+class=GramE><span style='color:blue'>add</span></span><span style='color:blue'> wave *<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>add</span></span><span
+style='color:blue'> list *<o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+class=GramE><span style='color:blue'>force</span></span><span style='color:
+blue'> a 0 <span class=SpellE>0</span><o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>force</span></span><span
+style='color:blue'> a 1 100<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=GramE><span style='color:blue'>force</span></span><span
+style='color:blue'> a 0 200<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=GramE><span style='color:blue'>run</span></span><span
+style='color:blue'> 300</span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Change
+the 'add list' command to just 'list *' if you are using <span class=SpellE>qhsim</span>.
+</p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>After
+you create and save the <span class=SpellE>hgsim.do</span> file, invoke the
+VHDL simulator with the command </p>
+
+<pre style='margin-left:.5in'><span class=SpellE><span class=GramE><span
+style='color:blue'>vsim</span></span></span><span style='color:blue'> hg a1</span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+class=SpellE>Vsim</span> is a very powerful, extensible, and interactive
+program. There are at least three approaches to simulation with <span
+class=SpellE>vsim</span>. You can a) use a VHDL <span class=SpellE>testbench</span>,
+b) use a script file, or c) type commands and/or use the GUI. The first
+approach is the most tool-independent, VHDL-friendly method. We'll use the
+second approach. The third approach should mainly be avoided except when
+learning to use the simulator. After typing the command, <span class=SpellE>vsim</span>
+will invoke and you will see a screen something like that in Figure 1. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" alt="vsim main window"
+ style='width:363.75pt;height:153pt'>
+ <v:imagedata src="actsyn_files/image001.jpg" o:href="http://www.ece.umr.edu/~hjp/cpe311/fig1.jpg"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=485 height=204
+src="actsyn_files/image001.jpg" alt="vsim main window" v:shapes="_x0000_i1025"><![endif]><span
+class=GramE>Figure 1.</span> </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>You
+should see <span class=SpellE>vsim</span> loading the <span class=SpellE><span
+class=GramE>ieee</span></span> standard <span class=SpellE>libary</span> and
+your model from the work library. Next, type the command </p>
+
+<pre style='margin-left:.5in'><span class=GramE><span style='color:blue'>do</span></span><span
+style='color:blue'> <span class=SpellE>src/hgsim.do</span></span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>And
+you should see a list window appear with your simulation results. It should
+look something like Figure 2. Note that <span class=SpellE>vsim</span>
+qualifies the signal names with the name of the entity. Also note that <span
+class=SpellE>abar</span> changes one <i>delta</i> after the input a changes.
+That is because this is a functional simulation. No timing data is available at
+this point in time. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Exit
+the simulator by typing the command: </p>
+
+<pre style='margin-left:.5in'><span class=GramE><span style='color:blue'>quit</span></span><span
+style='color:blue'> -force</span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" alt="" style='width:237pt;height:142.5pt'>
+ <v:imagedata src="actsyn_files/image002.jpg" o:href="http://www.ece.umr.edu/~hjp/cpe311/fig2.jpg"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=316 height=190
+src="actsyn_files/image002.jpg" v:shapes="_x0000_i1026"><![endif]><span
+class=GramE>Figure 2.</span> </p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>4.
+Synthesis with <span class=SpellE><span class=GramE>leonardo</span></span></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Leonardo
+is also an extensible, interactive program that can either be used in a batch
+mode with a script from the command line, or by using the GUI. We'll use the
+first method. Leonardo's GUI is fairly intuitive and easy to use but like all
+GUI's it's hard to remember just what you did after invoking a number of menu
+items, filling in several dialog boxes, etc. If you use that method, be sure to
+save the transcript file so you can remember what it was that you did. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>First,
+create a text file with the following contents and save it in your <span
+class=SpellE>src</span> directory with the name <span class=SpellE>src/hgsyn.scr</span>.
+</p>
+
+<pre style='margin-left:.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> register2register 100<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> input2register 100<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> register2output 100<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> input2output 100<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>_<span class=SpellE>gc_read_init</span><o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>_<span class=SpellE>gc_run_init</span><o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><b><span style='color:blue'>set</span></b></span><b><span
+style='color:blue'> <span class=SpellE>input_file_list</span> { <span
+class=SpellE>src/hg.vhd</span> }<o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+style='color:blue'>set</span></b></span><b style='mso-bidi-font-weight:normal'><span
+style='color:blue'> part A1010BPL44<o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> process WC-3<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> <span class=SpellE>max_fanout_load</span> 10<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> <span class=SpellE>nologic_rep</span> FALSE<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue;mso-bidi-font-weight:
+bold'>set</span></span><span style='color:blue;mso-bidi-font-weight:bold'> chip TRUE<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> macro FALSE<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> area TRUE<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> delay FALSE<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> report brief<o:p></o:p></span></pre><pre style='margin-left:
+.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> <span class=SpellE>hierarchy_auto</span> TRUE<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><b><span style='color:blue'>set</span></b></span><b><span
+style='color:blue'> <span class=SpellE>output_file</span> <span class=SpellE>hdl/hg.edf</span><o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set</span></span><span
+style='color:blue'> <span class=SpellE>novendor_constraint_file</span> FALSE<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+style='color:blue'>set</span></b></span><b style='mso-bidi-font-weight:normal'><span
+style='color:blue'> target act1<o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span style='color:blue'>_<span class=SpellE>gc_read</span><o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>_<span class=SpellE>gc_run</span></span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>You
+can use pretty much the same script on other designs you make. The first four
+lines set the max delay to 100 ns. Leonardo calls this the clock period and it
+constrains all the delay paths to 100 ns or less. It's optional. The file list
+is one of the main changes you'll need to make. This defines the input file. If
+there is more than one file, you will need to include each one in a space
+separated list. The last file is considered to be the 'main' file. The set chip
+TRUE command tells the synthesizer to add <span class=GramE>i/o</span> pads to
+the top level entity's signals. The set output command causes the EDIF file to
+be written to <span class=SpellE>hg.edf</span> in the <span class=SpellE><span
+class=GramE>hdl</span></span> subdirectory.&nbsp; For the newer 40MX parts,
+substitute A40MX02PL44 for the part and a40mx for the target. </p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>It
+is possible to synthesize your design without using the script but I do not
+recommend it&#8230; I have seen several students have problems when
+they&#8217;ve done it directly using the menus.</p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Invoke
+<span class=SpellE><span class=GramE>leonardo</span></span> spectrum with the
+command: </p>
+
+<pre style='margin-left:.5in'><span class=GramE><span style='color:blue'>spectrum</span></span><span
+style='color:blue'> -file <span class=SpellE>src/hgsyn.scr</span></span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>When
+synthesis is finished you should examine the <span class=SpellE>exemplar.log</span>
+file. This file contains some useful information including device utilization
+data. A portion is shown as follows: </p>
+
+<pre style='margin-left:.5in'><span style='color:blue'>***********************************************<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>Device Utilization for A1010BPL44<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>***********************************************<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>Resource&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Used&nbsp;&nbsp;&nbsp; Avail&nbsp;&nbsp; Utilization<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>-----------------------------------------------<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=SpellE><span style='color:blue'>IOs</span></span><span
+style='color:blue'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.88%<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>Modules&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 295&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.34%</span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>This
+shows that one of 295 act1 modules <span class=GramE>were</span> used along
+with 2 i/o modules. That's reasonable for our <span class=SpellE>halfgate</span>
+design since it is only an inverter with one input and one output. </p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>5.
+Place and route with designer</h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Create
+a file called <span class=SpellE>hgpar.scr</span> in your design directory (<span
+class=SpellE>halfgate</span>) with the following commands: </p>
+
+<pre style='margin-left:.5in'><span class=GramE><span style='color:blue'>main()</span></span><span
+style='color:blue'><o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+style='color:blue'>{<o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+class=SpellE><span style='color:blue'>new_<span class=GramE>design</span></span></span><span
+class=GramE><span style='color:blue'>(</span></span><span style='color:blue'>);<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=SpellE><b style='mso-bidi-font-weight:
+normal'><span style='color:blue'>setup_<span class=GramE>design</span></span></b></span><span
+class=GramE><b style='mso-bidi-font-weight:normal'><span style='color:blue'>(</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='color:blue'> &quot;hg&quot;, &quot;ACT1&quot; );<o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span class=SpellE><b style='mso-bidi-font-weight:
+normal'><span style='color:blue'>set_<span class=GramE>device</span></span></b></span><span
+class=GramE><b style='mso-bidi-font-weight:normal'><span style='color:blue'>(</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='color:blue'> &quot;DIE = A1010B, PACKAGE = 44 PLCC, SPEED = -3, VOLTAGE = 5.0, PROBE = 1, TEMPR = COM, VOLTR = COM&quot; );<o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;BA_DIR&quot;, &quot;.&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+style='color:blue'>set(</span></b></span><b style='mso-bidi-font-weight:normal'><span
+style='color:blue'> &quot;BA_NAME&quot;, &quot;hg&quot; );<o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;BA_CAE&quot;, &quot;SDF&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;LAYOUT_MODE&quot;, &quot;STANDARD&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;PLAINC&quot;, &quot;OFF&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;NETLIST_NAMING_STYLE&quot;, &quot;VHDL&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;EDNINFLAVOR&quot;, &quot;MGC&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;AUDIT_NETLIST_FILE&quot;, &quot;1&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;AUTO_LOADED_CRT_FILE&quot;, &quot;NULL&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;AUDIT_CRT_FILE&quot;, &quot;1&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;AUTO_LOADED_DCF_FILE&quot;, &quot;NULL&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;AUDIT_DCF_FILE&quot;, &quot;1&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=GramE><b style='mso-bidi-font-weight:normal'><span
+style='color:blue'>set(</span></b></span><b style='mso-bidi-font-weight:normal'><span
+style='color:blue'> &quot;AUTO_LOADED_PIN_FILE&quot;, &quot;<span class=SpellE>hg.pin</span>&quot; );<o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>set(</span></span><span
+style='color:blue'> &quot;AUDIT_PIN_FILE&quot;, &quot;1&quot; );<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span class=SpellE><b><span style='color:blue'>import_<span
+class=GramE>netlist</span></span></b></span><span class=GramE><b><span
+style='color:blue'>(</span></b></span><b><span style='color:blue'> &quot;<span
+class=SpellE>hdl/hg.edf</span>&quot;, &quot;EDIF&quot; );<o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span class=GramE><span style='color:blue'>compile(</span></span><span
+style='color:blue'>);<o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+class=GramE><span style='color:blue'>layout(</span></span><span
+style='color:blue'>);<o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+class=GramE><span style='color:blue'>extract(</span></span><span
+style='color:blue'>);<o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+class=GramE><b><span style='color:blue'>export(</span></b></span><b><span
+style='color:blue'> &quot;<span class=SpellE>hg.vhd</span>&quot;, &quot;VHDL&quot; );<o:p></o:p></span></b></pre><pre
+style='margin-left:.5in'><span style='color:blue'>}</span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+<span class=SpellE>import_netlist</span> and export commands read your EDIF
+file and write a VHDL <span class=SpellE>netlist</span> file after place and
+route. The extract command generates an SDF timing file called <span
+class=SpellE>hg.sdf</span>. These will both be written into the same directory
+which contains the EDIF file. The pin file (<span class=SpellE>hdl/hg.pin</span>)
+contains the pin locations for this design. You can substitute 40MX for ACT1 in
+the <span class=SpellE>setup_design</span> <span class=GramE>command,</span>
+and A40MX02 for the DIE if you are using the newer 40MX02 parts. Be careful as
+you change names above that you don&#8217;t accidentally overwrite your source
+.<span class=SpellE>vhd</span> file.</p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><br>
+The above script requires a pin definition file. Create a file of pin
+specifications in the <span class=SpellE><span class=GramE>hdl</span></span>
+directory with the following contents: </p>
+
+<pre style='margin-left:.5in'><span class=GramE><span style='color:blue'>DEF hg.</span></span><span
+style='color:blue'><o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+style='color:blue'>PIN a;<o:p></o:p></span></pre><pre style='margin-left:.5in'><span
+style='color:blue'>&nbsp; PIN<span class=GramE>:11</span>.<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>PIN <span class=SpellE>abar</span>;<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp; PIN<span class=GramE>:31</span>.<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>END.</span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>In
+this case, signal <span class=GramE>a is</span> attached to pin 11 and signal <span
+class=SpellE>abar</span> to pin 31. Name the file &#8220;<span class=SpellE>hg.pin</span>&#8221;.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>You
+do not need to specify the connections of all pins in the pin file.<span
+style='mso-spacerun:yes'>  </span>For example, if your design includes a <span
+class=SpellE>clk</span>, it is better to let designer choose the <span
+class=SpellE>clk</span> pin itself because some pins are specifically made for
+that function.</p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Finally,
+invoke designer with the command: </p>
+
+<pre style='margin-left:.5in'><span class=GramE>designer</span> <span
+class=SpellE>script:hgpar.scr</span> <span class=SpellE>script_mode:batch</span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Note:
+designer is a bit flakey and it may take one or two tries to get this to work. This
+command will create a new VHDL structural <span class=SpellE>netlist</span>
+model for <span class=SpellE>halfgate</span> as well as an SDF timing file. The
+<span class=SpellE>netlist</span> is a collection of VITAL component models from
+the act1 library. These models contain generics (parameters) which are given
+values from the SDF file by the SDF reader in <span class=SpellE>vsim</span>.
+Here is a sample of both the VHDL file and the related section from the SDF
+file: </p>
+
+<pre><span style='color:blue'>&nbsp;&nbsp;&nbsp; <span class=SpellE>a_<span
+class=GramE>ibuf</span></span><span class=GramE> :</span> INBUF port map(PAD =&gt; a, Y =&gt; <span
+class=SpellE>a_int</span>);<o:p></o:p></span></pre><pre><span style='color:
+blue'>&nbsp;&nbsp;&nbsp; abar_1_<span class=GramE>inst :</span> INV port map(A =&gt; <span
+class=SpellE>a_int</span>, Y =&gt; abar_dup0);<o:p></o:p></span></pre><pre><span
+style='color:blue'>&nbsp;&nbsp;&nbsp; <span class=SpellE>abar_<span
+class=GramE>obuf</span></span><span class=GramE> :</span> OUTBUF port map(PAD =&gt; <span
+class=SpellE>abar</span>, D =&gt; abar_dup0);</span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp;(CELL<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp; (CELLTYPE &quot;INV&quot;)<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp; (INSTANCE abar_1_inst)<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp; (DELAY<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp;&nbsp; (ABSOLUTE<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp;&nbsp;&nbsp;&nbsp; (PORT A (0:0:0) (0:0:0))<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp;&nbsp;&nbsp;&nbsp; (IOPATH A Y (36:65:77) (34:62:73))<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp;&nbsp; )<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp; )<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='color:blue'>&nbsp;)</span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Here
+you can see how SDF <span class=SpellE>backannotation</span> works. The <span
+class=SpellE>netlist</span> in this case consists of three components: an
+INBUF, and INV, and an OUTBUF. The port maps tell how the three are wired up
+and the name on the left is an instance name. In the SDF file, instance
+abar_1_inst of the INV component is annotated with three delay values for
+rising and falling edges. Both a wire delay and a path delay are annotated
+although the wire delay is zero in this case. As it turns out, the wire delay
+is all lumped into the <span class=SpellE>iopath</span> of the INBUF but that
+can't always be done. Can you think of a case where this wouldn't be possible?
+The three values (36:65:77) are min, <span class=SpellE>typ</span>, and max
+delay values. Keep in mind that these are '<span class=SpellE>databook</span>'
+values and not measured values from an actual part. A specific part will behave
+differently, but if the software vendor is doing their job the max and min
+values won't be exceeded. </p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>6.
+Timing simulation with <span class=SpellE>vsim</span></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>All
+that remains to be done is to <span class=SpellE>resimulate</span> hg with <span
+class=SpellE>vsim</span>. You will need to use the new <span class=SpellE>netlist</span>
+model since the behavioral model you used earlier isn't VITAL compliant and in
+most cases won't even be remotely similar to the physical part other than they
+both have the same functionality. Analyze the new <span class=SpellE>netlist</span>
+model with <span class=SpellE>vcom</span> like you did with the original model.
+The <span class=SpellE>netlist</span> file is in the /<span class=SpellE><span
+class=GramE>hdl</span></span> directory, along with the <span class=SpellE>sdf</span>
+and <span class=SpellE>edf</span> files (I recommend spending a little time
+looking around inside the files in the <span class=SpellE>hdl</span>
+directory.<span style='mso-spacerun:yes'>  </span>Notice how the .<span
+class=SpellE>vhd</span> <span class=SpellE>netlist</span> file is clearly a
+structural model). When you are finished, the work library will have an hg
+entity and two architectures: a1 and <span class=SpellE>def_arch</span>. Both <span
+class=SpellE>def_arch</span> and a1 have the same functionality but <span
+class=SpellE>def_arch</span> is a <span class=SpellE>netlist</span> of
+components while a1 is a <span class=SpellE><span class=GramE>boolean</span></span>
+logic equation. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Simulate
+<span class=GramE>hg(</span><span class=SpellE>def_arch</span>) like you did
+hg(a1) except this time, invoke <span class=SpellE>vsim</span> with the
+command: </p>
+
+<pre style='margin-left:.5in'><span class=SpellE><span class=GramE><span
+style='color:blue'>vsim</span></span></span><span style='color:blue'> -<span
+class=SpellE>sdfmax</span> /=<span class=SpellE>hdl/hg.sdf</span> hg <span
+class=SpellE>def_arch</span></span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Use
+the same <span class=SpellE>hgsim.do</span> command file. This time you will
+get a list window which looks something like that in Figure 3. Notice that
+there are two additional (internal) signals in addition to the primary input
+and output. You can see that <span class=SpellE>abar</span> lags a by 21 ns.
+Examine the <span class=SpellE>netlist</span> and <span class=SpellE>sdf</span>
+files and verify that 21 ns is the correct value. Hint: the values given in the
+SDF file are scaled. </p>
+
+<p style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" alt="Timing Sim list" style='width:237pt;
+ height:240.75pt'>
+ <v:imagedata src="actsyn_files/image003.jpg" o:href="http://www.ece.umr.edu/~hjp/cpe311/fig3.jpg"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=316 height=321
+src="actsyn_files/image003.jpg" alt="Timing Sim list" v:shapes="_x0000_i1027"><![endif]><span
+class=GramE>Figure 3.</span> </p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Summary</h2>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>This
+has been a very brief introduction to logic synthesis and simulation using VHDL
+and the <span class=SpellE>Actel</span> Act 1 FPGA. You should be able to
+follow this procedure to implement your own designs with a reasonable amount of
+success. You will most likely want to learn more about it as you go along. All
+of the tools used have online documentation in the form of PDF files. Use the <span
+class=GramE>Unix</span> 'which' command to find out where the tools are kept
+and look for documentation there ('which designer' for example). The
+documentation most likely will not be in the same directory as the binary
+executable but will be in the same subdirectory tree. The companies that supply
+the software also maintain websites that contain a wealth of information. </p>
+
+</div>
+
+</body>
+
+</html>

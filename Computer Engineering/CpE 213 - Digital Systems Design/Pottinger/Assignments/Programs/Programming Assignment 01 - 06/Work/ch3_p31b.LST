@@ -1,0 +1,47 @@
+A51 MACRO ASSEMBLER  CH3_P31B                                                             02/27/2001 22:05:39 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.10
+OBJECT MODULE PLACED IN .\ch3_p31b.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE .\ch3_p31b.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;********************************************************************;
+                       2     ;                      Chapter 3: Problem 31b                        ;
+                       3     ;                     Create 8 input NAND gate                       ;
+                       4     ;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%;
+                       5     
+----                   6     CSEG AT 0       ;Create code segment at address 0
+                       7     
+0000 020100            8     LJMP START      ;Jump beginning of code
+                       9     
+----                  10     CSEG AT 100H    ;Create code segment at adress 100H
+                      11     
+0100 A890             12     START:  MOV R0,P1               ;Move data on P1 to R0
+                      13     
+0102 B8FF04           14             CJNE R0, #0FFH, NOT_EQ  ;If there are any 0's, then the nand
+0105 C2A7             15             CLR P2.7                ;output will be a 1, otherwise if all
+0107 80F7             16             SJMP START              ;1's, output is 0
+                      17     
+0109 D2A7             18     NOT_EQ: SETB P2.7               ;Set output to 1 since there was at
+010B 80F3             19             SJMP START              ;least one 0
+                      20             END
+A51 MACRO ASSEMBLER  CH3_P31B                                                             02/27/2001 22:05:39 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+NOT_EQ . . . . . .  C ADDR   0109H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

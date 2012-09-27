@@ -1,0 +1,503 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.ece.umr.edu/~hjp/ieee/html/c.html --><HTML><HEAD><TITLE>Software - C code</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<SCRIPT language=JavaScript>
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+</SCRIPT>
+
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<BODY text=#333333 vLink=#000000 aLink=#3366cc link=#3366cc bgColor=#ffffff>
+<TABLE cellSpacing=0 cellPadding=0 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=1 height=29></TD>
+    <TD vAlign=top width=253 height=29></TD>
+    <TD vAlign=top width=470 colSpan=5 height=29><FONT 
+      face="Verdana, Arial, Helvetica, sans-serif" size=-1>Home | <a href="overview.htm">Overview</a> 
+      |<a href="hardware.htm"> 
+      Hardware</a> | Software | <a href="Together.htm">Putting It 
+      Together</a> | Links</FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width=1 height=72></TD>
+    <TD vAlign=top width=253 height=72></TD>
+    <TD vAlign=top width=125 height=72></TD>
+    <TD vAlign=top width=190 height=72></TD>
+    <TD vAlign=top width=21 height=72></TD>
+    <TD vAlign=top width=131 height=72>
+      <P align=right><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+      size=-2>________________<BR>C code<BR><a href="asm.htm">Assembly 
+      code</a><BR><a href="hex.htm">Machine 
+      code</a></FONT></P></TD>
+    <TD vAlign=top width=3 height=72></TD></TR>
+  <TR>
+    <TD vAlign=top width=1 height=31></TD>
+    <TD vAlign=top width=378 colSpan=2 height=31>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size=4>C Code <FONT 
+      size=-1>(explanations are listed in <FONT 
+      color=#006600>green</FONT>)</FONT></FONT><FONT 
+      face="Verdana, Arial, Helvetica, sans-serif" size=-1> </FONT></P></TD>
+    <TD vAlign=top width=190 height=31></TD>
+    <TD vAlign=top width=21 height=31></TD>
+    <TD vAlign=top width=131 height=31></TD>
+    <TD vAlign=top width=3 height=31></TD></TR>
+  <TR>
+    <TD vAlign=top width=569 colSpan=4 height=6397>
+      <P><FONT face="Courier New" size=2># <FONT 
+      face="Courier New, Courier, mono">include 
+      &lt;reg51.h&gt;<BR></FONT></FONT><FONT face="Courier New, Courier, mono" 
+      size=2># include &lt;stdlib.h&gt; </FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=2>The <B>#include</B> statement denotes files (called 'header files') 
+      which contain collection of definitions already provided by C (stdlib.h) 
+      and the microprocessor (reg51.h).</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>/* Constants */ 
+      <BR><BR><B><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+      color=#006600>/*</FONT></B><FONT 
+      face="Verdana, Arial, Helvetica, sans-serif" color=#006600> blah blah blah 
+      <B>*/</B> is a comment. It serves no purpose other than to make the code 
+      easier to read.</FONT><BR></FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2># define O_SANE 
+      0x00<BR></FONT><FONT face="Courier New, Courier, mono" size=2># define 
+      O_LOSE 0x0f<BR></FONT><FONT face="Courier New, Courier, mono" size=2># 
+      define O_WIN 0x01<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2># define I_MASK 0x0f<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2># define N_FLASH 
+      0x04<BR></FONT><FONT face="Courier New, Courier, mono" size=2># define 
+      N_PAUSE 125<BR></FONT><FONT face="Courier New, Courier, mono" size=2># 
+      define MAX_LEVELS 32<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2># define INIT_LEVELS 0x0f<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2># define MAX_DELAY 
+      700<BR></FONT><FONT face="Courier New, Courier, mono" size=2># define 
+      SPEAKER</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2></FONT><FONT 
+      face="Courier New, Courier, mono" size=2># ifdef SPEAKER</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2></FONT><FONT 
+      face="Courier New, Courier, mono" size=2># define SPKR P3<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2># define SPKR_INIT 
+      0x7f<BR></FONT><FONT face="Courier New, Courier, mono" size=2># define 
+      SPKR_BIT 0x80</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>/* Speaker tone periods 
+      */</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2># define PER_01 
+      3000<BR></FONT><FONT face="Courier New, Courier, mono" size=2># define 
+      PER_02 3434<BR></FONT><FONT face="Courier New, Courier, mono" size=2># 
+      define PER_04 3931<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2># define PER_08 4500<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2># define PER_0f 5900</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2># endif</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2># ifndef 
+      RAND_MAX<BR></FONT><FONT face="Courier New, Courier, mono" size=2># define 
+      RAND_MAX 0x7fff<BR></FONT><FONT face="Courier New, Courier, mono" size=2># 
+      endif</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=2>A <B>#define</B>, assigns a phrase to a number that will be used 
+      later in the program. This makes the code more meaningful. For example 
+      timer(MAX_DELAY) makes more sense than timer(700), since 700 could be 
+      anything. These are not variables, since they can't be changed later in 
+      the program. </FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2># Define write(A) P2 = 
+      ~( ( (A) &lt;&lt; 4 ) &amp; 0xf0 )<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2># define read() ( (~P2) &amp; 
+      I_MASK )</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=2>In this case, a <B>#define</B> creates a &#8216;macro&#8217;. Instead of 
+      typing<BR>P2 = ~( ( (A) &lt;&lt; 4 ) &amp; 0xf0 )<BR>every time it was 
+      needed, simply type<BR>write(A). <BR>It's simply a shortcut. </FONT><FONT 
+      face="Courier New, Courier, mono" color=#006600 size=2>&nbsp;</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>/*</FONT><FONT 
+      face="Courier New, Courier, mono" size=2> Function prototypes </FONT><FONT 
+      face="Courier New, Courier, mono" size=2>*/<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>int get_seed( void 
+      );<BR></FONT><FONT face="Courier New, Courier, mono" size=2>char getval( 
+      void );<BR></FONT><FONT face="Courier New, Courier, mono" size=2>void 
+      displ( char );<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>char input( void );<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>void loose( void 
+      );<BR></FONT><FONT face="Courier New, Courier, mono" size=2>char win( char 
+      );<BR></FONT><FONT face="Courier New, Courier, mono" size=2>void delay( 
+      void );<BR></FONT><FONT face="Courier New, Courier, mono" size=2>void 
+      beep( char );</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1><B>Function prototypes</B> give the names of the functions or 
+      sections of the code and the type of input and output of the 
+      function.</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>/*</FONT><FONT 
+      face="Courier New, Courier, mono" size=2> Global vars *</FONT><FONT 
+      face="Courier New, Courier, mono" size=2>/<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>unsigned int delay_t = 
+      MAX_DELAY;<BR></FONT><FONT face="Courier New, Courier, mono" size=2>char 
+      trans[] = { 0 , 8 , 4 , 0 , </FONT><FONT face="Courier New, Courier, mono" 
+      size=2>2 , 0 , 0 , 0 , 1 };</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1><B>Global variables</B> are variables that are used throughout the 
+      program and not just in a particular section or function of the program. 
+      </FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2># ifdef 
+      SPEAKER</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>unsigned char spkr_out = 
+      SPKR_INIT;</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>int period[] = { 0 , 
+      PER_01 , PER_02 , 0 , </FONT><FONT face="Courier New, Courier, mono" 
+      size=2>PER_04, 0 , 0 , 0 ,</FONT><FONT face="Courier New, Courier, mono" 
+      size=2>PER_08, 0 , 0 , 0 , </FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0 , 0, 0 , PER_0f };</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>int 
+      *p_per;<BR></FONT><FONT face="Courier New, Courier, mono" size=2>char 
+      levels=0;</FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>/* </FONT><FONT 
+      face="Courier New, Courier, mono" size=2>Interrupt Handler for Real-Time 
+      Clock </FONT><FONT face="Courier New, Courier, mono" size=2>*/</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>void clk( void ) 
+      interrupt 3 using 1</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;TH1=-(*p_per)&gt;&gt;8;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;TL1=-(*p_per)&amp;0x0ff;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;spkr_out = 
+      spkr_out^SPKR_BIT;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;SPKR = spkr_out;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2># endif</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>/* </FONT><FONT 
+      face="Courier New, Courier, mono" size=2>Power down handler </FONT><FONT 
+      face="Courier New, Courier, mono" size=2>*/<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>unsigned int 
+timeout=0;</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>void pd( void ) 
+      interrupt 1 using 2<BR></FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;EA=0;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;timeout++;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;if(timeout == 
+      833)</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;P2=0xFF;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;PCON |= 
+      0x02;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;TR0=1;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;EA=1;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;ET0=1;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;} </FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1>This is where the program begins when you start the game. The 
+      stuff above is information that will be used in the code below. 
+      <B>Main</B> is always the first function executed in a C 
+      program.</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>void main( void 
+      )</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;char 
+      i,j;<BR>&nbsp;</FONT><FONT face="Courier New, Courier, mono" size=2>char 
+      value;<BR>&nbsp;</FONT><FONT face="Courier New, Courier, mono" size=2>char 
+      pat[MAX_LEVELS];</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1>The above is a list of <B>local variables</B>. These variables 
+      will only be used in the function main. For example, i and j may be used 
+      as variables with a different meaning in other functions. </FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;EA=1; 
+      <BR></FONT><FONT face="Courier New, Courier, mono" size=2>&nbsp;TMOD |= 
+      0x01;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;ET0=1;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;TH0=0x00;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;TL0=0x01;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;TR0=1;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;win(8);</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2><B><FONT 
+      face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1>While(1)</FONT></B><FONT 
+      face="Verdana, Arial, Helvetica, sans-serif" color=#006600 size=-1> is 
+      used in embedded computing (where there is no user interaction like there 
+      is in a PC, for example). When power is given, the software runs 
+      continuously until power is removed. <BR>This would be like turning on 
+      your computer and it opening MS Word and having it run until you shut off 
+      your computer. You couldn&#8217;t run any other program or stop running MS Word. 
+      <BR>Embedded computers are used frequently in automobiles, in which there 
+      is no &#8216;user&#8217;. They are much more stable than a PC. You&#8217;d hate to have to 
+      reboot your car while it was going down the road.</FONT> <B><FONT 
+      color=#006600>:-)</FONT></B></FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>while(1) 
+      <BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;{</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1>Restart is a <B>label</B> that refers to this point in the code. 
+      It can be used later to return here. </FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;restart:</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;srand( 
+      get_seed() );</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;for( 
+      i=0 ; i&lt;levels ; i++ ) {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timeout=0; <BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = getval();<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pat[i] = value;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;displ(0); /* output nothing for a 
+      time */</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for( j=0 ; j&lt;=i ; j++ ) 
+      {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay_t /= 2; /* shorten 
+      the delay time */<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;displ(0); /* display a 
+      blank */<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay_t = MAX_DELAY - 
+      i*40; /* shorten the delay 29 */</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (delay_t 
+      &lt;200)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </FONT><FONT face="Courier New, Courier, mono" size=2>{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay_t=200;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;displ( pat[j] 
+      );<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for( j=0 ; j&lt;=i ; j++ ) 
+      {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( input() != pat[j] ) 
+      {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loose();<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels = 
+      INIT_LEVELS;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto 
+      restart;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;}<BR>&nbsp;&nbsp;&nbsp; 
+      </FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;}<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;levels = 
+      win(levels);</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;}<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;}</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1>The following are the <B>functions</B> used by main. It makes the 
+      code easier to read by separating certain tasks into functions instead of 
+      putting all the code inside the main function. It also allows for reuse. 
+      Every time you wanted to do something, you&#8217;d have to have the insert the 
+      code to do it there. With functions, you just call the function when you 
+      want to perform that task.</FONT> </P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1>These two functions, <B>get_seed</B> and <B>get_val</B> are used 
+      to determine the &#8216;random&#8217; order in which the lights blink.</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>int get_seed( void 
+      )</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;unsigned int 
+      i=1;<BR>&nbsp;</FONT><FONT face="Courier New, Courier, mono" size=2>char 
+      new, old = 0x00, val = 0x00; local variables</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;write( O_SANE 
+      );<BR></FONT><FONT face="Courier New, Courier, mono" size=2>&nbsp;new = 
+      read();</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;while( val == old 
+      ) {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;val = 
+      (old^new)&amp;new;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;new = read();<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;i++;</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;if( i &gt;= 
+      0xfffe ) {<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = 1;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;}<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;switch(new)<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;{</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;case 
+      0x01: levels = 8; break;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;case 0x02: levels = 16; break;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;case 0x04: 
+      levels = 24; break;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;case 0x08: levels = 32; break;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;} </FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;return 
+      i;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>char getval( void 
+      )<BR><BR>&nbsp;</FONT><FONT face="Courier New, Courier, mono" 
+      size=2>{<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;char val;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;val = (char)(1+(int)(4.0*rand()/(RAND_MAX+1.0)));</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;/* Make the value 
+      a power of 2 */<BR><BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;if( val == 3 ) {<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;val = 
+      8;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;}<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;return val;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;}</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1>This <B>input</B> function reads the input from the user. What 
+      buttons are pushed?</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>char input( void 
+      )<BR><BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;{<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;char new, old = 0x00, val = 0x00;<BR><BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;write( O_SANE 
+      );<BR></FONT><FONT face="Courier New, Courier, mono" size=2>&nbsp;new = 
+      read();<BR><BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;while( val == old ) {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;val = 
+      (old^new)&amp;new;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;new = read();<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;val = 
+      trans[val];<BR></FONT>&nbsp;<FONT face="Courier New, Courier, mono" 
+      size=2>displ( val );<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;return val;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;}</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1>The <B>displ </B>function turns on the light and sounds the 
+      speaker when the corresponding button is pushed. </FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>void displ( char val 
+      )</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;write( val 
+      );<BR><BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;#ifdef SPEAKER<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;beep( val 
+      );<BR><BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;#else <BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;delay();<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;#endif</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;write( O_SANE 
+      );<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>void loose( void 
+      )</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;char i;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;delay_t = 
+      MAX_DELAY;</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;for( i=0 ; 
+      i&lt;N_FLASH ; i++ ) {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;displ( 
+      O_LOSE );<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;}<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;}</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=2>If the person wins, then the number of lights the person has to 
+      remember increases to the next level.</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>char win( char levels 
+      )<BR><BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;{<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;char i,j;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;delay_t = MAX_DELAY&gt;&gt;2;</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;for( i=0 ; 
+      i&lt;N_FLASH ; i++ ) {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;for( 
+      j=0 ; j&lt;N_FLASH ; j++ ) {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;displ( O_WIN&lt;&lt;j 
+      );<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;}<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;levels = 
+      (levels&lt;&lt;1)^levels;<BR><BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;if ( levels == MAX_LEVELS ) 
+      {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;for( 
+      i=0 ; i&lt;N_FLASH ; i++ ) {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loose();<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(void) win( 0 );<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;levels = 
+      INIT_LEVELS;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;}</FONT></P>
+      <P>&nbsp;<FONT face="Courier New, Courier, mono" size=2>delay_t = 
+      MAX_DELAY;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;return levels;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;}</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" color=#006600 
+      size=-1>The <B>delay</B> function simply spins in a loop to delay the 
+      program for a given amount of time.</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>void delay( void ) 
+      </FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;unsigned int time = 
+      delay_t;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;char i;</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;while( time-- &gt; 
+      0 ) {<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;for( i=0 ; i&lt;N_PAUSE ; i++ ) ;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;}<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2><BR># ifdef 
+      SPEAKER</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>void beep( char mode 
+      )</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;{<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;p_per = 
+      &amp;period[mode];</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;if( *p_per != 0 ) 
+      {</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;/* 
+      Enable timer */</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;TH1=-(*p_per)&gt;&gt;8;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;TL1=-(*p_per)&amp;0x0ff;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;TR1=1;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" 
+      size=2>&nbsp;&nbsp;&nbsp;ET1=1;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;&nbsp;&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+size=2>&nbsp;delay();</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2>&nbsp;/* Disable timer 
+      */</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;ET1=0;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;TR1=0;<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>&nbsp;SPKR = SPKR_INIT;<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>&nbsp;}</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2># endif</FONT></P>
+      <P><FONT face="Courier New, Courier, mono" size=2></FONT>&nbsp;</P></TD>
+    <TD vAlign=top width=21 height=6397></TD>
+    <TD vAlign=top width=131 height=6397></TD>
+    <TD vAlign=top width=3 height=6397></TD></TR>
+  <TR>
+    <TD vAlign=top width=1 height=1><IMG height=1 
+      src="c_files/transparent.gif" width=1></TD>
+    <TD vAlign=top width=253 height=1><IMG height=1 
+      src="c_files/transparent.gif" width=253></TD>
+    <TD vAlign=top width=125 height=1><IMG height=1 
+      src="c_files/transparent.gif" width=125></TD>
+    <TD vAlign=top width=190 height=1><IMG height=1 
+      src="c_files/transparent.gif" width=190></TD>
+    <TD vAlign=top width=21 height=1><IMG height=1 
+      src="c_files/transparent.gif" width=21></TD>
+    <TD vAlign=top width=131 height=1><IMG height=1 
+      src="c_files/transparent.gif" width=131></TD>
+    <TD vAlign=top width=3 height=1><IMG height=1 
+      src="c_files/transparent.gif" width=3></TD></TR></TBODY></TABLE></BODY></HTML>

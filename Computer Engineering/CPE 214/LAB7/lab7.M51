@@ -1,0 +1,119 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        11/15/2005  00:42:44  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE lab7.obj TO lab7
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  lab7.obj (LAB7)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  lab7 (LAB7)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         ?DT?LAB7
+                    000BH     0015H                  *** GAP ***
+            BIT     0020H.0   0000H.2   UNIT         ?BI?LAB7
+                    0020H.2   0000H.6                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0020H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     002DH     UNIT         ?PR?MAIN?LAB7
+            CODE    082DH     0016H     UNIT         ?PR?SERINT?LAB7
+            CODE    0843H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   lab7 (LAB7)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LAB7
+
+
+
+SYMBOL TABLE OF MODULE:  lab7 (LAB7)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LAB7
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A8H         PUBLIC        IE
+  C:082DH         PUBLIC        serint
+  B:0098H.0       PUBLIC        RI
+BL51 BANKED LINKER/LOCATER V5.03                                                      11/15/2005  00:42:44  PAGE 2
+
+
+  B:0098H.1       PUBLIC        TI
+  B:0020H.0       PUBLIC        newin
+  C:0800H         PUBLIC        main
+  B:0020H.1       PUBLIC        gone
+  D:0008H         PUBLIC        lastinchar
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:008DH         PUBLIC        TH1
+  D:0009H         PUBLIC        incoming
+  D:000AH         PUBLIC        outgoing
+  -------         PROC          SERINT
+  C:082DH         LINE#         12
+  C:082DH         LINE#         13
+  C:0830H         LINE#         14
+  C:0833H         LINE#         15
+  C:0835H         LINE#         16
+  C:0837H         LINE#         17
+  C:083BH         LINE#         18
+  C:083EH         LINE#         19
+  C:0840H         LINE#         20
+  C:0842H         LINE#         21
+  C:0842H         LINE#         22
+  -------         ENDPROC       SERINT
+  -------         PROC          MAIN
+  C:0800H         LINE#         27
+  C:0800H         LINE#         29
+  C:0803H         LINE#         30
+  C:0806H         LINE#         31
+  C:0809H         LINE#         32
+  C:080CH         LINE#         33
+  C:080FH         LINE#         35
+  C:0815H         LINE#         37
+  C:0817H         LINE#         38
+  C:0819H         LINE#         40
+  C:081BH         LINE#         45
+  C:081BH         LINE#         48
+  C:081EH         LINE#         49
+  C:0821H         LINE#         50
+  C:0823H         LINE#         51
+  C:0823H         LINE#         55
+  C:0826H         LINE#         56
+  C:0829H         LINE#         57
+  C:082BH         LINE#         58
+  C:082BH         LINE#         59
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LAB7
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0049H BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=12.2 xdata=0 code=85
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

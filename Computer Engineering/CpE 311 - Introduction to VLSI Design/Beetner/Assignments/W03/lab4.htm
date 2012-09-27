@@ -1,0 +1,567 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.ece.umr.edu/~hjp/cpe311/lab4.html -->
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="lab4_files/filelist.xml">
+<title>Physical level cell design</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="date"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>DrB</o:Author>
+  <o:LastAuthor>DrB</o:LastAuthor>
+  <o:Revision>28</o:Revision>
+  <o:TotalTime>10734</o:TotalTime>
+  <o:LastPrinted>2002-10-31T17:00:00Z</o:LastPrinted>
+  <o:Created>2002-10-30T20:51:00Z</o:Created>
+  <o:LastSaved>2003-04-16T21:51:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>852</o:Words>
+  <o:Characters>4863</o:Characters>
+  <o:Company>UMR</o:Company>
+  <o:Lines>40</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>5704</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h4
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1021277701;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-602790434 1108389416 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:24.0pt;
+	mso-level-number-position:left;
+	margin-left:20.4pt;
+	text-indent:-.2in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:78.0pt;
+	mso-level-number-position:left;
+	margin-left:78.0pt;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+<meta content="Hardy J. Pottinger" name=Author>
+<meta content="CpE311 Fall 2000 Lab Exercise No. 4" name=Description>
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><span class=SpellE>CpE</span> 311 Lab Exercise 4</h1>
+
+<h2>Physical level cell design</h2>
+
+<h4>Due <st1:date Month="4" Day="17" Year="2003">April 17, 2003</st1:date></h4>
+
+<h3>Purpose</h3>
+
+<p class=MsoNormal>The purpose of this exercise is to become familiar with
+physical level cell design using an IC layout editor. Work with your semester
+project group on this assignment (if possible). </p>
+
+<h3>Problem Description</h3>
+
+<p class=MsoNormal>Use the schematic driven layout procedure to develop the
+layout of a complex gate as specified in Lab 3. You may want to work through
+the <a href="http://ge.ee.wustl.edu/dzar/tutorials/adk_sdl/sdl_toc.html">SDL
+tutorial</a> first but that is not a requirement for the lab assignment.&nbsp;
+Develop a transistor level schematic for an OAI21X2 gate similar to your design
+from lab 3 but use the primitives from ADK.&nbsp; Do NOT include the load
+capacitor in your layout or you will end up creating a layout for a cell with a
+very large capacitor included!&nbsp; You add the 1pF load capacitor after
+you&#8217;re done laying out the cell. Create a layout for your cell using the
+schematic driven layout process and the <span class=SpellE>ami</span> 0.5
+micron technology.</p>
+
+<h3>Hints</h3>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:20.4pt;
+margin-bottom:.0001pt;text-indent:-.2in;mso-list:l0 level1 lfo2;tab-stops:list 24.0pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>SDL tutorial, Ch1</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>This
+chapter is mostly just an overview</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:20.4pt;
+margin-bottom:.0001pt;text-indent:-.2in;mso-list:l0 level1 lfo2;tab-stops:list 24.0pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Ch2</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>You
+don&#8217;t have to do the <span class=SpellE>nand</span> gate or inverter
+specified, however you might find it very useful in chapters 6-8 when you start
+doing layout.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>You
+must redo your design in <span class=SpellE>adk_da</span>&#8230; you cannot
+reuse your design done in <span class=SpellE>da</span> (unfortunately).</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Type
+<span class=SpellE>mgc_csh</span>, <span class=SpellE>sul</span>, and <span
+class=SpellE>swd</span>, before starting <span class=SpellE>adk_da</span></p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+1: Name <u>component</u> not the sheet.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+3: Build a custom design.<span style='mso-spacerun:yes'>  </span>Don&#8217;t
+use the pre-defined OAI gate.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+10.<span style='mso-spacerun:yes'>  </span>To change transistor width: Select
+part. Right click.<span style='mso-spacerun:yes'>  </span>From menu select
+properties-modify-width.<span style='mso-spacerun:yes'>  </span>Width and
+length are given in lambda.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+11.<span style='mso-spacerun:yes'>  </span>You may get some warnings about not
+being able to find the size of lambda.<span style='mso-spacerun:yes'> 
+</span>These are probably OK.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:20.4pt;
+margin-bottom:.0001pt;text-indent:-.2in;mso-list:l0 level1 lfo2;tab-stops:list 24.0pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Ch3</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Type
+&#8220;<span class=SpellE>adk_dve</span>&#8221; for instructions on using <span
+class=SpellE>adk_dve</span>. </p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>We
+want to use ami05 (0.5 micron) technology.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:20.4pt;
+margin-bottom:.0001pt;text-indent:-.2in;mso-list:l0 level1 lfo2;tab-stops:list 24.0pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Ch5</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Do
+this chapter too!</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+2. Use: <span class=SpellE>accusim</span><span style='mso-spacerun:yes'> 
+</span>nand2/ami05 &amp;.<span style='mso-spacerun:yes'>  </span>(NOT <span
+class=SpellE>accusim</span> nand2/accusim &amp; !)</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+3.<span style='mso-spacerun:yes'>  </span>Use ami05.mod in the $ADK/technology/<span
+class=SpellE>accusim</span> directory.<span style='mso-spacerun:yes'> 
+</span>You should not have to re-name the transistors to fit the model.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:20.4pt;
+margin-bottom:.0001pt;text-indent:-.2in;mso-list:l0 level1 lfo2;tab-stops:list 24.0pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Ch6</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Section
+3.7 of your textbook has some good layout hints.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>It
+is a good idea to save your work often.<span style='mso-spacerun:yes'> 
+</span>After saving, however, you have to hit file&gt;cell&gt;reserve to
+&#8220;reserve&#8221; the cell and allow you to edit it.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Check
+the design rules often (see step 19).<span style='mso-spacerun:yes'>  </span>To
+view resulting errors, hit checking&gt;first error or checking&gt;next error.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>You
+may &#8220;undo&#8221; using strokes (stroke a question mark &#8220;?&#8221; to
+see the whole set of strokes &#8211; they are different than in DA).</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+6. Strokes are different for <span class=SpellE>IC_station</span> than other
+mentor tools.<span style='mso-spacerun:yes'>  </span>You will have to use
+View-All to zoom out.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+7. The tool is not necessarily good at putting your transistors in the optimal
+place for routing.<span style='mso-spacerun:yes'>  </span>To get them in the
+best spot, you may either have to a) play around with the location of
+transistors in your <span class=SpellE>adk_da</span> schematic or b) route a
+full-custom design (e.g. place every layer yourself).<span
+style='mso-spacerun:yes'>  </span>Getting the &#8220;optimal&#8221; layout
+won&#8217;t be worth more than a couple points. You can decide if its worth
+your time&#8230; I personally would STRONGLY consider making it larger than
+necessary.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+7.<span style='mso-spacerun:yes'>  </span>It might help at this point to read
+through the rest of this chapter before continuing.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+9.<span style='mso-spacerun:yes'>  </span>When designing your OAI gate, you
+will probably also want to show layers M2 and via.<span
+style='mso-spacerun:yes'>  </span>Maybe <span class=SpellE>contact_to_poly</span>
+too.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+10 (or there <span class=SpellE>abouts</span>). M1 and M2 can be connected
+together using a via.<span style='mso-spacerun:yes'>  </span>To place a via,
+use &#8220;Path&#8221; as described in part 10 and choose layer
+&#8220;via&#8221;.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+11.<span style='mso-spacerun:yes'>  </span>You may want to skip down to part 16
+to see how to place contacts before doing this part&#8230; However, note that
+ports are different from contacts!<span style='mso-spacerun:yes'>  </span>The
+design tool already has a port in mind when you hit the place port button.<span
+style='mso-spacerun:yes'>  </span>Make sure you put each port on the correct
+wire (for example, port A on the wire connected to input A) or you will get
+strange errors later.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+12. Note that the ports connect M1 to M2, so your gates (made from poly) must
+be connected to M1.<span style='mso-spacerun:yes'>  </span>You cannot connect
+directly from poly to M2.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:20.4pt;
+margin-bottom:.0001pt;text-indent:-.2in;mso-list:l0 level1 lfo2;tab-stops:list 24.0pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Ch7</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+4: A few &#8220;Different names on net&#8221; are common.<span
+style='mso-spacerun:yes'>  </span>Look for a box saying &#8220;correct&#8221;
+under overall comparison results.<span style='mso-spacerun:yes'>  </span>All
+nets should have the same basic name (e.g. /<span class=GramE>A and</span> A
+are OK).<span style='mso-spacerun:yes'>  </span>A common error is to place the
+ports at the wrong locations (See hint Ch6, Part 11).</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+8: Lumped capacitance should be turned ON.<span style='mso-spacerun:yes'> 
+</span>Coupling capacitance should be turned OFF.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+9: To see the extracted capacitance values, choose Logic&gt;Open from the <span
+class=SpellE>ICextract</span> palette and select the <span class=SpellE>accusim</span>
+viewpoint (for example, $USRLIB/nand2/accusim)</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:20.4pt;
+margin-bottom:.0001pt;text-indent:-.2in;mso-list:l0 level1 lfo2;tab-stops:list 24.0pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Ch8</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Part
+5: I don&#8217;t believe you can do this directly from <span class=SpellE>Accusim</span>
+(If you figure it out, let me know!<span style='mso-spacerun:yes'>  </span>I
+see no change when I change the capacitance values there).<span
+style='mso-spacerun:yes'>  </span>Add the 1pF capacitance to your back
+annotated design in DA and then re-simulate.<span style='mso-spacerun:yes'> 
+</span>Make sure to use the <span class=SpellE>backannotated</span> values.</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:20.4pt;
+margin-bottom:.0001pt;text-indent:-.2in;mso-list:l0 level1 lfo2;tab-stops:list 24.0pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Ch9</p>
+
+<p style='margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:78.0pt;
+margin-bottom:.0001pt;text-indent:-.25in;mso-list:l0 level2 lfo2;tab-stops:
+list 78.0pt'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>You
+do not need to do this, though you may find it informative.</p>
+
+<h3>Report</h3>
+
+<p class=MsoNormal>Submit one report per group please.&nbsp; Your report should
+include a cover page with the title Lab Assignment No. 4, Physical Level Cell
+Design, your names, the date, and CPE311.&nbsp; Include all schematics and
+simulation output from the tutorial if you work through it.&nbsp; Include a
+hardcopy of the OAI21X2 gate schematic, layout, and simulation output.&nbsp;
+Include a brief report describing the size of your cell in microns and the
+propagation delay with a 1pF load. <br>
+Include the LVS report from Chapter 7. Do not use any form of binder or
+protector for your report.&nbsp; Staple in the upper left corner only.&nbsp;
+Your report should not exceed 10 pages, not including schematics and simulation
+results.&nbsp; Include all primary source data (data you enter) but do not include
+any computer generated output other than the hardcopies described above. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

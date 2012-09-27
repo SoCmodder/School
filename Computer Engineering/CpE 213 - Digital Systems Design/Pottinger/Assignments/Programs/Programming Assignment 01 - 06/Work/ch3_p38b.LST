@@ -1,0 +1,42 @@
+A51 MACRO ASSEMBLER  CH3_P38B                                                             02/27/2001 18:57:19 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.10
+OBJECT MODULE PLACED IN .\ch3_p38b.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE .\ch3_p38b.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;********************************************************************;
+                       2     ;***                   Chapter 3: Problem 31c                     ***;
+                       3     ;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%;
+                       4     
+----                   5     CSEG AT 0
+                       6     
+0000 020100            7     LJMP SUB
+                       8     
+----                   9     CSEG AT 100H
+                      10     
+0100 7820             11     SUB:    MOV R0, #20H
+0102 7600             12     LOOP:   MOV @R0, #0
+0104 08               13             INC R0
+0105 B880FA           14             CJNE R0, #80H, LOOP
+0108 22               15             RET
+                      16     
+                      17             END
+A51 MACRO ASSEMBLER  CH3_P38B                                                             02/27/2001 18:57:19 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0102H   A   
+SUB. . . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

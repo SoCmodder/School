@@ -1,0 +1,152 @@
+=========================
+Jesse Lai
+09/03/99
+CP112 - Section J
+Lab I
+=========================
+
+QUESTIONS.
+
+ 1.  How would you find the os_basic web page if the URL was not given to
+     you?
+
+     To find the URL for this 
+
+ 2.  What is the procedure for logging on and off a UNIX workstation?
+
+     LOGGING ON: 
+     There will be a login prompt that looks like the following:
+
+      login:
+
+     You enter your userid here.  You will then be prompted for your password.
+     Enter your password when prompted.
+
+     LOGGING OUT:
+     To logout, you can type either of the following commands:
+
+     logout
+     exit 
+
+ 3.  How do you change your password?
+
+     To change your password, type the following command at the
+     prompt:  passwd
+     You will be asked to enter your current password.  After entering the
+     current password and pressing enter, you will be prompted to enter a
+     new passowrd.  Type in your new passowrd, and press enter.  You will be
+     prompted again to enter the same new password.
+
+ 4.  What "General Purpose Machines" are available at UMR?
+
+     The following are both general purpose Unix machines available at UMR.
+     They are both HP workstations and both run HP-UX.
+
+     saucer.cc.umr.edu
+     rocket.cc.umr.edu
+
+ 5.  What is the full path name to your home directory?
+
+      The full path to my home directory is:  /afs/umr.edu/users/jlai
+
+
+ 6.  How did you determine this path?
+
+      The path to the home directory can be found by typing 'pwd' at the
+      command prompt.
+
+ 7.  What type of paths are there?
+
+     There are three different types of paths:
+
+     * Absolute Paths - These begin with a forward slash (/) and are fully
+       specified from the root.
+
+     * Relative Paths - These never begin with a forward slash or tilde and
+       are relative to the current directory.
+
+     * User Relative Paths - These always begin with a tilde and are relative
+       to the home directory.
+
+ 8.  How do you:
+
+ 9.  Find the current directory?
+
+      To find the current directory type 'pwd' at the command prompt.
+
+10.  Create a directory?
+
+      mkdir <dirname>
+
+11.  Delete a directory?
+   
+      rm -r <dirname>  (if directory has contents)
+
+      or
+
+      rmdir <dirname>  (if empty>
+ 
+12.  Change to another directory?
+
+      cd <dirname>
+
+13.  List the contents of a directory?
+
+      ls <dirname> (If no name is given, current directory is displayed)
+
+14.  Copy files?
+
+      cp <from_file> <to_file>
+   
+      or
+
+      cp <from_file> <dirname>
+
+
+15.  Rename files?
+      
+      mv <old_file> <new_file>
+
+16.  Delete a file?
+      
+      rm <file_name>
+
+*17.  Find out how much disk space do you have?
+
+      fs lq
+
+18.  Find out what is your quota?
+      
+      fs lq
+
+      The quota is given in KB under the heading QUOTA.
+
+
+19.  Find out how much disk space is used?
+
+      fs lq
+
+      The amount of space used is given in KB under the heading USED.
+
+*20.  Find out how much disk space is available?
+
+============================================================================
+
+
+PRINTING:
+
+The command for printing under UNIX is lp.  The following commands are
+also available:
+
+*List available printers:  lpstat or lpstat -t
+*Show default printer:  lpstat -d
+*Print to default printer:  lp filename
+*Print to specific printer:  lp -d printer filename
+
+============================================================================
+
+PRINTER INFORMATION:
+
+Default printer name:
+Name of printer used:
+Available printers:

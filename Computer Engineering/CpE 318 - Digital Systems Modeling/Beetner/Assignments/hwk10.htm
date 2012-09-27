@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (X11; I; SunOS 5.6 sun4u) [Netscape]">
+   <META NAME="Author" CONTENT="Daryl G. Beetner">
+   <TITLE>Homework 10</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000013" LINK="#33CCFF" VLINK="#FF99FF" ALINK="#FF0000">
+<B><FONT COLOR="#FFFF00"><FONT SIZE=+1>Homework 10: Standard packages, Generics, Components, Generate, Guards+blocks, Verilog </FONT></FONT></B>
+
+<ol>
+<li> Several packages like numberic_bit are supplied to you by IEEE 
+and other sources.  Turn in a list of which packages
+are available in the IEEE library
+by running the command "vdir -lib ieee".  Pick 5 of the more
+interesting packages and give a 2 or 3 sentence description of
+what's contained in the package. You will probably have to edit
+the package and take a look inside.  Most of the packages can
+be found in /usr/local/modeltech/vhdl_src.  They may not be in
+the /usr/local/modeltech/vhdl_src/ieee subdirectory.
+</li>
+
+<li> Say we are creating an n-bit adder with bit_vector inputs a and b
+and bit_vector output c.  We would like to leave the size of the
+inputs and outputs unspecified, though they are
+obviously related.  Write an entity declaration that constrains
+a, b, and c to all be the same size.  Show an example of
+an instantiation of the adder entity where a,b, and c each
+contain 8 bits.
+</li>
+
+<li> Create an n-bit multiplexor from simple, 2-input multiplexors.  I
+would like you to go through the following steps in creating the
+multiplexor to give you experience with components and configurations
+and with the generate statement.
+	<ol type=a>
+	<li> Create a 2-input multiplexor component that specifies
+		no generics, 2 std_logic inputs, 1 std_logic output, 1 select
+		line, and nothing else.  </li>
+	<li> Create a behavioral model of your multiplexor using
+		the 2-input multiplexor <i> components </i> and the
+		generate statements.  Use a generic in the multiplexor
+		entity declaration to relate the number of select lines
+		with the number of inputs.  Declare the entity to have
+		a) the generic specifying number of select lines, b) 
+		input lines and select
+		lines of type std_logic_vector, and c) a single output
+		of type std_logic. </li>
+	<li> Create a behavioral model (entity/architecture pair)
+		for a 2-input multiplexor that includes a generic
+		for the delay, Tpd, from a change in input to the change
+		in output, and also includes an enable line (if enable
+		is 0 then output = Z). </li>
+	<li> Provide a configuration for your n-input multiplexor
+		which binds your 2-input multiplexor model to the
+		2-input multiplexor component you used in your n-input
+		model.  For the "last" 2-input multiplexor (the one
+		that supplies the value directly to the output of the
+		n-input multiplexor), make the propagation delay
+		equal to 10 ns.  Make the propagation delay for all
+		the rest equal to 2 ns (We'll assume the propagation
+		delay is long for the last, since it may have to drive
+		several components). </li>
+	<li> Show your model works by writing a short (.vhd) testbench. </li>
+	</ol>
+Turn in a hardcopy for your code and a hardcopy output of your simulation
+results.  Make notes on the simulation results to explain why the results
+are correct.
+
+<li> Question 16.14 from the book.  The transistors are "ON" when
+the signal at the gate is high.  Please use guarded signals within
+a block.
+</li>
+
+<li> (Optional but recommended) The following is a Verilog 
+description of a 4-bit ripple-carry
+adder.  Translate this description into VHDL.  Simulate your results
+to make sure you did it right.
+
+<PRE>
+// **************************
+// Define a 1-bit full adder
+// **************************
+module fulladd(sum,c_out,a,b,c_in);
+
+// I/O port declarations
+output sum, c_out;
+input a, b, c_in;
+
+// Internal nets
+wire s1, c1, c2;
+
+// Calculate sum
+s1 = a^b;
+sum = s1^c_in;
+
+// Calculate carry
+c1 = a&b;
+c2 = s1 & c_in;
+or (c_out, c2, c1);
+
+endmodule
+
+// **************************
+// Define a 4-bit full adder
+// **************************
+module fulladd4(sum, c_out, a, b, c_in);
+
+// I/O port declarations
+output [3:0] sum;
+output c_out;
+input [3:0] a, b;
+input c_in;
+
+// Internal nets
+wire c1, c2, c3;
+
+// Instantiate four 1-bit full adders.
+fulladd fa0(sum[0], c1, a[0], b[0], c_in);
+fulladd fa1(sum[1], c2, a[1], b[1], c_1);
+fulladd fa2(sum[2], c3, a[2], b[2], c_2);
+fulladd fa3(sum[3], c_out, a[3], b[3], c_3);
+
+endmodule
+
+// **************************
+// Define the testbench (top level module)
+// **************************
+module stimulus;
+
+// set up variables
+reg [3:0] A, B;
+reg C_IN;
+wire [3:0] SUM;
+wire C_OUT;
+
+// Instantiate the 4-bit full adder.  Call it FA1_4.
+fulladd4 FA1_4(SUM, C_OUT, A, B, C_IN);
+
+// Create teh stimulus inputs
+initial
+begin
+ A = 4'd0; B = 4'd0; C_IN = 1'b0;
+
+ #5 A = 4'd3; B = 4'd4;
+
+ #5 A = 4'd2; B = 4'd5;
+
+ #5 A = 4'd9; B = 4'd9;
+
+ #5 A = 4'd10; B = 4'd15;
+
+ #5 A = 4'd10; B = 4'd5; C_IN = 1'b1;
+end
+
+endmodule
+
+</PRE>
+</ol>
+
+<BR>
+
+&nbsp;&nbsp;
+<DIV ALIGN=right><TABLE COLS=2 WIDTH="100%" NOSAVE >
+<TR NOSAVE>
+<TD ALIGN=LEFT VALIGN=CENTER NOSAVE><A HREF="../../index.html">Back to Daryl's
+home page</A></TD>
+
+<TD ALIGN=RIGHT VALIGN=CENTER NOSAVE><FONT COLOR="#FFFFFF">Page last modified
+: Monday, 07-May-2001 13:50:10 CDT</FONT></TD>
+</TR>
+</TABLE></DIV>
+&nbsp;&nbsp;
+</BODY>
+</HTML>

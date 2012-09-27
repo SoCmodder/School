@@ -1,0 +1,175 @@
+-- VHDL PROGRAM
+
+-- Entity Declaration
+entity multiplexor is
+	port(	 d0,d1,d2,d3 : in bit;
+		 sel :in bit_vector(1 downto 0);
+		 z : out bit);
+end entity multiplexor;
+
+architecture demo3 of multiplexor is
+
+begin
+  z <= d0 when (sel="00") else
+       d1 when (sel="01") else
+       d2 when (sel="10") else
+       d3;
+
+end architecture demo3;
+
+--The code for testing the above VHDL code is given below
+--the input signals are assigned for all the different combinations
+
+entity test_bench3 is
+end entity test_bench3;	    --entity is empty
+
+architecture test_multiplexor of test_bench3 is
+	signal d0,d1,d2,d3,z : bit;
+	signal sel : bit_vector(1 downto 0);
+begin
+	dut:entity work.multiplexor(demo3)
+	   port map(d0,d1,d2,d3,sel,z);
+	   stimulus: process is
+	   begin
+
+
+
+	sel <="00";
+	d0<='0';d1<='0';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='1';d3<='1';
+	wait for 20 ns;
+
+	sel <="01";
+	d0<='0';d1<='0';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='1';d3<='1';
+	wait for 20 ns;
+
+	sel <="10";
+	d0<='0';d1<='0';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='1';d3<='1';
+	wait for 20 ns;
+
+	sel <="11";
+	d0<='0';d1<='0';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='0';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='1';d3<='0';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='0';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='0';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='0';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='0';d1<='1';d2<='1';d3<='1';
+	wait for 20 ns;
+	d0<='1';d1<='1';d2<='1';d3<='1';
+	wait for 20 ns;
+
+
+end process stimulus;
+end architecture test_multiplexor;

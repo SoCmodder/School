@@ -1,0 +1,93 @@
+C51 COMPILER V6.10  MAIN                                                                   04/22/2001 23:46:05 PAGE 1   
+
+
+C51 COMPILER V6.10, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\main.OBJ
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\BIN\C51.EXE .\main.c DEBUG OBJECTEXTEND CODE
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          
+   3          sbit SQRWV=P1^0;
+   4          bit sigcur, sigprev;
+   5          
+   6          void main(void) {
+   7   1      
+   8   1      
+   9   1      SQRWV=1;
+  10   1      sigcur=SQRWV;
+  11   1      do { sigprev=sigcur; sigcur=SQRWV;}
+  12   1      	while (!(~sigprev&sigcur));
+  13   1      
+  14   1      
+  15   1      /*SQRWV=1;
+  16   1      sigcur=SQRWV;
+  17   1      do { sigprev=sigcur; sigcur=SQRWV;}
+  18   1      	while (~sigcur || sigprev );
+  19   1      */
+  20   1      while(1);
+  21   1      
+  22   1      
+  23   1      /*SQRWV=1;
+  24   1      sigcur=SQRWV;
+  25   1      sigprev=sigcur;
+  26   1      sigcur=SQRWV;
+  27   1      while(!(~sigprev&sigcur))
+  28   1      {
+  29   1      	sigprev=sigcur;
+  30   1      	sigcur=SQRWV;
+  31   1      }*/
+  32   1      
+  33   1      /*char temp1, temp2,temp3, temp4, temp5;
+  34   1      temp1 = (-512)>>8;
+  35   1      temp2 = -(512>>8);
+  36   1      temp3 = 512;
+  37   1      temp4 = -512;
+  38   1      temp5 = 0>>8;
+  39   1      
+  40   1      while(1);*/
+  41   1      
+  42   1      }
+  43          
+C51 COMPILER V6.10  MAIN                                                                   04/22/2001 23:46:05 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 6
+                                           ; SOURCE LINE # 9
+0000 D290              SETB    SQRWV
+                                           ; SOURCE LINE # 10
+0002 A290              MOV     C,SQRWV
+0004 9200        R     MOV     sigcur,C
+0006         ?C0003:
+                                           ; SOURCE LINE # 11
+0006 A200        R     MOV     C,sigcur
+0008 9200        R     MOV     sigprev,C
+000A A290              MOV     C,SQRWV
+000C 9200        R     MOV     sigcur,C
+                                           ; SOURCE LINE # 12
+000E A200        R     MOV     C,sigcur
+0010 B000        R     ANL     C,/sigprev
+0012 50F2              JNC     ?C0003
+0014         ?C0004:
+                                           ; SOURCE LINE # 20
+0014 80FE              SJMP    ?C0004
+             ; FUNCTION main (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

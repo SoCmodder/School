@@ -1,0 +1,368 @@
+(PCB CPE213
+ (description
+  (timeStamp "2001 04 16 19 20 16")
+  (program "CAPTURE.EXE" (Version "9.2.448 CIS - D"))
+  (source "Original data from OrCAD/CAPTURE schematic")
+  (title "Lights Out Schematic")
+  (date "Monday, April 16, 2001")
+  (document "702000-000")
+  (revision "00A")
+  (organization "")
+  (address1 "")
+  (address2 "")
+  (address3 "")
+  (address4 "")
+  (partvaluecombine "{Value}")
+  (pcbfootprintcombine "{PCB Footprint}"))
+ (structure )
+ (placement
+  (component "SW SPST"
+   (place SW5
+    (property 
+     (timestamp 000024D1)
+     ("Source Package" "SW SPST")
+     (Value POWER))))
+  (component 87LPC764/SO_0
+   (place U2
+    (property 
+     (ICA_PARTNUM $$2906429$$P87LPC764BD)
+     (timestamp 000011E8)
+     ("Part Number" "TMP-10")
+     ("Source Package" 87LPC764/SO_0)
+     (ICA_MFR_NAME "PHILIPS SEMICONDUCTOR")
+     (Value 87LPC762BN))))
+  (component LH0070/TO_2
+   (place U1
+    (property 
+     (ICA_PARTNUM $$6994$$LM78M05CH)
+     (timestamp 00002294)
+     ("Part Number" "TMP-11")
+     ("Source Package" LH0070/TO_2)
+     (ICA_MFR_NAME "NATIONAL SEMICONDUCTOR")
+     (Value LM78M05CT))))
+  (component SPEAKER
+   (place LS1
+    (property 
+     (timestamp 00003067)
+     ("Source Package" SPEAKER)
+     (Value SPEAKER))))
+  (component LED
+   (place D1
+    (property 
+     (timestamp 00000028)
+     ("Source Package" LED)
+     (Value Red)))
+   (place D2
+    (property 
+     (timestamp 0000002A)
+     ("Source Package" LED)
+     (Value RED)))
+   (place D3
+    (property 
+     (timestamp 0000002C)
+     ("Source Package" LED)
+     (Value Red)))
+   (place D4
+    (property 
+     (timestamp 0000002E)
+     ("Source Package" LED)
+     (Value Red))))
+  (component "CAPACITOR POL"
+   (place C1
+    (property 
+     (ICA_PARTNUM "$$945035$$ECA-1CM100")
+     (timestamp 00003B2E)
+     ("Part Number" "TMP-11")
+     ("Source Package" "CAPACITOR POL")
+     (ICA_MFR_NAME PANASONIC)
+     (Value 10UF))))
+  (component RESNW_IS_4/SIP
+   (place RN1
+    (property 
+     (ICA_PARTNUM "$$612926$$4308R-102-331")
+     (timestamp 000036C1)
+     ("Part Number" "TMP-10")
+     ("Source Package" RESNW_IS_4/SIP)
+     (ICA_MFR_NAME "BOURNS INC.")
+     (Value 330OHM))))
+  (component "SW PUSHBUTTON-SPST"
+   (place S1
+    (property 
+     (timestamp 00000246)
+     ("Source Package" "SW PUSHBUTTON-SPST")
+     (Value "SW PUSHBUTTON-SPST")))
+   (place S2
+    (property 
+     (timestamp 00001EB1)
+     ("Source Package" "SW PUSHBUTTON-SPST")
+     (Value "SW PUSHBUTTON-SPST")))
+   (place S3
+    (property 
+     (timestamp 00002055)
+     ("Source Package" "SW PUSHBUTTON-SPST")
+     (Value "SW PUSHBUTTON-SPST")))
+   (place S4
+    (property 
+     (timestamp 000020B1)
+     ("Source Package" "SW PUSHBUTTON-SPST")
+     (Value "SW PUSHBUTTON-SPST")))))
+ (library
+  (image SPEAKER
+   (property 
+    (sourcelib C:\\ORCAD\\CAPTURE\\LIBRARY\\DISCRETE.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image RESNW_IS_4/SIP
+   (property 
+    (sourcelib C:\\ORCAD\\CAPTURE\\LIBRARY\\DISCRETE.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname 3)
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname 4)
+     (pintype 4)))
+   (pin 999 5
+    (property 
+     (pinname 5)
+     (pintype 4)))
+   (pin 999 6
+    (property 
+     (pinname 6)
+     (pintype 4)))
+   (pin 999 7
+    (property 
+     (pinname 7)
+     (pintype 4)))
+   (pin 999 8
+    (property 
+     (pinname 8)
+     (pintype 4))))
+  (image LH0070/TO_2
+   (property 
+    (sourcelib "C:\\DOCUMENTS AND SETTINGS\\HESSE\\MY DOCUMENTS\\SCHOOL\\WINTER SEMESTER 2001\\CPE 213\\SEMESTER PROJECT\\MISCELLANOUS\\ORCAD FILES\\CPE213.DSN"))
+   (pin 999 1
+    (property 
+     (pinname IN)
+     (pintype 0)))
+   (pin 999 2
+    (property 
+     (pinname OUT)
+     (pintype 2)))
+   (pin 999 3
+    (property 
+     (pinname GND)
+     (pintype 7))))
+  (image 87LPC764/SO_0
+   (property 
+    (sourcelib "C:\\DOCUMENTS AND SETTINGS\\HESSE\\MY DOCUMENTS\\SCHOOL\\WINTER SEMESTER 2001\\CPE 213\\SEMESTER PROJECT\\MISCELLANOUS\\ORCAD FILES\\CPE213.DSN"))
+   (pin 999 1
+    (property 
+     (pinname P0.0/CMP2)
+     (pintype 1)))
+   (pin 999 5
+    (property 
+     (pinname GND)
+     (pintype 7)))
+   (pin 999 13
+    (property 
+     (pinname P0.7/T1)
+     (pintype 1)))
+   (pin 999 14
+    (property 
+     (pinname P0.6/CMP1)
+     (pintype 1)))
+   (pin 999 15
+    (property 
+     (pinname VDD)
+     (pintype 7)))
+   (pin 999 16
+    (property 
+     (pinname P0.5/CMPREF)
+     (pintype 1)))
+   (pin 999 17
+    (property 
+     (pinname P0.4/CIN1A)
+     (pintype 1)))
+   (pin 999 18
+    (property 
+     (pinname P0.3/CIN1B)
+     (pintype 1)))
+   (pin 999 19
+    (property 
+     (pinname P0.2/CIN2A)
+     (pintype 1)))
+   (pin 999 20
+    (property 
+     (pinname P0.1/CIN2B)
+     (pintype 1)))
+   (pin 999 12
+    (property 
+     (pinname P1.0/TXD)
+     (pintype 1)))
+   (pin 999 11
+    (property 
+     (pinname P1.1/RXD)
+     (pintype 1)))
+   (pin 999 10
+    (property 
+     (pinname P1.2/SCL/T0)
+     (pintype 1)))
+   (pin 999 9
+    (property 
+     (pinname P1.3/SDA/I\\N\\T\\0\\)
+     (pintype 1)))
+   (pin 999 8
+    (property 
+     (pinname P1.4/I\\N\\T\\1\\)
+     (pintype 1)))
+   (pin 999 4
+    (property 
+     (pinname P1.5/R\\S\\T\\)
+     (pintype 1)))
+   (pin 999 3
+    (property 
+     (pinname P1.6)
+     (pintype 1)))
+   (pin 999 2
+    (property 
+     (pinname P1.7)
+     (pintype 1)))
+   (pin 999 6
+    (property 
+     (pinname P2.1/X1)
+     (pintype 1)))
+   (pin 999 7
+    (property 
+     (pinname P2.0/X2/CLKOUT)
+     (pintype 1))))
+  (image "CAPACITOR POL"
+   (property 
+    (sourcelib C:\\ORCAD\\CAPTURE\\LIBRARY\\DISCRETE.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image "SW PUSHBUTTON-SPST"
+   (property 
+    (sourcelib "C:\\PROGRAM FILES\\ORCAD\\CAPTURE\\LIBRARY\\DISCRETE.OLB"))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image LED
+   (property 
+    (sourcelib "C:\\PROGRAM FILES\\ORCAD\\CAPTURE\\LIBRARY\\DISCRETE.OLB"))
+   (pin 999 1
+    (property 
+     (pinname ANODE)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname CATHODE)
+     (pintype 4))))
+  (image "SW SPST"
+   (property 
+    (sourcelib "C:\\PROGRAM FILES\\ORCAD\\CAPTURE\\LIBRARY\\DISCRETE.OLB"))
+   (pin 999 1
+    (property 
+     (pinname COMMON)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname NO)
+     (pintype 4)))))
+ (network
+  (net N06375
+   (pins
+     U2-14 D3-2))
+  (net N05967
+   (pins
+     U2-13 D4-2))
+  (net N06441
+   (pins
+     U2-16 D2-2))
+  (net N06508
+   (pins
+     D1-2 U2-17))
+  (net N07171
+   (pins
+     RN1-4 D3-1))
+  (net N07284
+   (pins
+     RN1-8 D1-1))
+  (net N07202
+   (pins
+     RN1-6 D2-1))
+  (net N07140
+   (pins
+     RN1-2 D4-1))
+  (net N08202
+   (pins
+     U2-18 S4-2))
+  (net N08145
+   (pins
+     U2-19 S3-2))
+  (net N08088
+   (pins
+     U2-20 S2-2))
+  (net N08031
+   (pins
+     U2-1 S1-2))
+  (net N09486
+   (pins
+     C1-1 U1-1 SW5-2))
+  (net 9V
+    (property 
+     (nettype P)
+     (netdir 2))
+   (pins
+     SW5-1))
+  (net VCC
+    (property 
+     (nettype S))
+   (pins
+     RN1-7 RN1-5 RN1-1 LS1-1 RN1-3))
+  (net GND
+    (property 
+     (nettype P)
+     (netdir 2))
+   (pins
+     U2-5))
+  (net N14572
+   (pins
+     U2-2 LS1-2))
+  (net VDD
+    (property 
+     (nettype S))
+   (pins
+     U2-15))
+  (net GND_POWER
+    (property 
+     (nettype S))
+   (pins
+     S1-1 S2-1 S3-1 S4-1 U1-3 C1-2)))
+)

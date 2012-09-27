@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  CH3_P31A                                                             02/27/2001 22:02:06 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.10
+OBJECT MODULE PLACED IN .\ch3_p31a.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE .\ch3_p31a.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;********************************************************************;
+                       2     ;                      Chapter 3: Problem 31A                        ;
+                       3     ;                     Create 3 input NOR gate                        ;
+                       4     ;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%;
+                       5     
+----                   6     CSEG AT 0       ;Create code segment at address 0
+                       7     
+0000 020100            8     LJMP START      ;Jump beginning of code
+                       9     
+----                  10     CSEG AT 100H    ;Create code segment at adress 100H
+                      11     
+0100 A294             12     START:  MOV C, P1.4     ;Or bits 4, 5, 6 of P1
+0102 7295             13             ORL C, P1.5
+0104 7296             14             ORL C, P1.6
+0106 B3               15             CPL C           ;Complement the result
+0107 9297             16             MOV P1.7, C     ;Output the result to P1.7
+0109 80F5             17             SJMP START      ;Loop to beginning
+                      18             END
+A51 MACRO ASSEMBLER  CH3_P31A                                                             02/27/2001 22:02:06 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

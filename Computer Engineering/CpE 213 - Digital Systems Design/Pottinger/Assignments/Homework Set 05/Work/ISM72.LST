@@ -1,0 +1,86 @@
+C51 COMPILER V6.10  ISM72                                                                  03/18/2001 16:30:20 PAGE 1   
+
+
+C51 COMPILER V6.10, COMPILATION OF MODULE ISM72
+OBJECT MODULE PLACED IN .\ISM72.OBJ
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\BIN\C51.EXE .\ISM72.c DEBUG OBJECTEXTEND CODE
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          
+   3          void f1(void){ P2=0x01; }
+   4          void f2(void){ P2=0x02; }
+   5          void f3(void){ P2=0x04; }
+   6          
+   7          void main(void) {
+   8   1      	while(1) {
+   9   2      		switch (P1) {
+  10   3      			case 0: f1(); break;
+  11   3      			case 1: f2(); break;
+  12   3      			default: f3(); break;
+  13   3      		}
+  14   2      	}
+  15   1      }
+C51 COMPILER V6.10  ISM72                                                                  03/18/2001 16:30:20 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION f1 (BEGIN)
+                                           ; SOURCE LINE # 3
+0000 75A001            MOV     P2,#01H
+0003 22                RET     
+             ; FUNCTION f1 (END)
+
+             ; FUNCTION f2 (BEGIN)
+                                           ; SOURCE LINE # 4
+0000 75A002            MOV     P2,#02H
+0003 22                RET     
+             ; FUNCTION f2 (END)
+
+             ; FUNCTION f3 (BEGIN)
+                                           ; SOURCE LINE # 5
+0000 75A004            MOV     P2,#04H
+0003 22                RET     
+             ; FUNCTION f3 (END)
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 7
+0000         ?C0004:
+                                           ; SOURCE LINE # 8
+                                           ; SOURCE LINE # 9
+0000 AF90              MOV     R7,P1
+0002 EF                MOV     A,R7
+0003 14                DEC     A
+0004 6008              JZ      ?C0008
+0006 04                INC     A
+0007 700A              JNZ     ?C0009
+                                           ; SOURCE LINE # 10
+0009         ?C0007:
+0009 120000      R     LCALL   f1
+000C 80F2              SJMP    ?C0004
+                                           ; SOURCE LINE # 11
+000E         ?C0008:
+000E 120000      R     LCALL   f2
+0011 80ED              SJMP    ?C0004
+                                           ; SOURCE LINE # 12
+0013         ?C0009:
+0013 120000      R     LCALL   f3
+0016 80E8              SJMP    ?C0004
+             ; FUNCTION main (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     36    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,85 @@
+A51 MACRO ASSEMBLER  HW5                                                                  10/22/2003 18:48:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.02
+OBJECT MODULE PLACED IN .\hw5.OBJ
+ASSEMBLER INVOKED BY: C:\program files\Keil\C51\BIN\A51.EXE .\hw5.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     xseg at 14A0H
+14A0                   2     myseg: DS 1
+                       3     
+----                   4     xseg at 5280H
+5280                   5     theseg: DS 1
+                       6     
+                       7     mydata segment data
+----                   8             rseg mydata
+0000                   9     mystack: DS 42
+002A                  10     mybyte: DS 1
+                      11     
+                      12     mycode segment code
+----                  13             rseg mycode
+0000 759000           14             mov p1, #00H
+0003 9014A0           15             mov dptr, #14A0H
+0006 7442             16             mov a, #42h
+0008 F0               17             movx @dptr, A
+0009 D2D4             18             setb psw.4
+000B D2D3             19             setb psw.3
+000D 7C42             20             mov R4, #42h
+000F C2D4             21             clr psw.4
+0011 7E2A             22             mov R6, #2AH
+0013 75130D           23             mov 13H, #13
+0016 750075           24             mov 00H, #01110101B
+0019 758100   F       25             mov SP, #mystack
+001C 750012   F       26             mov mybyte, #12H
+001F C082             27             push DPL
+0021 C083             28             push DPH
+0023 D082             29             pop DPL
+0025 D083             30             pop DPH
+0027 309202           31             jnb p1.2, next
+002A 7442             32             mov A, #42H
+002C 209206           33     next:   JB p1.2, NEXT2
+002F E590             34             mov A, P1
+0031 905280           35             mov dptr, #5280h
+0034 F0               36             movx @dptr, A
+0035 E590             37     NEXT2:  mov A, P1
+0037 5404             38             Anl A, #00000100B
+0039 6002             39             JZ next1
+003B 7442             40             mov A, #42H
+003D 7007             41     next1:  jnz NEXT3
+003F 905280           42             mov dptr, #5280h
+0042 7442             43             mov A, #42H
+0044 F0               44             movx @dptr, A
+0045 E4               45             CLR A
+0046                  46     NEXT3:
+                      47             END;
+A51 MACRO ASSEMBLER  HW5                                                                  10/22/2003 18:48:50 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+MYBYTE . . . . . .  D ADDR   002AH   R   SEG=MYDATA
+MYCODE . . . . . .  C SEG    0046H       REL=UNIT
+MYDATA . . . . . .  D SEG    002BH       REL=UNIT
+MYSEG. . . . . . .  X ADDR   14A0H   A   
+MYSTACK. . . . . .  D ADDR   0000H   R   SEG=MYDATA
+NEXT . . . . . . .  C ADDR   002CH   R   SEG=MYCODE
+NEXT1. . . . . . .  C ADDR   003DH   R   SEG=MYCODE
+NEXT2. . . . . . .  C ADDR   0035H   R   SEG=MYCODE
+NEXT3. . . . . . .  C ADDR   0046H   R   SEG=MYCODE
+P1 . . . . . . . .  D ADDR   0090H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+THESEG . . . . . .  X ADDR   5280H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

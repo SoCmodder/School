@@ -1,0 +1,152 @@
+
+                Xilinx Mapping Report File for Design "lab10b"
+          Copyright (c) 1995-1998 Xilinx, Inc.  All rights reserved.
+
+Design Information
+------------------
+Command Line   : /usr/local/xilinx.15i/bin/sol/map -p xc4005e-1-pc84 -o map.ncd
+lab10b.ngd lab10b.pcf 
+Target Device  : x4005e
+Target Package : pc84
+Target Speed   : -1
+Mapper Version : xc4000e -- M1.5.25
+Mapped Date    : Fri Nov 12 15:29:52 1999
+
+Design Summary
+--------------
+   Number of errors:        0
+   Number of warnings:      1
+   Number of CLBs:              3 out of   196    1%
+      CLB Flip Flops:       4
+      4 input LUTs:         4
+      3 input LUTs:         2
+   Number of bonded IOBs:      13 out of    61   21%
+      IOB Flops:            0
+      IOB Latches:          0
+Total equivalent gate count for design: 57
+Additional JTAG gate count for IOBs:    624
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Design Attributes
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - Added Logic
+Section 7 - Expanded Logic
+Section 8 - Signal Cross-Reference
+Section 9 - Symbol Cross-Reference
+Section 10 - IOB Properties
+Section 11 - RPMs
+Section 12 - Guide Report
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:baste:24 - All of the external outputs in this design are using
+   slew-rate-limited output drivers.  The delay on speed critical outputs can be
+   dramatically reduced by designating them as fast outputs in the original
+   design.  Please see your vendor interface documentation for specific
+   information on how to do this within your design-entry tool.
+   Note: You should be careful not to designate too many outputs which switch
+   together as fast, because this can cause excessive ground bounce.  For more
+   information on this subject, please refer to the IOB switching characteristic
+   guidelines for the device you are using in the Programmable Logic Data Book.
+
+Section 3 - Design Attributes
+-----------------------------
+ Attribute LOC
+   "P6" for signal(s) REG_3 on symbol "schematic/REG_3"
+   "P5" for signal(s) REG_2 on symbol "schematic/REG_2"
+   "P4" for signal(s) REG_1 on symbol "schematic/REG_1"
+   "P3" for signal(s) REG_0 on symbol "schematic/REG_0"
+   "P10" for signal(s) INCR_3 on symbol "schematic/INCR_3"
+   "P9" for signal(s) INCR_2 on symbol "schematic/INCR_2"
+   "P8" for signal(s) INCR_1 on symbol "schematic/INCR_1"
+   "P7" for signal(s) INCR_0 on symbol "schematic/INCR_0"
+   "P69" on symbol "schematic/COUNT_3"
+   "P68" on symbol "schematic/COUNT_2"
+   "P67" on symbol "schematic/COUNT_1"
+   "P66" on symbol "schematic/COUNT_0"
+   "P62" on symbol "schematic/CLK_IN"
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   3 block(s) removed
+  10 block(s) optimized away
+   3 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "N$15" is loadless and has been removed.
+ Loadless block "I$4/I$212" (nand2) removed.
+  The signal "I$4/N$211" is loadless and has been removed.
+   Loadless block "I$4/I$216" (nand2) removed.
+  The signal "I$4/N$214" is loadless and has been removed.
+   Loadless block "I$4/I$215" (nand2) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+gnd 		I$227/I$1
+vcc 		I$227/I$3
+gnd 		I$228/I$1
+vcc 		I$228/I$3
+gnd 		I$229/I$1
+vcc 		I$229/I$3
+gnd 		I$230/I$1
+vcc 		I$230/I$3
+gnd 		I$276
+nand2 		I$1/I$216
+
+To enable printing of redundant blocks removed and signals merged, set the
+environment variable MAP_REPORT_DETAIL to TRUE and rerun map.
+
+Section 6 - Added Logic
+-----------------------
+
+Section 7 - Expanded Logic
+--------------------------
+To enable this section, set the environment variable MAP_REPORT_DETAIL to TRUE
+and rerun MAP.
+
+Section 8 - Signal Cross-Reference
+----------------------------------
+To enable this section, set the environment variable MAP_REPORT_DETAIL to TRUE
+and rerun MAP.
+
+Section 9 - Symbol Cross-Reference
+----------------------------------
+To enable this section, set the environment variable MAP_REPORT_DETAIL to TRUE
+and rerun MAP.
+
+Section 10 - IOB Properties
+---------------------------
+INCR_0 (IOB) : SLEW=SLOW
+INCR_1 (IOB) : SLEW=SLOW
+INCR_2 (IOB) : SLEW=SLOW
+INCR_3 (IOB) : SLEW=SLOW
+REG_0 (IOB) : SLEW=SLOW
+REG_1 (IOB) : SLEW=SLOW
+REG_2 (IOB) : SLEW=SLOW
+REG_3 (IOB) : SLEW=SLOW
+
+Section 11 - RPMs
+-----------------
+
+Section 12 - Guide Report
+-------------------------
+Guide not run on this design.

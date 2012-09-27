@@ -1,0 +1,30 @@
+A51 MACRO ASSEMBLER  PROB_4                                                               04/05/2001 16:13:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.10
+OBJECT MODULE PLACED IN .\prob_4.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE .\prob_4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;ORG 8100H
+0000 D290              2     LOOP:   SETB P1.0
+0002 C290              3             CLR P1.0
+0004 80FA              4             SJMP LOOP
+                       5     END
+A51 MACRO ASSEMBLER  PROB_4                                                               04/05/2001 16:13:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

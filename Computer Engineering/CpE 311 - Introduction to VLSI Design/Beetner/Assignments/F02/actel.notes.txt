@@ -1,0 +1,189 @@
+8/27/01
+Notes on the use of Actel FPGAs in the Mentor design environment.
+
+H. Pottinger (with some small changes by D. Beetner)
+*******************
+
+Design Environment
+
+Actel Designer software runs on both PC's and Sun workstations.  We
+have it installed on the Suns in the EECLC.  The environment has
+already been set up for you but in case their are problems,
+the software is currently located in /usr/local/actel2.  Check the
+ALSDIR variable in case the location changes.
+
+Relevant Environment variables:
+
+ALSIDR -     path to the Designer series software
+MGC_HOME -   path to Mentor software
+PATH -       executable directories. Aka search path.
+AMPLE_PATH - directories of Mentor ample code.  Customizes mentor
+             apps.
+MGC_LOCATION_MAP - location of list of 'soft prefixes' like USERLIB.
+MGC_WD     - current working directory for Mentor apps.
+
+---------------------------------------------------------------------
+Actel Design Flow (Schematic Capture)
+
+1. Use only the 40MX library.  We only have 40MX02 parts.
+   Invoke da after setting ALSDIR, AMPLE_PATH, and MGC_WD (using
+   sul and swd).  The actel libraries are under the main 
+   library menu.  Check and save the sheet(s) as usual.
+2. Perform a functional simulation on your design.
+   You will need to create a design viewpoint to define the
+   als_technology parameter.  This is done with the script:
+
+      presimvpt fam:40mx <design_name>   (or fam:act1)
+
+   Where <design_name> is your design's filename.  Don't include the
+   angle brackets!
+   Invoke Quicksim as usual (e.g. quicksim <design_name>).  
+   At this stage you can only do a unit delay (functional) simulation.
+3. Create an EDIF netlist
+
+   Before using place and route you'll need to create an EDIF netlist.
+   Do this with the command:
+
+      mgc2edn fam:40mx <design>   (or fam:act1)
+
+4. Use Designer to complete the design (place and route)
+
+   Invoke the software with the command:  designer.
+   See the designer series development system user's guide for
+   information on how to run the software.  See the text in the
+   following section (Brief outline of actel place and route 
+   procedure) below for a brief outline of the procedure.
+
+   The manuals for the actel software are in /usr/local/actel2/doc (and
+   doc2) on the
+   workstations in EE.  They are all in Adobe Acrobat format (*.pdf)
+   which can be read with acroread on the suns or a free adobe acrobat
+   reader for windows.  Readers are installed on both suns and the PCs at
+   UMR.  The file 'manuals.pdf' has a list of the manuals.  designer.pdf
+   is the Designer Series Development System User's Guide.  This is shown
+   as 5029073-1 in the index (manuals.pdf).  The file is only about 1.1Mb
+   so will fit on a diskette if you want to make a copy and take it home
+   with you to read.  DO NOT attempt to print this out on any of the EE
+   department printers!  The Mentor design flow documentation is in
+   mentor.pdf.
+
+5. Check the timing of the design by backannotating the delays to
+   perform a timing simulation with Quicksim.
+   
+   The command:
+
+   del2mgc <design>
+
+   adds the delay information as a backannotation object in the
+   design's default viewpoint.  You can view the delays in da but
+   you'll have to view the sheet through the design viewpoint which has
+   the backannotation data.  Do this with the tool 'set viewpoint' in
+   da's session palette.  Use the navigator to browse to the design's
+   default viewpoint (or other viewpoint if you gave it a name).  The
+   backannotated delay data will be shown in red.
+
+   Invoke quicksim with the command:
+     quicksim <design> -tim max
+   or use 'min' or 'typ' for minimum or typical delays.
+
+6. Program the part with the Activator 2/s programmer.
+
+   Keep in mind that Actel parts are one time programmable!  You can't
+   undo this step.
+
+
+Most actel parts are in their library.  Actel uses Mentor's generic
+library for portin, portout, offpag.in, offpag.out, netcon, and bus
+rippers.
+
+Put all I/O ports on the top level sheet of a hierarchical schematic.
+Add a portin from the generic library to INBUFs and a portout to
+OUTBUFs.  Pin numbers may be assigned with either the ALSPIN property
+or by using Pin Edit in the Designer software. If not assigned, the
+place and route software will assign them.  This is the preferred
+technique.  You should not add pins for power ground or any
+'special' pins like pra.
+
+
+Do not use forward or backward slashes or spaces in net names.  Do not
+use asterisk.  Use only alphanumeric and underscore characters.
+
+Don't use dmgr.  Invoke mentor tools from the command line.  Actel
+userware for dmgr is buggy.
+
+--------------------------------------------------------------------
+Brief outline of actel place and route proceedure:
+
+1) Make an EDIF netlist from your schematic with the command:
+   mgc2edn fam:40mx design_name
+
+2) Invoke actel's designer program with the command:
+   designer
+
+3) Designer is an interactive program.  When it starts, click on the
+   'compile' button.  The dialog will prompt for an EDIF netlist.
+   Specify the filename.  Specify MGC as the Edif flavor.
+   The next dialog will prompt for a device type.  Specify 40MX family, 
+   A40MX02 Die, and select the 44 PLCC package.  The next
+   dialog prompts for operating conditions.  Accept the default.  After
+   compile is complete a report showing the number of logic modules and
+   I/O modules used is displayed.  These are good metrics for your design
+   so make a note of them.  At this point you have the option of using
+   PinEdit to change/assign I/O pins, several analysis tools, timing
+   extraction, or fuse file generation.  Click on Fuse and accept all
+   defaults to generate a fuse file for programming.  Click on Extract
+   and accept the defaults to generate a timing file for backannotation
+   prior to running a timing simulation.  Be sure to print a pin report
+   (using the reports>pins file option) so you'll know where the I/O pins are.
+
+
+-----------------------------------------------------------------
+Timing simulation notes
+
+
+1) Use leonardo to synthesize your design.  This process takes your vhdl
+file(s), analyzes (compiles) it, and translates it to a netlist.  You
+will need to produce an edif netlist for designer to read.
+2) Use 'designer' to place and route your act 1 designs.
+To prepare for a timing simulation, click on extract and follow the
+prompt dialogs.   
+Specify the name of your edif file created by
+leonardo.  Specify VHDL naming convention so the SDF and VHDL names
+will line up.
+Specify 40mx02 technology and use a 1010b in a 44 pin plcc
+package.  (or act1)
+After place and route are completed, use the File>Export
+command to export a vhdl netlist and sdf 2.1 timing file.  BE SURE TO
+CHANGE THE NAME OF YOUR VHDL NETLIST OR IT WILL OVERWRITE THE ORIGINAL
+FILE!
+
+3) To compile the vhdl netlist, you will need to define the 40MX library
+if it isn't already mapped.  Check first with the command 'vmap' to
+see if the 40MX library is listed.  If not, then type the command:
+
+  vmap a40mx /usr/local/actel2/lib/vtl/95/qhdl/a40mx
+
+This will create a new copy of quickhdl.ini in your working directory.
+Compile the netlist with the command:
+  vcom file.vhd
+
+4) Invoke vsim with the command:
+  vsim -sdfmax /=sdffile.sdf entity arch
+where sdffile.sdf is the name of your sdf file created by designer.
+entity and arch are the entity and architecture pair you wish to
+simulate.  The standard name of the architecture used by designer
+is def_arch.  It will use your same entity name.  Designer seems to
+always use std_logic signal types.  If you use bit types in your
+entity, the entity created by designer won't match yours.  This is not
+a real problem but you need to be aware of it.  If you are
+instantiating your design in a testbench, make sure that your entity
+and the one created by designer are the same or you'll need to make
+changes to your testbench.  If you are using a testbench and your
+design is instantiated as a component in the testbench, you will need
+to modify the vsim command slightly in order to annotate the
+component.  The '/' refers to the root (parent) model so, assuming
+your design is instantiated as 'u1' in the root, the command would be
+'/u1=sdffile.sdf'.  See the Model Technology User's manual Appendix D
+for more information on using vsim with SDF.
+
+

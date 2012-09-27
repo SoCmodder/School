@@ -1,0 +1,40 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.a*; *.src)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt)
+ pExt (*.plm)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (Target 1), 0x0000 // Tools: 'MCS-51'
+GRPOPT 1,(Source Group 1),1,0,0
+
+OPTFFF 1,1,2,0,0,1,25,0,<.\hw5.a51><hw5.a51> { 44,0,0,0,2,0,0,0,3,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,0,0,0,0,0,0,0,0,212,2,0,0,65,1,0,0 }
+
+
+TARGOPT 1, (Target 1)
+ CLK51=12000000
+  OPTTT 0,1,1,0
+  OPTHX 0,65535,0,0,0
+  OPTLX 120,65,8,<.\>
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTBL 0,(Add on databooks)<DATASHTS\ADDBOOKS.PDF>
+  OPTBL 1,(MCS 51 Instruction Set)<DATASHTS\INTEL\ISM51.PDF>
+  OPTDL (S8051.DLL)()(DP51.DLL)(-p51)(S8051.DLL)()(TP51.DLL)(-p51)
+  OPTDBG 509,0,()()()()()()()()()() ()()()()
+  OPTBB 0,0,25,1,-16777191,0,0,0,0,1,<hw5.a51>()()
+  OPTWA 0,1,(A)
+  OPTWA 1,1,(R0)
+  OPTWA 2,1,(mystack)
+  OPTWA 3,1,(sp)
+  OPTMM 1,0,(x:14A0h)
+  OPTDF 0x84
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

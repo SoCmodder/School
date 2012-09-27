@@ -1,0 +1,112 @@
+C51 COMPILER V6.10  MAIN_REST_MATH                                                         03/26/2001 17:59:02 PAGE 1   
+
+
+C51 COMPILER V6.10, COMPILATION OF MODULE MAIN_REST_MATH
+OBJECT MODULE PLACED IN .\main_rest_math.OBJ
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\BIN\C51.EXE .\main_rest_math.c DEBUG OBJECTEXTEND CODE
+
+stmt level    source
+
+   1          /********************************************************************/
+   2          /*					  Programming Assignment 8						*/
+   3          /* 				Direct Calculation - Restricted Input				*/
+   4          /*																	*/
+   5          /* This program calculates the tangent of an angle input on P1 and  */
+   6          /* outputs the result on P2.  The input angle is limited from -45   */
+   7          /* to 45 degrees.  The input 0x00 corresponds to -45 degrees and    */
+   8          /* 0xFF corresponds to 45 degrees.  The output of tangent in this   */
+   9          /* range is -1 to 1.  The output 0x00 corresponds to -1 and 0xFF    */
+  10          /* corresponds to 1.												*/
+  11          /********************************************************************/
+  12          
+  13          
+  14          #include <reg51.h>	//Include register definitions
+  15          #include <math.h>	//Include math libraries
+  16          
+  17          /* Global Definitions */
+  18          #define DEG2RAD 3.14159265358979/180.
+  19          #define HEX2DEG 90/255.
+  20          
+  21          void main(void) {
+  22   1      	while(1) {
+  23   2      		P2=(unsigned char)((float) (127.5*(1.0 + tan((P1*HEX2DEG-45.0)*DEG2RAD))));
+  24   2      	}
+  25   1      }
+  26          
+C51 COMPILER V6.10  MAIN_REST_MATH                                                         03/26/2001 17:59:02 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 21
+0000         ?C0001:
+                                           ; SOURCE LINE # 22
+                                           ; SOURCE LINE # 23
+0000 AF90              MOV     R7,P1
+0002 7E00              MOV     R6,#00H
+0004 7C00              MOV     R4,#00H
+0006 7D5A              MOV     R5,#05AH
+0008 120000      E     LCALL   ?C?IMUL
+000B AC06              MOV     R4,AR6
+000D AD07              MOV     R5,AR7
+000F E4                CLR     A
+0010 120000      E     LCALL   ?C?FCASTI
+0013 E4                CLR     A
+0014 FB                MOV     R3,A
+0015 FA                MOV     R2,A
+0016 797F              MOV     R1,#07FH
+0018 7843              MOV     R0,#043H
+001A 120000      E     LCALL   ?C?FPDIV
+001D E4                CLR     A
+001E FB                MOV     R3,A
+001F FA                MOV     R2,A
+0020 7934              MOV     R1,#034H
+0022 78C2              MOV     R0,#0C2H
+0024 120000      E     LCALL   ?C?FPADD
+0027 7BDB              MOV     R3,#0DBH
+0029 7A0F              MOV     R2,#0FH
+002B 7949              MOV     R1,#049H
+002D 7840              MOV     R0,#040H
+002F 120000      E     LCALL   ?C?FPMUL
+0032 E4                CLR     A
+0033 FB                MOV     R3,A
+0034 FA                MOV     R2,A
+0035 7934              MOV     R1,#034H
+0037 7843              MOV     R0,#043H
+0039 120000      E     LCALL   ?C?FPDIV
+003C 120000      E     LCALL   _tan
+003F E4                CLR     A
+0040 FB                MOV     R3,A
+0041 FA                MOV     R2,A
+0042 7980              MOV     R1,#080H
+0044 783F              MOV     R0,#03FH
+0046 120000      E     LCALL   ?C?FPADD
+0049 E4                CLR     A
+004A FB                MOV     R3,A
+004B FA                MOV     R2,A
+004C 79FF              MOV     R1,#0FFH
+004E 7842              MOV     R0,#042H
+0050 120000      E     LCALL   ?C?FPMUL
+0053 120000      E     LCALL   ?C?CASTF
+0056 8FA0              MOV     P2,R7
+                                           ; SOURCE LINE # 24
+0058 80A6              SJMP    ?C0001
+             ; FUNCTION main (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V6.10  MAIN_REST_MATH                                                         03/26/2001 17:59:02 PAGE 3   
+
+   CODE SIZE        =     90    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

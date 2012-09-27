@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (X11; I; SunOS 5.6 sun4u) [Netscape]">
+   <META NAME="Author" CONTENT="Daryl G. Beetner">
+   <TITLE>Homework 9</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000013" LINK="#33CCFF" VLINK="#FF99FF" ALINK="#FF0000">
+<B><FONT COLOR="#FFFF00"><FONT SIZE=+1>Homework 9: Files, Resolved Signals, and Aliases</FONT></FONT></B>
+
+<ol>
+<li> Problem 18.9 from the book.
+</li>
+<li> Write a short (.vhd) testbench for the MUX on page 115 of your book.  The
+code for the MUX is available either 
+<a href=http://www.ashenden.com.au/designers-guide/source-msdos/ch_05/fg_05_06.vhd> 
+here for MS-DOS</a> or 
+<a href=http://www.ashenden.com.au/designers-guide/source-unix/ch_05/fg_05_06.vhd> 
+here for Unix</a>.   The signal, time, and value of all stimuli should
+be saved in a separate textfile, similar to the example on page 517.
+Your testbench should read and execute these stimuli appropriately.
+Your testbench should thoroughly test the MUX.
+Turn in a hardcopy of your testbench (both the .vhd and text file)
+and your simulation results.
+(If you didn't already have so much to do, I would also ask you to
+code the expected responses into another text file.  This is a good
+way to automate the testing of your code.  On large projects you want
+to automate as much of testing as possible.  However, you already have
+lots of work, so don't worry about doing this part).
+</li>
+<li> Create a resolved subtype of the enumerated type, 
+<i> type blah is (a,b,c,d); </i>, where if there are multiple drivers
+on a wire, the value that comes first in the alphabet "wins" and is
+placed on the wire.  For example, if there are four drivers driving
+b, c, c, d, respectively, then the wire will take on the value b because
+that value comes first in the alphabet.  Create a short (.vhd) 
+testbench to test your resolved type.  Turn in the code for your
+type, your testbench, and, if appropriate, an explanation of why your
+testbench shows that your code works.
+</li>
+<li> Say we want to create a simple model of a driver.  The driver can
+drive 2 different levels: 0 V or 5 V.  When driving 0 V, the driver
+can be modeled as a 500 ohm resistor to ground.  When driving 5 V, the
+driver can be modeled as a 1k ohm resistor to 5 V.  Create a resolved 
+type that calculates the "actual" voltage on a wire when several drivers
+are driving it at the same time.  Create a short (.vhd) testbench to
+test your resolved type.  Turn in the code for your
+type, your testbench, and, if appropriate, an explanation of why your
+testbench shows that your code works.
+</li>
+<li> Problem 9.4 from the book.
+</li>
+
+</ol>
+
+<BR>
+
+&nbsp;&nbsp;
+<DIV ALIGN=right><TABLE COLS=2 WIDTH="100%" NOSAVE >
+<TR NOSAVE>
+<TD ALIGN=LEFT VALIGN=CENTER NOSAVE><A HREF="../../index.html">Back to Daryl's
+home page</A></TD>
+
+<TD ALIGN=RIGHT VALIGN=CENTER NOSAVE><FONT COLOR="#FFFFFF">Page last modified
+: Tuesday, 17-Apr-2001 11:56:32 CDT</FONT></TD>
+</TR>
+</TABLE></DIV>
+&nbsp;&nbsp;
+</BODY>
+</HTML>

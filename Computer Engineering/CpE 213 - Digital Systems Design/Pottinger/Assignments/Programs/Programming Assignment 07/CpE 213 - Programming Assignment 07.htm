@@ -1,0 +1,59 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="H. Pottinger">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win95; U) [Netscape]">
+   <title>hw5</title>
+</head>
+<body>
+
+<h1>
+Program Assignment #7</h1>
+
+<h2>
+Logic Programming with the 8051 in C</h2>
+
+<h3>
+Due 3/23/2001 (10 points)</h3>
+We would like to construct a controller for a small DC motor. We have three
+single pole single throw (SPST) switches called A, B, and C. The motor
+is to be on when switch A is on or when switches B and C are different.
+We will connect switches A, B, and C to the 8051's Port 1 bits 0, 1, and
+2, and the motor drive to Port 1 bit 3. Assume that the motor drive circuit
+is active high (a '1' on P1.3 turns the motor on). We are not interested
+in the specific details of the motor drive circuit here. It only provides
+current buffering and isolation between the microcontroller and the inductive
+load of the motor.
+<ol>
+<li>
+Draw a schematic diagram for your controller similar to those in the text.</li>
+
+<li>
+Write a logic expression for the controller: Motor_on = f(A,B,C).</li>
+
+<li>
+Write a complete C program for the 8051 which will implement your logic
+expression.</li>
+
+<li>
+Use uVision to enter and compile your program. Produce an assembly language
+listing file.</li>
+
+<li>
+Use dScope to run and test your program.</li>
+
+<li>
+Assuming a 12 Mhz clock, what is the worse case propagation delay from
+an input transition to an output transition? (Calculate this value and
+verify by measuring it with dScope. Write a brief paragraph describing
+your procedure.)</li>
+
+<li>
+What is the size of your code in bytes (including any data)? What is the
+size of the executable program (in bytes including any data)? Explain any
+differences.</li>
+</ol>
+
+</body>
+</html>

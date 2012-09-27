@@ -1,0 +1,91 @@
+BL51 BANKED LINKER/LOCATER V4.02                                                        10/22/2003  18:48:50  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V4.02, INVOKED BY:
+C:\PROGRAM FILES\KEIL\C51\BIN\BL51.EXE hw5.obj TO HW5
+
+
+INPUT MODULES INCLUDED:
+  hw5.obj (HW5)
+
+
+LINK MAP OF MODULE:  HW5 (HW5)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     002BH     UNIT         MYDATA
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+                    0000H     14A0H                  *** GAP ***
+            XDATA   14A0H     0001H     ABSOLUTE     
+                    14A1H     3DDFH                  *** GAP ***
+            XDATA   5280H     0001H     ABSOLUTE     
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0046H     UNIT         MYCODE
+
+
+
+SYMBOL TABLE OF MODULE:  HW5 (HW5)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        HW5
+  D:0008H         SEGMENT       MYDATA
+  C:0000H         SEGMENT       MYCODE
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  D:0032H         SYMBOL        MYBYTE
+  X:14A0H         SYMBOL        MYSEG
+  D:0008H         SYMBOL        MYSTACK
+  C:002CH         SYMBOL        NEXT
+  C:003DH         SYMBOL        NEXT1
+  C:0035H         SYMBOL        NEXT2
+  C:0046H         SYMBOL        NEXT3
+  D:0090H         SYMBOL        P1
+  D:00D0H         SYMBOL        PSW
+  D:0081H         SYMBOL        SP
+  X:5280H         SYMBOL        THESEG
+  C:0000H         LINE#         14
+  C:0003H         LINE#         15
+  C:0006H         LINE#         16
+  C:0008H         LINE#         17
+  C:0009H         LINE#         18
+  C:000BH         LINE#         19
+  C:000DH         LINE#         20
+  C:000FH         LINE#         21
+BL51 BANKED LINKER/LOCATER V4.02                                                      10/22/2003  18:48:50  PAGE 2
+
+
+  C:0011H         LINE#         22
+  C:0013H         LINE#         23
+  C:0016H         LINE#         24
+  C:0019H         LINE#         25
+  C:001CH         LINE#         26
+  C:001FH         LINE#         27
+  C:0021H         LINE#         28
+  C:0023H         LINE#         29
+  C:0025H         LINE#         30
+  C:0027H         LINE#         31
+  C:002AH         LINE#         32
+  C:002CH         LINE#         33
+  C:002FH         LINE#         34
+  C:0031H         LINE#         35
+  C:0034H         LINE#         36
+  C:0035H         LINE#         37
+  C:0037H         LINE#         38
+  C:0039H         LINE#         39
+  C:003BH         LINE#         40
+  C:003DH         LINE#         41
+  C:003FH         LINE#         42
+  C:0042H         LINE#         43
+  C:0044H         LINE#         44
+  C:0045H         LINE#         45
+  -------         ENDMOD        HW5
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

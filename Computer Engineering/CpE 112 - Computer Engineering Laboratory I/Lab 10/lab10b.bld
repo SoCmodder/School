@@ -1,0 +1,25 @@
+ngdbuild:  version M1.5.25
+Copyright (c) 1995-1998 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -p xc4000e -u lab10b.edif lab10b.ngd 
+
+Launcher: Executing edif2ngd "lab10b.edif" "lab10b.ngo"
+Reading NGO file "/home/classes/ee112/ee112jg/digital4/lab10b/xproj/lab10b.ngo"
+...
+Reading component libraries for design expansion...
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:basnu:113 - logical net "N$15" has no load
+WARNING:basnu:149 -  The input pad net "CLK_IN" driving one or more clock loads
+   should only use a dedicated clock buffer (e.g., BUFG, BUFGP, BUFGS).  This
+   could result in large clock skews on this net.
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   2
+
+Writing NGD file "lab10b.ngd" ...
+
+Writing NGDBUILD log file "lab10b.bld"...

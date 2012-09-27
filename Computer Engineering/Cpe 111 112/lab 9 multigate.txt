@@ -1,0 +1,81 @@
+--  VHDL PROGRAM
+
+--  Entity Declaration
+entity multigate is
+	port( a,b : in bit;
+	      sel : in bit_vector(1 downto 0);
+	      c : out bit);
+end entity multigate;
+
+arechitecture behavior of multigate is
+
+begin
+  c <=  a AND b when (sel="00") else
+	a OR b when (sel="01") else
+	a NAND b when (sel="10") else
+	a XOR b;
+
+end architecture behavior;
+
+--  testbench code
+--  runs all possible inputs of a,b,sel
+
+
+entity testbench_multi is
+
+	-- empty, but it exists
+
+end entity testbench_multi;
+
+architecture test_gate of testbench_multi is
+	signal a,b,c : bit;
+	signal sel : bit_vector(1 downto 0);
+begin
+	dut:entity work.multigate(behavior)
+	   port map(a,b,sel,c);
+	   stimulus: process is
+	   begin
+
+
+	sel <="00";
+	a<='0'; b<='0';
+	wait for 20 ns;
+	a<='0'; b<='1';
+	wait for 20 ns;
+	a<='1'; b<='0';
+	wait for 20 ns;
+	a<='1'; b<='1';
+	wait for 20 ns;
+
+	sel <="01";
+	a<='0'; b<='0';
+	wait for 20 ns;
+	a<='0'; b<='1';
+	wait for 20 ns;
+	a<='1'; b<='0';
+	wait for 20 ns;
+	a<='1'; b<='1';
+	wait for 20 ns;
+
+	sel <="10";
+	a<='0'; b<='0';
+	wait for 20 ns;
+	a<='0'; b<='1';
+	wait for 20 ns;
+	a<='1'; b<='0';
+	wait for 20 ns;
+	a<='1'; b<='1';
+	wait for 20 ns;
+
+	sel <="11";
+	a<='0'; b<='0';
+	wait for 20 ns;
+	a<='0'; b<='1';
+	wait for 20 ns;
+	a<='1'; b<='0';
+	wait for 20 ns;
+	a<='1'; b<='1';
+	wait for 20 ns;
+
+end process stimulus;
+end architecture test_gate;

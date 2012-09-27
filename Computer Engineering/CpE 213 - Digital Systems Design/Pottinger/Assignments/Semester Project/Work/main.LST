@@ -1,0 +1,105 @@
+C51 COMPILER V6.10  MAIN                                                                   04/24/2001 22:24:13 PAGE 1   
+
+
+C51 COMPILER V6.10, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\main.OBJ
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\BIN\C51.EXE .\main.c DEBUG OBJECTEXTEND CODE
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          #include <stdlib.h>
+   3          #include <project.h>
+   4          
+   5          void main( void )
+   6          {
+   7   1      	char button;
+   8   1      
+   9   1      	EA=1; 
+  10   1      	TMOD = 0x11;	//Set Timer 0 and Timer 1 into 16 bit Timer mode
+  11   1      
+  12   1      	RESTART:	//Label to restart if player wins
+  13   1      
+  14   1      	win();		//Flash lights and sound speaker
+  15   1      
+  16   1      	ET0=1;
+  17   1      	TH0=(-50000)>>8;
+  18   1      	TL0=(-50000)&0xFF;
+  19   1      	TR0=1;
+  20   1      	
+  21   1      	initial();	//Set random initial light pattern
+  22   1      
+  23   1      	while(1)	//Repeat forever
+  24   1      	{
+  25   2      
+  26   2      		button=input();	//Read switches to get input
+  27   2      		press(button);	//Change LED's according to switch pressed
+  28   2      
+  29   2      		if( led_read() == 0 )	//Check for winning state
+  30   2      		{
+  31   3      			goto RESTART;		//If player won, then restart
+  32   3      		}
+  33   2      	}
+  34   1      }
+  35          
+C51 COMPILER V6.10  MAIN                                                                   04/24/2001 22:24:13 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 5
+                                           ; SOURCE LINE # 6
+                                           ; SOURCE LINE # 9
+0000 D2AF              SETB    EA
+                                           ; SOURCE LINE # 10
+0002 758911            MOV     TMOD,#011H
+                                           ; SOURCE LINE # 12
+0005         RESTART:
+                                           ; SOURCE LINE # 14
+0005 120000      E     LCALL   win
+                                           ; SOURCE LINE # 16
+0008 D2A9              SETB    ET0
+                                           ; SOURCE LINE # 17
+000A 758C3C            MOV     TH0,#03CH
+                                           ; SOURCE LINE # 18
+000D 758AB0            MOV     TL0,#0B0H
+                                           ; SOURCE LINE # 19
+0010 D28C              SETB    TR0
+                                           ; SOURCE LINE # 21
+0012 120000      E     LCALL   initial
+0015         ?C0002:
+                                           ; SOURCE LINE # 23
+                                           ; SOURCE LINE # 24
+                                           ; SOURCE LINE # 26
+0015 120000      E     LCALL   input
+0018 8F00        R     MOV     button,R7
+                                           ; SOURCE LINE # 27
+001A 120000      E     LCALL   _press
+                                           ; SOURCE LINE # 29
+001D E580              MOV     A,P0
+001F F4                CPL     A
+0020 54F0              ANL     A,#0F0H
+0022 FF                MOV     R7,A
+0023 C4                SWAP    A
+0024 540F              ANL     A,#0FH
+0026 70ED              JNZ     ?C0002
+                                           ; SOURCE LINE # 30
+                                           ; SOURCE LINE # 31
+0028 80DB              SJMP    RESTART
+             ; FUNCTION main (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     42    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <!-- ******** TITLE AREA ******** -->
+      <title>
+         HEP: ASIC Design Kit User Guide
+      </title>
+      <!-- ******** END TITLE AREA ******** -->
+      <!-- ******** META TAG AREA ******** -->
+      <meta name="description" content="Student HDL Design Contest" />
+      <meta name="keywords"
+      content="documentation,Guide,Student HDL Design,improving,ASIC Design Kit,ADK documentation,HDL Design Contest,Tutorial Guide,Data Book" />
+      <meta name="doctype" content="General" />
+      <meta name="product" content="Design Kit" />
+      <meta name="Last-Modified" content="9/31/01" />
+      <!-- ******** END META TAG AREA ******** -->
+      <!-- ******** SCRIPT AREA ******** -->
+      <!-- ******** END SCRIPT AREA ******** -->
+      <!-- ******** STYLE AREA ******** -->
+      
+<!-- port: 80 -->
+<!-- protocol: http -->
+<!-- User Name:  -->
+<!-- Authorization:  -->
+<!--  -->
+
+<style type="text/css">
+<!--
+@import "http://www.mentor.com/common/styles/masterstyles.css";
+.headerblue {background: #113355;}
+-->
+</style>
+
+<script type="text/javascript" language="JavaScript" src="http://www.mentor.com/common/js/browsercheck.js"></script>
+
+<script type="text/javascript" language="JavaScript">
+<!--
+function MGC_swapImgRestore() { //v3.0
+  var i,x,a=document.MGC_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MGC_winOpen(url, name, features) { 
+  window.open(url, name, features);
+}
+
+function MGC_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MGC_p) d.MGC_p=new Array();
+    var i,j=d.MGC_p.length,a=MGC_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MGC_p[j]=new Image; d.MGC_p[j++].src=a[i];}}
+}
+
+function MGC_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MGC_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MGC_swapImage() { //v3.0
+  var i,j=0,x,a=MGC_swapImage.arguments; document.MGC_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MGC_findObj(a[i]))!=null){document.MGC_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function focuscontact() {
+ if (document.forms && document.forms["contact"]) {
+document.contact.fname.focus();}
+}
+
+// if (!is.min){ event = null;}
+   
+if (is.ns4){window.onResize = refreshPage;}
+
+function initrefresh() {
+  setTimeout("window.onresize = refreshPage", 1000);
+}
+
+function refreshPage(){
+   	document.location = document.location;
+}
+
+// if (is.ns4){window.onload = initrefresh;}
+
+function dosearch(mode){
+	if (document.searchform.scope.value.length < 1) {
+		// didn't enter a scope
+		if (mode == 'advanced') {
+			window.location.href = "http://www.mentor.com/mentorsearch/advanced.html";
+		} else {
+			window.location.href = "http://www.mentor.com/mentorsearch/";
+		}
+	} else {
+		if (mode == 'advanced') {
+			document.forms["searchform"].action = 'http://www.mentor.com/mentorsearch/advanced.html';
+			document.forms["searchform"].submit();
+		} else {
+			document.forms["searchform"].action = 'http://www.mentor.com/mentorsearch/index.html';
+			document.forms["searchform"].submit();
+		}
+	}
+	return true;
+}
+
+function dropdownRedirect(whichform,whichfield){
+  if (arguments.length > 0){
+    if (arguments.length > 1){
+       dropdown = document.forms[whichform].elements[whichfield];
+    } else {
+       dropdown = document.forms[whichform].elements["gotoURL"];
+    }
+  } else {
+    dropdown = document.forms["navdropdown"].elements["gotoURL"];
+  }
+ 
+  var URL = dropdown.options[dropdown.selectedIndex].value;
+  window.location.href = URL;
+  return true;
+}
+
+// hack because IE4 is quirky with @ import css method and won't display correctly if two link tags are written
+if (is.ie4) {
+	document.write('<link rel="stylesheet" type="text/css" href="http://www.mentor.com/common/styles/masterstyles.css" />')
+	document.write('<style type="text/css">')
+	document.write('BLOCKQUOTE, BODY, DD, DL, DT, LI, OL, P, TD, UL, .bodytext {font-size : x-small;}')
+	document.write('.productdropdown {font-size:xx-small;}')
+	document.write('.small {font-size : xx-small;}')
+	document.write('</style>')
+	}
+
+if ((is.ns4) && (is.platform=="win32")) {
+	document.write('<link rel="stylesheet" type="text/css" href="http://www.mentor.com/common/styles/masterstyles_ns.css" />')
+	}
+else if ((is.ie) && (is.platform=="win32")) {
+	document.write('<link rel="stylesheet" type="text/css" href="http://www.mentor.com/common/styles/masterstyles_ie.css" />')
+	}
+else if (is.platform=="other") {
+	document.write('<link rel="stylesheet" type="text/css" href="http://www.mentor.com/common/styles/masterstyles_unix.css" />')
+	}
+// -->
+</script>
+
+
+
+      <!-- ******** END STYLE AREA ******** -->
+   </head>
+   <body bgcolor="#FFFFFF" marginwidth="0" marginheight="0"><a name="mgctop"></a>
+<table border="0" cellspacing="0" cellpadding="0" width="800">
+<tr>
+<td width="156" class="headerblue"><a href="http://www.mentor.com/"><img src="/images/topnav_logo_upper.gif" width="156" alt="" border="0" /></a></td>
+<td width="60" class="headerblue"><a href="/corp_info/"><img src="/images/topnav_company.gif" width="60" alt="" border="0" /></a></td>
+<td width="72" class="headerblue"><a href="/products/"><img src="/images/topnav_products.gif" width="72" alt="" border="0" /></a></td>
+<td width="63" class="headerblue"><a href="/supportnet/"><img src="/images/topnav_support.gif" width="63" alt="" border="0" /></a></td>
+<td width="65" class="headerblue"><a href="/es/"><img src="/images/topnav_training.gif" width="65" alt="" border="0" /></a></td>
+<td width="80" class="headerblue"><a href="/consulting/"><img src="/images/topnav_consulting.gif" width="80" alt="" border="0" /></a></td>
+<td width="75" class="headerblue"><a href="/utilities/feedback.html"><img src="/images/topnav_contact.gif" width="75" alt="" border="0" /></a></td>
+<td width="104" class="headerblue"><a href="javascript:dosearch('simple');"><img src="/images/topnav_search.gif" width="104" alt="" border="0" /></a></td>
+<td width="125" class="headerblue"><a href="javascript:dosearch('advanced');"><img src="/images/topnav_advanced.gif" width="125" alt="" border="0" /></a></td>
+</tr>
+<tr>
+<td class="headerblue"><a href="http://www.mentor.com/"><img src="/images/topnav_logo_lower.gif" width="156" border="0" alt="" /></a></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td class="headerblue"><img src="/images/topnav_header_15.gif" width="75" height="33" border="0" alt="" /></td>
+<MAP NAME="LogoutMap">
+<AREA SHAPE="rect" ALT="Logout" COORDS="10,8,67,21" HREF="/mgclogin/supportnet/Logout.jsp">
+</MAP>
+<td class="headerblue" style="background : url(/images/topnav_header_16.gif);" align="center" colspan="2"><form action="/mentorsearch/index.html" name="searchform" class="searchform" method="get"><input name="scope" id="scope" type="text" class="searchbox" size="15" /><input type="hidden" name="searchlimit" value="Mentor Graphics" /><input type="hidden" name="view-template" value="normal" /><input type="hidden" name="browse-category" value="" /><input type="hidden" name="search-category" value="" /><input type="hidden" name="taxonomy" value="Mentor Graphics" /><input type="hidden" name="ui" value="sr" /><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></form></td>
+</tr>
+<tr>
+<td colspan="9" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr style="background-color: #6888A8;">
+<td><img src="/images/pixel_clear.gif" width="410" height="2" /></td>
+<td><img src="/images/pixel_clear.gif" width="300" height="2" /></td>
+<td><img src="/images/pixel_clear.gif" width="15" height="2" /></td>
+</tr>
+
+<tr style="background-color: #FFFFEE;">
+<td valign="middle"><a href="/partners/"><img src="/partners/images/partner_programs_head.gif" alt="" width="326" height="24" border="0" alt="Mentor Graphics Partner Programs" /></a></td>
+<td colspan="2"><img src="/images/pixel_clear.gif" width="1" height="1" /></td>
+</tr>
+
+<tr style="background-color: #000000;">
+<td><img src="/images/pixel_clear.gif" width="410" height="1" /></td>
+<td><img src="/images/pixel_clear.gif" width="300" height="1" /></td>
+<td><img src="/images/pixel_clear.gif" width="15" height="1" /></td>
+</tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td bgcolor="#336699"><img src="/images/pixel_clear.gif" width="2" height="4" border=0 alt=""></td>
+</tr>
+</table>
+
+
+<!-- begin primary tabs -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/partners/opendoor/" class="navtab">OpenDoor&#153; Program</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/embedded/partners.html" class="navtab">Embedded Solutions</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/synthesis/partners/overview.html" class="navtab">Synthesis Partners</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/inventra/alliance/index.html" class="navtab">IP Remarketing Alliance Program</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/partners/platform/index.html" class="navtab">Platform Partners</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/tab_divider1.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#336699" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/seamless/partners/index.html" class="navtab">Seamless Partners</a></div></td>
+
+   <!-- tab divider -->
+	<td bgcolor="#336699" align="center" valign="bottom"><img src="/images/pixel_clear.gif" width="2" height="16" border="0" alt=""></td>
+
+   <!-- begin selected tab -->
+	<td bgcolor="#6699CC" valign="top"><img src="/images/tab_corner1r.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/tab_corner1l.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="/partners/hep/" class="navtab">Higher Education</a></div></td>
+
+   </tr>
+
+   <!-- begin spacer row -->
+   <tr>
+	<td colspan="12" bgcolor="#000000"><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt=""></td>
+	<td colspan="1" bgcolor="#6699CC"><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt=""></td>
+   </tr>
+</table>
+<!-- end primary tabs -->
+
+
+
+
+<!-- begin secondary tabs -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <!-- begin spacer row -->
+   <tr>
+	<td background="/images/tab_fade.gif"><img src="/images/pixel_clear.gif" width=150 height=4 border=0 alt=""></td>
+	<td colspan="1" background="/images/tab_fade.gif"><img src="/images/pixel_clear.gif" width=584 height=4 border=0 alt=""></td>
+   </tr>
+
+   <tr>
+   <!-- begin navbar spacer -->
+	<td bgcolor="#6699CC" width="150"><img src="/images/pixel_clear.gif" width="150" height="1" border=0 alt=""></td>
+
+   <!-- begin tab -->
+	<td bgcolor="#6699CC" valign="top"><img src="/images/pixel_clear.gif " width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="right"><img src="/images/pixel_clear.gif" width="11" height="16" vspace="0" hspace="0" border="0" alt="" align="left"><div style="text-align: center; vertical-align: middle;"><a href="#" class="navtab">&nbsp;</a></div></td>
+
+   </tr>
+
+   <!-- begin spacer row -->
+   <tr>
+	<td bgcolor="#000000" width="150"><img src="/images/pixel_clear.gif" width="150" height="1" border=0 alt=""></td>
+	<td colspan="1" bgcolor="#000000"><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt=""></td>
+   </tr>
+</table>
+<!-- end secondary tabs -->
+
+
+</td>
+</tr>
+</table>
+<table width="800" border="0" cellspacing="0" cellpadding="0"><tr><td width="150" valign="top" class="navbartable"><table width="148" border="0" cellspacing="0" cellpadding="2">
+  <tr> 
+    <td><img src="/images/pixel_clear.gif" width=11 height=1 border=0 alt=""></td>
+    <td><img src="/images/pixel_clear.gif" width=6 height=1 border=0 alt=""></td>
+    <td><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="3"><img src="/images/pixel_clear.gif" width=1 height=1 border=0 alt="" hspace=0 vspace=0></td>
+  </tr>
+  <tr> 
+    <td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a class=navbarparent>Regional Programs</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/americas.html" class=navbarchild>Americas</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/europe.html" class=navbarchild>Europe</a></td>
+  </tr> 
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/pacrim.html" class=navbarchild>Pacific Rim & Asia</a></td>
+  </tr>    
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/japan.html" class=navbarchild>Japan</a></td>
+  </tr>
+  
+  <tr>
+  	<td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a class=navbarparent>Partners</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://www.te.rl.ac.uk/europractice/univs/mentor.html" class=navbarchild>EUROPRACTICE</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://www.cmc.ca/about/program/support_charts/cadsupport.html" class=navbarchild>Canadian Microelectronics Corp.</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://www.fapesp.br/" class=navbarchild>FAPESP</a></td>
+  </tr>   
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://www.mosis.org/" class=navbarchild>MOSIS Service</a></td>
+  </tr>      
+
+  <tr> 
+    <td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a class=navbarparent>Services &amp; Support</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/AsicDesignKit/ASICindex.html" class=navbarchild>ASIC 
+      Design Kit</a></td>
+  </tr>  
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/es/" class=navbarchild>Training / Education Services</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/curr_support.html" class=navbarchild>Curriculum Support</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/partners/hep/sig.html" class=navbarchild>Special Interest Group</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="http://germanium.ee.wustl.edu/HEP/" class=navbarchild>HEP Technical Support Site</a></td>
+  </tr>
+
+  <tr> 
+    <td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a href="/es/" class=navbarparent>Education Services</a></td>
+  </tr>
+  
+  <tr> 
+    <td align="RIGHT" valign="TOP"><img src="/images/navbar_arrow2.gif" width=6 height=9 border=0 alt=""></td>
+    <td colspan="2" align="LEFT" valign="TOP"><a class=navbarparent>SupportNet</a></td>
+  </tr>
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/supportnet/spt_configs/index.html" class=navbarchild>Mentor Graphics Supported Configurations </a></td>
+  </tr>    
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/supportnet/documentation/" class=navbarchild>Documentation</a></td>
+  </tr>    
+  <tr> 
+    <td colspan="2" align="RIGHT" valign="TOP"><img src="/images/navbar_box.gif" width=6 height=9 border=0 alt=""></td>
+    <td align="LEFT" valign="TOP"><a href="/supportnet/downloads.html" class=navbarchild>Software Downloads</a></td>
+  </tr>      
+</table>
+<p></p>
+</td><td><img src="/images/pixel_clear.gif" width="10" height="1" border="0" alt="" /></td><td valign="top" class="margintop">
+<div align="right"></div>
+
+<!-- Mentor Graphics -->
+
+
+   <!-- ===========================================================================
+        ******** BEGIN CONTENT AREA ******** -->
+
+<!-- begin headline -->
+      <img src="/partners/hep/AsicDesignKit/images/adklogosm.jpg" width="300"
+      height="122" border="0" alt="" /> 
+      <h1>Designing ASICs with the ADK Design Kit and Mentor Graphics Tools</h1><!-- end headline -->
+	  <h2>Version 2.0</h2>
+      <p class="Body">
+         <a id="pgfId-2214" name="pgfId-2214"></a>The purpose of this document
+         is to provide university students with the basic flow and procedures
+         for using Mentor Graphic&#39; design tools with ADK design kit. The
+         usage of this document is intended for student use only and in no way
+         should be percieved as a complete process guide. Please refer to
+         standard Mentor Graphics documents for complete process information.
+      </p>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-1.html#pgfId-21317" class="Hypertext">Installing the
+         ADK</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-2.html#pgfId-12470" class="Hypertext">Using as little
+         UNIX as possible....</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-3.html#pgfId-13316" class="Hypertext">Simulating HDL in
+         ModelSim</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-4.html#pgfId-12995" class="Hypertext">Synthesizing VHDL
+         or Verilog</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-5.html#pgfId-12459" class="Hypertext">Designing for
+         Testability</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-6.html#pgfId-42388" class="Hypertext">Creating a
+         Schematic</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-7.html#pgfId-418884" class="Hypertext">Automated IC
+         Layout using IC Station</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-8.html#pgfId-418884" class="Hypertext">Schematic Driven
+         Layout using IC Station</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-9.html#pgfId-418884" class="Hypertext">Generating
+         Padframes</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-10.html#pgfId-12459" class="Hypertext">Performing
+         Post-Layout Verification using Mach-TA</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-11.html#pgfId-12459" class="Hypertext">Simulating the
+         Design Using QuickSim II</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-12.html#pgfId-12459" class="Hypertext">Performing Static
+         Timing Analysis</a>
+      </h2>
+      <h2 class="Y-TitleChaptTOC">
+         <a href="adk-13.html#pgfId-12459" class="Hypertext">ADK Menus and
+         Commands</a>
+      </h2>
+      <!-- ******** END CONTENT AREA ********
+           =========================================================================== -->
+      
+</td></tr>
+<tr><td valign="top" class="navbartable"><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td><img src="/images/pixel_clear.gif" width="1" height="1" border="0" alt="" /></td>
+<td><img src="/images/pixel_clear.gif" width="650" height="10" border="0" alt="" /><br />
+<div align="center">
+<p class="footer"><a href="/corp_info/">company</a> | <a href="/jobs/">jobs</a> | <a href="/investor_relations/">investors</a> | <a href="/news/">news</a> | <a href="/supportnet/">support</a> | <a href="/es/">education services</a> | <a href="/region/">mentor worldwide</a><br />
+<a href="/products/">products</a> | <a href="/partners/">partners</a> | <a href="/events/">events</a> | <a href="/utilities/site_index.html">site index</a> | <a href="/utilities/feedback.html">contact us</a> | <a href="/privacy_policy.html">privacy</a> | <a href="/license.html/">end user license</a> | <a href="/utilities/copyright.html">terms of use</a></p>
+
+<p class="small">Product, Sales &amp; Event Information: 1-800-547-3000<br />
+Corporate Headquarters: 1-800-592-2210 or 1-503-685-7000<br />
+<sup>&copy;</sup>Copyright 1997-2003 Mentor Graphics Corp, Wilsonville, OR USA</p></div>
+
+<br clear="all" /><img src="/images/pixel_clear.gif" width="1" height="10" border="0" alt="" />
+</td>
+</tr>
+</table>
+
+<script language="JavaScript1.2">
+    var sPage = '/images/screen_res.gif?';
+    sPage = sPage + 'screenRes=' + screen.width + 'x' + screen.height;
+    sPage = sPage + '&availRes=' + screen.availWidth + 'x' +
+screen.availHeight;
+    sPage = sPage + '&colorDepth=' + screen.colorDepth;
+    document.write( '<img src="' + sPage + '" width="1" height="1" alt="">' );
+</script>
+<noscript>
+   <img src="/images/screen_res.gif?screenRes=Unknown&availRes=Unknown&colorDepth=Unknown"  width="1" height="1" alt="" />
+   <img src="/images/njs.gif" width="1" height="1" />
+</noscript>
+
+</body>
+ 
+</html>
+

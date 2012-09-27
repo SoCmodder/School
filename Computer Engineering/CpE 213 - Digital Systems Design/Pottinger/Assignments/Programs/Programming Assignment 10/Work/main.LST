@@ -1,0 +1,89 @@
+C51 COMPILER V6.10  MAIN                                                                   04/29/2001 15:48:53 PAGE 1   
+
+
+C51 COMPILER V6.10, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\main.OBJ
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\BIN\C51.EXE .\main.c DEBUG OBJECTEXTEND CODE
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          
+   3          sbit P0_0=P0^0;
+   4          sbit D=P0^1;
+   5          sbit Q=P0^2;
+   6          void Ex0Isr(void) interrupt 0 {
+   7   1      	P0_0= ~P0_0;
+   8   1      }
+   9          
+  10          void Ex1Isr( void ) interrupt 2 {
+  11   1      	Q=D;
+  12   1      }
+  13          
+  14          void main( void ) {
+  15   1      	IT0=1;  //enable negative edge triggered Int0
+  16   1      	IT1=1;  //enable negative edge triggered Int1
+  17   1      	EX0=1;  //enable external interrupt 0
+  18   1      	EX1=1;  //enable external interrupt 1
+  19   1      	EA=1;	//enable global interrupts
+  20   1      	while(1) P1=5*P2;
+  21   1      }
+C51 COMPILER V6.10  MAIN                                                                   04/29/2001 15:48:53 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION Ex0Isr (BEGIN)
+                                           ; SOURCE LINE # 6
+                                           ; SOURCE LINE # 7
+0000 B280              CPL     P0_0
+                                           ; SOURCE LINE # 8
+0002 32                RETI    
+             ; FUNCTION Ex0Isr (END)
+
+             ; FUNCTION Ex1Isr (BEGIN)
+0000 C0D0              PUSH    PSW
+                                           ; SOURCE LINE # 10
+                                           ; SOURCE LINE # 11
+0002 A281              MOV     C,D
+0004 9282              MOV     Q,C
+                                           ; SOURCE LINE # 12
+0006 D0D0              POP     PSW
+0008 32                RETI    
+             ; FUNCTION Ex1Isr (END)
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 14
+                                           ; SOURCE LINE # 15
+0000 D288              SETB    IT0
+                                           ; SOURCE LINE # 16
+0002 D28A              SETB    IT1
+                                           ; SOURCE LINE # 17
+0004 D2A8              SETB    EX0
+                                           ; SOURCE LINE # 18
+0006 D2AA              SETB    EX1
+                                           ; SOURCE LINE # 19
+0008 D2AF              SETB    EA
+000A         ?C0003:
+                                           ; SOURCE LINE # 20
+000A E5A0              MOV     A,P2
+000C 75F005            MOV     B,#05H
+000F A4                MUL     AB
+0010 F590              MOV     P1,A
+0012 80F6              SJMP    ?C0003
+             ; FUNCTION main (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     32    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

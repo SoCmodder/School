@@ -1,0 +1,152 @@
+C51 COMPILER V6.10  ISM24                                                                  03/08/2001 14:01:18 PAGE 1   
+
+
+C51 COMPILER V6.10, COMPILATION OF MODULE ISM24
+OBJECT MODULE PLACED IN .\ISM24.OBJ
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\BIN\C51.EXE .\ISM24.c DEBUG OBJECTEXTEND CODE SYMBOLS
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          
+   3          #define uchar unsigned char
+   4          char code msg[]="Pump on";
+   5          bit b_Pump_On;
+   6          uchar bdata flags;
+   7          sbit flag0=flags^0;
+   8          uchar xdata buf[10] _at_ 0x8000;
+   9          uchar idata ivar;
+  10          uchar pdata pvar;
+  11          uchar i;
+  12          
+  13          void main(void) {
+  14   1      	b_Pump_On=1;
+  15   1      	i=0;
+  16   1      	do buf[i]=msg[i]; while(msg[i++]!='\0');
+  17   1      	flag0=b_Pump_On;
+  18   1      	ivar=25;
+  19   1      	pvar=33;
+  20   1      	while(1);
+  21   1      	}
+  22          
+  23          
+C51 COMPILER V6.10  ISM24                                                                  03/08/2001 14:01:18 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 13
+                                           ; SOURCE LINE # 14
+0000 D200        R     SETB    b_Pump_On
+                                           ; SOURCE LINE # 15
+0002 E4                CLR     A
+0003 F500        R     MOV     i,A
+0005         ?C0003:
+                                           ; SOURCE LINE # 16
+0005 E500        R     MOV     A,i
+0007 900000      R     MOV     DPTR,#msg
+000A 93                MOVC    A,@A+DPTR
+000B FF                MOV     R7,A
+000C 7400              MOV     A,#LOW buf
+000E 2500        R     ADD     A,i
+0010 F582              MOV     DPL,A
+0012 E4                CLR     A
+0013 3480              ADDC    A,#HIGH buf
+0015 F583              MOV     DPH,A
+0017 EF                MOV     A,R7
+0018 F0                MOVX    @DPTR,A
+0019 AF00        R     MOV     R7,i
+001B 0500        R     INC     i
+001D EF                MOV     A,R7
+001E 900000      R     MOV     DPTR,#msg
+0021 93                MOVC    A,@A+DPTR
+0022 70E1              JNZ     ?C0003
+                                           ; SOURCE LINE # 17
+0024 A200        R     MOV     C,b_Pump_On
+0026 9200        R     MOV     flag0,C
+                                           ; SOURCE LINE # 18
+0028 7800        R     MOV     R0,#LOW ivar
+002A 7619              MOV     @R0,#019H
+                                           ; SOURCE LINE # 19
+002C 7800        R     MOV     R0,#LOW pvar
+002E 7421              MOV     A,#021H
+0030 F2                MOVX    @R0,A
+0031         ?C0004:
+                                           ; SOURCE LINE # 20
+0031 80FE              SJMP    ?C0004
+             ; FUNCTION main (END)
+
+C51 COMPILER V6.10  ISM24                                                                  03/08/2001 14:01:18 PAGE 3   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+T0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B4H  1
+AC . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D6H  1
+b_Pump_On. . . . . . . . . . . . . . .  PUBLIC   DATA   BIT      0000H  1
+T1 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+EA . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AFH  1
+flags. . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0000H  1
+RD . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
+ES . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ACH  1
+RI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0098H  1
+INT0 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B2H  1
+CY . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D7H  1
+TI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0099H  1
+INT1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B3H  1
+PS . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
+OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
+main . . . . . . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+WR . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+ivar . . . . . . . . . . . . . . . . .  PUBLIC   IDATA  U_CHAR   0000H  1
+pvar . . . . . . . . . . . . . . . . .  PUBLIC   PDATA  U_CHAR   0000H  1
+buf. . . . . . . . . . . . . . . . . .  PUBLIC   XDATA  ARRAY    8000H  10
+IE0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0089H  1
+IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
+msg. . . . . . . . . . . . . . . . . .  PUBLIC   CODE   ARRAY    0000H  8
+ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
+ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
+TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
+TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
+flag0. . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0000H  1
+RB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009AH  1
+EX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A8H  1
+IT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0088H  1
+TB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009BH  1
+EX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AAH  1
+IT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008AH  1
+P. . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D0H  1
+SM0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009FH  1
+SM1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009EH  1
+SM2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009DH  1
+PT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B9H  1
+PT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BBH  1
+RS0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D3H  1
+TR0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008CH  1
+RS1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D4H  1
+TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
+PX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B8H  1
+PX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
+REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
+i. . . . . . . . . . . . . . . . . . .  PUBLIC   DATA   U_CHAR   0000H  1
+RXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
+TXD. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
+F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     51    ----
+   CONSTANT SIZE    =      8    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =      1    ----
+C51 COMPILER V6.10  ISM24                                                                  03/08/2001 14:01:18 PAGE 4   
+
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =      1    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

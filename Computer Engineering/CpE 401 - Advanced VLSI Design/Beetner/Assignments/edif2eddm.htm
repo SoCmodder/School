@@ -1,0 +1,1530 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="edif2eddm_files/filelist.xml">
+<link rel=Edit-Time-Data href="edif2eddm_files/editdata.mso">
+<link rel=OLE-Object-Data href="edif2eddm_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>VHDL Synthesis</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>cingiri</o:Author>
+  <o:LastAuthor>DrB</o:LastAuthor>
+  <o:Revision>21</o:Revision>
+  <o:TotalTime>3004</o:TotalTime>
+  <o:Created>2003-11-22T22:15:00Z</o:Created>
+  <o:LastSaved>2003-12-08T16:02:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>3295</o:Words>
+  <o:Characters>18787</o:Characters>
+  <o:Company>University of Missouri - Rolla</o:Company>
+  <o:Lines>156</o:Lines>
+  <o:Paragraphs>44</o:Paragraphs>
+  <o:CharactersWithSpaces>22038</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><![if !supportAnnotations]>
+<style id="dynCom" type="text/css"><!-- --></style>
+<script language="JavaScript"><!--
+function msoCommentShow(anchor_id, com_id)
+{
+	if(msoBrowserCheck()) 
+		{
+		c = document.all(com_id);
+		a = document.all(anchor_id);
+		if (null != c && null == c.length && null != a && null == a.length)
+			{
+			var cw = c.offsetWidth;
+			var ch = c.offsetHeight;
+			var aw = a.offsetWidth;
+			var ah = a.offsetHeight;
+			var x  = a.offsetLeft;
+			var y  = a.offsetTop;
+			var el = a;
+			while (el.tagName != "BODY") 
+				{
+				el = el.offsetParent;
+				x = x + el.offsetLeft;
+				y = y + el.offsetTop;
+				}
+			var bw = document.body.clientWidth;
+			var bh = document.body.clientHeight;
+			var bsl = document.body.scrollLeft;
+			var bst = document.body.scrollTop;
+			if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
+				{ c.style.left = x + aw - ah / 2 - cw; }
+			else 
+				{ c.style.left = x + ah / 2; }
+			if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
+				{ c.style.top = y + ah / 2 - ch; }
+			else 
+				{ c.style.top = y + ah / 2; }
+			c.style.visibility = "visible";
+}	}	}
+function msoCommentHide(com_id) 
+{
+	if(msoBrowserCheck())
+		{
+		c = document.all(com_id);
+		if (null != c && null == c.length)
+		{
+		c.style.visibility = "hidden";
+		c.style.left = -1000;
+		c.style.top = -1000;
+		} } 
+}
+function msoBrowserCheck()
+{
+	ms = navigator.appVersion.indexOf("MSIE");
+	vers = navigator.appVersion.substring(ms + 5, ms + 6);
+	ie4 = (ms > 0) && (parseInt(vers) >= 4);
+	return ie4;
+}
+if (msoBrowserCheck())
+{
+	document.styleSheets.dynCom.addRule(".msocomanchor","background: infobackground");
+	document.styleSheets.dynCom.addRule(".msocomoff","display: none");
+	document.styleSheets.dynCom.addRule(".msocomtxt","visibility: hidden");
+	document.styleSheets.dynCom.addRule(".msocomtxt","position: absolute");
+	document.styleSheets.dynCom.addRule(".msocomtxt","top: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","left: -1000");
+	document.styleSheets.dynCom.addRule(".msocomtxt","width: 33%");
+	document.styleSheets.dynCom.addRule(".msocomtxt","background: infobackground");
+	document.styleSheets.dynCom.addRule(".msocomtxt","color: infotext");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-top: 1pt solid threedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-right: 2pt solid threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-bottom: 2pt solid threedshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","border-left: 1pt solid threedlightshadow");
+	document.styleSheets.dynCom.addRule(".msocomtxt","padding: 3pt 3pt 3pt 3pt");
+	document.styleSheets.dynCom.addRule(".msocomtxt","z-index: 100");
+}
+// --></script>
+<![endif]>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.MsoCommentReference
+	{mso-style-noshow:yes;
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-noshow:yes;
+	mso-style-parent:"Comment Text";
+	mso-style-next:"Comment Text";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	font-weight:bold;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="3074"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p align=center style='margin:0in;margin-bottom:.0001pt;text-align:center'><u><span
+style='font-size:14.0pt'>Synthesis of VHDL code for custom ASIC design<o:p></o:p></span></u></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Note: Major portions of this text were taken directly from the
+<a href="http://www.mentorg.com/partners/hep/AsicDesignKit/user/">ADK toolset
+manual</a></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>1) Develop and test
+VHDL code</b></p>
+
+<p class=MsoNormal>The first step in developing your custom ASIC design is to develop
+and test your VHDL code using <span class=SpellE>vcom</span> and <span
+class=SpellE>vsim</span>.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>2) Synthesizing VHDL
+using Spectrum (batch mode)<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>After your code works in simulation, you’re ready to try to
+synthesize it.<span style='mso-spacerun:yes'>  </span>Synthesis is performed
+with Leonardo Spectrum.<span style='mso-spacerun:yes'>  </span>The result of
+this synthesis will be an EDIF <span class=SpellE>netlist</span> and a <span
+class=SpellE>vhdl</span> file of the synthesized result that you can test using
+<span class=SpellE>vsim</span>. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To synthesize your code, enter the following script into a
+file in the same directory as your VHDL code.<span style='mso-spacerun:yes'> 
+</span>The name of the <span class=SpellE>scriptfile</span> is not
+important.<span style='mso-spacerun:yes'>  </span>Modify the text for the
+portions shown in red.<span style='mso-spacerun:yes'>  </span>For example, an
+appropriate input file might be <span class=SpellE>blah.vhd</span>, an
+appropriate EDIF output file might be <span class=SpellE>blah.edf</span>, and
+an appropriate VHDL output file might be <span class=SpellE>blah_syn.vhd</span>
+(DO NOT give the output file the same name as your input file!).<span
+style='mso-spacerun:yes'>  </span>Once you’ve completed this portion, enter the
+following command at the <span class=GramE>Unix</span> command prompt:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+class=GramE>spectrum</span> –file <span class=SpellE>scriptname</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE>where</span> <span class=SpellE>scriptname</span>
+is the name of the file where you placed your script.<span
+style='mso-spacerun:yes'>  </span>If everything went well, you should have no
+errors.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Record the total number of gates used and expected system
+clock speed from the spectrum output.<span style='mso-spacerun:yes'> 
+</span>The clock speed is only an estimate and will vary with the final layout.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Script: <o:p></o:p></b></p>
+
+<p class=MsoNormal><span class=GramE>set</span> _<span class=SpellE>xmp_enable_renoir</span>
+FALSE</p>
+
+<p class=MsoNormal><span class=GramE><span style='font-size:11.0pt'>set</span></span><span
+style='font-size:11.0pt'> <span class=SpellE>vhdl_write_component_package</span>
+FALSE<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=GramE><span style='font-size:11.0pt'>set</span></span><span
+style='font-size:11.0pt'> <span class=SpellE>vhdl_write_use_packages</span>
+&quot;library IEEE, <span class=SpellE>adk</span>; use IEEE.STD_LOGIC_1164.all;
+use <span class=SpellE>adk.all</span>;&quot;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=GramE><span style='font-size:11.0pt'>set</span></span><span
+style='font-size:11.0pt'> <span class=SpellE>edifout_power_ground_style_is_net</span>
+TRUE<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=GramE><span style='font-size:11.0pt'>set</span></span><span
+style='font-size:11.0pt'> <span class=SpellE>max_fanout_load</span> 14<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=GramE><span style='font-size:11.0pt'>set</span></span><span
+style='font-size:11.0pt'> <span class=SpellE>force_user_locad_values</span>
+TRUE<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:11.0pt'>load_library</span></span><span
+style='font-size:11.0pt'> ami05_typ<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=GramE><span style='font-size:11.0pt'>read<span
+style='mso-spacerun:yes'>  </span>{</span></span><span style='font-size:11.0pt'>
+<span style='color:red'>input VHDL files</span> }<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:11.0pt'>pre_optimize</span></span><span
+style='font-size:11.0pt'> -<span class=SpellE>common_logic</span> -<span
+class=SpellE>unused_logic</span> -boundary -<span class=SpellE>xor_comparator_optimize</span>
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:11.0pt'>pre_optimize</span></span><span
+style='font-size:11.0pt'> -extract <o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=GramE><span style='font-size:11.0pt'>pd</span></span><span
+style='font-size:11.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=GramE><span style='font-size:11.0pt'>optimize</span></span><span
+style='font-size:11.0pt'> .<span class=SpellE>work.<span style='color:red'>entity</span>.<span
+style='color:red'>architecture</span></span> -target ami05_typ -macro -area
+-effort quick -hierarchy auto<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:11.0pt'>optimize_timing</span></span><span
+style='font-size:11.0pt'> .<span class=SpellE>work.<span style='color:red'>entity</span>.<span
+style='color:red'>architecture</span></span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:11.0pt'>report_area</span></span><span
+style='font-size:11.0pt'> -<span class=SpellE>cell_usage</span> -<span
+class=SpellE>all_leafs</span> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=GramE><span style='font-size:11.0pt'>set</span></span><span
+style='font-size:11.0pt'> <span class=SpellE>report_delay_slack_threshold</span>
+0<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:11.0pt'>report_<span
+class=GramE>delay</span></span></span><span class=GramE><span style='font-size:
+11.0pt'><span style='mso-spacerun:yes'>  </span>-</span></span><span
+class=SpellE><span style='font-size:11.0pt'>num_paths</span></span><span
+style='font-size:11.0pt'> 1 -<span class=SpellE>critical_paths</span> -<span
+class=SpellE>clock_frequency</span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:11.0pt'>auto_write</span></span><span
+style='font-size:11.0pt'> -format EDIF -<span class=SpellE>downto</span>
+PRIMITIVES <span class=SpellE><span style='color:red'>output_file</span></span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-size:11.0pt'>auto_write</span></span><span
+style='font-size:11.0pt'> -format VHDL -<span class=SpellE>downto</span>
+PRIMITIVES <span class=SpellE><span style='color:red'>output_file</span></span><span
+style='color:red'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt;color:red'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>3) Post-Synthesis
+Simulation<o:p></o:p></b></p>
+
+<p class=MsoNormal>After running spectrum, verify your synthesized code runs as
+expected by running <span class=SpellE>vcom</span> and <span class=SpellE>vsim</span>
+on the VHDL file produced by spectrum.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To compile the synthesized VHDL code will require use of the
+ADK libraries.<span style='mso-spacerun:yes'>  </span>Verify that you have the
+ADK library mapped by typing ‘<span class=SpellE>vmap</span>’ at <span
+class=GramE>Unix</span> command prompt. If it does not show up in the mapped
+list, map the ADK library using the command:<span style='mso-spacerun:yes'> 
+</span></p>
+
+<p style='margin:0in;margin-bottom:.0001pt'><o:p>&nbsp;</o:p></p>
+
+<p style='margin:0in;margin-bottom:.0001pt;text-indent:.5in'><span
+class=SpellE><span class=GramE>vmap</span></span> <span class=SpellE>adk</span>
+/usr/local/adk2/lib/adk_vhdl</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Double <span class=GramE>check that the ADK library is
+mapped by typing ‘<span class=SpellE>vmap</span>’ at prompt</span> once again.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Once the ADK library is mapped, compile your synthesized
+VHDL code using <span class=SpellE><i style='mso-bidi-font-style:normal'>vcom</i></span>
+and simulate your <span class=SpellE>testbench</span> using <span class=SpellE><i
+style='mso-bidi-font-style:normal'>vsim</i></span>.<span
+style='mso-spacerun:yes'>  </span>Your test-bench should still work fine.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Note: I have had some strange errors while synthesizing the
+generated VHDL code where new variables are added to the code and are named
+strangely (like “\[870_\”). <span class=SpellE>vcom</span> has a problem with
+these variable names.<span style='mso-spacerun:yes'>  </span>This has only
+happened occasionally, but if it happens to you, you simply have to replace the
+strange variable name with an acceptable name (everywhere in the VHDL code) and
+then run <span class=SpellE>vcom</span>.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>4) Creating a
+schematic for the synthesized part (EDDM schematic from EDIF):<o:p></o:p></b></p>
+
+<p class=MsoNormal>The next step in generating the files needed by MOSIS is to
+produce an EDDM schematic from the EDIF file. This is done using the <i
+style='mso-bidi-font-style:normal'>edif2eddm</i> script. The edif2eddm script
+creates a ‘work’ folder where in saves the schematic and its associated files.
+So, it’s a better to generate this schematic in a different directory.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>First, create a directory “<span class=SpellE>netlist</span>”
+(name is not important) and copy the .<span class=SpellE>edf</span> file to
+this directory </p>
+
+<p class=MsoNormal style='text-indent:.5in'>&gt;<span class=SpellE>mkdir</span>
+<span class=SpellE>netlist</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'>&gt;<span class=SpellE>cd</span> <span
+class=SpellE>netlist</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'>&gt;<span class=GramE>cp ..</span>/<span
+class=SpellE>design_name.edf</span> <span class=SpellE>design_name.edf</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'>&gt;<span class=SpellE>mgc_csh</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'>&gt;edif2eddm <span class=SpellE>design_name.edf</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE>where</span> <span class=SpellE>design_name</span>
+is the name of your design. There may be a few errors generated by the
+Schematic Generator option that you can ignore for now – there is a bug in the
+script that we will fix in the following step (step 5). The edif2eddm script
+will locate the top level of your design from the EDIF file, will create a
+‘work’ directory in the current directory, and (theoretically) will put a new
+schematic in it. It creates a viewpoint with your <span class=SpellE>design_name</span>
+and additional viewpoints for IC layout using the <span class=SpellE>adk_dve</span>
+script.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>5) Schematic
+Generator<o:p></o:p></b></p>
+
+<p class=MsoNormal>To get around a bug in the edif2eddm script, we will need to
+generate the schematic manually.<span style='mso-spacerun:yes'>  </span>First
+get into the right directory, <span class=GramE>then</span> invoke the
+schematic generator tool:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='text-indent:.5in'>&gt;<span class=SpellE>cd</span>
+work</p>
+
+<p class=MsoNormal style='text-indent:.5in'>&gt;<span class=SpellE>swd</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'>&gt;<span class=SpellE>sul</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'>&gt;<span class=SpellE>sg</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Use the <i>File-&gt;Open Design from Viewpoint...</i> menu
+item to bring up the <i>Open Design from Viewpoint</i> dialog box. Click on the
+<i>Navigator...</i> button and go into the <span class=SpellE><i
+style='mso-bidi-font-style:normal'>design_name</i></span> component. Select the
+<!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+ o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" alt="" style='width:15pt;
+ height:15pt'>
+ <v:imagedata src="edif2eddm_files/image001.png" o:href="http://www.people.vcu.edu/~rhklenke/tutorials/ic/lab7-8.gif"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=20 height=20
+src="edif2eddm_files/image006.jpg" v:shapes="_x0000_i1025"><![endif]><span
+style='mso-spacerun:yes'> </span>folder next to <span class=SpellE><i
+style='mso-bidi-font-style:normal'>design_name</i></span> and click <b>OK</b>
+in the <i>Open Design from Viewpoint</i> dialog box. (There should be 6
+viewpoints in all: <span class=SpellE>accusim</span>, ami05, <span
+class=SpellE>design_name</span>, layout, <span class=SpellE>lvs</span>, <span
+class=SpellE><span class=GramE>sdl</span></span>). A blank schematic window
+will appear in the <span class=SpellE><i>sg</i></span> tool window. If you get
+an error about viewpoint not found, quit <span class=SpellE>sg</span>, delete
+the work folder and run the edif2eddm script again.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Use the <i>Setup-&gt;Symbol-&gt;Use <span class=SpellE>Genlib</span>
+Classification</i> menu item to setup the symbol classifications and then use
+the <i>Partition Setup...</i> command from the pop up menus (right mouse
+button) to bring up the <i>Partition Setup</i> dialog box. Click on the <i>Number
+of Sheets</i> button, make sure the <i>Number of Sheets</i> item is set to 1
+and click <span class=GramE><b>OK</b> .</span> Use the <i>Generate</i> item
+from the pop up menus to generate a schematic.<span style='mso-spacerun:yes'> 
+</span>The schematic that comes up is a standard-cell layout of your design</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Use the <i>File-&gt;<span class=GramE>Save</span></i> menu
+item to save the schematic and exit the <span class=SpellE><i>sg</i></span>
+tool.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>6) Automated Layout
+using <span class=SpellE>ICStation</span><o:p></o:p></b></p>
+
+<p class=MsoNormal>Your next step is to create the layout of your overall
+design.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>In your working directory (the one that contains the
+‘synthesized’ schematic and its viewpoints – like <span class=SpellE>netlist</span>/work
+above... the same directory you ran <span class=SpellE>sg</span> in), invoke <span
+class=SpellE>ICStation</span> using</p>
+
+<p class=MsoNormal>&gt;<span class=SpellE>sul</span></p>
+
+<p class=MsoNormal>&gt;<span class=SpellE>swd</span></p>
+
+<p class=MsoNormal>&gt;<span class=SpellE><span class=GramE>ic</span></span>
+(or <span class=SpellE>adk_ic</span>)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>From the <b style='mso-bidi-font-weight:normal'>Session
+palette</b>, select <b style='mso-bidi-font-weight:normal'>‘<a
+style='mso-comment-reference:d_1;mso-comment-date:20031203T1913'>Create’</a></b><span
+style='mso-comment-continuation:1'> </span><span class=MsoCommentReference><span
+style='font-size:8.0pt'><![if !supportAnnotations]><a class=msocomanchor
+id="_anchor_1" onmouseover="msoCommentShow('_anchor_1','_com_1')"
+onmouseout="msoCommentHide('_com_1')" href="#_msocom_1" language=JavaScript
+name="_msoanchor_1">[d1]</a><![endif]><span style='display:none;mso-hide:all'><span
+style='mso-special-character:comment'>&nbsp;</span></span></span></span>under
+the “cell” heading and enter the following in the dialog box that appears.<span
+style='mso-spacerun:yes'>  </span>You can use the navigator at times to make
+this easier – however, I was not able to get my design name to show up properly
+in the navigator and had to enter it manually:</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Cell Name: <span
+class=SpellE><i style='mso-bidi-font-style:normal'>design_name</i></span></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Attach
+Library: $ADK/technology/ic/ami05</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Process:
+$ADK/technology/ic/ami05</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Rules File:
+$ADK/technology/ic/ami05.rules</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Angle Mode:
+45</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+class=GramE>Connectivity?</span> : With Connectivity</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>EDDM
+Schematic Viewpoint: <span class=SpellE>design_name</span>/layout</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Logic
+Loading Options…..</p>
+
+<p class=MsoNormal><span style='mso-tab-count:3'>                                    </span>Logic
+Loading: Flat</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Leave all other options at default values and OK the dialog
+box. An empty cell window will appear with the design name.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>(Note: if you screw up and have to re-create your cell, your
+best option right now is to create a new cell under a different name... we are
+still working on the best way of deleting your old cell without corrupting
+other parts of your design).</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE><b style='mso-bidi-font-weight:normal'>Floorplanning</b></span><b
+style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+<p class=MsoNormal>From the <b style='mso-bidi-font-weight:normal'>IC Palettes</b>
+menu (on the right hand side), click on <b style='mso-bidi-font-weight:normal'>Place
+&amp; Route</b> to <span class=SpellE>goto</span> the Place &amp; Route palette
+and select <span class=SpellE><b style='mso-bidi-font-weight:normal'>Autofp</b></span>.
+</p>
+
+<p class=MsoNormal>In the <span class=SpellE>Autofloorplan</span> Options
+dialog box, allow all options to default simply by clicking on OK. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Use View <span style='font-family:Wingdings;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-char-type:symbol;
+mso-symbol-font-family:Wingdings'><span style='mso-char-type:symbol;mso-symbol-font-family:
+Wingdings'>à</span></span> All or (Shift +F8) to see the automatically
+generated floor plan. You will see boxes enclosed by solid green bars along
+each edge. The boxes indicate the rows into which cells will be organized. The
+solid bars indicate edges of the cells along which physical ports will be
+placed.</p>
+
+<p class=MsoNormal>Depending on the complexity of your design, you’ll have more
+than one row. If you have only one row for a complex design, something went
+wrong. Find it, fix it and re-do this step.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Standard Cell
+Placement<o:p></o:p></b></p>
+
+<p class=MsoNormal>In the <b style='mso-bidi-font-weight:normal'>Place &amp;
+Route palette</b>, choose <span class=SpellE><b style='mso-bidi-font-weight:
+normal'>StdCel</b></span> under <span class=SpellE><b style='mso-bidi-font-weight:
+normal'>Autoplc</b></span> (<span class=SpellE>autoplace</span> standard
+cells). Click on OK in the dialog box.</p>
+
+<p class=MsoNormal>You should see individual cells placed in the <span
+class=SpellE>floorplan</span> boxes. Cell locations are determined by their
+interconnectivity. Cells which share connections are placed near one another. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If you’d like to look inside the cells to see the
+transistor-level layout, select <b style='mso-bidi-font-weight:normal'>Peek on
+View</b> in the <b style='mso-bidi-font-weight:normal'>Setup </b><b
+style='mso-bidi-font-weight:normal'><span style='font-family:Wingdings;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-char-type:symbol;mso-symbol-font-family:Wingdings'><span style='mso-char-type:
+symbol;mso-symbol-font-family:Wingdings'>à</span></span> IC</b> dialog box.<span
+style='mso-spacerun:yes'>  </span>If your design is large, you may have to zoom
+in to see the transistor-level layout.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Placing Ports<o:p></o:p></b></p>
+
+<p class=MsoNormal>Choose <b style='mso-bidi-font-weight:normal'>Ports</b>
+under <span class=SpellE><b style='mso-bidi-font-weight:normal'>Autoplc</b></span>
+to place ports. You can allow the options to default for now or use the <b>even
+</b>option for even placement if you do not like the default placement. You
+will see lightly shaded blue or purple areas along the bars at the edge of the
+layout.<span style='mso-spacerun:yes'>  </span>These are the ports to your
+design.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Find the <span style='mso-bidi-font-weight:bold'>relative
+location of the ports by scrolling about the edge of your design and
+selecting/deselecting the shaded areas with your mouse and the F2 (s</span>elect/unselect)
+key. Put together a “graph” of the port placement similar to the following
+(i.e. keep track of the relative placement of the ports):</p>
+
+<p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:.45in;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:0in 5.4pt 0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0'>
+  <td width=49 valign=top style='width:36.8pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=47 valign=top style='width:35.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'>B(2)</p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'>B(3)</p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'>A(3)</p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'>B(0)</p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'>RST</p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'>CLK</p>
+  </td>
+  <td width=49 valign=top style='width:36.8pt;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=49 valign=top style='width:36.8pt;border:none;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=47 valign=top style='width:35.2pt;border:none;mso-border-top-alt:
+  solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;mso-border-top-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;mso-border-top-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;mso-border-top-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;mso-border-top-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=49 valign=top style='width:36.8pt;border:none;mso-border-top-alt:
+  solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>A(0)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=49 valign=top style='width:36.8pt;border:none;border-right:solid windowtext 1.0pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=47 valign=top style='width:35.2pt;border:none;mso-border-left-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-right:solid windowtext 1.0pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=49 valign=top style='width:36.8pt;border:none;mso-border-left-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>VDD</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=49 valign=top style='width:36.8pt;border:none;border-right:solid windowtext 1.0pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>GND</p>
+  </td>
+  <td width=47 valign=top style='width:35.2pt;border:none;mso-border-left-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-right:solid windowtext 1.0pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=49 valign=top style='width:36.8pt;border:none;mso-border-left-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>B(1)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width=49 valign=top style='width:36.8pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=47 valign=top style='width:35.2pt;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=49 valign=top style='width:36.8pt;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-bottom-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>S(0)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;mso-yfti-lastrow:yes'>
+  <td width=49 valign=top style='width:36.8pt;border:none;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=47 valign=top style='width:35.2pt;border:none;mso-border-top-alt:
+  solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>A(2)</p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;mso-border-top-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;mso-border-top-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>S(2)</p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;mso-border-top-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>S(1)</p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;mso-border-top-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>CY</p>
+  </td>
+  <td width=48 valign=top style='width:.5in;border:none;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;
+  mso-border-right-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal>A(1)</p>
+  </td>
+  <td width=49 valign=top style='width:36.8pt;border:none;mso-border-top-alt:
+  solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Obtain <span style='mso-bidi-font-weight:bold'>your own </span>version
+of this table.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b>Routing<o:p></o:p></b></p>
+
+<p class=MsoNormal>Now, from the <span class=SpellE><b style='mso-bidi-font-weight:
+normal'>Autorou</b></span> section of the <b style='mso-bidi-font-weight:normal'>Place
+&amp; Route palette</b> select <span class=GramE><b style='mso-bidi-font-weight:
+normal'>All</b></span>, and accept the defaults in the dialog box. This should
+route all connections in our cell. You will see the cell rows move apart and
+additional metal runs appear in the channels between rows. Depending on the
+size of the design, <span class=SpellE>autorouting</span> may take several
+minutes. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Several small overflows may still exist. These small
+overflows may not be viewable on a zoomed out design. To select all overflows
+in the design <b style='mso-bidi-font-weight:normal'>type</b> <b
+style='mso-bidi-font-weight:normal'>“check over”</b> in the design window. In
+the form window that appears select <span class=GramE>All</span> and OK the
+form. Next, from the <b style='mso-bidi-font-weight:normal'>Place &amp; Route
+palette</b>, select <b style='mso-bidi-font-weight:normal'>“<span class=SpellE>Overflw</span>”</b>
+under <span class=SpellE><b style='mso-bidi-font-weight:normal'>Autorou</b></span>.
+If the response <b style='mso-bidi-font-weight:normal'>“An object of type Overflow
+must be selected”</b> appears in the status block, there are no overflows to
+route. Otherwise, the overflows should be routed (i.e. you need to find a way
+to round the metal or poly from one unconnected point – overflow – to the
+other).</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b>Compacting<o:p></o:p></b></p>
+
+<p class=MsoNormal>The <span class=SpellE>autorouter’s</span> objective is to
+complete as many connections in the design as is possible, with less regard for
+wasted area. For this reason, a layout <span style='mso-bidi-font-weight:bold'>compactor
+</span>is available which “squashes” things together. To take advantage of this
+tool, from the <b style='mso-bidi-font-weight:normal'>PR Edit</b> section of
+the <b style='mso-bidi-font-weight:normal'>Place &amp; Route palette</b>,
+select <span class=SpellE><b style='mso-bidi-font-weight:normal'>Compct</b></span>.
+We want to compact in both the horizontal and vertical dimensions, so do this
+twice:</p>
+
+<p class=MsoNormal><span class=GramE>once</span> <span style='mso-bidi-font-weight:
+bold'>down </span>and then again in the <span style='mso-bidi-font-weight:bold'>left
+</span>direction. <u>Do not</u> do this more than once along a given axis. Not
+only does it rarely result in improvement, it can lead to layout errors in some
+versions of the compactor. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Verify that after routing and compacting, the relative port
+positions have not changed (note: this may be more difficult than it sounds, as
+metal layers may now be routed over the ports.<span style='mso-spacerun:yes'> 
+</span>You might use F3 – cycle selected – and F1 – select area – to help you
+find the port names or use right mouse&gt;select&gt;group&gt;ports).<span
+style='mso-spacerun:yes'>  </span>Write down the new port configuration.</p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Save File<o:p></o:p></b></p>
+
+<p class=MsoNormal>It is a good idea to occasionally save your results during
+this process.<span style='mso-spacerun:yes'>  </span>You may save your cell
+using the File&gt;Cell&gt;Save Cell option.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To edit the cell after saving, don’t forget that you have to
+reserve the cell. <span style='mso-spacerun:yes'> </span>You can reserve the
+cell using the File&gt;Cell&gt;Reserve option.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>7) Logic Size</b></p>
+
+<p class=MsoNormal>Now that the layout of your logic is complete, you can get
+an estimate of its overall size using the <span class=GramE>Other&gt;</span>Measure
+Distance tool.<span style='mso-spacerun:yes'>  </span>Results are given in
+lambda (not microns).<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>For the 0.5 micron AMIS process, MOSIS allows designs that
+are 1.5 mm by 1.5 mm, 1.5 mm by 3.0 mm, and 3.0 mm by 3.0 mm.<span
+style='mso-spacerun:yes'>  </span>If your design won’t fit in this space, it’s
+too big.<span style='mso-spacerun:yes'>  </span>Remember, you still have to add
+pads too.<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>8) Layout
+Verification:<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Design Rule Check<o:p></o:p></b></p>
+
+<p class=MsoNormal>From the <b style='mso-bidi-font-weight:normal'>Session
+palette</b> select <span class=SpellE><b style='mso-bidi-font-weight:normal'>ICrules</b></span>,
+<span class=GramE>then</span> select <b style='mso-bidi-font-weight:normal'>Check</b>
+from the <span class=SpellE>ICrules</span> palette (you can get back to that
+palette by hitting the right mouse button in the palette box and selecting
+root). A prompt box will appear at the lower left of the screen. Click on OK to
+proceed with the check.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>When the check is complete, design rule errors which exist
+in the layout will be reported in the message bar at the bottom of the <span
+class=SpellE>ICstation</span> window. If the number of ‘results’ is not zero, <span
+class=GramE>then</span> there are errors. The first one can be shown by
+selecting &quot;First&quot; in the palette. Then rest can be viewed by clicking
+on &quot;Next&quot;. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>One common error is the bad port error. The port
+(metal1.port or metal2.port) must be completely covered with the corresponding
+metal (e.g. the metal 2 <span class=SpellE>interrcontect</span> coming up to a
+metal 2 port must completely cover the port, not just butt up against it). For
+some reason, the tool is not doing this and so we need to fix it manually. Go
+back to the <b style='mso-bidi-font-weight:normal'>IC Palettes</b> menu and
+select <b style='mso-bidi-font-weight:normal'>Easy Edit</b>. <span
+style='mso-spacerun:yes'> </span><span class=GramE><b style='mso-bidi-font-weight:
+normal'>Type</b> <b style='mso-bidi-font-weight:normal'>“<span class=SpellE>sho</span>
+la p”</b> in the window to bring up the <b style='mso-bidi-font-weight:normal'>Show
+Layer Palette</b> dialog box.</span> Select the layers that you need (metal1 and
+metal2 in this case) by holding down the ctrl key and clicking on the layer and
+OK the dialog. The selected layers will appear above the Easy Edit palette.
+Now, click on the layer you want and select Shape. OK the dialog box that
+appears and draw required shapes to fix all the DRC errors.<span
+style='mso-spacerun:yes'>  </span>Once you’re finished, run the design rule
+check again.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Layout Versus <span
+class=GramE>Schematic(</span>LVS) Check<o:p></o:p></b></p>
+
+<p class=MsoNormal><span style='color:black'>Verify the layout for consistency
+with the transistor level schematic of your design. Do this by returning to the
+main <b style='mso-bidi-font-weight:normal'>Session palette</b> and selecting
+the <span class=SpellE><span class=GramE><b style='mso-bidi-font-weight:normal'>ICtrace</b></span></span><span
+class=GramE><b style='mso-bidi-font-weight:normal'>(</b></span><b
+style='mso-bidi-font-weight:normal'>M)</b> (mask level LVS) option. Click on <b
+style='mso-bidi-font-weight:normal'>LVS</b> in the <span class=SpellE><span
+class=GramE>ICtrace</span></span><span class=GramE>(</span>M) palette and in
+the form which appears, select the LVS viewpoint using the Navigator button. For
+example, if your design is named “<span class=SpellE>ralu</span>” the LVS
+viewpoint can be found by navigating down into the <span class=SpellE>ralu</span>
+directory and selecting the LVS directory. Click on the <b style='mso-bidi-font-weight:
+normal'>Setup LVS button</b> and in the form that comes up change the following
+items and click OK <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='color:black'>Ground Names: VSS GND<span
+style='mso-spacerun:yes'>      </span>Recognize Gates: Yes<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='color:black'>OK the LVS dialog. When the check
+is complete, the bottom message bar will read &quot;Mask results database
+loaded&quot;. To view the results, you can select Report -&gt; LVS from the
+palette menu. Look for the smiley face. If a nasty X appears instead, something
+is wrong. Find it and fix it.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='color:black'>We are done with IC Station for a
+bit now... you can save your cell and exit if you like.</span><span
+style='font-size:10.0pt;color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>9) Pad Frame
+Generation<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The pads are generated in Design Architect (<span
+class=SpellE>da</span>).<span style='mso-spacerun:yes'>  </span>Start DA (in
+your <span class=SpellE>netlist</span>/work directory after running <span
+class=SpellE>sul</span> and <span class=SpellE>swd</span>)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1>Symbol Creation</h1>
+
+<p class=MsoNormal>Load the symbol that defines your cell.<span
+style='mso-spacerun:yes'>  </span>The edif2eddm script has already created this
+symbol for you.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Open the symbol from the session palette in DA and then select
+the symbol body. Then from the right-mouse pull-down menu select Properties&gt;<span
+style='mso-bidi-font-weight:bold'>Add </span>&gt; Add Single Property dialog
+box.<span style='mso-spacerun:yes'>  </span>In the form that comes up, specify:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Property Name <span class=SpellE><b style='mso-bidi-font-weight:
+normal'>phy_comp</b></span></p>
+
+<p class=MsoNormal>Property Value <span class=SpellE><b style='mso-bidi-font-weight:
+normal'>design_name</b></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE>and</span> place the text inside the
+symbol where <span class=SpellE>design_name</span> is the name of your design
+(e.g. <span class=SpellE>ralu</span>). The word “<span class=SpellE>phy_comp</span>”
+informs DA that this is a physical component.<span style='mso-spacerun:yes'> 
+</span>The property value informs the tools where to find the <span
+style='mso-bidi-font-weight:bold'>layout </span>associated with the component <span
+class=SpellE><i style='mso-bidi-font-style:normal'>design_<span class=GramE>name</span></i></span><span
+class=GramE><span style='mso-spacerun:yes'>  </span>(</span>with respect to
+$MGC_WD). Check and save the symbol using the Check&gt;With Defaults and
+File&gt;Save Symbol menu items. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1>Place and connect Pads<o:p></o:p></h1>
+
+<p class=MsoNormal>Now we have to create a new component/schematic consisting
+of the <span style='mso-bidi-font-weight:bold'>core logic </span>and the <span
+style='mso-bidi-font-weight:bold'>I/O pads</span>. This is a laborious task. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Create a schematic by hitting the “Open Sheet” button in the
+session palette.<span style='mso-spacerun:yes'>  </span>In the form that comes
+up, enter the name of your component, for example <span class=SpellE>P_ralu</span>.<span
+style='mso-spacerun:yes'>  </span>The component name must be different than the
+name of your component with your logic in it.<span style='mso-spacerun:yes'> 
+</span>The sheet name must always be sheet1. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>In the new schematic sheet, instantiate a copy of your core
+logic using the Choose symbol in the schematic palette and using the navigator
+to choose the appropriate symbol name. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To place pads about your core logic, <span class=GramE>select
+<span style='mso-spacerun:yes'> </span><b style='mso-bidi-font-weight:normal'>Libraries</b></span><b
+style='mso-bidi-font-weight:normal'> </b><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Wingdings;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-char-type:symbol;mso-symbol-font-family:
+Wingdings'><span style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span>
+ADK Libraries </b><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Wingdings;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-char-type:symbol;mso-symbol-font-family:
+Wingdings'><span style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span>
+Pads </b><b style='mso-bidi-font-weight:normal'><span style='font-family:Wingdings;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-char-type:symbol;mso-symbol-font-family:Wingdings'><span style='mso-char-type:
+symbol;mso-symbol-font-family:Wingdings'>à</span></span> AMI 0.5 </b>from the
+main menu to bring up the <b style='mso-bidi-font-weight:normal'>ADK pads
+palette</b>.<span style='mso-spacerun:yes'>  </span>Select the pads you need
+(in, out and power) and place them on the schematic about your core logic as
+shown below. Wire the core logic and pads together.<span
+style='mso-spacerun:yes'>  </span><span class=SpellE>Vdd</span> and GND are only
+connected to ports as shown. <span style='mso-spacerun:yes'> </span>If you don’t
+remember how to wire up parts, create ports, etc, you can review the
+instructions at <a
+href="http://web.umr.edu/~daryl/classes/cpe311/W2003/mentor_tutorial_1a.pdf">http://web.umr.edu/~daryl/classes/cpe311/W2003/mentor_tutorial_1a.pdf</a>
+and <a href="http://www.ece.umr.edu/courses/cpe214/faq.html">http://www.ece.umr.edu/courses/cpe214/faq.html</a>.
+<o:p></o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:441pt;height:419.25pt'
+ o:ole="">
+ <v:imagedata src="edif2eddm_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=588 height=559
+src="edif2eddm_files/image007.jpg" v:shapes="_x0000_i1026"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="MSPhotoEd.3" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1132383096">
+ </o:OLEObject>
+</xml><![endif]--><span style='color:red'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='color:red'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>Change the property ‘PINXX’ using the shift+F7 key to replace
+the ‘XX’ with the pin number. Consider the following pin diagram when naming
+pins, so that pins and ports are close to one another (e.g. if the port for CLK
+were on the lower left of the layout, then pin 25 would be a much better choice
+than pin 40).</p>
+
+<p class=MsoNormal><span style='color:red'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" style='width:231.75pt;height:127.5pt'>
+ <v:imagedata src="edif2eddm_files/image005.jpg" o:title="PIN"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=309 height=170
+src="edif2eddm_files/image005.jpg" v:shapes="_x0000_i1027"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Check and save the schematic when you’re done.<span
+style='mso-spacerun:yes'>  </span>Exit DA.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1>Create Viewpoint<o:p></o:p></h1>
+
+<p class=MsoNormal>Use the <span class=SpellE>adk_dve</span> script to create
+viewpoints for this design.</p>
+
+<p class=MsoNormal>&gt;<span class=SpellE>mgc_csh</span></p>
+
+<p class=MsoNormal>&gt;<span class=SpellE>adk_dve</span> <span class=SpellE>P_designname</span></p>
+
+<p class=MsoNormal>&gt; <span class=GramE>exit</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b>10) Layout of the complete chip<o:p></o:p></b></p>
+
+<p class=MsoNormal>Now you’re ready to ready to wire everything up in ADK.<span
+style='mso-spacerun:yes'>  </span>Start ADK by typing the command “<span
+class=SpellE>ic</span>” at the command prompt (after typing <span class=SpellE>sul</span>
+and <span class=SpellE>swd</span>).</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>First, we’ll create a cell named <span class=SpellE><i
+style='mso-bidi-font-style:normal'>P_designname</i></span> using the layout
+viewpoint. Do this as you did in step 6: From the <b style='mso-bidi-font-weight:
+normal'>Session palette</b>, select <b style='mso-bidi-font-weight:normal'>‘Create’</b>
+under the “cell” heading and enter the following in the dialog box that appears:</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Cell Name: <span
+class=SpellE><i style='mso-bidi-font-style:normal'>P_design_name</i></span></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Attach
+Library: $ADK/technology/ic/ami05</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Process:
+$ADK/technology/ic/ami05</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Rules File:
+$ADK/technology/ic/ami05.rules</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Angle Mode:
+45</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+class=GramE>Connectivity?</span> : With Connectivity</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>EDDM
+Schematic Viewpoint: <span class=SpellE>P_design_name</span>/layout</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Logic
+Loading Options…..</p>
+
+<p class=MsoNormal><span style='mso-tab-count:3'>                                    </span>Logic
+Loading: Flat</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Go to the <b>ADK Edit </b><b style='mso-bidi-font-weight:
+normal'>palette</b> menu and click on <b>Open</b><span style='mso-bidi-font-weight:
+bold'> </span>to open the logic source window. You should see your schematic in
+a new window.</p>
+
+<p class=MsoNormal>Select the core logic (if you have more than one piece,
+select them all). Then click on <b>Inst</b><span style='mso-bidi-font-weight:
+bold'> </span>on the <b>DLA Logic palette</b><span style='mso-bidi-font-weight:
+bold'> </span>to place these cells into your layout window. <span
+style='mso-spacerun:yes'> </span>Remember, you must have previously designed
+these cells and they must have the name of the <span class=SpellE><b>phy_comp</b></span><span
+style='mso-bidi-font-weight:bold'> </span>property on your symbol. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>From the pull-down menu select <span style='mso-bidi-font-weight:
+bold'>Setup </span><span style='font-family:Wingdings;mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman";mso-char-type:symbol;
+mso-symbol-font-family:Wingdings;mso-bidi-font-weight:bold'><span
+style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span><span
+style='mso-bidi-font-weight:bold'> </span><span style='mso-char-type:symbol;
+mso-symbol-font-family:"Times New Roman"'><span style='mso-char-type:symbol;
+mso-symbol-font-family:"Times New Roman"'>&#61472;</span></span><span
+style='mso-bidi-font-weight:bold'>SDL </span>and verify that the Search Path
+looks like this:</p>
+
+<p class=MsoNormal>$ADK/technology/ic/ami05_<span class=GramE>via <b
+style='mso-bidi-font-weight:normal'>.</b></span></p>
+
+<p class=MsoNormal>The last ‘.’ is important for it includes the current, or
+working directory. You should add any other paths you wish to search for your
+cells.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE><b>Padframe</b></span><b> Generation</b><b
+style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+<p class=MsoNormal>Once you have placed the core logic block(s), you are ready
+to generate your <span class=SpellE>padframe</span>. Do not place the pads
+yourself. From the pull-down menu select</p>
+
+<p class=MsoNormal><span style='mso-bidi-font-weight:bold'>ADK </span><span
+style='font-family:Wingdings;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-char-type:symbol;mso-symbol-font-family:
+Wingdings;mso-bidi-font-weight:bold'><span style='mso-char-type:symbol;
+mso-symbol-font-family:Wingdings'>à</span></span><span style='mso-bidi-font-weight:
+bold'> </span><span style='mso-char-type:symbol;mso-symbol-font-family:"Times New Roman"'><span
+style='mso-char-type:symbol;mso-symbol-font-family:"Times New Roman"'>&#61472;</span></span><span
+style='mso-bidi-font-weight:bold'>Generate <span class=SpellE>Padframe</span> </span><span
+style='font-family:Wingdings;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-char-type:symbol;mso-symbol-font-family:
+Wingdings;mso-bidi-font-weight:bold'><span style='mso-char-type:symbol;
+mso-symbol-font-family:Wingdings'>à</span></span><span style='mso-bidi-font-weight:
+bold'> </span><span style='mso-char-type:symbol;mso-symbol-font-family:"Times New Roman"'><span
+style='mso-char-type:symbol;mso-symbol-font-family:"Times New Roman"'>&#61472;</span></span><span
+style='mso-bidi-font-weight:bold'>0.5 micron <span class=SpellE>tinychip</span><o:p></o:p></span></p>
+
+<p class=MsoNormal>This will generate the <span class=SpellE>padframe</span>. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Make life easy on yourself. NEVER EDIT OR RELOCATE PAD
+CELLS.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>View the entire cell to see the <span class=SpellE>padframe</span>
+and your core cell(s). You should see the entire <span class=SpellE>padframe</span>
+with corner pads, the pads you asked for and the spacer pads for all the empty
+spaces. You will also see overflows showing which ports get wired to which
+pins. At this point you might notice that your core logic should be rotated,
+flipped or moved to make routing easier. Do that, now, but be careful not to
+move the pads. After finalizing the placement of your core logic, you can route
+the pads to the core. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>You can route the pads to the core manually or
+automatically. To <span class=SpellE>autoroute</span>, click on <b
+style='mso-bidi-font-weight:normal'>P&amp;R</b> on the <b style='mso-bidi-font-weight:
+normal'>ADK Edit palette</b> menu to bring up the <b style='mso-bidi-font-weight:
+normal'>Place &amp; Route</b> palette menu. Then click on <span class=GramE><b
+style='mso-bidi-font-weight:normal'>All</b></span> under <span class=SpellE><b
+style='mso-bidi-font-weight:normal'>Autorou</b></span>. On the prompt-bar that
+appears click <b>Options</b><span style='mso-bidi-font-weight:bold'> </span>and
+<b>unselect</b><span style='mso-bidi-font-weight:bold'> <b>Expand Channels</b> </span>from
+the menu. Click OK on the menu and prompt-bar to <span class=SpellE>autoroute</span>
+the pads.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Now take a look at the final layout and fix any problems.
+For example, you might not like the width or placement of the power busses. You
+can edit these routes (or opt to manually route them, initially) until you are
+satisfied with the final result.<span style='mso-spacerun:yes'>  </span>Don’t
+forget to run the DRC check if you change anything.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Save your cell when you’re done.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='color:red'>Post-Layout Functional Verification<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='color:red'>Post-Layout Timing Analysis<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>11) Preparing
+Fabrication Data<o:p></o:p></b></p>
+
+<p class=MsoNormal>The <span class=SpellE>ICLink</span> feature will be used to
+create the GDSII file. </p>
+
+<p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal>Within IC Station, create a new cell with <b
+style='mso-bidi-font-weight:normal'>No Connectivity</b> (polygon editing) (Use
+the File&gt;Cell&gt;Create menu option.<span style='mso-spacerun:yes'> 
+</span>Enter in an appropriate cell name, like “final” and hit the no
+connectivity option). Make sure you specify the correct process for the cell
+(in our case, the ami05 stuff as before). </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Use the right-mouse menu option <b>Add </b><b><span
+style='font-family:Wingdings;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman";mso-char-type:symbol;mso-symbol-font-family:
+Wingdings'><span style='mso-char-type:symbol;mso-symbol-font-family:Wingdings'>à</span></span>
+Cell </b>to add your top-level design to this new cell (Simply type the name of
+your cell into the dialog box.<span style='mso-spacerun:yes'>  </span>If you’ve
+forgotten the name, you can use the File&gt;Open&gt;Cell menu option and
+navigate to the correct cell). This top-level should include your wired <span
+class=SpellE>padframe</span> as well. You should not do any editing of your
+cell that this point.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Use the <b>ADK </b><b><span style='font-family:Wingdings;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-char-type:symbol;mso-symbol-font-family:Wingdings'><span style='mso-char-type:
+symbol;mso-symbol-font-family:Wingdings'>à</span></span> Scale </b>menu to
+select the technology you are targeting. This will scale your design into physical
+design units (e.g. microns).</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Save your cell (File&gt;Cell&gt;Save Cell).</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Use <b>Translate </b><b><span style='font-family:Wingdings;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-char-type:symbol;mso-symbol-font-family:Wingdings'><span style='mso-char-type:
+symbol;mso-symbol-font-family:Wingdings'>à</span></span> <span class=SpellE>ICLink</span>
+</b>to write a GDSII stream (or CIF but MOSIS prefers GDSII and it will scale
+properly with no manual edits). Select the source format as <span class=SpellE>ICgraph</span>
+and the destination as GDSII. Click OK and another dialog box will appear that
+will ask for the source and destination names and option file. <span
+style='mso-spacerun:yes'> </span><span class=GramE>Enter the name of your
+source cell (or use the navigator), the destination (including any extension
+such as .<span class=SpellE>gdsii</span>) and the option file.</span> For the
+option file, you should use <b style='mso-bidi-font-weight:normal'>$ADK/lib/<span
+class=SpellE>iclink_gdsii.options</span>. <o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If everything went well, you should now have a GDSII file
+ready to send to the fabrication warehouse. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='color:red'>If there are any errors, the tool
+prompts you to check the transcript and the <span class=SpellE>ICLink</span>
+log file. Try to fix any errors, if possible. One common warning in the
+transcript is about certain Cells not being dynamically loaded. Another is that
+your device has unplaced objects.<span style='mso-spacerun:yes'>  </span>This
+appears as an error in IC Station but as a warning in the <span class=SpellE>ICLink</span>
+log file.<span style='mso-spacerun:yes'>  </span>As far as we can tell, this is
+not a problem (???).</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+<div style='mso-element:comment-list'><![if !supportAnnotations]>
+
+<hr class=msocomoff align=left size=1 width="33%">
+
+<![endif]>
+
+<div style='mso-element:comment'><![if !supportAnnotations]>
+
+<div id="_com_1" class=msocomtxt language=JavaScript
+onmouseover="msoCommentShow('_anchor_1','_com_1')"
+onmouseout="msoCommentHide('_com_1')"><![endif]><span style='mso-comment-author:
+DrB'><![if !supportAnnotations]><a name="_msocom_1"></a><![endif]></span>
+
+<p class=MsoCommentText><span class=MsoCommentReference><span style='font-size:
+8.0pt'><span style='mso-special-character:comment'>&nbsp;<![if !supportAnnotations]><a
+href="#_msoanchor_1" class=msocomoff>[d1]</a><![endif]></span></span></span>
+What do you do if cell already exists?<span style='mso-spacerun:yes'> 
+</span>Possibly delete <span class=SpellE>design_name.IC_cell_template.lck</span></p>
+
+<![if !supportAnnotations]></div>
+
+<![endif]></div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html>
+<body>
+<pre>
+<h1>µVision2 Build Log</h1>
+<h2>Project:</h2>
+C:\Documents and Settings\Brent Powers\Desktop\LAB7\lab7.uv2
+Project File Date:  11/14/2005
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling lab7.c...
+LAB7.C(13): error C202: 'incoming': undefined identifier
+LAB7.C(17): error C202: 'outgoing': undefined identifier
+LAB7.C(34): error C202: 'lastinchar': undefined identifier
+LAB7.C(48): error C202: 'outgoing': undefined identifier
+LAB7.C(55): error C202: 'lastinchar': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling lab7.c...
+linking...
+Program Size: data=12.2 xdata=0 code=85
+"lab7" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling lab7.c...
+LAB7.C(35): error C101: ''C': invalid character constant
+LAB7.C(35): error C141: syntax error near 'OMPE214'
+LAB7.C(35): error C101: '';': invalid character constant
+LAB7.C(35): error C202: 'OMPE214': undefined identifier
+LAB7.C(37): error C141: syntax error near 'gone'
+Target not created
+Build target 'Target 1'
+compiling lab7.c...
+LAB7.C(35): error C101: '''': invalid character constant
+Target not created
+Build target 'Target 1'
+compiling lab7.c...
+LAB7.C(35): error C101: ''6': invalid character constant
+LAB7.C(35): error C141: syntax error near '7'
+LAB7.C(35): error C101: '';': invalid character constant
+LAB7.C(35): error C141: syntax error near '';'
+LAB7.C(37): error C141: syntax error near 'gone'
+Target not created
+Build target 'Target 1'
+compiling lab7.c...
+linking...
+Program Size: data=12.2 xdata=0 code=85
+"lab7" - 0 Error(s), 0 Warning(s).

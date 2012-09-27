@@ -1,0 +1,73 @@
+A51 MACRO ASSEMBLER  PROB_5                                                               04/05/2001 15:56:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.10
+OBJECT MODULE PLACED IN .\prob_5.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE .\prob_5.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0000                 1     STATE BIT 0
+                       2     
+----                   3     CSEG AT 0
+                       4     
+0000 020064            5     LJMP START
+                       6     
+----                   7     CSEG AT 100
+0064                   8     START:
+  0064                 9     HUNDRED EQU 100         ;100 X 10000 us = 1 sec
+  D8F0                10     COUNT   EQU -10000
+                      11     ;       ORG 8100H
+0064 758901           12             MOV TMOD,#01H   ;use timer 0 in mode 1
+                      13     ;LOOP:  JNB P1.6, LOOP  ;wait for 1 input
+                      14     ;WAIT:  JB P1.6, WAIT   ;wait for 0 input
+                      15     ;       SETB P1.7       ;turn buzzer on
+                      16     ;       CALL DELAY      ;wait 1 second
+                      17     ;       CLR P1.7        ;turn buzzer off
+                      18     ;       SJMP LOOP
+                      19             ;
+0067 C200             20     DELAY:  CLR STATE
+0069 7F64             21             MOV R7, #HUNDRED
+006B 758CD8           22     AGAIN:  MOV TH0, #HIGH COUNT
+006E 758AF0           23             MOV TL0, #LOW COUNT
+0071 D28C             24             SETB TR0
+0073 309604           25     WAIT2:  JNB P1.6,LOOP2
+0076 A296             26             MOV C, P1.6
+0078 9200             27             MOV STATE,C
+007A 209603           28     LOOP2:  JB P1.6,LOOP3
+007D 1000E7           29             JBC STATE, DELAY
+0080 308DF0           30     LOOP3:  JNB TF0, WAIT2
+0083 C28D             31             CLR TF0
+0085 C28C             32             CLR TR0
+0087 DFE2             33             DJNZ R7, AGAIN
+                      34     ;       RET
+                      35             END
+A51 MACRO ASSEMBLER  PROB_5                                                               04/05/2001 15:56:11 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   006BH   A   
+COUNT. . . . . . .  N NUMB   D8F0H   A   
+DELAY. . . . . . .  C ADDR   0067H   A   
+HUNDRED. . . . . .  N NUMB   0064H   A   
+LOOP2. . . . . . .  C ADDR   007AH   A   
+LOOP3. . . . . . .  C ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0064H   A   
+STATE. . . . . . .  B ADDR   0020H.0 A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+WAIT2. . . . . . .  C ADDR   0073H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

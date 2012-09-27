@@ -1,0 +1,13 @@
+add wave clk
+add wave reset
+add wave x
+add wave y
+add wave a
+add wave temp_out
+add wave incorrect_result
+add wave OV
+add wave incorrect_OV
+add wave :tb_mac:uut:pp
+add wave :tb_mac:uut:s
+add wave :tb_mac:uut:c
+run 12850 ns 

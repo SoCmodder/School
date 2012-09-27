@@ -1,0 +1,22 @@
+ngdbuild:  version M1.5.25
+Copyright (c) 1995-1998 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -p xc4000e -u lab7-2.edif lab7-2.ngd 
+
+Launcher: Executing edif2ngd "lab7-2.edif" "lab7-2.ngo"
+Reading NGO file "/home/classes/ee112/ee112jg/lab7/lab7-2/xproj/lab7-2.ngo" ...
+Reading component libraries for design expansion...
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:basnu:113 - logical net "I$431/N$222" has no load
+WARNING:basnu:113 - logical net "I$431/N$223" has no load
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   2
+
+Writing NGD file "lab7-2.ngd" ...
+
+Writing NGDBUILD log file "lab7-2.bld"...

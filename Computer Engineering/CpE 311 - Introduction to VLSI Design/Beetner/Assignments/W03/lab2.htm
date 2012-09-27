@@ -1,0 +1,643 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="lab2_files/filelist.xml">
+<title>Actel VHDL based design</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>hjp</o:Author>
+  <o:LastAuthor>DrB</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>300</o:TotalTime>
+  <o:Created>2002-02-04T19:19:00Z</o:Created>
+  <o:LastSaved>2003-03-04T18:28:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>906</o:Words>
+  <o:Characters>5166</o:Characters>
+  <o:Company>University of Missouri Rolla</o:Company>
+  <o:Lines>43</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>6060</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:128;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1 -369098753 63 0 4129279 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Arial Unicode MS";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:32075193;
+	mso-list-template-ids:1238672998;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:45492803;
+	mso-list-type:hybrid;
+	mso-list-template-ids:776086532 1108389416 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:49.5pt;
+	mso-level-number-position:left;
+	margin-left:45.9pt;
+	text-indent:-.2in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:1627542259;
+	mso-list-type:hybrid;
+	mso-list-template-ids:369125120 -577502068 -1417147284 -899351486 66238764 1340523008 142241268 -2065239648 462954224 912057436;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:1705399704;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1024849958 1108389416 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.2in;
+	text-indent:-.2in;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:2126077194;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1251251730 1108389416 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.2in;
+	text-indent:-.2in;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l4:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+<meta name=Author content="Hardy J. Pottinger">
+<meta name=Description content="CpE311 Fall 1999 Lab Exercise No. 2">
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1>CpE 311 Lab Exercise 2</h1>
+
+<h2>VHDL Based FPGA Design</h2>
+
+<h2><span style='font-size:14.0pt'>Due: Thursday, March 6.<o:p></o:p></span></h2>
+
+<h3>Purpose</h3>
+
+<p class=MsoNormal>The purpose of this exercise is to become familiar with VHDL
+based design flow for Actel Field Programmable Gate Arrays (FPGA).&nbsp; In
+this lab you will design a medium scale circuit using VHDL and logic synthesis
+in order to form a basis for comparison to schematic based design. You will use
+the same specifications as you used in Lab 1.<span style='mso-spacerun:yes'> 
+</span></p>
+
+<h3>Problem Description</h3>
+
+<p class=MsoNormal>Repeat lab 1 but use VHDL to capture your design instead of
+a schematic.&nbsp; Implement your registered ALU with an Actel 40MX02 FPGA. The
+steps you need to perform to complete this lab are outlined in <a
+href="../actsyn.htm">Act1 Synthesis Example</a>.<span
+style='mso-spacerun:yes'>  </span>In summary, do the following:</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.2in;mso-list:l3 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Read the hints at the end of this report and
+skim through the Act 1 Synthesis Example</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.2in;mso-list:l3 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Write a .vhd file describing your design</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.2in;mso-list:l3 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Compile with vcom</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.2in;mso-list:l3 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Do a functional simulation using vsim.<span
+style='mso-spacerun:yes'>  </span>Use the <a href="ralu_tb.vhd"
+title="download VHDL testbench here.">testbench</a> provided, but also perform
+your own checks.<span style='mso-spacerun:yes'>  </span>Print out the list output
+from the testbench showing all of the entity port signals and any other
+internal signals you think are relevant.</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.2in;mso-list:l3 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Synthesize your VHDL code using Examplar&#8217;s
+Leonardo (See <a href="../actsyn.htm">Act1 Synthesis Example</a>).<span
+style='mso-spacerun:yes'>  </span>Record the number of modules used.</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.2in;mso-list:l3 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Place and route logic modules within the FPGA
+using Actel Designer.<span style='mso-spacerun:yes'>  </span>Record the worst
+case propagation delays.</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.2in;mso-list:l3 level1 lfo2;
+tab-stops:list .25in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Perform a timing simulation with vsim, using the
+timing parameters produced by designer.</p>
+
+<p>Do NOT simply convert your lab 1 schematic design to a VHDL structural
+netlist (<st1:City><st1:place>Mentor</st1:place></st1:City> includes tools to
+do this).&nbsp; Organize your model in the form of separate combinational logic
+and sequential logic processes.<span style='mso-spacerun:yes'>  </span>You
+should at least create an entity for the alu and an entity for each register
+(4-bit accumulator and 1-bit carry).<span style='mso-spacerun:yes'>  </span>Use
+the following entity for your top-level design (the registered alu):</p>
+
+<pre style='margin-left:.5in'><span style='font-family:Courier'>library ieee;<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'>use ieee.std_logic_1164.all;<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'>use ieee.numeric_std.all;<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'>entity ralu is<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'> port(B: in std_logic_vector(3 downto 0); -- external operand<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'><span style='mso-spacerun:yes'>  </span><span style='mso-spacerun:yes'>    </span>S: in std_logic_vector(1 downto 0); -- function code<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'><span style='mso-spacerun:yes'>      </span>RST: in std_logic;<span
+style='mso-tab-count:2'>        </span><span style='mso-spacerun:yes'>  </span><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  </span>-- reset (active high)<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'><span style='mso-spacerun:yes'>      </span>Sysclk: in std_logic;<span
+style='mso-tab-count:2'>             </span><span style='mso-spacerun:yes'>  </span>-- system clock<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'><span style='mso-spacerun:yes'>      </span>ACC: out std_logic_vector(3 downto 0); -- accumulator out<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'><span style='mso-spacerun:yes'>      </span>CY: out std_logic);<span
+style='mso-tab-count:2'>               </span><span style='mso-spacerun:yes'>  </span>-- carry out bit<o:p></o:p></span></pre><pre
+style='margin-left:.5in'><span style='font-family:Courier'>end entity ralu;<o:p></o:p></span></pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>If
+the entity is not specified in the above manner, then the testbench will not
+work.</p>
+
+<h3 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Report</h3>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Your
+report should include as a minimum the following items: </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>Title: CpE311 Lab Exercise 2
+     - Actel ALU with Accumulator design</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>Your name, and date</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>VHDL source code.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>Simulation list output (not
+     timing diagrams) for both functional and timing simulation.&nbsp; Compare
+     the timing simulation output to the static timing analysis output and
+     explain any differences.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>The number of Actel logic modules
+     used in your design</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>Worst case propagation delay
+     between registers. Correlate the timing analysis output with your VHDL
+     source code (i.e. try to explain which code produced the hardware
+     responsible for the worst delays).</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>Maximum clock rate for your
+     design and a brief discussion of how it was calculated.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>The approximate amount of
+     time you spent on the exercise separated into design, design capture, and
+     testing phases.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>Compare the size and timing
+     metrics obtained in lab 2 to those obtained in lab 1.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo5;tab-stops:list .5in'>A short narrative explaining
+     your design and <u>test</u> rationale.</li>
+</ul>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Do
+not use any form of binder or protector for your report.&nbsp; Staple in the
+upper left corner only.&nbsp; Your report should not exceed 10 pages
+maximum.&nbsp; Include all primary source data (stuff you type) but do not
+include any computer generated output other than the simulation list output for
+your functional and timing simulations. </p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:14.0pt'>Hints<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:31.5pt;text-indent:-.2in;mso-list:l4 level1 lfo7;
+tab-stops:list 31.5pt left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The &#8220;<a href="../actsyn.htm">Act1
+Synthesis Example</a>&#8221; is very helpful&#8230; I would at least glance
+over it over before doing anything else.</p>
+
+<p class=MsoNormal style='margin-left:31.5pt;text-indent:-.2in;mso-list:l4 level1 lfo7;
+tab-stops:list 31.5pt left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Use the scripts given for Leonardo in the Act1
+Synthesis Example!<span style='mso-spacerun:yes'>  </span>You can perform the
+same operations by hitting buttons, etc, in Leonardo but it is very easy to
+forget something or get something wrong and come up with a design that seems to
+compile but doesn&#8217;t <i style='mso-bidi-font-style:normal'>quite</i> work
+in the end.<span style='mso-spacerun:yes'>  </span>I have seen several students
+have problems because they didn&#8217;t use the script.</p>
+
+<p class=MsoNormal style='margin-left:31.5pt;text-indent:-.2in;mso-list:l4 level1 lfo7;
+tab-stops:list 31.5pt left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Testbench.<span style='mso-spacerun:yes'> 
+</span>Be sure to analyze your .vhd file with vcom before you analyze the
+testbench.<span style='mso-spacerun:yes'>  </span>Since the testbench will instantiate
+your alu design, your design should already exist.<span
+style='mso-spacerun:yes'>  </span>The testbench will take about 850 ns to run
+and will announce &#8220;test completed&#8221; when it is done.</p>
+
+<p class=MsoNormal style='margin-left:31.5pt;text-indent:-.2in;mso-list:l4 level1 lfo7;
+tab-stops:list 31.5pt left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Use DT analyze to find the maximum delay between
+registers and the critical path &#8211; Not Spectrum.<span
+style='mso-spacerun:yes'>  </span>To get to dtanalyze, type designer at the
+unix prompt, load your design as in lab 1, compile it, lay it out (hit the
+Layout button), then hit DT Analyze.<span style='mso-spacerun:yes'> 
+</span>Choose your desired parameters and hit OK (be sure to specify a source
+and sink &#8211; start and finish point).<span style='mso-spacerun:yes'> 
+</span>The table shows you the delays in descending order.<span
+style='mso-spacerun:yes'>  </span>If you select one and hit
+&#8220;Expand&#8221;, it will give you details about the delay path.</p>
+
+<p class=MsoNormal style='margin-left:31.5pt;text-indent:-.2in;mso-list:l4 level1 lfo7;
+tab-stops:list 31.5pt left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>If you&#8217;d like to &#8220;see&#8221; what
+your analyzed circuit looks like, you may use Leonardo to do so.<span
+style='mso-spacerun:yes'>  </span>As presented in the slides given in class,
+type &#8220;leonardo&#8221; at the command prompt, select the appropriate
+technology and your .vhd file and then press &#8220;run flow&#8221; (this may
+take a minute or two).<span style='mso-spacerun:yes'>  </span>Under the &#8220;Tools&#8221;
+menu item, you may view the RTL or gate-level synthesized version of your VHDL
+code.<span style='mso-spacerun:yes'>  </span>This is a good way to attempt to
+&#8220;correlate&#8221;<span style='mso-spacerun:yes'>  </span>worst case
+propagation delays with VHDL source code.</p>
+
+<p class=MsoNormal style='margin-left:31.5pt;text-indent:-.2in;mso-list:l4 level1 lfo7;
+tab-stops:list 31.5pt left 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>To run the testbench while using your timing
+parameters, use the command:</p>
+
+<p class=MsoNormal style='margin-left:.75in;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><i
+style='mso-bidi-font-style:normal'>vsim &#8211;sdfmax /dut=hdl/alu.sdf ralu_tb
+a1<o:p></o:p></i></p>
+
+<p class=MsoNormal style='margin-left:31.5pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>where
+alu.syn should be replaced by the name of the sdf file created for your design.
+This command will specify that the sdf timing parameters are applied only to
+the entity instance named &#8220;dut&#8221; (which is your alu in this case)
+within the testbench entity.</p>
+
+<p class=MsoNormal style='margin-left:31.5pt;text-indent:-.2in;mso-list:l1 level1 lfo9;
+tab-stops:31.5pt list 49.5pt left 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The pin definition for pins ripped from vectors
+(busses) might look something like:</p>
+
+<p class=MsoNormal style='margin-left:.75in;tab-stops:31.5pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>DEF
+entity_name</p>
+
+<p class=MsoNormal style='margin-left:.75in;tab-stops:31.5pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>PIN
+a&lt;1&gt;;</p>
+
+<p class=MsoNormal style='margin-left:.75in;tab-stops:31.5pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-tab-count:1'>             </span>PIN: 11.</p>
+
+<p class=MsoNormal style='margin-left:.75in;tab-stops:31.5pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>PIN
+a&lt;2&gt;;</p>
+
+<p class=MsoNormal style='margin-left:.75in;tab-stops:31.5pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-tab-count:1'>             </span>PIN 12.</p>
+
+<p class=MsoNormal style='margin-left:.75in;tab-stops:31.5pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>etc.</p>
+
+<p class=MsoNormal style='margin-left:31.5pt;tab-stops:31.5pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>where
+a&lt;1&gt; is bit one of vector a.</p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+style='mso-spacerun:yes'> </span></p>
+
+</div>
+
+</body>
+
+</html>

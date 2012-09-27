@@ -1,0 +1,56 @@
+A51 MACRO ASSEMBLER  CH3_P39B                                                             02/28/2001 10:05:42 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.10
+OBJECT MODULE PLACED IN .\ch3_p39b.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE .\ch3_p39b.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;***********************************************************************;
+                       2     ;                         Chapter 3: Problem 39                         ;
+                       3     ;                        Create 7 segment decoder                       ;
+                       4     ;***********************************************************************;
+                       5     
+----                   6             CSEG AT 0
+                       7     
+0000 020100            8             LJMP START
+                       9     
+0003 3F065B4F         10     TABLE:  db 3FH, 06H, 5BH, 4FH, 66H, 6DH, 7DH, 07H, 7FH, 67H, 77H, 7CH, 39H, 5EH, 79H, 71H
+0007 666D7D07                
+000B 7F67777C                
+000F 395E7971                
+                      11     
+----                  12             CSEG AT 100H
+                      13     
+0100 75B00F           14     START:  MOV P3, #0FH            ;Allow bits 0 - 3 to be inputs
+                      15     
+0103 E5B0             16     LOOP:   MOV A, P3               ;Read P3
+                      17     
+0105 540F             18             ANL A, #0FH             ;Mask input bits
+0107 900003           19             MOV DPTR, #TABLE        ;Get table address
+010A 93               20             MOVC A,@A+DPTR          ;Get ith entry in table
+                      21     
+010B F590             22             MOV P1, A               ;Output to P1
+010D 80F4             23             SJMP LOOP               ;Repeat forever
+                      24     
+                      25             END
+A51 MACRO ASSEMBLER  CH3_P39B                                                             02/28/2001 10:05:42 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0103H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   0100H   A   
+TABLE. . . . . . .  C ADDR   0003H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

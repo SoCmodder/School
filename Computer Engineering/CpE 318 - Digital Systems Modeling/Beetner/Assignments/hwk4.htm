@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (X11; I; SunOS 5.6 sun4u) [Netscape]">
+   <META NAME="Author" CONTENT="Daryl G. Beetner">
+   <TITLE>Homework 4</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000013" LINK="#33CCFF" VLINK="#FF99FF" ALINK="#FF0000">
+<B><FONT COLOR="#FFFF00"><FONT SIZE=+1>Homework 4: Composite data types</FONT></FONT></B>
+
+<ol>
+<li> Create a record type which includes elements of type
+distance, dayofweek, integer, bit, and an eight-bit vector.
+
+<li> Ch 4, problem 11.  Note the use of the word
+"general" (read: and size inputs/outputs).
+After writing the model, instantiate
+it in an entity with 4-bit inputs and write a testbench
+that tests the 4-bit entity over some suitable set of
+input values (should be sufficient to show that it
+should work under most conditions).  Turn in a) code 
+for the original model, b)
+code for the instantiated entity and testbench, and
+c) a printout of the simulation waveform resulting
+from b) which shows your model works.
+
+<li> The 8051 microcontroller has a command "SWAP A", which 
+swaps the low and high nibble within the 8-bit accumulator.
+Write a short section of code (entity/architecture/process)
+to perform this instruction.  You only have to a) declare
+the accumulator as an array, and b) write code to perform the
+command.  Feel free to use simulation to check your answer.
+
+<li> For the following short VHDL program:
+
+<PRE>
+entity blah is
+end entity blah
+
+architecture blab of blah is
+	signal x,y:bit;
+begin
+	p1: process is
+	begin
+		x<= '0', '1' after 5 ns, '1' after 10 ns, '0' after 12 ns,
+			'1' after 15 ns, '0' after 25 ns;
+		wait;
+	end process p1;
+	p2: process is
+	begin
+		y <=x;
+		wait on x;
+		y <= x'delayed(2 ns);
+		wait on x'transaction;
+		y <= x;
+		wait on x until x = '1' for 5 ns;
+		y <= x'last_value;
+	end process p2;
+end architecture blab.
+</PRE>
+
+Draw a "waveform" (a plot) of x'delayed(5 ns), x'stable(3 ns), x'quiet(3 ns), 
+and the other 6 signal attributes listed on page 112 for the signal x.
+Also draw the signal y.
+For the boolean values, show them as a '1' when they are true and
+as a '0' when they are false.  I would like the waveforms to be
+accurate for each whole ns.  For example, I should be able to
+look at your plot at timestep 7 ns and tell what each of the
+attributes should be.  I might not now the correct value at
+7.5 ns.  Your plot can end at 30 to 35 ns.
+I prefer you work these values
+out by hand rather than through simulation, as you will be working
+them out by hand on a test.
+
+
+</ol>
+
+<BR>
+
+&nbsp;&nbsp;
+<DIV ALIGN=right><TABLE COLS=2 WIDTH="100%" NOSAVE >
+<TR NOSAVE>
+<TD ALIGN=LEFT VALIGN=CENTER NOSAVE><A HREF="../../index.html">Back to Daryl's
+home page</A></TD>
+
+<TD ALIGN=RIGHT VALIGN=CENTER NOSAVE><FONT COLOR="#FFFFFF">Page last modified
+: Thursday, 22-Feb-2001 19:12:36 CST</FONT></TD>
+</TR>
+</TABLE></DIV>
+&nbsp;&nbsp;
+</BODY>
+</HTML>

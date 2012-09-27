@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (X11; I; SunOS 5.6 sun4u) [Netscape]">
+   <META NAME="Author" CONTENT="Daryl G. Beetner">
+   <TITLE>Homework 5</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000013" LINK="#33CCFF" VLINK="#FF99FF" ALINK="#FF0000">
+<B><FONT COLOR="#FFFF00"><FONT SIZE=+1>Homework 5: Behavioral Descriptions</FONT></FONT></B>
+
+<ol>
+<li> Write a wait statement that suspends a process: </li>
+	<ol>
+	<li> until a signal x = 1 or for up to 1ms, whichever comes first. </li>
+	<li> until a signal x = 0 when there is an event on a signal y. </li>
+	<li> until there is a transaction on signal x </li>
+	</ol>
+<li> Problem 5.19 from the book. </li>
+<li> Delta Delays.  Using the following entity/architecture pair, 
+sketch a timing diagram
+of signals a,b,c,w,x,y, and z. Explain the origin of any <i>glitches</i>
+(delta width pulses) on the signals. </li>
+<pre>ENTITY hw1_1 IS END ENTITY hw1_1;
+ARCHITECTURE a1 OF hw1_1 IS
+&nbsp;SIGNAL w,x,y,z: BIT:= '0';
+&nbsp;SIGNAL a,b,c: BIT:= '1';
+&nbsp;BEGIN
+&nbsp; y&lt;= c AND w;
+&nbsp; w&lt;= NOT a;
+&nbsp; x&lt;= a AND b;
+&nbsp; z&lt;= x OR y AFTER 36 NS;
+&nbsp; a&lt;= '0';
+END ARCHITECTURE a1;</pre>
+
+<li> Problem 5.23 from the book. </li>
+
+<li>
+Pulse width filter.
+We can use a signal assignment statement with inertial delay to remove
+pulses that are <b>smaller </b>than a certain width. Using only signal
+assignment statements, write a code fragment for removing positive pulses
+that are <b>greater </b>than a certain width.</li>
+<li>
+Sequential VHDL.
+Find and correct the errors in the following VHDL
+model. Describe the function of the (corrected) model. 
+Try to compile it to be sure you got it right. (Hint: if you haven't
+been doing so already, it is relatively straight-forward to cut-and-paste
+programs like this straight from the web page into a .vhd file).</li>
+<pre>
+entity HW5 is
+    port (
+        d0: in bit;
+        d1: in bit;
+        d2: in bit;
+        sel0: in bit;
+        sel1: in bit;
+        z: out bit;
+end HW5;
+
+architecture A1 of HW5 is
+
+ constant Tpd: time:= 4.5;
+
+begin
+
+  p1: process(d0,d1,d2,d3,sel0,sel1)
+   variable sel: bit_vector(1 to 0);
+   variable zint: bit;
+   begin
+     sel(1):= sel1; sel(0):= sel0;
+     case select is
+       when "00" => zint:= d0;
+       when "01" => zint:= d1;
+       when "10" => zint:= d2;
+       when "11" => zint:= d3;
+     end case;
+     z <= zint after Tpd;
+   end process P1;
+
+end;
+</pre>
+
+</ol>
+
+<BR>
+
+&nbsp;&nbsp;
+<DIV ALIGN=right><TABLE COLS=2 WIDTH="100%" NOSAVE >
+<TR NOSAVE>
+<TD ALIGN=LEFT VALIGN=CENTER NOSAVE><A HREF="../../index.html">Back to Daryl's
+home page</A></TD>
+
+<TD ALIGN=RIGHT VALIGN=CENTER NOSAVE><FONT COLOR="#FFFFFF">Page last modified
+: Wednesday, 28-Feb-2001 09:18:16 CST</FONT></TD>
+</TR>
+</TABLE></DIV>
+&nbsp;&nbsp;
+</BODY>
+</HTML>

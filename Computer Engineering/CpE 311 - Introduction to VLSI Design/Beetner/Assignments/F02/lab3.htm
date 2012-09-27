@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.ece.umr.edu/~hjp/cpe311/lab3.html -->
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="lab3_files/filelist.xml">
+<title>Transistor level cell design</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="date"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>hjp</o:Author>
+  <o:LastAuthor>DrB</o:LastAuthor>
+  <o:Revision>6</o:Revision>
+  <o:TotalTime>69</o:TotalTime>
+  <o:Created>2002-02-18T17:11:00Z</o:Created>
+  <o:LastSaved>2002-10-11T20:27:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>349</o:Words>
+  <o:Characters>1995</o:Characters>
+  <o:Company>University of Missouri Rolla</o:Company>
+  <o:Lines>16</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2340</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:553679495 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:543909981;
+	mso-list-type:hybrid;
+	mso-list-template-ids:546190284 1108389416 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:21.0pt;
+	mso-level-number-position:left;
+	margin-left:17.4pt;
+	text-indent:-.2in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:1744987232;
+	mso-list-type:hybrid;
+	mso-list-template-ids:251807336 1108389416 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.2in;
+	text-indent:-.2in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+<meta content="Hardy J. Pottinger" name=Author>
+<meta content="CpE311 Fall 1999 Lab Exercise No. 2" name=Description>
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><span class=SpellE>CpE</span> 311 Lab Exercise 3</h1>
+
+<h2>Transistor Level Cell Design</h2>
+
+<h4>Due <st1:date Month="10" Day="31" Year="2002">Oct 31, 2002</st1:date></h4>
+
+<h3>Purpose</h3>
+
+<p class=MsoNormal>Familiarization with transistor level cell design using
+Spice. </p>
+
+<h3>Problem Description</h3>
+
+<p class=MsoNormal>1. Work the <span class=SpellE>Accusim</span> tutorial
+available on my webpage at
+http://www.umr.edu/~daryl/classes/cpe311/da-acsim.pdf.&nbsp; Measure the input
+capacitance of port A1 before and after the change in size of M101.&nbsp;
+Measure <span class=SpellE>TpHL</span> and <span class=SpellE>TpLH</span> from
+both A1 and B1 to Out and describe the process.&nbsp; Plot the supply current
+for both <span class=SpellE>Vcc</span>=5v and <span class=SpellE>Vcc</span>=3.3v
+operation. </p>
+
+<p>2. Develop a transistor level schematic similar to the one shown in Fig 2.13
+of the text but for an OAI21X2 gate.&nbsp; Use the naming convention described
+in Section 2.4.&nbsp; Use the methodology developed in the tutorial to simulate
+your gate.&nbsp; Use the <span class=SpellE>modelfile</span> <a
+href="http://www.ece.umr.edu/~hjp/cpe311/t1ckmod.txt">t1ck</a>, which is a
+model from a recent MOSIS run using the AMI 0.5 micron process.&nbsp; Assume a
+load capacitance of 1 <span class=SpellE>pF</span>.&nbsp; Make the transistors
+as small as possible consistent with equal rise and fall times. </p>
+
+<p>3. Repeat part 2 but assume a load capacitance of 10 <span class=SpellE>pF</span>.
+</p>
+
+<h3>Hints</h3>
+
+<p class=MsoNormal style='margin-left:.2in;text-indent:-.2in;mso-list:l1 level1 lfo3;
+tab-stops:list 13.5pt'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>You may not get your delays, etc, to come out <i
+style='mso-bidi-font-style:normal'>exactly</i> as reported in the tutorial, but
+they should be close.</p>
+
+<p class=MsoNormal style='margin-left:.2in;text-indent:-.2in;mso-list:l1 level1 lfo3;
+tab-stops:list 13.5pt'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The capacitance of port A1 in part 1 can be
+approximated using the relationship I = C <span class=SpellE>dv/dt</span>.<span
+style='mso-spacerun:yes'>  </span>To measure current going into the base of a
+transistor, select the base <i style='mso-bidi-font-style:normal'>node</i> (not
+the wire! &#8211; you will only see a little crosshair showing the selected
+node) and hit trace.<span style='mso-spacerun:yes'>  </span>Be careful in your
+selection of the portion of the V and I graphs you use to calculate your
+result. </p>
+
+<p class=MsoNormal style='margin-left:.2in;text-indent:-.2in;mso-list:l1 level1 lfo3;
+tab-stops:list 13.5pt'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>In part 2, remember that you want to make the <i
+style='mso-bidi-font-style:normal'>worst case</i> rise and fall times
+approximately the same.<o:p></o:p></p>
+
+<h3>Report</h3>
+
+<p class=MsoNormal>Your report should include:</p>
+
+<p class=MsoNormal style='margin-left:17.4pt;text-indent:-.2in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in 21.0pt'><![if !supportLists]><span style='font-family:
+Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>A cover page with the title Lab Assignment No.
+3, Transistor Level Cell Design, your names, the date, and CPE311.&nbsp; </p>
+
+<p class=MsoNormal style='margin-left:17.4pt;text-indent:-.2in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in 21.0pt'><![if !supportLists]><span style='font-family:
+Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>All schematics and simulation output from part
+1.&nbsp; Both for <span class=SpellE>Vcc</span>=5V and <span class=SpellE>Vcc</span>
+=3.3V. </p>
+
+<p class=MsoNormal style='margin-left:17.4pt;text-indent:-.2in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in 21.0pt'><![if !supportLists]><span style='font-family:
+Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Measured input capacitance to port A1 before and
+after size change.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal style='margin-left:17.4pt;text-indent:-.2in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in 21.0pt'><![if !supportLists]><span style='font-family:
+Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Measured values of <span class=SpellE>TpHL</span>
+and <span class=SpellE>TpLH</span> for A1 and B1 to Out.</p>
+
+<p class=MsoNormal style='margin-left:17.4pt;text-indent:-.2in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in 21.0pt'><![if !supportLists]><span style='font-family:
+Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>A hardcopy of the OAI21X2 gate schematic and a
+plot of the transient solution input and output voltage waveforms for parts 2
+and 3. <br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p class=MsoNormal style='margin-left:3.0pt'>Do not use any form of binder or
+protector for your report.&nbsp; <span class=GramE>Staple in the upper left
+corner only.</span>&nbsp; Your report should not exceed 10 pages maximum (not
+including simulation plots). </p>
+
+<p class=MsoNormal style='margin-left:3.0pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:3.0pt'><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

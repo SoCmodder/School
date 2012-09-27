@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (X11; I; SunOS 5.6 sun4u) [Netscape]">
+   <META NAME="Author" CONTENT="Daryl G. Beetner">
+   <TITLE>CpE311 - HWK3</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000013" LINK="#33CCFF" VLINK="#FF99FF" ALINK="#FF0000">
+<B><FONT COLOR="#FFFF00"><FONT SIZE=+1>Homework 3</FONT></FONT></B>
+
+<BR>
+Due: Tue., Sept. 24.
+
+<OL>
+<li> Using the following procedure, construct a VHDL model of a 
+two input NAND gate with an entity equal to the following:</FONT></P>
+<UL><PRE><FONT size=-1>ENTITY nand2 IS
+ PORT (a,b: IN BIT; c: OUT BIT);
+END ENTITY nand2;</FONT></PRE></UL>
+
+<OL>
+<LI><FONT size=-1>
+This assignment should typically be run from your ece Unix account.
+If a Unix machine isn't available, you can run Modelsim remotely
+from an NT machine using X-WIN32.  You can start X-WIN32 from
+the START>Computer Center Applications>Network Access>X-Win32.  Once
+started, you can open a session to one of the ECE unix machines by
+pressing the X-Win32 button on your menu bar and selecting the
+appropriate machine from the Sessions menu.  If the machine you
+want is not there, you can create a new session using X-Util
+(also from the X-Win32 button) and "edit session>new session".
+The easiest way to use the tool is to do the following: 
+under the new session 
+window, give your session a name and select XDMCP and Broadcast.
+Now press the X-Win32 button and select your session from the
+list.  The X-Win32 tool will go out and find all local machines
+which can handle XDMCP.  Select one and hit OK.  Your PC
+will now act as though you were logged directly into the selected
+Unix machine.  Selecting the rsh option when creating a new
+session can also be good, as you can access more machines, but
+is a bit more complicated.
+  <LI><FONT size=-1>Read the users guide for Modelsim.  The file
+	/usr/local/modeltech/docs/ee_doc_index.pdf is a good place
+	to start.  Use acroread on the Unix machines to read it
+	(i.e. acroread ee_doc_index.pdf). </FONT> 
+  <LI><FONT size=-1>Create a new subdirectory in your Unix account
+	called <I>twoinand.</I></FONT> 
+  <LI><FONT size=-1>Use your favorite text editor to <B>create a source file</B> 
+  called <I>my_nand.vhd</I> and enter the entity shown above.</FONT> 
+  <LI><FONT size=-1>Create a work directory with the command: vlib work. You 
+  only need to do this once. This creates a subdirectory in <I>twoinnand</I> 
+  which will persist until you delete it. <I>Work</I> is where the VHDL analyzer 
+  creates all of its output files.</FONT> 
+  <LI><FONT size=-1>Compile the source file with the command: vcom -93 my_nand.vhd. 
+  This compiles using VHDL'93 syntax. Leave off the 93 for VHDL'87 syntax. Enter 
+  <I>vcom -help</I> for a list of options.</FONT> 
+  <LI><FONT size=-1>Examine the work directory with the command v<I>dir</I>. You 
+  should see the name of the entity you just analyzed.</FONT> 
+  <LI><FONT size=-1>Use your text editor to <B>add a suitable architecture</B> 
+  to your nand model. Call it A1 and use a simple signal assignment statement 
+  for the model.</FONT> 
+  <LI><FONT size=-1>Compile the source file again. Fix any errors.</FONT> 
+  <LI><FONT size=-1>Enter the command <I>vdir nand2</I> and <B>describe the 
+  result.</B></FONT> 
+  <LI><FONT size=-1>Bring up the simulator with the command <I>vsim nand2 a1. 
+  </I>This will invoke the simulator on the entity <I>nand2</I> and the 
+  architecture <I>a1</I> and start a command window. </FONT>
+  <LI><FONT size=-1>In the command window, type the command <I>view *</I> and 
+  <B>describe each of the windows</B> displayed.</FONT> 
+  <LI><FONT size=-1>In the command window, type the command <I>add wave *</I> and 
+  <B>describe the signals</B> which are displayed.</FONT> 
+  <LI><FONT size=-1>Type the command <I>force a 0</I> to force signal a to a 
+  zero. Type a similar command for input b.</FONT> 
+  <LI><FONT size=-1>Run the simulator for 100 nS by typing the command <I>run 
+  100.</I></FONT> 
+  <LI><FONT size=-1>Force a to a 1 and run for another 100 nS.</FONT> 
+  <LI><FONT size=-1>Force b to a 1 and run for 100 nS.</FONT> 
+  <LI><FONT size=-1> Try clicking around in some of the windows or selecting
+	signals and hitting the right mouse button. Play around a bit.
+	<B>Describe some interesting things you found that you 
+	can do with the simulator</B>.
+  <LI><FONT size=-1>Finish the grey code input sequence ab=00,10,11,01,00. 
+	You can force multiple values using the command 
+	<I>force a 0 0, 1 10, 0 20</I> where value/time pairs are separated
+	by commas.  Your 
+  simulation should last for 500 nSec.</FONT> 
+  <LI><FONT size=-1><B>Make a plot</B> of the wave window and exit the 
+  simulator (you can make a plot by using the FILE>Write to Postscript option
+in the wave window).</FONT> </LI></OL>
+<LI> Implement the following digital filter in VHDL
+	<P>
+	y0 = c(0)*x(0) + c(1)*x(1) + c(2)*x(2)
+	<P> where c(0) = -4, c(1) = +5, and c(2) = -3.  Have 
+	the output y0 update on each rising edge of the clock. 
+	Make c(0)-c(2) constants so they could easily be changed if needed.
+	Give your filter a "clear" input that will clear any registers.
+	You do not have to simulate your results, though I would run it
+	through vcom if I were you to make sure it is syntactically correct.
+	(e.g. vcom -93 <.vhd file name>.  See above) 
+	-- of course if you simulate
+	you'll KNOW for certain if it is right.
+
+	<P>
+	Try to predict the synthesized result by drawing a block 
+	diagram consisting of macro blocks like registers, adders, multipliers,
+	and the like.   Turn your predicted result in.
+<LI> Write an entity/architecture pair description of a general-purpose 
+D-flip-flop with the following I/O:
+	<UL>
+	<LI> Inputs: D, CLK, CLR, and PRS (all single bits)
+	<LI> Outputs: Q, Q_not 
+	</UL>
+CLR (clear) and PRS (preset) are asynchronous.  
+At a minimum, compile your design using VCOM to be sure it is syntactically
+correct.
+</OL>
+&nbsp;&nbsp;
+<DIV ALIGN=right><TABLE COLS=2 WIDTH="100%" NOSAVE >
+<TR NOSAVE>
+<TD ALIGN=LEFT VALIGN=CENTER NOSAVE><A HREF="../../index.html">Back to Daryl's
+home page</A></TD>
+
+<TD ALIGN=RIGHT VALIGN=CENTER NOSAVE><FONT COLOR="#FFFFFF">Page last modified
+: Monday, 16-Sep-2002 17:54:07 CDT</FONT></TD>
+</TR>
+</TABLE></DIV>
+&nbsp;&nbsp;
+</BODY>
+</HTML>

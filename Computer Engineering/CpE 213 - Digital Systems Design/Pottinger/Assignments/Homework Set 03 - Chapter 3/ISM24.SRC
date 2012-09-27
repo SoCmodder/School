@@ -1,0 +1,177 @@
+; .\ISM24.SRC generated from: .\ISM24.c
+
+$NOMOD51
+
+NAME	ISM24
+
+P0	DATA	080H
+P1	DATA	090H
+P2	DATA	0A0H
+P3	DATA	0B0H
+T0	BIT	0B0H.4
+AC	BIT	0D0H.6
+T1	BIT	0B0H.5
+EA	BIT	0A8H.7
+IE	DATA	0A8H
+RD	BIT	0B0H.7
+ES	BIT	0A8H.4
+IP	DATA	0B8H
+RI	BIT	098H.0
+INT0	BIT	0B0H.2
+CY	BIT	0D0H.7
+TI	BIT	098H.1
+INT1	BIT	0B0H.3
+PS	BIT	0B8H.4
+SP	DATA	081H
+OV	BIT	0D0H.2
+WR	BIT	0B0H.6
+SBUF	DATA	099H
+PCON	DATA	087H
+SCON	DATA	098H
+TMOD	DATA	089H
+TCON	DATA	088H
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+B	DATA	0F0H
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+TF1	BIT	088H.7
+RB8	BIT	098H.2
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+IT0	BIT	088H.0
+TH1	DATA	08DH
+TB8	BIT	098H.3
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+P	BIT	0D0H.0
+SM0	BIT	098H.7
+TL0	DATA	08AH
+SM1	BIT	098H.6
+TL1	DATA	08BH
+SM2	BIT	098H.5
+PT0	BIT	0B8H.1
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+TR1	BIT	088H.6
+PX0	BIT	0B8H.0
+PX1	BIT	0B8H.2
+DPH	DATA	083H
+DPL	DATA	082H
+REN	BIT	098H.4
+RXD	BIT	0B0H.0
+TXD	BIT	0B0H.1
+F0	BIT	0D0H.5
+PSW	DATA	0D0H
+?PR?main?ISM24       SEGMENT CODE
+?CO?ISM24            SEGMENT CODE
+?BI?ISM24            SEGMENT BIT
+?BA?ISM24            SEGMENT DATA BITADDRESSABLE
+?ID?ISM24            SEGMENT IDATA
+?PD?ISM24            SEGMENT XDATA INPAGE
+?DT?ISM24            SEGMENT DATA
+	EXTRN	CODE (?C_STARTUP)
+	PUBLIC	i
+	PUBLIC	flag0
+	PUBLIC	buf
+	PUBLIC	pvar
+	PUBLIC	ivar
+	PUBLIC	flags
+	PUBLIC	b_Pump_On
+	PUBLIC	msg
+	PUBLIC	main
+
+	XSEG  AT  08000H
+            buf:   DS   10
+
+	RSEG  ?BI?ISM24
+      b_Pump_On:   DBIT   1
+
+	RSEG  ?BA?ISM24
+          flags:   DS   1
+flag0	EQU	(flags+0).0
+
+	RSEG  ?ID?ISM24
+           ivar:   DS   1
+
+	RSEG  ?PD?ISM24
+           pvar:   DS   1
+
+	RSEG  ?DT?ISM24
+              i:   DS   1
+
+	RSEG  ?CO?ISM24
+msg:
+	DB  'P' ,'u' ,'m' ,'p' ,' ' ,'o' ,'n' ,000H
+
+
+; #include <reg51.h>
+; 
+; #define uchar unsigned char
+; char code msg[]="Pump on";
+; bit b_Pump_On;
+; uchar bdata flags;
+; sbit flag0=flags^0;
+; uchar xdata buf[10] _at_ 0x8000;
+; uchar idata ivar;
+; uchar pdata pvar;
+; uchar i;
+; 
+; void main(void) {
+
+	RSEG  ?PR?main?ISM24
+main:
+	USING	0
+			; SOURCE LINE # 13
+; 	b_Pump_On=1;
+			; SOURCE LINE # 14
+	SETB 	b_Pump_On
+; 	i=0;
+			; SOURCE LINE # 15
+	CLR  	A
+	MOV  	i,A
+?C0003:
+; 	do buf[i]=msg[i]; while(msg[i++]!='\0');
+			; SOURCE LINE # 16
+	MOV  	A,i
+	MOV  	DPTR,#msg
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	MOV  	A,#LOW (buf)
+	ADD  	A,i
+	MOV  	DPL,A
+	CLR  	A
+	ADDC 	A,#HIGH (buf)
+	MOV  	DPH,A
+	MOV  	A,R7
+	MOVX 	@DPTR,A
+	MOV  	R7,i
+	INC  	i
+	MOV  	A,R7
+	MOV  	DPTR,#msg
+	MOVC 	A,@A+DPTR
+	JNZ  	?C0003
+; 	flag0=b_Pump_On;
+			; SOURCE LINE # 17
+	MOV  	C,b_Pump_On
+	MOV  	flag0,C
+; 	ivar=25;
+			; SOURCE LINE # 18
+	MOV  	R0,#LOW (ivar)
+	MOV  	@R0,#019H
+; 	pvar=33;
+			; SOURCE LINE # 19
+	MOV  	R0,#LOW (pvar)
+	MOV  	A,#021H
+	MOVX 	@R0,A
+?C0004:
+; 	while(1);
+			; SOURCE LINE # 20
+	SJMP 	?C0004
+; END OF main
+
+	END

@@ -1,0 +1,63 @@
+UNIX command summaryUNIX Command Summary
+There are MANY commands available for you in a UNIX shell account. A list of 
+them follows (in no particular order). Remember, you can always read the manpage 
+on each command for more information. 
+
+
+
+ls ................. show directory, in alphabetical order
+logout ............. logs off system
+mkdir .............. make a directory
+rmdir .............. remove directory (rm -r to delete folders with files)
+rm ................. remove files
+cd ................. change current directory
+man (command) ...... shows help on a specific command
+talk (user) ........ pages user for chat - (user) is a email address
+write (user) ....... write a user on the local system (control-c to end)
+
+pico (filename) .... easy to use text editor to edit files
+pine ............... easy to use mailer
+more (file) ........ views a file, pausing every screenful
+
+sz ................. send a file (to you) using zmodem
+rz ................. recieve a file (to the unix system) using zmodem
+
+telnet (host) ...... connect to another Internet site
+ftp (host) ......... connects to a FTP site
+archie (filename) .. search the Archie database for a file on a FTP site
+irc ................ connect to Internet Relay Chat
+lynx ............... a textual World Wide Web browser
+gopher ............. a Gopher database browser
+tin, trn ........... read Usenet newsgroups
+
+passwd ............. change your password
+chfn ............... change your "Real Name" as seen on finger
+chsh ............... change the shell you log into
+
+grep ............... search for a string in a file
+tail ............... show the last few lines of a file
+who ................ shows who is logged into the local system
+w .................. shows who is logged on and what they're doing
+finger (emailaddr).. shows more information about a user
+df ................. shows disk space available on the system
+du ................. shows how much disk space is being used up by folders
+chmod .............. changes permissions on a file
+bc ................. a simple calculator
+
+make ............... compiles source code
+gcc (file.c) ....... compiles C source into a file named 'a.out'
+
+gzip ............... best compression for UNIX files
+zip ................ zip for IBM files
+tar ................ combines multiple files into one or vice-versa
+lharc, lzh, lha .... un-arc'ers, may not be on your system
+
+dos2unix (file) (new) - strips CR's out of dos text files
+unix2dos (file) (new) - adds CR's to unix text files
+
+
+
+Back to the homepage 
+$Id: unixcmds.html,v 1.2 2002/11/01 08:59:13 sgd Exp $
+
+

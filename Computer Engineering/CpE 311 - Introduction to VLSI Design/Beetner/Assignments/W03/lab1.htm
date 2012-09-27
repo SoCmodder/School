@@ -1,0 +1,1204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.ece.umr.edu/~hjp/cpe311/lab1.html -->
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="lab1_files/filelist.xml">
+<link rel=Edit-Time-Data href="lab1_files/editdata.mso">
+<link rel=OLE-Object-Data href="lab1_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Actel schematic based design</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="date"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>DrB</o:Author>
+  <o:LastAuthor>DrB</o:LastAuthor>
+  <o:Revision>12</o:Revision>
+  <o:TotalTime>991</o:TotalTime>
+  <o:Created>2002-09-03T14:23:00Z</o:Created>
+  <o:LastSaved>2003-02-11T15:30:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>973</o:Words>
+  <o:Characters>5548</o:Characters>
+  <o:Company>UMR</o:Company>
+  <o:Lines>46</o:Lines>
+  <o:Paragraphs>13</o:Paragraphs>
+  <o:CharactersWithSpaces>6508</o:CharactersWithSpaces>
+  <o:Version>10.3501</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:DrawingGridHorizontalSpacing>9.35 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>9.35 pt</w:DrawingGridVerticalSpacing>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h4
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:102655403;
+	mso-list-template-ids:1099075950;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:1118984767;
+	mso-list-template-ids:-292124436;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1162158997;
+	mso-list-template-ids:1679703854;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:1508785235;
+	mso-list-template-ids:-708171244;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:1690569154;
+	mso-list-template-ids:198760674;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:2039114426;
+	mso-list-type:hybrid;
+	mso-list-template-ids:966262844 1108389416 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.2in;
+	text-indent:-.2in;
+	font-family:Symbol;}
+@list l5:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:2067488047;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1336582216 1108389416 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.2in;
+	text-indent:-.2in;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:2116242652;
+	mso-list-template-ids:-741171718;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+<meta content="CpE311 Fall 1999 Lab Exercise No. 1" name=Description>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="4098"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+  <o:regrouptable v:ext="edit">
+   <o:entry new="1" old="0"/>
+  </o:regrouptable>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><span class=SpellE>CpE</span> 311 Lab Exercise 1</h1>
+
+<h2>Schematic Capture Based FPGA Design</h2>
+
+<h4>Due <st1:date Year="2003" Day="20" Month="2">Feb. 20, 2003</st1:date></h4>
+
+<h3>Purpose</h3>
+
+<p class=MsoNormal>The purpose of this exercise is to become familiar with
+schematic capture based design flow for <span class=SpellE>Actel</span> Field
+Programmable Gate Arrays (FPGA). Schematic capture has been the traditional
+design technique for many years. It is rapidly being replaced by HDL based
+design flows for FPGA design but is still commonly used for top level block
+diagrams and board level design for printed circuit layout. We will design a
+medium scale circuit using schematic capture in order to form a basis for
+comparison to HDL based design (which we’ll do in the next lab). </p>
+
+<h3>Problem Description</h3>
+
+<h3><!--[if mso & !supportInlineShapes & supportFields]><span style='mso-element:
+field-begin;mso-field-lock:yes'></span><span style='mso-spacerun:yes'> </span>SHAPE
+<span style='mso-spacerun:yes'> </span>\* MERGEFORMAT <span style='mso-element:
+field-separator'></span><![endif]--><!--[if gte vml 1]><v:group id="_x0000_s1027"
+ editas="canvas" style='width:507.75pt;height:264.8pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'
+ coordorigin="150,5775" coordsize="10155,5296">
+ <o:lock v:ext="edit" aspectratio="t"/>
+ <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75"
+  o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t75" style='position:absolute;
+  left:150;top:5775;width:10155;height:5296' o:preferrelative="f">
+  <v:fill o:detectmouseclick="t"/>
+  <v:path o:extrusionok="t" o:connecttype="none"/>
+ </v:shape><v:group id="_x0000_s1051" style='position:absolute;left:424;top:6781;
+  width:3661;height:2969' coordorigin="2519,5700" coordsize="3661,2969">
+  <v:rect id="_x0000_s1028" style='position:absolute;left:3346;top:6346;
+   width:2070;height:1544'/>
+  <v:line id="_x0000_s1029" style='position:absolute' from="3766,5970" to="3766,6346"/>
+  <v:line id="_x0000_s1032" style='position:absolute' from="4710,5970" to="4710,6346"/>
+  <v:line id="_x0000_s1031" style='position:absolute' from="4306,7890" to="4306,8266"/>
+  <v:line id="_x0000_s1033" style='position:absolute;flip:x' from="3000,6660"
+   to="3346,6660"/>
+  <v:line id="_x0000_s1034" style='position:absolute;flip:x' from="5416,6645"
+   to="5762,6646"/>
+  <v:line id="_x0000_s1035" style='position:absolute;flip:x' from="3000,7620"
+   to="3346,7621"/>
+  <v:line id="_x0000_s1036" style='position:absolute' from="3690,6090" to="3855,6225"/>
+  <v:line id="_x0000_s1037" style='position:absolute' from="4230,7994" to="4395,8129"/>
+  <v:line id="_x0000_s1038" style='position:absolute' from="3089,7546" to="3254,7681"/>
+  <v:line id="_x0000_s1039" style='position:absolute' from="4635,6105" to="4800,6240"/>
+  <v:shapetype id="_x0000_t202" coordsize="21600,21600" o:spt="202" path="m,l,21600r21600,l21600,xe">
+   <v:stroke joinstyle="miter"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+  </v:shapetype><v:shape id="_x0000_s1040" type="#_x0000_t202" style='position:absolute;
+   left:3390;top:5700;width:555;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1040'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>B</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1041" type="#_x0000_t202" style='position:absolute;
+   left:4366;top:5700;width:555;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1041'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>A</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1042" type="#_x0000_t202" style='position:absolute;
+   left:5625;top:6286;width:555;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1042'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>CI</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1043" type="#_x0000_t202" style='position:absolute;
+   left:2519;top:6301;width:720;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1043'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>CO</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1044" type="#_x0000_t202" style='position:absolute;
+   left:2671;top:7274;width:555;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1044'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>S</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1045" type="#_x0000_t202" style='position:absolute;
+   left:3975;top:8129;width:555;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1045'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>F</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1046" type="#_x0000_t202" style='position:absolute;
+   left:3915;top:6376;width:795;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1046'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>ALU</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1047" type="#_x0000_t202" style='position:absolute;
+   left:4320;top:7890;width:555;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1047'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>4</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1048" type="#_x0000_t202" style='position:absolute;
+   left:2977;top:7589;width:555;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1048'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>2</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1049" type="#_x0000_t202" style='position:absolute;
+   left:4710;top:5970;width:555;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1049'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>4</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape><v:shape id="_x0000_s1050" type="#_x0000_t202" style='position:absolute;
+   left:3751;top:5970;width:555;height:540' filled="f" stroked="f">
+   <v:textbox style='mso-next-textbox:#_x0000_s1050'>
+    <![if !mso]>
+    <table cellpadding=0 cellspacing=0 width="100%">
+     <tr>
+      <td><![endif]>
+      <div>
+      <p class=MsoNormal>4</p>
+      </div>
+      <![if !mso]></td>
+     </tr>
+    </table>
+    <![endif]></v:textbox>
+  </v:shape></v:group><v:rect id="_x0000_s1053" style='position:absolute;
+  left:6571;top:6692;width:2070;height:1544' o:regroupid="1"/>
+ <v:line id="_x0000_s1054" style='position:absolute' from="6991,6316" to="6992,6692"
+  o:regroupid="1"/>
+ <v:line id="_x0000_s1055" style='position:absolute' from="7935,6316" to="7936,6692"
+  o:regroupid="1"/>
+ <v:line id="_x0000_s1056" style='position:absolute' from="7531,8236" to="7532,8612"
+  o:regroupid="1"/>
+ <v:line id="_x0000_s1057" style='position:absolute;flip:x' from="6225,7006"
+  to="6571,7007" o:regroupid="1"/>
+ <v:line id="_x0000_s1058" style='position:absolute;flip:x' from="8641,6991"
+  to="8987,6992" o:regroupid="1"/>
+ <v:line id="_x0000_s1059" style='position:absolute;flip:x' from="6225,7966"
+  to="6571,7967" o:regroupid="1"/>
+ <v:line id="_x0000_s1060" style='position:absolute' from="6915,6436" to="7080,6571"
+  o:regroupid="1"/>
+ <v:line id="_x0000_s1061" style='position:absolute' from="7455,8340" to="7620,8475"
+  o:regroupid="1"/>
+ <v:line id="_x0000_s1062" style='position:absolute' from="6314,7892" to="6479,8027"
+  o:regroupid="1"/>
+ <v:line id="_x0000_s1063" style='position:absolute' from="7860,6451" to="8025,6586"
+  o:regroupid="1"/>
+ <v:shape id="_x0000_s1064" type="#_x0000_t202" style='position:absolute;
+  left:6615;top:6046;width:555;height:540' o:regroupid="1" filled="f"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1064'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>B</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1067" type="#_x0000_t202" style='position:absolute;
+  left:5669;top:9991;width:720;height:540' o:regroupid="1" filled="f"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1067'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>CY</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1068" type="#_x0000_t202" style='position:absolute;
+  left:5129;top:7695;width:555;height:540' o:regroupid="1" filled="f"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1068'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>S</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1069" type="#_x0000_t202" style='position:absolute;
+  left:7305;top:9945;width:555;height:540' o:regroupid="1" filled="f"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1069'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>F</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1070" type="#_x0000_t202" style='position:absolute;
+  left:7140;top:6722;width:795;height:540' o:regroupid="1" filled="f"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1070'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>ALU</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1071" type="#_x0000_t202" style='position:absolute;
+  left:7545;top:8236;width:555;height:540' o:regroupid="1" filled="f"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1071'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>4</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1072" type="#_x0000_t202" style='position:absolute;
+  left:6202;top:7935;width:555;height:540' o:regroupid="1" filled="f"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1072'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>2</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1073" type="#_x0000_t202" style='position:absolute;
+  left:7935;top:6316;width:555;height:540' o:regroupid="1" filled="f"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1073'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>4</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1074" type="#_x0000_t202" style='position:absolute;
+  left:6976;top:6316;width:555;height:540' o:regroupid="1" filled="f"
+  stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1074'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>4</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1075" type="#_x0000_t202" style='position:absolute;
+  left:6202;top:10531;width:2416;height:540' filled="f" stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1075'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal>Registered ALU</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1078" type="#_x0000_t202" style='position:absolute;
+  left:6600;top:9015;width:2070;height:540'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal align=center style='text-align:center'>4-bit register</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1079" type="#_x0000_t202" style='position:absolute;
+  left:4873;top:9015;width:1516;height:540'>
+  <v:textbox>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal align=center style='text-align:center'>CY flip-flop</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1080" style='position:absolute;flip:x' from="6030,7006"
+  to="6225,7006"/>
+ <v:line id="_x0000_s1081" style='position:absolute' from="6030,7006" to="6030,9015">
+  <v:stroke endarrow="block"/>
+ </v:line><v:line id="_x0000_s1082" style='position:absolute' from="7531,8612"
+  to="7531,9015">
+  <v:stroke endarrow="block"/>
+ </v:line><v:line id="_x0000_s1083" style='position:absolute' from="6030,9555"
+  to="6031,10020">
+  <v:stroke endarrow="block"/>
+ </v:line><v:line id="_x0000_s1084" style='position:absolute' from="7531,9555"
+  to="7532,10020">
+  <v:stroke endarrow="block"/>
+ </v:line><v:line id="_x0000_s1085" style='position:absolute' from="7531,9630"
+  to="8775,9630"/>
+ <v:line id="_x0000_s1086" style='position:absolute;flip:y' from="8775,6316"
+  to="8775,9630"/>
+ <v:line id="_x0000_s1087" style='position:absolute' from="7935,6335" to="8775,6335"/>
+ <v:line id="_x0000_s1089" style='position:absolute' from="8987,6991" to="8987,9750"/>
+ <v:line id="_x0000_s1090" style='position:absolute;flip:x' from="6030,9750"
+  to="8987,9750"/>
+ <v:line id="_x0000_s1091" style='position:absolute;flip:x' from="5490,7966"
+  to="6225,7967"/>
+ <v:shape id="_x0000_s1092" type="#_x0000_t202" style='position:absolute;
+  left:4085;top:8627;width:833;height:540' filled="f" stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1092'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal><span class=GramE>reset</span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shape id="_x0000_s1093" type="#_x0000_t202" style='position:absolute;
+  left:4065;top:8359;width:943;height:540' filled="f" stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1093'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal><span class=SpellE><span class=GramE>sysclk</span></span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:line id="_x0000_s1094" style='position:absolute' from="4740,8839"
+  to="6757,8840"/>
+ <v:line id="_x0000_s1095" style='position:absolute' from="5008,8839" to="5009,9015"/>
+ <v:line id="_x0000_s1096" style='position:absolute' from="6757,8839" to="6758,9015"/>
+ <v:line id="_x0000_s1097" style='position:absolute' from="4830,8537" to="6915,8538"/>
+ <v:line id="_x0000_s1098" style='position:absolute' from="6915,8537" to="6915,9015"/>
+ <v:line id="_x0000_s1099" style='position:absolute' from="5160,8537" to="5161,9015"/>
+ <v:shape id="_x0000_s1100" type="#_x0000_t202" style='position:absolute;
+  left:1034;top:10515;width:2416;height:540' filled="f" stroked="f">
+  <v:textbox style='mso-next-textbox:#_x0000_s1100'>
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=MsoNormal align=center style='text-align:center'>ALU</p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><w:wrap type="none"/>
+ <w:anchorlock/>
+</v:group><![endif]--><![if !vml]><img width=677 height=355
+src="lab1_files/image002.gif" v:shapes="_x0000_s1027 _x0000_s1026 _x0000_s1051 _x0000_s1028 _x0000_s1029 _x0000_s1032 _x0000_s1031 _x0000_s1033 _x0000_s1034 _x0000_s1035 _x0000_s1036 _x0000_s1037 _x0000_s1038 _x0000_s1039 _x0000_s1040 _x0000_s1041 _x0000_s1042 _x0000_s1043 _x0000_s1044 _x0000_s1045 _x0000_s1046 _x0000_s1047 _x0000_s1048 _x0000_s1049 _x0000_s1050 _x0000_s1053 _x0000_s1054 _x0000_s1055 _x0000_s1056 _x0000_s1057 _x0000_s1058 _x0000_s1059 _x0000_s1060 _x0000_s1061 _x0000_s1062 _x0000_s1063 _x0000_s1064 _x0000_s1067 _x0000_s1068 _x0000_s1069 _x0000_s1070 _x0000_s1071 _x0000_s1072 _x0000_s1073 _x0000_s1074 _x0000_s1075 _x0000_s1078 _x0000_s1079 _x0000_s1080 _x0000_s1081 _x0000_s1082 _x0000_s1083 _x0000_s1084 _x0000_s1085 _x0000_s1086 _x0000_s1087 _x0000_s1089 _x0000_s1090 _x0000_s1091 _x0000_s1092 _x0000_s1093 _x0000_s1094 _x0000_s1095 _x0000_s1096 _x0000_s1097 _x0000_s1098 _x0000_s1099 _x0000_s1100"><![endif]><!--[if mso & !supportInlineShapes & supportFields]><v:shape
+ id="_x0000_i1025" type="#_x0000_t75" style='width:507.75pt;height:264.8pt'>
+ <v:imagedata croptop="-65520f" cropbottom="65520f"/>
+</v:shape><span style='mso-element:field-end'></span><![endif]--></h3>
+
+<p class=MsoNormal>Arithmetic logic units (<span class=SpellE>ALUs</span>) are
+a major building block of most general and special purpose processors. An ALU,
+as the name implies, performs simple arithmetic operations like add and
+subtract and bit-wise logic operations like AND <span class=SpellE>and</span>
+OR on binary numbers of length 1, 4, 8, or larger. You are to design a (very
+simple) four bit ALU with an attached register and put it together in a single
+package.<span style='mso-spacerun:yes'>  </span>The design will be implemented
+in an ACTEL 40MX02 FPGA.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Your ALU should have the following characteristics: </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>Inputs: A[3:0], B[3:0],
+     S[1:0], and CI </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>Outputs: F[3:0], CO </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>Functions: F=0, <span
+     class=SpellE>A.or.B</span>, <span class=SpellE>A.xor.B</span>, <span
+     class=SpellE>A.plus.B.plus.CI</span>, where S=0 selects F=0, S=1 selects
+     F=<span class=SpellE>A.or.B</span>, and so forth through S=3 which selects
+     A+B+CI. </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'>A title block in the bottom
+     right hand corner of your design with a title for your project (e.g.
+     CpE311 Lab Exercise 1 - <span class=SpellE>Actel</span> ALU design), your
+     name and the date of the design.</li>
+</ul>
+
+<p class=MsoNormal><span class=GramE>A and</span> B are the four bit input
+operands with bit 0 as the LSB. CI is the carry in for arithmetic operations
+and is ignored for logic operations. CO is the carry out for arithmetic
+operations. S is the function select.<span style='mso-spacerun:yes'> 
+</span>You may consider the inputs to be unsigned binary numbers.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p>When your ALU is complete, make a symbol for it and then package it together
+with an accumulator register (ACC) and carry flip flop (CY). Your registered
+ALU should have the following characteristics:</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l5 level1 lfo5;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Inputs: B[3:0], S[1:0], <span class=SpellE>sysclk</span>
+(system clock), RST</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l5 level1 lfo5;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Outputs: F[3:0], CY</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l5 level1 lfo5;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>All flip flops should be clocked on the rising edge
+of the same system clock (<span class=SpellE>sysclk</span>). Don't forget to
+use the 40MX02's clock buffer. </p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l5 level1 lfo5;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The F output of the ALU should be connected to
+the ACC's input and the ACC output to the ALU A input. </p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l5 level1 lfo5;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The ALU carry out bit (CO) should be connected
+to the CY input and the CY output to the ALU carry input (CI). </p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l5 level1 lfo5;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The CY should only change during arithmetic
+operations. In other words, operations like AND should not affect the carry
+bit. </p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l5 level1 lfo5;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>A title block in the bottom right hand corner of
+your design with a title for your project, your name and the date of the
+design.</p>
+
+<p>The B input, <span class=SpellE>sysclk</span>, and S inputs are primary chip
+inputs. ACC (<span class=GramE>F[</span>3:0]) and CY are primary outputs. An
+additional RST chip input should be provided to enable resetting the flip flops
+when power is first applied. RST should be active high. </p>
+
+<p>Implement your registered ALU with an <span class=SpellE>Actel</span> 40MX02
+FPGA. Make a reasonable pin assignment for the PLC44 package. Use the A40MX02-3
+PL44 part (commercial temperature range). Estimate the number of <span
+class=SpellE>Actel</span> logic modules used <u>before</u> synthesizing your
+design with designer (preferably before even capturing your design schematic).
+Send me the estimated number of logic elements and I/O modules. Perform a
+functional (pre-route) and timing (post-route) simulation to test your design
+appropriately. Keep a log of all time spent on this lab assignment. </p>
+
+<h3>Some Hints</h3>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l6 level1 lfo7;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>You can find design hints for developing your
+design for an <span class=SpellE>Actel</span> part at: <a
+href="http://web.umr.edu/~daryl/classes/cpe311/actel.notes.txt">http://web.umr.edu/~daryl/classes/cpe311/actel.notes.txt</a>.<span
+style='mso-spacerun:yes'>  </span>You’re interested in the part under the
+heading “<span class=SpellE>Actel</span> Design Flow – Schematic Capture” and
+“Brief outline of <span class=SpellE>actel</span> place and route procedure”.</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l6 level1 lfo7;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>You can find the <span class=SpellE>Actel</span>
+libraries under the menu Libraries&gt;<span class=SpellE>Actel</span>
+Libraries. There are MANY parts available in the <span class=SpellE>Actel</span>
+40MX02 library. You may find the following parts very useful in your design:
+FA1, CLKBUF, OUTBUF, INBUF, MX2, MX4, GND, DFC1</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l6 level1 lfo7;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Seeing all the parts in the library is easier if
+you enable the scroll bars.<span style='mso-spacerun:yes'>  </span>Place the
+mouse cursor in the library window, hit the right mouse button, and hit “enable
+scroll bars”</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l6 level1 lfo7;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>You need to use OUTBUF and INBUF (or TRIBUF)
+components in the <span class=SpellE>Actel</span> library to connect to pins
+(going to the outside world).<span style='mso-spacerun:yes'>  </span>OUTBUF and
+<span class=SpellE>INBUFs</span> should be connected to <span class=SpellE>portin</span>
+and <span class=SpellE>portout</span> flags named with the appropriate pin
+(e.g. p32).<span style='mso-spacerun:yes'>  </span>The buffers tell the tool to
+connect to a pin.<span style='mso-spacerun:yes'>  </span>The port flags tell
+the tool what to name the port.</p>
+
+<p class=MsoNormal align=center style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.3in;text-align:center'><!--[if gte vml 1]><v:shape id="_x0000_i1026"
+ type="#_x0000_t75" style='width:228.75pt;height:81pt' o:ole="">
+ <v:imagedata src="lab1_files/image003.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=305 height=108
+src="lab1_files/image004.gif" v:shapes="_x0000_i1026"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Photoshop.Image.6" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1106461012">
+  <o:WordFieldCodes>\s</o:WordFieldCodes>
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class=MsoNormal align=center style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.3in;text-align:center'>OUTBUF connected to a <span
+class=SpellE>portout</span> flag.<span style='mso-spacerun:yes'>  </span>The
+flag wasn’t numbered with a pin number in this case.</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l6 level1 lfo7;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Think carefully about your test plan – this is
+an important part of your result.<span style='mso-spacerun:yes'>  </span>A test
+should “exercise” your circuit to see if it works correctly, though you may not
+have the time to run through all possible combinations and check all
+results.<span style='mso-spacerun:yes'>  </span>In that case, try to check
+cases you think might be important (for example, perform and operation that
+generates a carry as a 1 and one with carry as 0.<span
+style='mso-spacerun:yes'>  </span>Test that carry is only latched on an
+arithmetic operation, etc).</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l6 level1 lfo7;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The <span class=SpellE>Actel</span> 40MX02 FPGA
+uses the same basic logic module as the ACT1.<span style='mso-spacerun:yes'> 
+</span>It does not have a sequential module.</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l6 level1 lfo7;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>You can connect wires “virtually” by simply
+giving them the same name.<span style='mso-spacerun:yes'>  </span>DA will
+perform the connections behind the scenes.</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in;text-indent:-.2in;mso-list:l6 level1 lfo7;tab-stops:list .5in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>You can create a symbol for your ALU by
+completing the following steps: 1) check and save your sheet, 2) select
+miscellaneous-create symbol from the main menu, and 3) select OK to create
+symbol.<span style='mso-spacerun:yes'>  </span>Once you have created your
+symbol, you can start editing your registered ALU by 1) opening a new sheet and
+2) selecting “choose symbol”.</p>
+
+<h3>Report</h3>
+
+<p class=MsoNormal>Your report should include as a <i style='mso-bidi-font-style:
+normal'>minimum</i> the following items: </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo10;tab-stops:list .5in'>Schematic hardcopy with a
+     title block including your name </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo10;tab-stops:list .5in'>Simulation list output (not
+     timing diagrams) </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo10;tab-stops:list .5in'>Estimated and actual number
+     of <span class=SpellE>Actel</span> logic and I/O modules used in your
+     design </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo10;tab-stops:list .5in'>Worst case propagation
+     delay. Highlight the delay path on your schematic. </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo10;tab-stops:list .5in'>The approximate amount of
+     time spent on the exercise separated into design, design capture, and
+     testing phases. </li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo10;tab-stops:list .5in'>A short narrative explaining
+     your design and test rationale. Explain any differences between your
+     estimated and actual sizes. </li>
+</ul>
+
+<h3>Due Dates</h3>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.5in;mso-list:l2 level1 lfo12;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><st1:date Year="2003" Day="14" Month="2">2/14/03</st1:date>
+Email estimated # of logic and I/O modules. Subject=CpE311 Lab 1 Size
+Estimate.<span style='mso-spacerun:yes'>  </span>Please CC to <i
+style='mso-bidi-font-style:normal'>skbwc6@umr.edu</i>. </p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo12;tab-stops:list .5in'><st1:date Year="2003"
+     Day="20" Month="2">2/20/03</st1:date> Report </li>
+</ul>
+
+</div>
+
+</body>
+
+</html>

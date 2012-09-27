@@ -1,0 +1,957 @@
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 1   
+
+
+C51 COMPILER V6.10, COMPILATION OF MODULE FUNCTION
+OBJECT MODULE PLACED IN .\function.OBJ
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\BIN\C51.EXE .\function.c DEBUG OBJECTEXTEND CODE
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          #include <stdlib.h>
+   3          #include <project.h>
+   4          
+   5          /********************************************************/
+   6          /*               Setup Power Down Mode                  */
+   7          /********************************************************/
+   8          unsigned int timeout=0;	//Timeout counter global variable
+   9          
+  10          void powdown( void ) interrupt 1 using 2
+  11          {
+  12   1      	timeout++;
+  13   1      	if( timeout == 2000 )
+  14   1      	{
+  15   2      		PORT=0xFF;
+  16   2      		PCON |= 0x02;
+  17   2      	}
+  18   1      }
+  19          
+  20          /********************************************************/
+  21          /*                   Setup Speaker                      */
+  22          /********************************************************/
+  23          #ifdef SPEAKER
+  24          
+  25          #define SPKR P1			//Port that speaker is on
+  26          #define SPKR_INIT 0xFF	//Turn off speaker	
+  27          #define SPKR_BIT 0x80	//Bit that speaker is on
+  28          
+  29          /********************************************************/
+  30          /*                 Speaker Tone Periods                 */
+  31          /*														*/
+  32          /* Note   Frequency (Hz)    Period (us)   Period/2 (us) */
+  33          /* ----   --------------    -----------   ------------- */
+  34          /*  A         440.00           2273           1136      */
+  35          /*  B         493.88           2025           1012      */
+  36          /*  C#        554.37           1804            902      */
+  37          /*  D         587.33           1703            851      */
+  38          /********************************************************/
+  39          
+  40          #define PER_01 1136
+  41          #define PER_02 1012
+  42          #define PER_04 902
+  43          #define PER_08 851
+  44          
+  45          uchar spkr_out = SPKR_INIT;	//Speaker state global variable
+  46          
+  47          //Period Table for button pressed
+  48          int period[] = { 0, PER_01, PER_02, 0, PER_04, 0, 0, 0, PER_08, 0 , 0, 0, 0, 0, 0, 0 };
+  49          
+  50          int *p_per;	//Pointer for table access
+  51          
+  52          #endif
+  53          
+  54          /********************************************************/
+  55          /*                  Define Functions                    */
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 2   
+
+  56          /********************************************************/
+  57          
+  58          /********************************************************/
+  59          /*                Get_Seed Function                     */
+  60          /*                                                      */
+  61          /* INPUT:  NONE                                         */
+  62          /* OUTPUT: int value of states before button pressed    */
+  63          /*                                                      */
+  64          /* The get_seed function takes no arguments and counts  */
+  65          /* cycles until a button is pressed to begin the game.  */
+  66          /* The function returns this integer value for use with */
+  67          /* the srand seed function to enable random light order.*/
+  68          /********************************************************/
+  69          unsigned int get_seed( void )
+  70          {
+  71   1      	unsigned int i=1,j=1,k=1;
+  72   1      	char new, old = 0x00, val = 0x00, val2;
+  73   1      
+  74   1      	output(0);
+  75   1      	new = read();
+  76   1      
+  77   1      	while( val == old )
+  78   1      	{
+  79   2      		val = (old^new)&new;
+  80   2      		new = read();
+  81   2      		i++;
+  82   2      
+  83   2      		if( i%8000==0 )
+  84   2      		{
+  85   3      			k++;
+  86   3      			if( k%8==0 )
+  87   3      			{
+  88   4      			output(j);
+  89   4      			j=j<<1;
+  90   4      			if(j==0x10)
+  91   4      				j=1;
+  92   4      			}
+  93   3      		}
+  94   2      
+  95   2      		if( i==0xFFFE )
+  96   2      			i=1;
+  97   2      	}
+  98   1      
+  99   1      	val2=val;
+ 100   1      
+ 101   1      	while(val2 == new)
+ 102   1      	{
+ 103   2      		val = (old^new)&new;
+ 104   2      		new = read();
+ 105   2      	}
+ 106   1      
+ 107   1      	return i;
+ 108   1      }
+ 109          
+ 110          
+ 111          /********************************************************/
+ 112          /*                 Initial Function                     */
+ 113          /*                                                      */
+ 114          /* INPUT:  NONE                                         */
+ 115          /* OUTPUT: char value of the initial state of lights    */
+ 116          /*                                                      */
+ 117          /* The initial function takes no arguments and returns  */
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 3   
+
+ 118          /* a random initial state for the lights.               */
+ 119          /********************************************************/
+ 120          void initial( void )
+ 121          {
+ 122   1      	char i_state;
+ 123   1      	
+ 124   1      	srand( get_seed() );
+ 125   1      
+ 126   1      	i_state=1+rand()%15;
+ 127   1      	output( i_state );
+ 128   1      }
+ 129          
+ 130          /********************************************************/
+ 131          /*                   Input Function                     */
+ 132          /*                                                      */
+ 133          /* INPUT:  NONE                                         */
+ 134          /* OUTPUT: char value of the state of switches          */
+ 135          /*                                                      */
+ 136          /* The input function takes no arguments and returns    */
+ 137          /* the current state of the switches when a button is   */
+ 138          /* pressed.  A '1' indicates the switch was pressed; a  */
+ 139          /* '0' indicates a switch is not pressed.               */
+ 140          /********************************************************/
+ 141          char input( void )
+ 142          {
+ 143   1      	char new, old = 0x00, val = 0x00, val2;
+ 144   1      
+ 145   1      	new = read();
+ 146   1      
+ 147   1      	while( val == old )
+ 148   1      	{
+ 149   2      		val = (old^new)&new;
+ 150   2      		new = read();
+ 151   2      	}
+ 152   1      	
+ 153   1      	val2=val;
+ 154   1      
+ 155   1      	while(val2 == new)
+ 156   1      	{
+ 157   2      		val = (old^new)&new;
+ 158   2      		new = read();
+ 159   2      	}
+ 160   1      	return val;
+ 161   1      }
+ 162          
+ 163          /********************************************************/
+ 164          /*                   Output Function                    */
+ 165          /*                                                      */
+ 166          /* INPUT:  state - desired state for LED's              */
+ 167          /* OUTPUT: NONE                                         */
+ 168          /*                                                      */
+ 169          /* The output function takes a character state argument */
+ 170          /* and outputs the low 4 bits to the output port.  A '1'*/
+ 171          /* turns the LED on; a '0' turns the LED off.           */
+ 172          /********************************************************/
+ 173          void output( char state )
+ 174          {
+ 175   1      	PORT = ~( (state << 4) & 0xF0);
+ 176   1      }
+ 177          
+ 178          
+ 179          /********************************************************/
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 4   
+
+ 180          /*                    Delay Function                    */
+ 181          /*                                                      */
+ 182          /* INPUT:  t_delay-time of delay in milliseconds        */
+ 183          /* OUTPUT: NONE                                         */
+ 184          /*                                                      */
+ 185          /* The delay function takes an integer time argument in */
+ 186          /* milliseconds.  The program then spins in a loop for  */
+ 187          /* the indicated amount of time.                        */
+ 188          /********************************************************/
+ 189          void delay( unsigned int t_delay ) 
+ 190          {
+ 191   1      	unsigned int i;
+ 192   1      
+ 193   1      	ET0=0;
+ 194   1      	
+ 195   1      	for(i=t_delay; i>0; i--)
+ 196   1      	{
+ 197   2      		TH0 = -N_MILLI>>8;
+ 198   2      		TL0 = -N_MILLI&0xFF;
+ 199   2      		TR0=1;
+ 200   2      		while(!TF0);
+ 201   2      		TF0=TR0=0;
+ 202   2      	}
+ 203   1      
+ 204   1      	ET0=1;
+ 205   1      }
+ 206          
+ 207          
+ 208          /********************************************************/
+ 209          /*                    Displ Function                    */
+ 210          /*                                                      */
+ 211          /* INPUT:  state - state of lights to output            */
+ 212          /*         button - switch pressed                      */
+ 213          /* OUTPUT: NONE                                         */
+ 214          /*                                                      */
+ 215          /* The displ function takes a character LED state       */
+ 216          /* argument and a character button pressed argument.    */
+ 217          /* The function outputs the state of the lights and     */
+ 218          /* sounds the corresponding tone of the switch pressed  */
+ 219          /********************************************************/
+ 220          void displ( char state, char button )
+ 221          {
+ 222   1      	output( state );
+ 223   1      	#ifdef SPEAKER
+ 224   1      	beep( button );
+ 225   1      	#endif
+ 226   1      }
+ 227          
+ 228          
+ 229          /********************************************************/
+ 230          /*                    Press Function                    */
+ 231          /*                                                      */
+ 232          /* INPUT:  button - switch pressed                      */
+ 233          /* OUTPUT: NONE                                         */
+ 234          /*                                                      */
+ 235          /* The press function takes an character switch state   */
+ 236          /* argument.  The function then inverts the light and   */
+ 237          /* the lights that are horizontal and vertical to the   */
+ 238          /* light pressed.                                       */
+ 239          /********************************************************/
+ 240          void press( char button )
+ 241          {
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 5   
+
+ 242   1      	char new, old;
+ 243   1      	old = led_read();
+ 244   1      
+ 245   1      	TR0=0;
+ 246   1      	ET0=0;
+ 247   1      	timeout=0;
+ 248   1      
+ 249   1      	switch( button )
+ 250   1      	{
+ 251   2      		case 0x01:
+ 252   2      			new = (~old&0x07) | (old&0x08);
+ 253   2      			break;	
+ 254   2      		case 0x02:
+ 255   2      			new = (~old&0x0B) | (old&0x04);
+ 256   2      			break;
+ 257   2      		case 0x04:
+ 258   2      			new = (~old&0x0D) | (old&0x02);
+ 259   2      			break;
+ 260   2      		case 0x08:
+ 261   2      			new = (~old&0x0E) | (old&0x01);
+ 262   2      			break;
+ 263   2      		default:
+ 264   2      			new=old;
+ 265   2      			break;
+ 266   2      	}
+ 267   1      	displ( new, button );
+ 268   1      }
+ 269          
+ 270          /********************************************************/
+ 271          /*                    Win Function                      */
+ 272          /*                                                      */
+ 273          /* INPUT:  NONE                                         */
+ 274          /* OUTPUT: NONE                                         */
+ 275          /*                                                      */
+ 276          /* The press function takes a character switch state    */
+ 277          /* argument.  The function then inverts the light and   */
+ 278          /* the lights that are horizontal and vertical to the   */
+ 279          /* light pressed.                                       */
+ 280          /********************************************************/
+ 281          void win( void )
+ 282          {
+ 283   1      	char i,j;
+ 284   1      	for( i=0; i<FLASH_MAX; i++)
+ 285   1      	{
+ 286   2      		for(j=0; j<4; j++)
+ 287   2      		{
+ 288   3      			displ( 0x01 << j, 0x01<<j );
+ 289   3      		}
+ 290   2      	}
+ 291   1      }
+ 292          
+ 293          
+ 294          /********************************************************/
+ 295          /*             Speaker Specific Functions               */
+ 296          /********************************************************/
+ 297          
+ 298          #ifdef SPEAKER
+ 299          
+ 300          /********************************************************/
+ 301          /*                    Beep Function                     */
+ 302          /*                                                      */
+ 303          /* INPUT:  mode - switch pressed to output tone for     */
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 6   
+
+ 304          /* OUTPUT: NONE                                         */
+ 305          /*                                                      */
+ 306          /* The beep function takes a char mode argument that is */
+ 307          /* the switch pressed to output the tone for.  The      */
+ 308          /* function sets the global pointer with the index and  */
+ 309          /* initializes Timer 1 with the associated period. The  */
+ 310          /* tone is allowed to continue for time TONE_L          */
+ 311          /********************************************************/
+ 312          void beep( char mode )
+ 313          {
+ 314   1      	p_per = &period[mode];
+ 315   1      	if( *p_per != 0 )
+ 316   1      	{
+ 317   2      		/* Enable timer */
+ 318   2      		TH1=-(*p_per)>>8;
+ 319   2      		TL1=-(*p_per)&0xFF;
+ 320   2      		TR1=1;
+ 321   2      		ET1=1;
+ 322   2      	}
+ 323   1      
+ 324   1      	delay(TONE_L);
+ 325   1      
+ 326   1      	/* Disable timer */
+ 327   1      	ET1=0;
+ 328   1      	TR1=0;
+ 329   1      	SPKR = SPKR_INIT;
+ 330   1      }
+ 331          
+ 332          /********************************************************/
+ 333          /*                    Clk Function                      */
+ 334          /*                                                      */
+ 335          /* INPUT:  NONE                                         */
+ 336          /* OUTPUT: NONE                                         */
+ 337          /*                                                      */
+ 338          /* The clk function is an interrupt service routine. It */
+ 339          /* takes no arguments and returns nothing.  The function*/
+ 340          /* sets up Timer 1 to create a square wave of frequency */
+ 341          /* pointed to by the p_per pointer.                     */
+ 342          /********************************************************/
+ 343          void clk( void ) interrupt 3 using 1
+ 344          {
+ 345   1      	TH1 = -(*p_per)>>8;
+ 346   1      	TL1 = -(*p_per)&0xFF;
+ 347   1      	spkr_out = spkr_out^SPKR_BIT;
+ 348   1      	SPKR = spkr_out;
+ 349   1      }
+ 350          
+ 351          #endif
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 7   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION powdown (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C0D0              PUSH    PSW
+                                           ; SOURCE LINE # 10
+                                           ; SOURCE LINE # 12
+0004 0500        R     INC     timeout+01H
+0006 E500        R     MOV     A,timeout+01H
+0008 7002              JNZ     ?C0043
+000A 0500        R     INC     timeout
+000C         ?C0043:
+                                           ; SOURCE LINE # 13
+000C B4D00B            CJNE    A,#0D0H,?C0002
+000F E500        R     MOV     A,timeout
+0011 B40706            CJNE    A,#07H,?C0002
+                                           ; SOURCE LINE # 14
+                                           ; SOURCE LINE # 15
+0014 7580FF            MOV     P0,#0FFH
+                                           ; SOURCE LINE # 16
+0017 438702            ORL     PCON,#02H
+                                           ; SOURCE LINE # 17
+                                           ; SOURCE LINE # 18
+001A         ?C0002:
+001A D0D0              POP     PSW
+001C D0E0              POP     ACC
+001E 32                RETI    
+             ; FUNCTION powdown (END)
+
+             ; FUNCTION get_seed (BEGIN)
+                                           ; SOURCE LINE # 69
+                                           ; SOURCE LINE # 70
+                                           ; SOURCE LINE # 71
+0000 750000      R     MOV     i,#00H
+0003 750001      R     MOV     i+01H,#01H
+0006 750000      R     MOV     j,#00H
+0009 750001      R     MOV     j+01H,#01H
+000C 750000      R     MOV     k,#00H
+000F 750001      R     MOV     k+01H,#01H
+                                           ; SOURCE LINE # 72
+0012 E4                CLR     A
+0013 F500        R     MOV     old,A
+0015 F500        R     MOV     val,A
+                                           ; SOURCE LINE # 74
+0017 FF                MOV     R7,A
+0018 120000      R     LCALL   _output
+                                           ; SOURCE LINE # 75
+001B E580              MOV     A,P0
+001D F4                CPL     A
+001E 540F              ANL     A,#0FH
+0020 F500        R     MOV     new,A
+0022         ?C0003:
+                                           ; SOURCE LINE # 77
+0022 E500        R     MOV     A,val
+0024 6500        R     XRL     A,old
+0026 7060              JNZ     ?C0004
+                                           ; SOURCE LINE # 78
+                                           ; SOURCE LINE # 79
+0028 E500        R     MOV     A,old
+002A 6500        R     XRL     A,new
+002C 5500        R     ANL     A,new
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 8   
+
+002E F500        R     MOV     val,A
+                                           ; SOURCE LINE # 80
+0030 E580              MOV     A,P0
+0032 F4                CPL     A
+0033 540F              ANL     A,#0FH
+0035 F500        R     MOV     new,A
+                                           ; SOURCE LINE # 81
+0037 0500        R     INC     i+01H
+0039 E500        R     MOV     A,i+01H
+003B 7002              JNZ     ?C0045
+003D 0500        R     INC     i
+003F         ?C0045:
+                                           ; SOURCE LINE # 83
+003F AE00        R     MOV     R6,i
+0041 FF                MOV     R7,A
+0042 7C1F              MOV     R4,#01FH
+0044 7D40              MOV     R5,#040H
+0046 120000      E     LCALL   ?C?UIDIV
+0049 ED                MOV     A,R5
+004A 4C                ORL     A,R4
+004B 7029              JNZ     ?C0005
+                                           ; SOURCE LINE # 84
+                                           ; SOURCE LINE # 85
+004D 0500        R     INC     k+01H
+004F E500        R     MOV     A,k+01H
+0051 7002              JNZ     ?C0046
+0053 0500        R     INC     k
+0055         ?C0046:
+                                           ; SOURCE LINE # 86
+0055 5407              ANL     A,#07H
+0057 701D              JNZ     ?C0005
+                                           ; SOURCE LINE # 87
+                                           ; SOURCE LINE # 88
+0059 AF00        R     MOV     R7,j+01H
+005B 120000      R     LCALL   _output
+                                           ; SOURCE LINE # 89
+005E E500        R     MOV     A,j+01H
+0060 25E0              ADD     A,ACC
+0062 F500        R     MOV     j+01H,A
+0064 E500        R     MOV     A,j
+0066 33                RLC     A
+0067 F500        R     MOV     j,A
+                                           ; SOURCE LINE # 90
+0069 E500        R     MOV     A,j+01H
+006B 6410              XRL     A,#010H
+006D 4500        R     ORL     A,j
+006F 7005              JNZ     ?C0005
+                                           ; SOURCE LINE # 91
+0071 F500        R     MOV     j,A
+0073 750001      R     MOV     j+01H,#01H
+                                           ; SOURCE LINE # 92
+                                           ; SOURCE LINE # 93
+0076         ?C0005:
+                                           ; SOURCE LINE # 95
+0076 E500        R     MOV     A,i+01H
+0078 B4FEA7            CJNE    A,#0FEH,?C0003
+007B E500        R     MOV     A,i
+007D B4FFA2            CJNE    A,#0FFH,?C0003
+                                           ; SOURCE LINE # 96
+0080 750000      R     MOV     i,#00H
+0083 750001      R     MOV     i+01H,#01H
+                                           ; SOURCE LINE # 97
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 9   
+
+0086 809A              SJMP    ?C0003
+0088         ?C0004:
+                                           ; SOURCE LINE # 99
+;---- Variable 'val2' assigned to Register 'R7' ----
+0088 AF00        R     MOV     R7,val
+008A         ?C0009:
+                                           ; SOURCE LINE # 101
+008A EF                MOV     A,R7
+008B B50011      R     CJNE    A,new,?C0010
+                                           ; SOURCE LINE # 102
+                                           ; SOURCE LINE # 103
+008E E500        R     MOV     A,old
+0090 6500        R     XRL     A,new
+0092 5500        R     ANL     A,new
+0094 F500        R     MOV     val,A
+                                           ; SOURCE LINE # 104
+0096 E580              MOV     A,P0
+0098 F4                CPL     A
+0099 540F              ANL     A,#0FH
+009B F500        R     MOV     new,A
+                                           ; SOURCE LINE # 105
+009D 80EB              SJMP    ?C0009
+009F         ?C0010:
+                                           ; SOURCE LINE # 107
+009F AE00        R     MOV     R6,i
+00A1 AF00        R     MOV     R7,i+01H
+                                           ; SOURCE LINE # 108
+00A3         ?C0011:
+00A3 22                RET     
+             ; FUNCTION get_seed (END)
+
+             ; FUNCTION initial (BEGIN)
+                                           ; SOURCE LINE # 120
+                                           ; SOURCE LINE # 121
+                                           ; SOURCE LINE # 124
+0000 120000      R     LCALL   get_seed
+0003 120000      E     LCALL   _srand
+                                           ; SOURCE LINE # 126
+0006 120000      E     LCALL   rand
+0009 7C00              MOV     R4,#00H
+000B 7D0F              MOV     R5,#0FH
+000D 120000      E     LCALL   ?C?SIDIV
+0010 ED                MOV     A,R5
+0011 04                INC     A
+0012 FF                MOV     R7,A
+;---- Variable 'i_state' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 127
+0013 020000      R     LJMP    _output
+             ; FUNCTION initial (END)
+
+             ; FUNCTION input (BEGIN)
+                                           ; SOURCE LINE # 141
+                                           ; SOURCE LINE # 142
+                                           ; SOURCE LINE # 143
+;---- Variable 'old' assigned to Register 'R7' ----
+0000 E4                CLR     A
+0001 FF                MOV     R7,A
+;---- Variable 'val' assigned to Register 'R6' ----
+0002 FE                MOV     R6,A
+                                           ; SOURCE LINE # 145
+0003 E580              MOV     A,P0
+0005 F4                CPL     A
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 10  
+
+0006 540F              ANL     A,#0FH
+0008 FD                MOV     R5,A
+;---- Variable 'new' assigned to Register 'R5' ----
+0009         ?C0013:
+                                           ; SOURCE LINE # 147
+0009 EE                MOV     A,R6
+000A B5070C            CJNE    A,AR7,?C0014
+                                           ; SOURCE LINE # 148
+                                           ; SOURCE LINE # 149
+000D EF                MOV     A,R7
+000E 6D                XRL     A,R5
+000F 5D                ANL     A,R5
+0010 FE                MOV     R6,A
+                                           ; SOURCE LINE # 150
+0011 E580              MOV     A,P0
+0013 F4                CPL     A
+0014 540F              ANL     A,#0FH
+0016 FD                MOV     R5,A
+                                           ; SOURCE LINE # 151
+0017 80F0              SJMP    ?C0013
+0019         ?C0014:
+                                           ; SOURCE LINE # 153
+;---- Variable 'val2' assigned to Register 'R4' ----
+0019 AC06              MOV     R4,AR6
+001B         ?C0015:
+                                           ; SOURCE LINE # 155
+001B EC                MOV     A,R4
+001C B5050C            CJNE    A,AR5,?C0016
+                                           ; SOURCE LINE # 156
+                                           ; SOURCE LINE # 157
+001F EF                MOV     A,R7
+0020 6D                XRL     A,R5
+0021 5D                ANL     A,R5
+0022 FE                MOV     R6,A
+                                           ; SOURCE LINE # 158
+0023 E580              MOV     A,P0
+0025 F4                CPL     A
+0026 540F              ANL     A,#0FH
+0028 FD                MOV     R5,A
+                                           ; SOURCE LINE # 159
+0029 80F0              SJMP    ?C0015
+002B         ?C0016:
+                                           ; SOURCE LINE # 160
+002B AF06              MOV     R7,AR6
+                                           ; SOURCE LINE # 161
+002D         ?C0017:
+002D 22                RET     
+             ; FUNCTION input (END)
+
+             ; FUNCTION _output (BEGIN)
+;---- Variable 'state' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 173
+                                           ; SOURCE LINE # 174
+                                           ; SOURCE LINE # 175
+0000 EF                MOV     A,R7
+0001 C4                SWAP    A
+0002 54F0              ANL     A,#0F0H
+0004 F4                CPL     A
+0005 F580              MOV     P0,A
+                                           ; SOURCE LINE # 176
+0007 22                RET     
+             ; FUNCTION _output (END)
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 11  
+
+
+             ; FUNCTION _delay (BEGIN)
+;---- Variable 't_delay' assigned to Register 'R6/R7' ----
+                                           ; SOURCE LINE # 189
+                                           ; SOURCE LINE # 190
+                                           ; SOURCE LINE # 193
+0000 C2A9              CLR     ET0
+                                           ; SOURCE LINE # 195
+;---- Variable 'i' assigned to Register 'R6/R7' ----
+0002         ?C0019:
+0002 D3                SETB    C
+0003 EF                MOV     A,R7
+0004 9400              SUBB    A,#00H
+0006 EE                MOV     A,R6
+0007 9400              SUBB    A,#00H
+0009 4016              JC      ?C0020
+                                           ; SOURCE LINE # 196
+                                           ; SOURCE LINE # 197
+000B 758CFC            MOV     TH0,#0FCH
+                                           ; SOURCE LINE # 198
+000E 758A18            MOV     TL0,#018H
+                                           ; SOURCE LINE # 199
+0011 D28C              SETB    TR0
+0013         ?C0022:
+                                           ; SOURCE LINE # 200
+0013 308DFD            JNB     TF0,?C0022
+0016         ?C0023:
+                                           ; SOURCE LINE # 201
+0016 C28C              CLR     TR0
+0018 C28D              CLR     TF0
+                                           ; SOURCE LINE # 202
+001A EF                MOV     A,R7
+001B 1F                DEC     R7
+001C 70E4              JNZ     ?C0019
+001E 1E                DEC     R6
+001F         ?C0048:
+001F 80E1              SJMP    ?C0019
+0021         ?C0020:
+                                           ; SOURCE LINE # 204
+0021 D2A9              SETB    ET0
+                                           ; SOURCE LINE # 205
+0023 22                RET     
+             ; FUNCTION _delay (END)
+
+             ; FUNCTION _displ (BEGIN)
+;---- Variable 'state' assigned to Register 'R6' ----
+;---- Variable 'button' assigned to Register 'R5' ----
+                                           ; SOURCE LINE # 220
+                                           ; SOURCE LINE # 221
+                                           ; SOURCE LINE # 222
+0000 120000      R     LCALL   _output
+                                           ; SOURCE LINE # 224
+0003 AF05              MOV     R7,AR5
+0005 020000      R     LJMP    _beep
+             ; FUNCTION _displ (END)
+
+             ; FUNCTION _press (BEGIN)
+;---- Variable 'button' assigned to Register 'R5' ----
+0000 AD07              MOV     R5,AR7
+                                           ; SOURCE LINE # 240
+                                           ; SOURCE LINE # 241
+                                           ; SOURCE LINE # 243
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 12  
+
+0002 E580              MOV     A,P0
+0004 F4                CPL     A
+0005 54F0              ANL     A,#0F0H
+0007 FF                MOV     R7,A
+0008 C4                SWAP    A
+0009 540F              ANL     A,#0FH
+000B FF                MOV     R7,A
+;---- Variable 'old' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 245
+000C C28C              CLR     TR0
+                                           ; SOURCE LINE # 246
+000E C2A9              CLR     ET0
+                                           ; SOURCE LINE # 247
+0010 E4                CLR     A
+0011 F500        R     MOV     timeout,A
+0013 F500        R     MOV     timeout+01H,A
+                                           ; SOURCE LINE # 249
+0015 ED                MOV     A,R5
+0016 24FE              ADD     A,#0FEH
+0018 6019              JZ      ?C0028
+001A 24FE              ADD     A,#0FEH
+001C 6022              JZ      ?C0029
+001E 24FC              ADD     A,#0FCH
+0020 602B              JZ      ?C0030
+0022 2407              ADD     A,#07H
+0024 7034              JNZ     ?C0031
+                                           ; SOURCE LINE # 250
+                                           ; SOURCE LINE # 251
+0026         ?C0027:
+                                           ; SOURCE LINE # 252
+0026 EF                MOV     A,R7
+0027 F4                CPL     A
+0028 5407              ANL     A,#07H
+002A FE                MOV     R6,A
+002B EF                MOV     A,R7
+002C 5408              ANL     A,#08H
+002E 4E                ORL     A,R6
+002F F500        R     MOV     new,A
+                                           ; SOURCE LINE # 253
+0031 8029              SJMP    ?C0026
+                                           ; SOURCE LINE # 254
+0033         ?C0028:
+                                           ; SOURCE LINE # 255
+0033 EF                MOV     A,R7
+0034 F4                CPL     A
+0035 540B              ANL     A,#0BH
+0037 FE                MOV     R6,A
+0038 EF                MOV     A,R7
+0039 5404              ANL     A,#04H
+003B 4E                ORL     A,R6
+003C F500        R     MOV     new,A
+                                           ; SOURCE LINE # 256
+003E 801C              SJMP    ?C0026
+                                           ; SOURCE LINE # 257
+0040         ?C0029:
+                                           ; SOURCE LINE # 258
+0040 EF                MOV     A,R7
+0041 F4                CPL     A
+0042 540D              ANL     A,#0DH
+0044 FE                MOV     R6,A
+0045 EF                MOV     A,R7
+0046 5402              ANL     A,#02H
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 13  
+
+0048 4E                ORL     A,R6
+0049 F500        R     MOV     new,A
+                                           ; SOURCE LINE # 259
+004B 800F              SJMP    ?C0026
+                                           ; SOURCE LINE # 260
+004D         ?C0030:
+                                           ; SOURCE LINE # 261
+004D EF                MOV     A,R7
+004E F4                CPL     A
+004F 540E              ANL     A,#0EH
+0051 FE                MOV     R6,A
+0052 EF                MOV     A,R7
+0053 5401              ANL     A,#01H
+0055 4E                ORL     A,R6
+0056 F500        R     MOV     new,A
+                                           ; SOURCE LINE # 262
+0058 8002              SJMP    ?C0026
+                                           ; SOURCE LINE # 263
+005A         ?C0031:
+                                           ; SOURCE LINE # 264
+005A 8F00        R     MOV     new,R7
+                                           ; SOURCE LINE # 265
+                                           ; SOURCE LINE # 266
+005C         ?C0026:
+                                           ; SOURCE LINE # 267
+005C AF00        R     MOV     R7,new
+005E 020000      R     LJMP    _displ
+             ; FUNCTION _press (END)
+
+             ; FUNCTION win (BEGIN)
+                                           ; SOURCE LINE # 281
+                                           ; SOURCE LINE # 282
+                                           ; SOURCE LINE # 284
+0000 E4                CLR     A
+0001 F500        R     MOV     i,A
+0003         ?C0033:
+                                           ; SOURCE LINE # 285
+                                           ; SOURCE LINE # 286
+0003 E4                CLR     A
+0004 F500        R     MOV     j,A
+0006         ?C0036:
+                                           ; SOURCE LINE # 287
+                                           ; SOURCE LINE # 288
+0006 AF00        R     MOV     R7,j
+0008 7401              MOV     A,#01H
+000A A807              MOV     R0,AR7
+000C 08                INC     R0
+000D 8002              SJMP    ?C0050
+000F         ?C0049:
+000F C3                CLR     C
+0010 33                RLC     A
+0011         ?C0050:
+0011 D8FC              DJNZ    R0,?C0049
+0013 FD                MOV     R5,A
+0014 FF                MOV     R7,A
+0015 120000      R     LCALL   _displ
+                                           ; SOURCE LINE # 289
+0018 0500        R     INC     j
+001A C3                CLR     C
+001B E500        R     MOV     A,j
+001D 6480              XRL     A,#080H
+001F 9484              SUBB    A,#084H
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 14  
+
+0021 40E3              JC      ?C0036
+                                           ; SOURCE LINE # 290
+0023         ?C0035:
+0023 0500        R     INC     i
+0025 C3                CLR     C
+0026 E500        R     MOV     A,i
+0028 6480              XRL     A,#080H
+002A 9484              SUBB    A,#084H
+002C 40D5              JC      ?C0033
+                                           ; SOURCE LINE # 291
+002E         ?C0039:
+002E 22                RET     
+             ; FUNCTION win (END)
+
+             ; FUNCTION _beep (BEGIN)
+;---- Variable 'mode' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 312
+                                           ; SOURCE LINE # 313
+                                           ; SOURCE LINE # 314
+0000 EF                MOV     A,R7
+0001 75F002            MOV     B,#02H
+0004 A4                MUL     AB
+0005 2400        R     ADD     A,#LOW period
+0007 F9                MOV     R1,A
+0008 E4                CLR     A
+0009 FA                MOV     R2,A
+000A FB                MOV     R3,A
+000B F500        R     MOV     p_per,A
+000D F500        R     MOV     p_per+01H,A
+000F 8900        R     MOV     p_per+02H,R1
+                                           ; SOURCE LINE # 315
+0011 120000      E     LCALL   ?C?ILDPTR
+0014 45F0              ORL     A,B
+0016 6020              JZ      ?C0040
+                                           ; SOURCE LINE # 316
+                                           ; SOURCE LINE # 318
+0018 AB00        R     MOV     R3,p_per
+001A AA00        R     MOV     R2,p_per+01H
+001C 120000      E     LCALL   ?C?ILDPTR
+001F FD                MOV     R5,A
+0020 ACF0              MOV     R4,B
+0022 C3                CLR     C
+0023 E4                CLR     A
+0024 9D                SUBB    A,R5
+0025 E4                CLR     A
+0026 9C                SUBB    A,R4
+0027 FF                MOV     R7,A
+0028 33                RLC     A
+0029 95E0              SUBB    A,ACC
+002B 8F8D              MOV     TH1,R7
+                                           ; SOURCE LINE # 319
+002D AF05              MOV     R7,AR5
+002F EF                MOV     A,R7
+0030 F4                CPL     A
+0031 04                INC     A
+0032 F58B              MOV     TL1,A
+                                           ; SOURCE LINE # 320
+0034 D28E              SETB    TR1
+                                           ; SOURCE LINE # 321
+0036 D2AB              SETB    ET1
+                                           ; SOURCE LINE # 322
+0038         ?C0040:
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 15  
+
+                                           ; SOURCE LINE # 324
+0038 7F0F              MOV     R7,#0FH
+003A 7E00              MOV     R6,#00H
+003C 120000      R     LCALL   _delay
+                                           ; SOURCE LINE # 327
+003F C2AB              CLR     ET1
+                                           ; SOURCE LINE # 328
+0041 C28E              CLR     TR1
+                                           ; SOURCE LINE # 329
+0043 7590FF            MOV     P1,#0FFH
+                                           ; SOURCE LINE # 330
+0046 22                RET     
+             ; FUNCTION _beep (END)
+
+             ; FUNCTION clk (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C0F0              PUSH    B
+0004 C083              PUSH    DPH
+0006 C082              PUSH    DPL
+0008 C0D0              PUSH    PSW
+000A 75D008            MOV     PSW,#08H
+                                           ; SOURCE LINE # 343
+                                           ; SOURCE LINE # 345
+000D AB00        R     MOV     R3,p_per
+000F AA00        R     MOV     R2,p_per+01H
+0011 A900        R     MOV     R1,p_per+02H
+0013 120000      E     LCALL   ?C?ILDPTR
+0016 FD                MOV     R5,A
+0017 ACF0              MOV     R4,B
+0019 C3                CLR     C
+001A E4                CLR     A
+001B 9D                SUBB    A,R5
+001C E4                CLR     A
+001D 9C                SUBB    A,R4
+001E FF                MOV     R7,A
+001F 33                RLC     A
+0020 95E0              SUBB    A,ACC
+0022 8F8D              MOV     TH1,R7
+                                           ; SOURCE LINE # 346
+0024 AF0D              MOV     R7,AR5
+0026 EF                MOV     A,R7
+0027 F4                CPL     A
+0028 04                INC     A
+0029 F58B              MOV     TL1,A
+                                           ; SOURCE LINE # 347
+002B 630080      R     XRL     spkr_out,#080H
+                                           ; SOURCE LINE # 348
+002E 850090      R     MOV     P1,spkr_out
+                                           ; SOURCE LINE # 349
+0031 D0D0              POP     PSW
+0033 D082              POP     DPL
+0035 D083              POP     DPH
+0037 D0F0              POP     B
+0039 D0E0              POP     ACC
+003B 32                RETI    
+             ; FUNCTION clk (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    590    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V6.10  FUNCTION                                                               04/24/2001 22:24:13 PAGE 16  
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     38      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

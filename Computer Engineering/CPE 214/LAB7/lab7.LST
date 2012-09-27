@@ -1,0 +1,85 @@
+C51 COMPILER V7.07   LAB7                                                                  11/15/2005 00:42:44 PAGE 1   
+
+
+C51 COMPILER V7.07, COMPILATION OF MODULE LAB7
+OBJECT MODULE PLACED IN lab7.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE lab7.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          /* Serial Port Usage Example */
+   2          #include <reg51.h>
+   3          #define uchar unsigned char
+   4          uchar incoming,outgoing,lastinchar;             /* received/transmited messages */
+   5          bit newin,gone;                 /* These are global flags */
+   6          
+   7          
+   8          /* Serial port interrupt-service routine. Interrupt 4 is generated
+   9          by RI or TI, the serial-port interrupt */
+  10          
+  11          
+  12          void serint(void) interrupt 4 using 1{
+  13   1              if(RI){                                                         /* Has a byte been received */
+  14   2                      incoming=SBUF;                                           /* read the received byte */
+  15   2                      RI=0;                                                                           /* reset the interrupt flag */
+  16   2                      newin=1;                                                                 /* notify the main function */
+  17   2              }else if (TI){                                                  /* have we just finished sending a byte */
+  18   2                      SBUF=outgoing;                                                  /* send the next byte */
+  19   2                      TI=0;                                                           /* reset the interrupt flag */
+  20   2                      gone=1;                                                         /* notify the main function */
+  21   2              }
+  22   1      }
+  23          
+  24          
+  25          
+  26          /* The main function */
+  27          void main(void){
+  28   1                              /* INITIALIZE THE UART */
+  29   1              TMOD=0x20;                      /* use timer1, mode 2 */
+  30   1              TH1=0xfd;                       /* 9600 baud with a 11.059mHz clock */
+  31   1              TCON=0x40;                      /* start baud clock*/
+  32   1              SCON=0x50;                      /* enable receive */
+  33   1              IE=0x90;                        /* enable serial int */
+  34   1                                                      /* start by sending the character 'x' */
+  35   1              lastinchar=outgoing='X';
+  36   1                                                      /* initialize the flags */
+  37   1              gone=0;
+  38   1              newin=0;
+  39   1                                                      /* Initiate the serial interrupt */
+  40   1              TI=1;                           /* Since the interrupt occurs when TI=1,
+  41   1                                                              this command will cause an interrupt which
+  42   1                                                              will initiate execution of function
+  43   1                                                              serint */
+  44   1              /* Main loop (do forever) */
+  45   1              for(;;){
+  46   2                                                              /* if the last character is "gone", put the
+  47   2                                                                      lastcharacter read into the output buffer, outgoing */
+  48   2              if (gone){
+  49   3                      outgoing=lastinchar;
+  50   3                      gone=0; /* reset the flag */
+  51   3              }
+  52   2      
+  53   2                                                              /* If a new character has been read in, read it
+  54   2                                                                      from the incoming buffer, incoming */
+  55   2              if(newin){
+C51 COMPILER V7.07   LAB7                                                                  11/15/2005 00:42:44 PAGE 2   
+
+  56   3                      lastinchar=incoming;
+  57   3                      newin=0; /* reset the flag */
+  58   3              }
+  59   2              } // end for
+  60   1      } // end main
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     67    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

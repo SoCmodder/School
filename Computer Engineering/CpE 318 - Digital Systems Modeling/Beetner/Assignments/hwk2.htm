@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (X11; I; SunOS 5.6 sun4u) [Netscape]">
+   <META NAME="Author" CONTENT="Daryl G. Beetner">
+   <TITLE>Homework 1</TITLE>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000013" LINK="#33CCFF" VLINK="#FF99FF" ALINK="#FF0000">
+<B><FONT COLOR="#FFFF00"><FONT SIZE=+1>Homework 2: Intro to Modelsim and VHDL scalar types</FONT></FONT></B>
+
+<P><FONT size=-1>1. Using the following procedure, construct a VHDL model of a 
+two input NAND gate with an entity equal to the following:</FONT></P>
+<UL><PRE><FONT size=-1>ENTITY nand2 IS
+ PORT (a,b: IN BIT; c: OUT BIT);
+END ENTITY nand2;</FONT></PRE></UL>
+
+<OL>
+  <LI><FONT size=-1>
+This assignment should typically be run from your ece Unix account.
+If a Unix machine isn't available, you can run Modelsim remotely
+from an NT machine using X-WIN32.  You can start X-WIN32 from
+the START>Computer Center Applications>Network Access>X-Win32.  Once
+started, you can open a session to one of the ECE unix machines by
+pressing the X-Win32 button on your menu bar and selecting the
+appropriate machine from the Sessions menu.  If the machine you
+want is not there, you can create a new session using X-Util
+(also from the X-Win32 button) and "edit session>new session".
+The easiest way to use the tool is to do the following: 
+under the new session 
+window, give your session a name and select XDMCP and Broadcast.
+Now press the X-Win32 button and select your session from the
+list.  The X-Win32 tool will go out and find all local machines
+which can handle XDMCP.  Select one and hit OK.  Your PC
+will now act as though you were logged directly into the selected
+Unix machine.  Selecting the rsh option when creating a new
+session can also be good, as you can access more machines, but
+is a bit more complicated.
+  <LI><FONT size=-1>Read the users guide for Modelsim.  The file
+	/usr/local/modeltech/docs/ee_doc_index.pdf is a good place
+	to start.  Use acroread on the Unix machines to read it
+	(i.e. acroread ee_doc_index.pdf). </FONT> 
+  <LI><FONT size=-1>Create a new subdirectory in your Unix account
+	called <I>onebitalu.</I></FONT> 
+  <LI><FONT size=-1>Use your favorite text editor to <B>create a source file</B> 
+  called <I>alu.vhd</I> and enter the entity shown above.</FONT> 
+  <LI><FONT size=-1>Create a work directory with the command: vlib work. You 
+  only need to do this once. This creates a subdirectory in <I>onebitalu</I> 
+  which will persist until you delete it. <I>Work</I> is where the vhdl analyzer 
+  creates all of its output files.</FONT> 
+  <LI><FONT size=-1>Compile the source file with the command: vcom -93 alu.vhd. 
+  This compiles using VHDL'93 syntax. Leave off the 93 for VHDL'87 syntax. Enter 
+  <I>vcom -help</I> for a list of options.</FONT> 
+  <LI><FONT size=-1>Examine the work directory with the command v<I>dir</I>. You 
+  should see the name of the entity you just analyzed.</FONT> 
+  <LI><FONT size=-1>Use your text editor to <B>add a suitable architecture</B> 
+  to your nand model. Call it A1 and use a simple signal assignment statement 
+  for the model.</FONT> 
+  <LI><FONT size=-1>Compile the source file again. Fix any errors.</FONT> 
+  <LI><FONT size=-1>Enter the command <I>vdir nand2</I> and <B>describe the 
+  result.</B></FONT> 
+  <LI><FONT size=-1>Bring up the simulator with the command <I>vsim nand2 a1. 
+  </I>This will invoke the simulator on the entity <I>nand2</I> and the 
+  architecture <I>a1</I> and start a command window. </FONT>
+  <LI><FONT size=-1>In the command window, type the command <I>view *</I> and 
+  <B>describe each of the windows</B> displayed.</FONT> 
+  <LI><FONT size=-1>In the command window, type the command <I>add wave *</I> and 
+  <B>describe the signals</B> which are displayed.</FONT> 
+  <LI><FONT size=-1>Type the command <I>force a 0</I> to force signal a to a 
+  zero. Type a similar command for input b.</FONT> 
+  <LI><FONT size=-1>Run the simulator for 100 nS by typing the command <I>run 
+  100.</I></FONT> 
+  <LI><FONT size=-1>Force a to a 1 and run for another 100 nS.</FONT> 
+  <LI><FONT size=-1>Force b to a 1 and run for 100 nS.</FONT> 
+  <LI><FONT size=-1>Finish the grey code input sequence ab=00,10,11,01,00. Your 
+  simulation should last for 500 nSec.</FONT> 
+  <LI><FONT size=-1><B>Make a plot</B> of the wave window and exit the 
+  simulator (you can make a plot by using the FILE>Write to Postscript option
+in the wave window).</FONT> </LI></OL>
+<P><FONT size=-1>2. Use the following test-bench-like model to experiment with 
+signals, variables, enumeration types, and attributes of scalar types. The IEEE 
+standard logic package defines the enumeration type std_ulogic which is widely 
+used in digital modeling. The attribute 'image is particularly useful for quick 
+and dirty output of scalar values with the report statement. It will be helpful 
+if you single step through the process p1 (use the step command). You may also wish to use the 
+'examine' command to check the value of the variable xv and the signals x and y 
+at each step. You don't need to try to explain it (that will come in Chapter 5) 
+but pay particular attention to the values reported by the first 5 report 
+statements. Are they what you expected? Also note what happens when you reach 
+the end of the process block. Experiment with other attributes in section 2.4. 
+What happens if you replace the subtype with an equivalent type definition for 
+mylogic?</FONT></P><PRE><FONT size=-1>entity attrib is end entity attrib;
+
+architecture a1 of attrib is
+ type std_ulogic is ('U','X','0','1','Z','W','L','H','-');
+ subtype mylogic is std_ulogic range '0' to 'Z';
+ signal x: std_ulogic;
+ signal y: mylogic;
+ begin
+  p1: process is
+    variable xv: mylogic;
+    begin
+      report std_ulogic'image(x);
+      report mylogic'image(y);
+      y&lt;= '1';
+      x&lt;= y;
+      wait for 1 ns;
+      report std_ulogic'image(x);
+      x&lt;= y;
+      wait for 1 ns;
+      report std_ulogic'image(x);
+      xv:= 'Z';
+      y&lt;= xv;
+      report mylogic'image(y);
+      report boolean'image(mylogic'ascending);
+      report mylogic'image(mylogic'high);
+-- add other scalar attribute report statements here
+    end process p1; 
+ end architecture a1;</FONT></PRE>
+<P><FONT size=-1>3. Create a type definition for a physical type
+<i> distance </i> with units ranging from micrometers to meters.
+</FONT></P>
+
+<P><FONT size=-1>4. Create an enumeration type <i>dayofweek</i>
+for the days of the week.
+</FONT></P>
+
+<P><FONT size=-1>5. Turn in a two page report with your source file, answers and 
+plot from part 1. Turn in a third page with a brief discussion of the results of 
+your experiment in part 2. Include questions 3 and 4 at the end. </FONT></P>
+
+<BR>
+
+&nbsp;&nbsp;
+<DIV ALIGN=right><TABLE COLS=2 WIDTH="100%" NOSAVE >
+<TR NOSAVE>
+<TD ALIGN=LEFT VALIGN=CENTER NOSAVE><A HREF="../../index.html">Back to Daryl's
+home page</A></TD>
+
+<TD ALIGN=RIGHT VALIGN=CENTER NOSAVE><FONT COLOR="#FFFFFF">Page last modified
+: Monday, 02-Apr-2001 18:01:32 CDT</FONT></TD>
+</TR>
+</TABLE></DIV>
+&nbsp;&nbsp;
+</BODY>
+</HTML>

@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  CH3_P29                                                              02/28/2001 13:56:36 PAGE     1
+
+
+MACRO ASSEMBLER A51 V6.10
+OBJECT MODULE PLACED IN .\ch3_p29.OBJ
+ASSEMBLER INVOKED BY: C:\Program Files\Keil\C51\BIN\A51.EXE .\ch3_p29.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;***********************************************************************;
+                       2     ;                         Chapter 3: Problem 29                         ;
+                       3     ;                 Create a 83.3 kHz square wave on P1.0                 ;
+                       4     ;***********************************************************************;
+                       5     
+----                   6             CSEG AT 0       ;Create code segment at address 0
+                       7     
+0000 020100            8             LJMP START      ;Jump beginning of code
+                       9     
+----                  10             CSEG AT 100H    ;Create code segment at adress 100H
+                      11     
+0100 D290             12     START:  SETB P1.0               ;Set P1.0 high
+                      13     
+0102 7902             14             MOV R1, #02H            ;
+0104 D9FE             15     WAIT1:  DJNZ R1, WAIT1          ;
+                      16     
+0106 C290             17             CLR P1.0                ;Set P1.0 Low
+0108 00               18             NOP                     ;1 cycle
+0109 00               19             NOP                     ;1 cycle
+010A 00               20             NOP                     ;1 cycle
+010B 80F3             21             SJMP START              ;Loop to beginning (2 cycles)
+                      22             END
+A51 MACRO ASSEMBLER  CH3_P29                                                              02/28/2001 13:56:36 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0100H   A   
+WAIT1. . . . . . .  C ADDR   0104H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

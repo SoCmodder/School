@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://www.ece.umr.edu/~hjp/ieee/html/asm.html --><HTML><HEAD><TITLE>Software - Assembly Code</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<SCRIPT language=JavaScript>
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+</SCRIPT>
+
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<BODY text=#333333 vLink=#000000 aLink=#3366cc link=#3366cc bgColor=#ffffff>
+<TABLE cellSpacing=0 cellPadding=0 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=255 height=26></TD>
+    <TD vAlign=top width=470 colSpan=4 height=26><FONT 
+      face="Verdana, Arial, Helvetica, sans-serif" size=-1>Home | <a href="overview.htm">Overview</a> |
+      <a href="hardware.htm">Hardware</a> 
+      | <a href="c.htm">Software</a> | <a href="Together.htm">Putting It 
+      Together</a> | Links</FONT></TD>
+    <TD vAlign=top width=3 height=26></TD></TR>
+  <TR>
+    <TD vAlign=top width=255 height=75></TD>
+    <TD vAlign=top width=74 height=75></TD>
+    <TD vAlign=top width=25 height=75></TD>
+    <TD vAlign=top width=240 height=75></TD>
+    <TD vAlign=top width=131 height=75>
+      <P align=right><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+      size=-2>________________<BR><a href="c.htm">C code<BR></a>Assembly 
+      code<BR><a href="hex.htm">Machine 
+      code</a></FONT></P></TD>
+    <TD vAlign=top width=3 height=75></TD></TR>
+  <TR>
+    <TD vAlign=top width=329 colSpan=2 height=1708>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size=4>Assembly 
+      language Code</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+      size=-1><BR></FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1>When the C 
+      program is 'compiled', the C language instructions are converted into 
+      object or assembly code. The object code file is computer dependent. Each 
+      computer has it's own set of instructions that is uses to do certain 
+      things.</FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1>This game, 
+      could be played using a different computer (or microcontroller). It would 
+      first have to be 'recompiled' using a compiler specific to the new 
+      computer. For example, Windows programs have to be recompiled (and in some 
+      cases rewritten) to run on a Macintosh. </FONT></P>
+      <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size=-1>To the left, 
+      is the assembly language for ONE function, main. (it's long!) You can see 
+      all of the assembly code <a href="assembly.doc">here</a>. 
+      Sometimes computer programs are written entirely or partly in assembly 
+      language.</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" 
+      size=-1> <BR><BR><BR>It's obvious to see the benefits of being able to 
+      write software in a high level language like C, instead of in the 
+      computer's native language. <BR></FONT></P></TD>
+    <TD vAlign=top width=25 height=1708></TD>
+    <TD vAlign=top width=374 colSpan=3 height=1708>
+      <P><FONT size=2><FONT face="Courier New, Courier, mono">FUNCTION main 
+      (BEGIN)<BR></FONT></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0000 D2AF SETB EA<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0002 7F08 MOV R7,#08H<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0004 120000 R LCALL 
+      _win<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0007 
+      restart:<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0007 
+      120000 R LCALL get_seed <BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>000A 120000 E LCALL _srand<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>000D E4 CLR A<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>000E F500 R MOV 
+      i,A<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0010 
+      ?C0005:<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0010 C3 
+      CLR C<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0011 E500 R 
+      MOV A,levels<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0013 
+      6480 XRL A,#080H<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0015 F8 MOV R0,A<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0016 E500 R MOV A,i<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0018 6480 XRL 
+      A,#080H<BR></FONT><FONT face="Courier New, Courier, mono" size=2>001A 98 
+      SUBB A,R0<BR></FONT><FONT face="Courier New, Courier, mono" size=2>001B 
+      4003 JC $ + 5H<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>001D 020000 R LJMP ?C0006<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0020 120000 R LCALL 
+      getval<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0023 7400 
+      R MOV A,#pat<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0025 
+      2500 R ADD A,i<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0027 F8 MOV R0,A<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0028 A607 MOV @R0,AR7<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>002A E4 CLR A<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>002B FF MOV R7,A<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>002C 120000 R LCALL 
+      _displ<BR></FONT><FONT face="Courier New, Courier, mono" size=2>002F E4 
+      CLR A<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0030 F500 R 
+      MOV j,A<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0032 
+      ?C0008:<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0032 D3 
+      SETB C<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0033 E500 
+      R MOV A,i<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0035 
+      6480 XRL A,#080H<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0037 F8 MOV R0,A<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0038 E500 R MOV A,j<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>003A 6480 XRL 
+      A,#080H<BR></FONT><FONT face="Courier New, Courier, mono" size=2>003C 98 
+      SUBB A,R0<BR></FONT><FONT face="Courier New, Courier, mono" size=2>003D 
+      5037 JNC ?C0009<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>003F E500 R MOV A,delay_t<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0041 C3 CLR C<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0042 13 RRC A<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0043 F500 R MOV 
+      delay_t,A<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0045 
+      E500 R MOV A,delay_t+01H<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0047 13 RRC A<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0048 F500 R MOV delay_t+01H,A<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>004A E4 CLR A<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>004B FF MOV R7,A<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>004C 120000 R LCALL 
+      _displ<BR></FONT><FONT face="Courier New, Courier, mono" size=2>004F AF00 
+      R MOV R7,i<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0051 
+      EF MOV A,R7<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0052 
+      33 RLC A<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0053 
+      95E0 SUBB A,ACC<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0055 FE MOV R6,A<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0056 7C00 MOV R4,#00H<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0058 7D1D MOV 
+      R5,#01DH<BR></FONT><FONT face="Courier New, Courier, mono" size=2>005A 
+      120000 E LCALL ?C?IMUL<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>005D C3 CLR C<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>005E 74BC MOV A,#0BCH<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0060 9F SUBB A,R7<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0061 F500 R MOV 
+      delay_t+01H,A<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0063 7402 MOV A,#02H<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0065 9E SUBB A,R6<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0066 F500 R MOV 
+      delay_t,A<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0068 
+      7400 R MOV A,#pat<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>006A 2500 R ADD A,j<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>006C F8 MOV R0,A<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>006D E6 MOV A,@R0<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>006E FF MOV R7,A<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>006F 120000 R LCALL 
+      _displ<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0072 0500 
+      R INC j<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0074 80BC 
+      SJMP ?C0008<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0076 
+      ?C0009:<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0076 E4 
+      CLR A<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0077 F500 R 
+      MOV j,A<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0079 
+      ?C0011:<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0079 D3 
+      SETB C<BR></FONT><FONT face="Courier New, Courier, mono" size=2>007A E500 
+      R MOV A,i<BR></FONT><FONT face="Courier New, Courier, mono" size=2>007C 
+      6480 XRL A,#080H<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>007E F8 MOV R0,A<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>007F E500 R MOV A,j<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0081 6480 XRL 
+      A,#080H<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0083 98 
+      SUBB A,R0<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0084 
+      5019 JNC ?C0007<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0086 120000 R LCALL input<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0089 7400 R MOV 
+      A,#pat<BR></FONT><FONT face="Courier New, Courier, mono" size=2>008B 2500 
+      R ADD A,j<BR></FONT><FONT face="Courier New, Courier, mono" size=2>008D F8 
+      MOV R0,A<BR></FONT><FONT face="Courier New, Courier, mono" size=2>008E E6 
+      MOV A,@R0<BR></FONT><FONT face="Courier New, Courier, mono" size=2>008F 6F 
+      XRL A,R7<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0090 
+      6009 JZ ?C0013<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>0092 120000 R LCALL loose<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>0095 75000F R MOV 
+      levels,#0FH<BR></FONT><FONT face="Courier New, Courier, mono" size=2>0098 
+      020000 R LJMP restart<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>009B ?C0013:<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>009B 0500 R INC j<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>009D 80DA SJMP ?C0011<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>009F ?C0007:<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>009F 0500 R INC i<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>00A1 020000 R LJMP 
+      ?C0005<BR></FONT><FONT face="Courier New, Courier, mono" size=2>00A4 
+      ?C0006:<BR></FONT><FONT face="Courier New, Courier, mono" size=2>00A4 AF00 
+      R MOV R7,levels<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>00A6 120000 R LCALL _win<BR></FONT><FONT 
+      face="Courier New, Courier, mono" size=2>00A9 8F00 R MOV 
+      levels,R7<BR></FONT><FONT face="Courier New, Courier, mono" size=2>00AB 
+      020000 R LJMP restart<BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>00AE 22 RET <BR></FONT><FONT face="Courier New, Courier, mono" 
+      size=2>; FUNCTION main (END)</FONT></P></TD></TR>
+  <TR>
+    <TD vAlign=top width=255 height=1><IMG height=1 
+      src="asm_files/transparent.gif" width=255></TD>
+    <TD vAlign=top width=74 height=1><IMG height=1 
+      src="asm_files/transparent.gif" width=74></TD>
+    <TD vAlign=top width=25 height=1><IMG height=1 
+      src="asm_files/transparent.gif" width=25></TD>
+    <TD vAlign=top width=240 height=1><IMG height=1 
+      src="asm_files/transparent.gif" width=240></TD>
+    <TD vAlign=top width=131 height=1><IMG height=1 
+      src="asm_files/transparent.gif" width=131></TD>
+    <TD vAlign=top width=3 height=1><IMG height=1 
+      src="asm_files/transparent.gif" width=3></TD></TR></TBODY></TABLE></BODY></HTML>

@@ -1,0 +1,185 @@
+PAR: Xilinx Place And Route M1.5.25.
+Copyright (c) 1995-1998 Xilinx, Inc.  All rights reserved.
+Fri Oct 29 13:13:46 1999
+
+Xilinx PAD Specification File
+*****************************
+
+Input file:       map.ncd
+Output file:      lab7-2.ncd
+Part type:        xc4005e
+Speed grade:      -1
+Package:          pc84
+
+Fri Oct 29 13:13:46 1999
+
+Pinout by Pin Name:
++------------------------------------------------+-----------+--------------+
+|                    Pin Name                    | Direction |  Pin Number  |
++------------------------------------------------+-----------+--------------+
+| P10                                            |  OUTPUT   | P10          |
+| P13                                            |  INPUT    | P13          |
+| P14                                            |  INPUT    | P14          |
+| P15                                            |  INPUT    | P15          |
+| P3                                             |  INPUT    | P3           |
+| P4                                             |  INPUT    | P4           |
+| P5                                             |  INPUT    | P5           |
+| P6                                             |  INPUT    | P6           |
+| P7                                             |  OUTPUT   | P7           |
+| P77                                            |  OUTPUT   | P77          |
+| P8                                             |  OUTPUT   | P8           |
+| P9                                             |  OUTPUT   | P9           |
+| Sega                                           |  OUTPUT   | P78          |
+| Segb                                           |  OUTPUT   | P79          |
+| Segc                                           |  OUTPUT   | P80          |
+| Segd                                           |  OUTPUT   | P81          |
+| Sege                                           |  OUTPUT   | P82          |
+| Segf                                           |  OUTPUT   | P83          |
+| Segg                                           |  OUTPUT   | P84          |
++------------------------------------------------+-----------+--------------+
+|                Dedicated or Special Pin Name               |  Pin Number  |
++------------------------------------------------------------+--------------+
+| /PROG                                                      | P55          |
+| CCLK                                                       | P73          |
+| DONE                                                       | P53          |
+| GND                                                        | P43          |
+| GND                                                        | P12          |
+| GND                                                        | P76          |
+| GND                                                        | P52          |
+| GND                                                        | P31          |
+| GND                                                        | P21          |
+| GND                                                        | P64          |
+| GND                                                        | P1           |
+| M0                                                         | P32          |
+| M1                                                         | P30          |
+| M2                                                         | P34          |
+| TDO                                                        | TDO          |
+| TDO                                                        | P75          |
+| VCC                                                        | P11          |
+| VCC                                                        | P54          |
+| VCC                                                        | P42          |
+| VCC                                                        | P63          |
+| VCC                                                        | P22          |
+| VCC                                                        | P2           |
+| VCC                                                        | P33          |
+| VCC                                                        | P74          |
++------------------------------------------------------------+--------------+
+
+Pinout by Pin Number:
++--------------+-----------------------------------+-----------+------------+
+|  Pin Number  |            Pin Name               | Direction | Constraint |
++--------------+-----------------------------------+-----------+------------+
+| P1           | GND                               |           |            |
+| P2           | VCC                               |           |            |
+| P3           | P3                                |  INPUT    | LOCATED    |
+| P4           | P4                                |  INPUT    | LOCATED    |
+| P5           | P5                                |  INPUT    | LOCATED    |
+| P6           | P6                                |  INPUT    | LOCATED    |
+| P7           | P7                                |  OUTPUT   | LOCATED    |
+| P8           | P8                                |  OUTPUT   | LOCATED    |
+| P9           | P9                                |  OUTPUT   | LOCATED    |
+| P10          | P10                               |  OUTPUT   | LOCATED    |
+| P11          | VCC                               |           |            |
+| P12          | GND                               |           |            |
+| P13          | P13                               |  INPUT    | LOCATED    |
+| P14          | P14                               |  INPUT    | LOCATED    |
+| P15          | P15                               |  INPUT    | LOCATED    |
+| P16          |                                   |           |            |
+| P17          |                                   |           |            |
+| P18          |                                   |           |            |
+| P19          |                                   |           |            |
+| P20          |                                   |           |            |
+| P21          | GND                               |           |            |
+| P22          | VCC                               |           |            |
+| P23          |                                   |           |            |
+| P24          |                                   |           |            |
+| P25          |                                   |           |            |
+| P26          |                                   |           |            |
+| P27          |                                   |           |            |
+| P28          |                                   |           |            |
+| P29          |                                   |           |            |
+| P30          | M1                                |           |            |
+| P31          | GND                               |           |            |
+| P32          | M0                                |           |            |
+| P33          | VCC                               |           |            |
+| P34          | M2                                |           |            |
+| P35          |                                   |           |            |
+| P36          |                                   |           |            |
+| P37          |                                   |           |            |
+| P38          |                                   |           |            |
+| P39          |                                   |           |            |
+| P40          |                                   |           |            |
+| P41          |                                   |           |            |
+| P42          | VCC                               |           |            |
+| P43          | GND                               |           |            |
+| P44          |                                   |           |            |
+| P45          |                                   |           |            |
+| P46          |                                   |           |            |
+| P47          |                                   |           |            |
+| P48          |                                   |           |            |
+| P49          |                                   |           |            |
+| P50          |                                   |           |            |
+| P51          |                                   |           |            |
+| P52          | GND                               |           |            |
+| P53          | DONE                              |           |            |
+| P54          | VCC                               |           |            |
+| P55          | /PROG                             |           |            |
+| P56          |                                   |           |            |
+| P57          |                                   |           |            |
+| P58          |                                   |           |            |
+| P59          |                                   |           |            |
+| P60          |                                   |           |            |
+| P61          |                                   |           |            |
+| P62          |                                   |           |            |
+| P63          | VCC                               |           |            |
+| P64          | GND                               |           |            |
+| P65          |                                   |           |            |
+| P66          |                                   |           |            |
+| P67          |                                   |           |            |
+| P68          |                                   |           |            |
+| P69          |                                   |           |            |
+| P70          |                                   |           |            |
+| P71          |                                   |           |            |
+| P72          |                                   |           |            |
+| P73          | CCLK                              |           |            |
+| P74          | VCC                               |           |            |
+| P75          | TDO                               |           |            |
+| P76          | GND                               |           |            |
+| P77          | P77                               |  OUTPUT   | LOCATED    |
+| P78          | Sega                              |  OUTPUT   | LOCATED    |
+| P79          | Segb                              |  OUTPUT   | LOCATED    |
+| P80          | Segc                              |  OUTPUT   | LOCATED    |
+| P81          | Segd                              |  OUTPUT   | LOCATED    |
+| P82          | Sege                              |  OUTPUT   | LOCATED    |
+| P83          | Segf                              |  OUTPUT   | LOCATED    |
+| P84          | Segg                              |  OUTPUT   | LOCATED    |
+| TDO          | TDO                               |           |            |
++--------------+-----------------------------------+-----------+------------+
+
+#
+# Pinout constraints listing
+# These constraints are in PCF grammar format
+# and may be cut and pasted into the PCF file
+# after the "SCHEMATIC END ;" statement to
+# preserve this pinout for future design iterations.
+#
+COMP "P10" LOCATE = SITE "P10" ; 
+COMP "P13" LOCATE = SITE "P13" ; 
+COMP "P14" LOCATE = SITE "P14" ; 
+COMP "P15" LOCATE = SITE "P15" ; 
+COMP "P3" LOCATE = SITE "P3" ; 
+COMP "P4" LOCATE = SITE "P4" ; 
+COMP "P5" LOCATE = SITE "P5" ; 
+COMP "P6" LOCATE = SITE "P6" ; 
+COMP "P7" LOCATE = SITE "P7" ; 
+COMP "P77" LOCATE = SITE "P77" ; 
+COMP "P8" LOCATE = SITE "P8" ; 
+COMP "P9" LOCATE = SITE "P9" ; 
+COMP "Sega" LOCATE = SITE "P78" ; 
+COMP "Segb" LOCATE = SITE "P79" ; 
+COMP "Segc" LOCATE = SITE "P80" ; 
+COMP "Segd" LOCATE = SITE "P81" ; 
+COMP "Sege" LOCATE = SITE "P82" ; 
+COMP "Segf" LOCATE = SITE "P83" ; 
+COMP "Segg" LOCATE = SITE "P84" ; 
+#
